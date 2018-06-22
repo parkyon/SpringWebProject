@@ -17,6 +17,9 @@ public class AdminController {
 	@Autowired
 	BoardMapper boardMapper;
 	
+	
+	
+	
 	@RequestMapping(value ="main", method=RequestMethod.GET)
 	public String adminMainGet(Model model) {
 		//db에 있는 게시판 모든 글을 가져옴
