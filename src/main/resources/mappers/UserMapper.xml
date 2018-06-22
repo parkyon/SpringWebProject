@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.springwebproject.dao.UserMapper">
+    <select id="login" resultType="kr.green.springwebproject.dao.User">
+		select * from account where id = #{id} and pw = #{pw}
+	</select>
+	<insert id="signup">
+		insert into account(id,pw,email,admin) 
+		values(#{user.id},#{user.pw},#{user.email},#{user.admin})
+	</insert>
+	<select id="loginById" 
+		resultType="kr.green.springwebproject.dao.User">
+		select * from account where id = #{id}
+	</select>
+	<update id="updateUser">
+		update account set pw=#{user.pw}, 
+		email=#{user.email}
+		where id=#{user.id}
+	</update>
+</mapper>
