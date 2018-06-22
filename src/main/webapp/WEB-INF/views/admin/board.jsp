@@ -27,7 +27,19 @@
 	</nav>
 	
 	<div class="container">
-		<h1>게시판 관리 | <a href="/admin/user">유저 관리</a></h1>
+		<h1>게시판 관리 
+		<c:if test="${!admin}">
+			  			<a href="/admin/user">유저페이지</a>
+			  			<span style="color:white"> | </span>
+			  		</c:if>
+		
+		
+		
+		</h1>
+		
+			  	
+			  	
+		
 		
 		<table class="table table-bordered">
 		<thead>

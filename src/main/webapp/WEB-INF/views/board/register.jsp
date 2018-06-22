@@ -17,12 +17,20 @@
 		}
 	</style>
 	<div class="container">
-  		<form method="post">
+  		<form method="post" enctype="multipart/form-data">
+  				<!-- enctype는 서버로 보내주기 위해서 사용함 -->
   			<h1>게시글 등록</h1>
+  			
+  			
 		    <div class="form-group">
 		    	<label>제목</label>
 		      	<input type="text" class="form-control" name="title" value="${board.title}" >
 		    </div>
+		    <div class="form-group">
+		        <label>파일</label>
+		        <input type="file" class="form-control" name="file"/>
+		        <!--  name을 사용하는 이유는 매개변수를 컨트롤러에 사용하기 위해ㅐ서 -->
+		   </div>
 		    <div class="form-group">
 		    	<label>내용</label>
 		      	<textarea class="form-control" rows="5" name="contents" >${board.contents}</textarea>
