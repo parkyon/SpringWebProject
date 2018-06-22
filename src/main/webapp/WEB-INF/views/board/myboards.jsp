@@ -49,7 +49,7 @@
 	</nav>
 	
 	<div class="container">
-		<h1>게시판 목록 | <a href="/board/myboards">My Boards</a></h1>
+		<h1><a href="/board/list">게시판 목록</a> | My Boards</h1>
 		
 		<table class="table table-bordered">
 		<thead>

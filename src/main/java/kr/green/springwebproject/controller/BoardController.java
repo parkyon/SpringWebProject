@@ -125,6 +125,34 @@ public class BoardController {
 		boardMapper.insertBoard(board);
 		return "redirect:/board/list";
 	}
+	@RequestMapping(value="/myboards")
+	public String myBoards(Model model,Criteria cri
+			,HttpServletRequest request) {
+		if(cri == null) {
+			cri = new Criteria();
+		}
+		int totalCount=0;
+		PageMaker pageMaker = new PageMaker();
+		ArrayList<Board> list=null;
+		pageMaker.setCriteria(cri);
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		String author = user.getId();
+		
+		totalCount = boardMapper.getCountMyBoards(author);
+		list = (ArrayList)boardMapper.getMyBoards(author, cri);
+		
+		pageMaker.setTotalCount(totalCount);
+		model.addAttribute("list",list);
+		model.addAttribute("pageMaker", pageMaker);
+	
+		boolean admin = false;
+		if(user.getAdmin().compareTo("ADMIN")==0)
+			admin = true;
+		model.addAttribute("admin", admin);
+		
+		return "/board/myboards";
+	}
 }
 
 

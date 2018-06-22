@@ -29,4 +29,10 @@ public interface BoardMapper {
 			@Param("search")String search);
 	public void modifyBoardByDisable(@Param("board")Board board);
 	public List<Board> getBoardAll();
+	public List<Board> getListPageByAdmin(@Param("cri")Criteria cri);
+	public int getCountBoardByAdmin();
+	
+	public List<Board> getMyBoards(@Param("author")String author,
+			@Param("cri")Criteria cri);
+	public int getCountMyBoards(@Param("author")String author);
 }

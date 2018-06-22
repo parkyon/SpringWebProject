@@ -16,7 +16,19 @@
 	</select>
 	<update id="updateUser">
 		update account set pw=#{user.pw}, 
-		email=#{user.email}
+		email=#{user.email},
+		admin=#{user.admin}
 		where id=#{user.id}
 	</update>
+	<select id="userListExceptLoginUser" 
+		resultType="kr.green.springwebproject.dao.User">
+		select * from account where not id = #{user.id}
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	<select id="countUsersExceptLoginUser"
+		resultType="java.lang.Integer">
+		select count(id) from account 
+		where id != #{user.id}	
+	</select>
+	
 </mapper>

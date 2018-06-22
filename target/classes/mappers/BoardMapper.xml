@@ -117,6 +117,35 @@
     resultType="kr.green.springwebproject.dao.Board">
 		select * from board order by number desc
 	</select>
+	<select id="getListPageByAdmin" 
+		resultType="kr.green.springwebproject.dao.Board">
+		select 
+			*
+		from 
+			board
+		order by number desc
+		limit
+			#{cri.pageStart},#{cri.perPageNum}
+	</select>
+	<select id="getCountBoardByAdmin" resultType="java.lang.Integer">
+		select
+			count(number)
+		from
+			board
+	</select>
+	<select id="getMyBoards" 
+		resultType="kr.green.springwebproject.dao.Board">
+		select *
+			from board
+			where author = #{author}
+			order by number desc
+			limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	<select id="getCountMyBoards" resultType="java.lang.Integer">
+		select count(number)
+			from board
+			where author = #{author}
+	</select>
 </mapper>
 
 

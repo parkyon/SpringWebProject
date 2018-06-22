@@ -27,32 +27,32 @@
 	</nav>
 	
 	<div class="container">
-		<h1>게시판 목록</h1>
+		<h1><a href="/admin/board">게시판 관리</a> | 유저 관리</h1>
 		
 		<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>삭제</th>
+				<th>아이디</th>
+				<th>이메일</th>
+				<th>권한</th>
+				<th>권한수정</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list}">
+			<c:forEach var="user" items="${list}" varStatus="page">
 				<tr>
-					<td>${board.number}</td>
-					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
-					<td>${board.author }</td>
+					<td>${user.id}</td>
+					<td>${user.email}</td>
+					<td>${user.admin}</td>
 					<td>
-						<c:if test="${board.disable.compareTo('TRUE')==0}">
-							<a href="/admin/board/disable?number=${board.number}&disable=FALSE">
-								<button>복구</button>
+						<c:if test="${user.admin.compareTo('ADMIN')==0}">
+							<a href="/admin/user/set?admin=USER&page=${pageMaker.criteria.page}&id=${user.id}">
+								<button>USER</button>
 							</a>
 						</c:if>
-						<c:if test="${board.disable.compareTo('FALSE')==0}">
-							<a href="/admin/board/disable?number=${board.number}&disable=TRUE">
-								<button>삭제</button>
+						<c:if test="${user.admin.compareTo('USER')==0}">
+							<a href="/admin/user/set?admin=ADMIN&page=${pageMaker.criteria.page}&id=${user.id}">
+								<button>ADMIN</button>
 							</a>
 						</c:if>
 					</td>
@@ -60,6 +60,25 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<ul class="pagination" style="justify-content: center;">
+		<c:if test="${pageMaker.prev}">
+	  		<li class="page-item">
+	  			<a class="page-link" 
+	  			href="/admin/user?page=${pageMaker.startPage-1}">Prev</a>
+  			</li>
+  		</c:if>
+	  	<c:forEach var="page" begin="${pageMaker.startPage}" 
+	  		end="${pageMaker.endPage}" >
+	  		<li class="page-item">
+	  			<a class="page-link" href="/admin/user?page=${page}">${page}</a>
+  			</li>
+	  	</c:forEach>
+	  	<c:if test="${pageMaker.next}">
+	  		<li class="page-item">
+	  			<a class="page-link" href="/admin/user?page=${pageMaker.endPage+1}">Next</a>
+  			</li>
+  		</c:if>
+	</ul>
 	</div>
 </body>
 </html>
