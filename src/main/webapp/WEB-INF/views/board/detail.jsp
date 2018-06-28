@@ -29,6 +29,11 @@
 		      	<input type="text" class="form-control" name="title" value="${board.title}" disabled>
 		    </div>
 		    <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<input type="text" class="form-control" name="filepath" value="${fileName}" disabled>
+		      	
+		    </div>
+		    <div class="form-group">
 		    	<label>작성자</label>
 		      	<input type="text" class="form-control" name="author" value="${board.author}" disabled>
 		    </div>

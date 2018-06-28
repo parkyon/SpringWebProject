@@ -19,14 +19,16 @@
 		set 
 			title = #{board.title},
 		 	author = #{board.author},
-		 	contents = #{board.contents}
+		 	contents = #{board.contents},
+		 	created_date = #{board.created_date}
 	 	where
 	 		number = #{board.number}
 	</update>
 	<insert id="insertBoard">
 		insert into 
-		board(title,author,contents)
-		values(#{board.title},#{board.author},#{board.contents})
+		board(title,author,contents, filepath)
+		values(#{board.title},#{board.author},#{board.contents},#{board.filepath})
+		
 	</insert>
 	<select id="getListPage" 
 		resultType="kr.green.springwebproject.dao.Board">

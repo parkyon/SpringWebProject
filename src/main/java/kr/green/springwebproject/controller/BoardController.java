@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -102,10 +103,11 @@ public class BoardController {
 	@RequestMapping(value="detail")
 	public String boardDetail(HttpServletRequest request,
 			Model model) {
+		
 		int number = 
 			Integer.parseInt(request.getParameter("number"));
 		
-		Board board = boardMapper.getBoardByNumber(number);
+		Board board=  boardMapper.getBoardByNumber(number);
 		model.addAttribute("board", board);
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -117,11 +119,25 @@ public class BoardController {
 				isAuthor = false;
 		}
 		model.addAttribute("isAuthor", isAuthor);
+		
+		//파일명 수정하는과정
+		String filepath = board.getFilepath();
+		
+		if(filepath != null) {
+	        //    년/월/일/uuid_파일명
+	       String fileName = filepath.substring(filepath.indexOf("_")+1);
+	        model.addAttribute("fileName", fileName);
+	       
+		}
+		
+		
 		return "/board/detail";
 	}
 	@RequestMapping(value="modify", method=RequestMethod.GET)
 	public String boardModifyGet(HttpServletRequest request,
-			Model model) {
+			Model model ) {
+		
+	
 		int number = 
 				Integer.parseInt(request.getParameter("number"));
 			
@@ -133,7 +149,8 @@ public class BoardController {
 	@RequestMapping(value="modify", method=RequestMethod.POST)
 	public String boardModifyPost(HttpServletRequest request,
 			Model model, Board board) {
-		
+		Date created_date = new Date();
+		board.setCreated_date(created_date);
 		boardMapper.modifyBoard(board);
 		
 		return "redirect:/board/list";
@@ -148,10 +165,16 @@ public class BoardController {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		board.setAuthor(user.getId());
-		boardMapper.insertBoard(board);
 		
-		UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
+		if(file != null) {
+			String filePath = UploadFileUtils.uploadFile
+					(uploadPath, file.getOriginalFilename(), file.getBytes());
+			board.setFilepath(filePath);
+		
+		}
+		boardMapper.insertBoard(board);
 		return "redirect:/board/list";
+		
 		
 		
 	
@@ -226,4 +249,8 @@ public class BoardController {
 	    }
 	    return entity;
 	}
+	
+	
+	
+	
 }
