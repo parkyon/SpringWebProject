@@ -14,19 +14,20 @@ public class Board {
 	private Date created_date;
 	private String filepath;
 	
-
-
-	public String getFilepath() {
-		return filepath;
-	}
-	public void setFilepath(String filepath) {
-		this.filepath = filepath;
-	}
+	
+	
+	
 	public Date getCreated_date() {
 		return created_date;
 	}
+	public String getFilepath() {
+		return filepath;
+	}
 	public void setCreated_date(Date created_date) {
 		this.created_date = created_date;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
 	}
 	public String getDisable() {
 		return disable;

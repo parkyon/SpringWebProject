@@ -20,15 +20,16 @@
 			title = #{board.title},
 		 	author = #{board.author},
 		 	contents = #{board.contents},
-		 	created_date = #{board.created_date}
+		 	created_date = #{board.created_date},
+		 	filepath = #{board.filepath}
 	 	where
 	 		number = #{board.number}
 	</update>
 	<insert id="insertBoard">
 		insert into 
-		board(title,author,contents, filepath)
-		values(#{board.title},#{board.author},#{board.contents},#{board.filepath})
-		
+		board(title,author,contents,filepath)
+		values(#{board.title},#{board.author}
+		,#{board.contents},#{board.filepath})
 	</insert>
 	<select id="getListPage" 
 		resultType="kr.green.springwebproject.dao.Board">
@@ -55,8 +56,10 @@
 		from 
 			board
 		where 
+			disable='FALSE'
+			and
 			title like #{search}
-			and disable='FALSE'
+			 
 		order by number desc
 		limit
 			#{cri.pageStart},#{cri.perPageNum}
@@ -67,8 +70,9 @@
 		from
 			board
 		where 
+			disable='FALSE'
+			and  
 			title like #{search}
-			and disable='FALSE'
 	</select>
 	<select id="getListPageByAuthor" 
 		resultType="kr.green.springwebproject.dao.Board">
@@ -77,8 +81,9 @@
 		from 
 			board
 		where 
+			disable='FALSE'
+			and 
 			author like #{search}
-			and disable='FALSE'
 		order by number desc
 		limit
 			#{cri.pageStart},#{cri.perPageNum}
@@ -89,23 +94,26 @@
 		from
 			board
 		where 
+			disable='FALSE' 
+			and
 			author like #{search}
-			disable='FALSE'
+			
 	</select>
 	<select id="getListPageByContents" 
 		resultType="kr.green.springwebproject.dao.Board">
 		select	*
 		from 	board
-		where 	contents like #{search}
-				and disable='FALSE'
+		where 	disable='FALSE'
+				and 
+				contents like #{search}
 		order 	by number desc
 		limit	#{cri.pageStart},#{cri.perPageNum}
 	</select>
 	<select id="getCountBoardByContents" resultType="java.lang.Integer">
 		select	count(number)
 		from	board
-		where	contents like #{search}
-		and	 	disable='FALSE'
+		where	disable='FALSE'
+		and	 	contents like #{search}
 	</select>
 	<update id="modifyBoardByDisable">
 		update 
@@ -139,15 +147,19 @@
 		resultType="kr.green.springwebproject.dao.Board">
 		select *
 			from board
-			where author = #{author}
+			where author = #{author} and disable='FALSE'
 			order by number desc
 			limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	<select id="getCountMyBoards" resultType="java.lang.Integer">
 		select count(number)
 			from board
-			where author = #{author}
+			where author = #{author} and disable='FALSE'
 	</select>
+	<delete id="deleteBoard">
+		delete from board 
+			where number = #{board.number}
+	</delete>
 </mapper>
 
 

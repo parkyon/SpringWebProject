@@ -19,5 +19,5 @@ public interface UserMapper {
 		userListExceptLoginUser(@Param("user")User user,
 				@Param("cri")Criteria cri);
 	public int countUsersExceptLoginUser(@Param("user")User user);
-	
+	public void withdraw(@Param("user")User user);
 }

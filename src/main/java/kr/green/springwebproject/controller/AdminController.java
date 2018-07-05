@@ -17,6 +17,7 @@ import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.dao.UserMapper;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
+import kr.green.springwebproject.service.AdminService;
 @Controller
 @RequestMapping(value="/admin/*")
 public class AdminController {
@@ -25,6 +26,8 @@ public class AdminController {
 	BoardMapper boardMapper;
 	@Autowired
 	UserMapper userMapper;
+	@Autowired
+	private AdminService adminService;
 	
 	@RequestMapping(value ="/board", method=RequestMethod.GET)
 	public String adminMainGet(Model model,Criteria cri
@@ -32,35 +35,32 @@ public class AdminController {
 		if(cri == null) {
 			cri = new Criteria();
 		}
-		int totalCount=0;
+	
+		
+		
+		
+		int totalCount = adminService.getcountAdminBoard();
+		ArrayList<Board> list = adminService.getAdminBoards(cri); 
+		
 		PageMaker pageMaker = new PageMaker();
-		ArrayList<Board> list=null;
+		
 		pageMaker.setCriteria(cri);
-		
-		
-		totalCount = boardMapper.getCountBoardByAdmin();
-		list 
-		= (ArrayList)boardMapper.getListPageByAdmin(cri);
-		
-		
 		pageMaker.setTotalCount(totalCount);
-		model.addAttribute("list",list);
-		model.addAttribute("pageMaker", pageMaker);
+		
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		boolean admin = false;
-		if(user.getAdmin().compareTo("ADMIN")==0)
-			admin = true;
+		boolean admin = !adminService.isSuperAdmin(user);
 		model.addAttribute("admin", admin);
+		model.addAttribute("list",list);
+		model.addAttribute("pageMaker", pageMaker);
 		return "admin/board";
 	}
 	@RequestMapping(value ="board/disable")
 	public String boardDisable(Model model,Integer number, String disable
 			,Integer page) {
-		Board board = boardMapper.getBoardByNumber(number);
-		board.setDisable(disable);
-		boardMapper.modifyBoardByDisable(board);
+		
+		adminService.setBoardDissable(number, disable);
 		if(page == null)
 			page = 1;
 		model.addAttribute("page", page);
@@ -71,34 +71,43 @@ public class AdminController {
 			Model model, Criteria cri) {
 		HttpSession session = request.getSession();
 		User nowUser = (User)session.getAttribute("user"); 
+		PageMaker pageMaker = new PageMaker();
+		if(!adminService.isSuperAdmin(nowUser))
+			return "redirect:/admin/board";
 		
-		ArrayList<User> list=null;
+		
 		
 		if(cri == null)
 			cri = new Criteria();
-		int totalCount = 0;
-		totalCount 
-			= userMapper.countUsersExceptLoginUser(nowUser);
-		PageMaker pageMaker = new PageMaker();
+		
+		int totalCount 
+			= adminService.countUsersExceptLoginUSer(nowUser);
+		
+		
+		
+		
+		ArrayList<User> list = adminService.userListExceptLoginUser(nowUser, cri);
+		
 		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totalCount);
-		model.addAttribute("pageMaker", pageMaker);
-		
-		list = 
-			(ArrayList)userMapper.userListExceptLoginUser(nowUser, cri);
-		
 		model.addAttribute("list", list);
-		
+		model.addAttribute("pageMaker", pageMaker);
 		return "admin/user";
 	}
 	@RequestMapping(value="/user/set")
 	public String adminUserSet(Model model, Integer page, String admin
 			, String id) {
-		User user = userMapper.loginById(id);
-		user.setAdmin(admin);
-		userMapper.updateUser(user);
+		adminService.userSet(admin, id);
 		model.addAttribute("page", page);
 		return "redirect:/admin/user";
+	}
+	@RequestMapping(value="/board/delete")
+	public String delete(Model model, Integer page, 
+			Integer number) {
+		
+		
+		adminService.boardDelete(model, page, number);
+		return "redirect:/admin/board";
 	}
 }
 

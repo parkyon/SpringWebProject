@@ -30,5 +30,7 @@
 		select count(id) from account 
 		where id != #{user.id}	
 	</select>
-	
+	<delete id="withdraw">
+		delete from account where id = #{user.id}
+	</delete>
 </mapper>

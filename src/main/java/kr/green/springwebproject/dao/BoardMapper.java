@@ -35,4 +35,6 @@ public interface BoardMapper {
 	public List<Board> getMyBoards(@Param("author")String author,
 			@Param("cri")Criteria cri);
 	public int getCountMyBoards(@Param("author")String author);
+	public void deleteBoard(@Param("board")Board board);
+	
 }

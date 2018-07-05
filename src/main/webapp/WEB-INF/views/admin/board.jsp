@@ -27,19 +27,11 @@
 	</nav>
 	
 	<div class="container">
-		<h1>게시판 관리 
-		<c:if test="${!admin}">
-			  			<a href="/admin/user">유저페이지</a>
-			  			<span style="color:white"> | </span>
-			  		</c:if>
-		
-		
-		
+		<h1>게시판 관리
+			<c:if test="${!admin}"> 
+			| <a href="/admin/user">유저 관리</a>
+			</c:if>
 		</h1>
-		
-			  	
-			  	
-		
 		
 		<table class="table table-bordered">
 		<thead>
@@ -48,6 +40,7 @@
 				<th>제목</th>
 				<th>작성자</th>
 				<th>삭제</th>
+				<th>최종 삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -67,6 +60,9 @@
 								<button>삭제</button>
 							</a>
 						</c:if>
+					</td>
+					<td>
+						<button onclick="deleteBoard(${board.number},${pageMaker.criteria.page} )">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
@@ -92,5 +88,15 @@
   		</c:if>
 	</ul>
 	</div>
+	<script type="text/javascript">
+		function deleteBoard(number, page){
+			var conf = confirm("삭제하시겠습니까?");
+			if(conf){
+				var link = "/admin/board/delete?number=" 
+						+ number + "&page="+page;
+				location.href= link;
+			}
+		}
+	</script>
 </body>
 </html>

@@ -40,10 +40,6 @@
 			  			<a href="/admin/board">관리자 페이지</a>
 			  			<span style="color:white"> | </span>
 			  		</c:if>
-			  		<c:if test="${superadmin}">
-			  			<a href="/admin/board">관리자 페이지</a>
-			  			<span style="color:white"> | </span>
-			  		</c:if>
 				  	<a href="/modify">회원 정보 수정</a>
 				  	<span style="color:white"> | </span>
 					<a href="/logout">로그아웃</a>

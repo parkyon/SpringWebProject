@@ -30,8 +30,15 @@
 		    </div>
 		    <div class="form-group">
 		    	<label>첨부파일</label>
-		      	<input type="text" class="form-control" name="filepath" value="${fileName}" disabled>
-		      	
+		      	<div class="form-control" name="file" id="file" >
+		      		<c:if test="${fileName != null }">
+		      			<a href="/board/download?fileName=${board.filepath}"
+		      			 target="_blank">${fileName}</a>
+		      		</c:if>
+		      		<c:if test="${fileName == null }">
+		      			첨부파일 없음
+		      		</c:if>
+		      	</div>
 		    </div>
 		    <div class="form-group">
 		    	<label>작성자</label>
@@ -41,12 +48,12 @@
 		    	<label>내용</label>
 		      	<textarea class="form-control" rows="5" name="contents" disabled>${board.contents}</textarea>
 		    </div>
-		    
 	  	</form>
 	  	<div>
 		    <a href="/board/list"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor}">
-		    <a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
+		    	<a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
+		    	<a href="/board/delete?number=${board.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
 	    </div>
 	</div>

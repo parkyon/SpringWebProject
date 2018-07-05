@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,10 +17,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.BoardMapper;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.dao.UserMapper;
+import kr.green.springwebproject.service.UserService;
 
 /**
  * Handles requests for the application home page.
@@ -28,14 +33,14 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@Autowired
-	private UserMapper userMapper;
+	
 	@Autowired
 	private BoardMapper boardMapper;
 	@Autowired
-	BCryptPasswordEncoder passwordEncoder;
-	@Autowired
+	
 	private JavaMailSender mailSender;
+	@Autowired
+	private UserService userService;
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -48,10 +53,10 @@ public class HomeController {
 	public String homePost(Model model, HttpServletRequest request) {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		User user;
 		
-		User user = userMapper.loginById(id);
-		
-		if(user != null && passwordEncoder.matches(pw, user.getPw())) {
+		if( (user = userService.login(id, pw)) != null) {
+			//로그인 인터셉터 에게 보낼 유저정보
 			model.addAttribute("user", user);
 			return "redirect:/board/list";
 		}
@@ -70,16 +75,9 @@ public class HomeController {
 	}
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String signupPost(HttpServletRequest request, User user) {
-		User searchUser = 
-				userMapper.login(user.getId(), user.getPw());
-		
-		if(searchUser != null)
+		if(!userService.signUp(user))
 			return "redirect:/signup";
 		else {
-			String encPw = passwordEncoder.encode(user.getPw());
-			user.setPw(encPw);
-			user.setAdmin("USER");
-			userMapper.signup(user);
 			return "redirect:/";
 		}
 	}
@@ -89,31 +87,24 @@ public class HomeController {
 		HttpSession session = request.getSession();
 		User nowUser = (User)session.getAttribute("user");
 		model.addAttribute("nowUser", nowUser);
-		return "modify";
+		return "modify"; 
 	}
 	@RequestMapping(value="/modify", method=RequestMethod.POST)
 	public String ModifyPost(HttpServletRequest request,
 			Model model, User user) {
 		HttpSession session = request.getSession();
-		//user의 정보를 이용해서 UserMapper에 있는 xxx메소드를 호출
-		//하여 db의 정보를 수정
 		User nowUser = (User)session.getAttribute("user");
-		user.setId(nowUser.getId());
+		//user의 정보를 이용해서 UserMapper에 있는 xxx메소드를 호출
 		
-		String encPw = passwordEncoder.encode(user.getPw());
-		user.setPw(encPw);
-		
-		userMapper.updateUser(user);
+		//하여 db의 정보를 수정
+		user = userService.modify(nowUser, user);
+		if(user !=null) {
 		session.removeAttribute("user");
 		session.setAttribute("user", user);
-		return "redirect:/board/list";
 	}
-	@RequestMapping(value = "/mail/mailForm")
-	public String mailForm() {
-
-	    return "mail";
-	}  
-
+		return "redirect:/board/list";
+}
+	
 	// mailSending 코드
 	@RequestMapping(value = "/mail/mailSending")
 	public String mailSending(HttpServletRequest request) {
@@ -139,6 +130,27 @@ public class HomeController {
 	    }
 
 	    return "redirect:/mail/mailForm";
+	}
+	@RequestMapping(value="/member/withdraw")
+	public String withdraw(HttpServletRequest r) {
+		HttpSession session = r.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		userService.withdreaw(user);
+		
+		
+		return "redirect:/logout";
+	}
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public String test() {
+		return "test";
+	}
+	@ResponseBody
+	@RequestMapping(value="/test", method=RequestMethod.POST,
+		produces="text/plain;charset=UTF-8")
+	public ResponseEntity<String> testPost(MultipartFile file) {
+		return new ResponseEntity<String>(file.getOriginalFilename(),
+				HttpStatus.OK);
 	}
 }
 

@@ -40,6 +40,9 @@
     <a href="/board/list">
     <input type="button" value="취소" class="btn btn-primary"/> 
     </a>
+    <a href="/member/withdraw">
+    <input type="button" value="탈퇴" class="btn btn-danger"/> 
+    </a>
   </form>
   
 </div>

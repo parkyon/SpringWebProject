@@ -73,18 +73,18 @@
 		<c:if test="${pageMaker.prev}">
 	  		<li class="page-item">
 	  			<a class="page-link" 
-	  			href="/board/list?page=${pageMaker.startPage-1}&type=${type}&search=${search}">Prev</a>
+	  			href="/board/myboards?page=${pageMaker.startPage-1}&type=${type}&search=${search}">Prev</a>
   			</li>
   		</c:if>
 	  	<c:forEach var="page" begin="${pageMaker.startPage}" 
 	  		end="${pageMaker.endPage}" >
 	  		<li class="page-item">
-	  			<a class="page-link" href="/board/list?page=${page}&type=${type}&search=${search}">${page}</a>
+	  			<a class="page-link" href="/board/myboards?page=${page}&type=${type}&search=${search}">${page}</a>
   			</li>
 	  	</c:forEach>
 	  	<c:if test="${pageMaker.next}">
 	  		<li class="page-item">
-	  			<a class="page-link" href="/board/list?page=${pageMaker.endPage+1}&type=${type}&search=${search}">Next</a>
+	  			<a class="page-link" href="/board/myboards?page=${pageMaker.endPage+1}&type=${type}&search=${search}">Next</a>
   			</li>
   		</c:if>
 	</ul>

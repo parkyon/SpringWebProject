@@ -28,7 +28,7 @@
 	
 	<div class="container">
 		<h1><a href="/admin/board">게시판 관리</a> | 유저 관리</h1>
-			
+		
 		<table class="table table-bordered">
 		<thead>
 			<tr>
