@@ -22,10 +22,7 @@ import kr.green.springwebproject.service.AdminService;
 @RequestMapping(value="/admin/*")
 public class AdminController {
 	
-	@Autowired
-	BoardMapper boardMapper;
-	@Autowired
-	UserMapper userMapper;
+	
 	@Autowired
 	private AdminService adminService;
 	
@@ -105,8 +102,10 @@ public class AdminController {
 	public String delete(Model model, Integer page, 
 			Integer number) {
 		
-		
-		adminService.boardDelete(model, page, number);
+		if(page == null)
+			page = 1;
+		model.addAttribute("page", page);
+		adminService.boardDelete(number);
 		return "redirect:/admin/board";
 	}
 }

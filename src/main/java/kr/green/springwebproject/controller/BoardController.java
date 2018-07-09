@@ -54,6 +54,7 @@ public class BoardController {
 		if(cri == null) {
 			cri = new Criteria();
 		}
+		cri.setPerPageNum(100);
 		int totalCount=0;
 		PageMaker pageMaker = new PageMaker();
 		ArrayList<Board> list=null;
@@ -179,6 +180,7 @@ public class BoardController {
 			board.setFilepath(filePath);
 		}
 		boardMapper.insertBoard(board);
+		System.out.println(user);
 		return "redirect:/board/list";
 	}
 	@RequestMapping(value="/myboards")

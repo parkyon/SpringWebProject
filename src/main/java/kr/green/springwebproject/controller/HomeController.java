@@ -58,10 +58,30 @@ public class HomeController {
 		if( (user = userService.login(id, pw)) != null) {
 			//로그인 인터셉터 에게 보낼 유저정보
 			model.addAttribute("user", user);
-			return "redirect:/board/list";
+			return "redirect:loginhome";
 		}
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginGet(HttpServletRequest request) {
+		return "login";
+	}
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPost(Model model, HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		User user;
+		
+		if( (user = userService.login(id, pw)) != null) {
+			//로그인 인터셉터 에게 보낼 유저정보
+			model.addAttribute("user", user);
+			return "redirect:loginhome";
+		}
+		
+		return "redirect:login";
 	}
 	@RequestMapping(value ="/logout")
 	public String logout(HttpServletRequest request) {

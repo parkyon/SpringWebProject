@@ -33,7 +33,11 @@
 	class="kr.green.springwebproject.interceptor.UnAuthInterceptor">
 	</beans:bean>
 	<beans:bean id="adminInterceptor" 
-	class="kr.green.springwebproject.interceptor.AdminInterceptor"></beans:bean>
+	class="kr.green.springwebproject.interceptor.AdminInterceptor">
+	</beans:bean>
+	<beans:bean id="loginHomeinterceptor" 
+	class="kr.green.springwebproject.interceptor.LoginHomeInterceptor">
+	</beans:bean>
 	<interceptors>
 		<interceptor>
 			<mapping path="/"/>
@@ -51,6 +55,14 @@
 		<interceptor>
 			<mapping path="/admin/*"/>
 			<beans:ref bean="adminInterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/loginhome"/>
+			<beans:ref bean="loginHomeinterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/login"/>
+			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 	</interceptors>
 	

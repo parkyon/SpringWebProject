@@ -57,29 +57,30 @@ public ArrayList<User> userListExceptLoginUser(User nowUser, Criteria cri){
 }
 
 
-public Boolean userSet(String admin, String id) {
+public boolean userSet(String admin, String id) {
 	
 	User user = userMapper.loginById(id);
+	if(user != null) {
 	user.setAdmin(admin);
 	userMapper.updateUser(user);
-	
 	return true;
-	
-	
-	
+	}
+	return false;
 }
-public boolean boardDelete(Model model, Integer page, 
-		Integer number) {
 	
-	if(page == null)
-		page = 1;
-	model.addAttribute("page", page);
+	
+	
+	
+public boolean boardDelete( Integer number) {
+	
+	
 	if(number != null) {
 		Board board = boardMapper.getBoardByNumber(number);
 		boardMapper.deleteBoard(board);
+		return true;
 	}
 	
-	return true;
+	return false;
 }
 
 }

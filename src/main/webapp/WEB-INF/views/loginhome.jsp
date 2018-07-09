@@ -31,19 +31,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" >도서관정보시스템</a>
+      <a class="navbar-brand" href="#">도서관정보</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
+        <li class="active"><a href="/loginhome">Home</a></li>
         
-        </li>
+        
+      
         </ul>
 
        
        <ul class="nav navbar-nav navbar-right">
-        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+         <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+      </ul>
       </ul>
       <form class="navbar-form navbar-right" action="/action_page.php">
       <div class="form-group">
@@ -64,8 +66,8 @@
     <a href="#" class="btn btn-primary">사이트소개</a>
     
     <a href="/libraryList" class="btn btn-primary">도서관정보</a>
-    <a href="/login" class="btn btn-primary">추천도서</a>
-    <a href="/login" class="btn btn-primary">자유게시판</a>
+    <a href="#" class="btn btn-primary">추천도서</a>
+    <a href="/board/list" class="btn btn-primary">자유게시판</a>
     
   </div>
      <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
@@ -134,21 +136,7 @@
 </div>
 <div id="login" class="boxed">
 <h2 class="title">Client Account</h2>
-<div class="content">
-<form id="form1" method="post" action="#">
-<fieldset> <legend>Sign-In</legend> 
-<label for="usr">Id:</label>
-      <input type="text" class="form-control" id="usr" name="id">
-<label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" name="pw">
- <button type="submit" class="btn btn-primary">로그인</button>
 
-
-</fieldset>
-</form>
-<a href="/signup"><button class="btn btn-primary">회원가입</button></a>
-</div>
-</div>
 <div id="updates" class="boxed">
 <h2 class="title">최신글</h2>
 <div class="content">
