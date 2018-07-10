@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
-import kr.green.springwebproject.dao.BoardMapper;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
@@ -38,9 +37,7 @@ import kr.green.springwebproject.utils.UploadFileUtils;
 public class BoardController {
 	
 	@Autowired
-	BoardMapper boardMapper;
-	@Autowired
-	BoardService boardService;
+	private BoardService boardService;
 	@Resource
 	private String uploadPath;
 	@Autowired
@@ -50,19 +47,16 @@ public class BoardController {
 	public String boardList(Model model,Criteria cri
 			,String search, Integer type,HttpServletRequest request) {
 		//Criteria cri = new Criteria(1,5);
-		//Cri 현제 페이지에 대한 정보
-		if(cri == null) {
+		if(cri == null) 
 			cri = new Criteria();
-		}
-		cri.setPerPageNum(100);
-		int totalCount=0;
-		PageMaker pageMaker = new PageMaker();
-		ArrayList<Board> list=null;
-		pageMaker.setCriteria(cri);
 		
-		totalCount = boardService.getCountByBoardList(type, cri, search);
-		list = boardService.getListBoard(type, cri, search);
+		PageMaker pageMaker = new PageMaker();
+		int totalCount = boardService.getCountByBoardList(type, cri, search);
+		ArrayList<Board> list = boardService.getListBoard(type, cri, search);
+
+		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totalCount);
+		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		
@@ -74,31 +68,17 @@ public class BoardController {
 		model.addAttribute("type", type);
 		model.addAttribute("admin", admin);
 		
-		
-		
-	
-		
-		
 		return "/board/list";
 	}
 	@RequestMapping(value="detail")
 	public String boardDetail(HttpServletRequest request,
-			Model model) {
-		int number = 
-			Integer.parseInt(request.getParameter("number"));
+			Model model, int number) {
 		
-		Board board = boardMapper.getBoardByNumber(number);
-		model.addAttribute("board", board);
+		Board board = boardService.getBoard(number);
+		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		boolean isAuthor = false;
-		if(user != null) {
-			if(user.getId().compareTo(board.getAuthor())==0)
-				isAuthor = true;
-			else 
-				isAuthor = false;
-		}
-		model.addAttribute("isAuthor", isAuthor);
+		boolean isAuthor = boardService.isAuthor(user, board);
 		
 		//파일명 수정하는 과정
 		String filepath = board.getFilepath();
@@ -107,14 +87,16 @@ public class BoardController {
 			String fileName = filepath.substring(filepath.indexOf("_")+1);
 			model.addAttribute("fileName", fileName);
 		}
-				
+		
+		model.addAttribute("isAuthor", isAuthor);
+		model.addAttribute("board", board);		
 		return "/board/detail";
 	}
 	@RequestMapping(value="modify", method=RequestMethod.GET)
 	public String boardModifyGet(HttpServletRequest request,
 			Model model,Integer del, Integer number) {
 				
-		Board board = boardMapper.getBoardByNumber(number);
+		Board board = boardService.getBoard(number);
 		if(del != null && del == 1) {
 			//db불러온 게시판의 정보에서 업로드 파일 경로를 지움
 			//db에서는 지우지 않음
@@ -134,53 +116,23 @@ public class BoardController {
 	public String boardModifyPost(HttpServletRequest request,
 			Model model, Board board, MultipartFile file, Integer del) 
 			throws Exception {
-		//수정된 날짜로 created_date를 업데이트
-		Date created_date = new Date();
-		board.setCreated_date(created_date);
-		//기존 첨부파일 경로를 가져오기 위함
-		Board tmp = boardMapper.getBoardByNumber(board.getNumber());
-	
-		//수정될 첨부파일이 있는 경우
-		if(file != null && file.getOriginalFilename().length()!= 0) {
-			String filePath = UploadFileUtils.uploadFile
-					(uploadPath, file.getOriginalFilename(),file.getBytes());
-			board.setFilepath(filePath);
-		}
-		//수정될 첨부파일이 없지만 기존 첨부파일이 지워져야 하는 경우
-		else if(del != null) {
-			//실제 파일을 삭제
-			new File(uploadPath + tmp.getFilepath()
-				.replace('/', File.separatorChar)).delete();
-			board.setFilepath(null);
-		}
-		//수정될 파일이 없고 기존 파일을 유지하는 경우
-		else {
-			board.setFilepath(tmp.getFilepath());
-		}
 		
-		boardMapper.modifyBoard(board);
+		boardService.modifyBoard(board, file, uploadPath, del);
 		
 		return "redirect:/board/list";
 	}
+	
 	@RequestMapping(value="register", method=RequestMethod.GET)
 	public String boardRegisterGet() {
 		return "/board/register";
 	}
+	
 	@RequestMapping(value="register", method=RequestMethod.POST)
 	public String boardRegisterPost(Board board
 			,HttpServletRequest request, MultipartFile file) throws Exception {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		board.setAuthor(user.getId());
 		boardService.registerBoard(board, user, file, uploadPath);
-		
-		if(file != null) {
-			String filePath = UploadFileUtils.uploadFile
-				(uploadPath, file.getOriginalFilename(),file.getBytes());
-			board.setFilepath(filePath);
-		}
-		boardMapper.insertBoard(board);
-		System.out.println(user);
 		return "redirect:/board/list";
 	}
 	@RequestMapping(value="/myboards")
@@ -197,8 +149,8 @@ public class BoardController {
 		User user = (User)session.getAttribute("user");
 		String author = user.getId();
 		
-		totalCount = boardService.getCountByBoardList(2, cri, user.getId());
 		list = boardService.getListBoard(2, cri, user.getId());
+		totalCount = boardService.getCountByBoardList(2, cri, user.getId());
 		
 		pageMaker.setTotalCount(totalCount);
 		model.addAttribute("list",list);

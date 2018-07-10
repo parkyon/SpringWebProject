@@ -39,8 +39,8 @@
 			board
 		where disable='FALSE'
 		order by number desc
-		limit
-			#{cri.pageStart},#{cri.perPageNum}
+		<!-- limit
+			#{cri.pageStart},#{cri.perPageNum} -->
 	</select>
 	<select id="getCountBoard" resultType="java.lang.Integer">
 		select
@@ -61,8 +61,8 @@
 			title like #{search}
 			 
 		order by number desc
-		limit
-			#{cri.pageStart},#{cri.perPageNum}
+		<!--  limit
+			#{cri.pageStart},#{cri.perPageNum}-->
 	</select>
 	<select id="getCountBoardByTitle" resultType="java.lang.Integer">
 		select
@@ -85,8 +85,8 @@
 			and 
 			author like #{search}
 		order by number desc
-		limit
-			#{cri.pageStart},#{cri.perPageNum}
+		<!--  limit
+			#{cri.pageStart},#{cri.perPageNum}-->
 	</select>
 	<select id="getCountBoardByAuthor" resultType="java.lang.Integer">
 		select
@@ -107,7 +107,7 @@
 				and 
 				contents like #{search}
 		order 	by number desc
-		limit	#{cri.pageStart},#{cri.perPageNum}
+		<!--  limit	#{cri.pageStart},#{cri.perPageNum}-->
 	</select>
 	<select id="getCountBoardByContents" resultType="java.lang.Integer">
 		select	count(number)
@@ -134,8 +134,8 @@
 		from 
 			board
 		order by number desc
-		limit
-			#{cri.pageStart},#{cri.perPageNum}
+		<!--  limit
+			#{cri.pageStart},#{cri.perPageNum}-->
 	</select>
 	<select id="getCountBoardByAdmin" resultType="java.lang.Integer">
 		select
@@ -149,7 +149,7 @@
 			from board
 			where author = #{author} and disable='FALSE'
 			order by number desc
-			limit #{cri.pageStart}, #{cri.perPageNum}
+			<!--  limit #{cri.pageStart}, #{cri.perPageNum}-->
 	</select>
 	<select id="getCountMyBoards" resultType="java.lang.Integer">
 		select count(number)
