@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-
-public class LoginHomeController {
+@RequestMapping(value="/recBook/*")
+public class RecommendBookController {
 
 	
-	@RequestMapping(value = "/loginhome", method = RequestMethod.GET)
+	@RequestMapping(value = "/recBookList", method = RequestMethod.GET)
 	public String loginHomeGet(Model model, HttpServletRequest request) {
 				
-		return "loginhome";
+		return "recBook/recBookList";
 	}
-	
-	
-	
 }

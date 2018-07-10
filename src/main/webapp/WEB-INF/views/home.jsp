@@ -61,9 +61,9 @@
 <div class="container">
   
   <div class="btn-group btn-group-justified">
-    <a href="#" class="btn btn-primary">사이트소개</a>
+    <a href="siteInfo" class="btn btn-primary">사이트소개</a>
     
-    <a href="/libraryList" class="btn btn-primary">도서관정보</a>
+    <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관정보</a>
     <a href="/login" class="btn btn-primary">추천도서</a>
     <a href="/login" class="btn btn-primary">자유게시판</a>
     
@@ -141,76 +141,23 @@
       <input type="text" class="form-control" id="usr" name="id">
 <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="pwd" name="pw">
- <button type="submit" class="btn btn-primary">로그인</button>
+      <span style="float:right">
+ <button  type="submit" class="btn btn-primary">로그인</button>
 
 
 </fieldset>
 </form>
-<a href="/signup"><button class="btn btn-primary">회원가입</button></a>
-</div>
-</div>
-<div id="updates" class="boxed">
-<h2 class="title">최신글</h2>
-<div class="content">
-<ul>
-<li>
-<h3>March 5, 2007</h3>
-<p><a href="#">In posuere eleifend odio quisque
-semper augue mattis wisi maecenas ligula…</a></p>
-</li>
-<li>
-<h3>March 3, 2007</h3>
-<p><a href="#">Quisque dictum integer nisl
-risus, sagittis convallis, rutrum id, congue, and nibh…</a></p>
-</li>
-<li>
-<h3>February 28, 2007</h3>
-<p><a href="#">Donec leo, vivamus fermentum nibh
-in augue praesent a lacus at urna congue rutrum…</a></p>
-</li>
-<li>
-<h3>February 25, 2007</h3>
-<p><a href="#">Nam pede erat, porta eu, lobortis
-eget, tempus et, tellus. Etiam nequea…</a></p>
-</li>
-<li>
-<h3>February 20, 2007</h3>
-<p><a href="#">Vivamus fermentum nibh in augue.
-Praesent a lacus at urna congue rutrum. Nulla enim eros…</a></p>
-</li>
-</ul>
-</div>
+
 </div>
 </div>
 
 
-<div id="aaaa">
-
-홈페이지 소개용 글ㅇ너란어라ㅣ더ㅏㅣㄹㄴ어라ㅣㅇㄴ
-</div>
 
 
- <div class="col-sm-6">
-<h4>이달의 추천도서</h4>
-<div id="aaaa">
-이달의 추천도서 내역
-</div>
+
+
   
-  
-</diV>
 
-     <div class="col-sm-3">
-    	<h4>공지글</h4>
-    	<div id="aaaa">
-    	sfsdfsdfsdfsdfsdfsdf
-   		 </div>
-     </div>
- 
-
-
-
-
-</div>
 
 
 
@@ -227,6 +174,13 @@ Praesent a lacus at urna congue rutrum. Nulla enim eros…</a></p>
 
 
 
+
+  
+
+
+  
+</div>
+
 <div id="footer">
   sdfjdslkfjsdklfjsdlkfjdklsfjskldf
 </div>
@@ -234,11 +188,6 @@ Praesent a lacus at urna congue rutrum. Nulla enim eros…</a></p>
 Design downloaded from <a href="http://www.freewebtemplates.com/">Free
 Templates</a> - your source for free web templates<br />
 Supported by <a href="http://www.hosting24.com/" target="_blank">Hosting24.com</a>
-</div>
-  
-
-
-  
 </div>
 
 

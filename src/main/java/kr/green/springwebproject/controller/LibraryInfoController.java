@@ -8,16 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-
-public class LoginHomeController {
+@RequestMapping(value="/libraryInfo/*")
+public class LibraryInfoController {
 
 	
-	@RequestMapping(value = "/loginhome", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "libraryList", method = RequestMethod.GET)
 	public String loginHomeGet(Model model, HttpServletRequest request) {
 				
-		return "loginhome";
+		return "libraryInfo/libraryList";
 	}
-	
-	
-	
 }

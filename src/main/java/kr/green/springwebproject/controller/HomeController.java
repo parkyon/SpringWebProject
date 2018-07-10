@@ -172,6 +172,17 @@ public class HomeController {
 		return new ResponseEntity<String>(file.getOriginalFilename(),
 				HttpStatus.OK);
 	}
+	
+	
+	
+	@RequestMapping(value = "/siteInfo", method = RequestMethod.GET)
+	public String siteInfoGet(Model model, HttpServletRequest request) {
+				
+		return "siteInfo";
+	}
+	
+	
+	
 }
 
 

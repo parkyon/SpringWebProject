@@ -63,10 +63,10 @@
 <div class="container">
   
   <div class="btn-group btn-group-justified">
-    <a href="#" class="btn btn-primary">사이트소개</a>
+    <a href="/siteInfo" class="btn btn-primary">사이트소개</a>
     
-    <a href="/libraryList" class="btn btn-primary">도서관정보</a>
-    <a href="#" class="btn btn-primary">추천도서</a>
+    <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관정보</a>
+    <a href="/recBook/recBookList" class="btn btn-primary">추천도서</a>
     <a href="/board/list" class="btn btn-primary">자유게시판</a>
     
   </div>
