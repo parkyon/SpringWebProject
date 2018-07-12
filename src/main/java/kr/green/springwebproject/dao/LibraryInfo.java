@@ -3,6 +3,7 @@ package kr.green.springwebproject.dao;
 public class LibraryInfo {
 	private Integer number;
 	private String disable;
+	
 	public int getNumber() {
 		return number;
 	}
@@ -20,6 +21,16 @@ public class LibraryInfo {
 	}
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
+	}
+	private String author;
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public void setNumber(Integer number) {
+		this.number = number;
 	}
 	private String filePath;
 	private String libraryName;

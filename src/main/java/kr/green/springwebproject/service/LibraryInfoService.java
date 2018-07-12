@@ -25,4 +25,24 @@ public class LibraryInfoService {
 		return libraryInfoMapper.getLibraryInfoByNumber(number);
 				}
 	
+	public LibraryInfo getDetailLibraryInfo(int number) {
+		// TODO Auto-generated method stub
+		return libraryInfoMapper.getDetailLibraryInfoByNumber(number);
+
+		
+	}
+
+	public boolean isAuthor(User user, LibraryInfo libraryInfo) {
+		// TODO Auto-generated method stub
+		if(user != null) {
+			if(user.getId().compareTo(libraryInfo.getAuthor())==0)
+				return true;
+			else 
+				return false;
+		}
+		
+		return false;
+	}
+	
+	
 }

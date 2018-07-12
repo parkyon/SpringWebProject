@@ -77,7 +77,7 @@
 			<c:forEach var="libraryInfo" items="${list}">
 				<tr>
 					<td>${libraryInfo.number}</td>
-					<td>${libraryInfo.libraryName }</a></td>
+					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
 					<td>${libraryInfo.cityName }</td>
 					<td>${libraryInfo.phoneNumber }</td>
 				</tr>

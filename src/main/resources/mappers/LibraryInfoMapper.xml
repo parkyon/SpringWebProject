@@ -13,4 +13,8 @@
 	select * from libraryinfo
 	order by number desc
 	</select>
+	<select id="getDetailLibraryInfoByNumber" resultType ="kr.green.springwebproject.dao.LibraryInfo">
+	select * from libraryinfo
+	order by number desc
+	</select>
 </mapper>
