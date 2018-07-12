@@ -36,16 +36,17 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/loginhome">Home</a></li>
-        
-        
-      
-        </ul>
-
        
+      </ul>
+
        <ul class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav navbar-right">
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-      </ul>
+      	</ul>
+      		<c:if test="${admin}">
+			  	<li><a href="/admin/board" class ="	glyphicon glyphicon-edit">관리자페이지</a></li>
+			  	<span style="color:white"></span>
+			</c:if>
       </ul>
       <form class="navbar-form navbar-right" action="/action_page.php">
       <div class="form-group">

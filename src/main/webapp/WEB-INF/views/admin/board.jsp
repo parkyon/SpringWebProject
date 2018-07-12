@@ -16,7 +16,7 @@
 		<div class="container">
 			<div class="col-12">
 			  	<div class="float-right">
-			  		<a href="/board/list">게시판 페이지</a>
+			  		<a href="/loginhome">홈으로</a>
 		  			<span style="color:white"> | </span>
 			  		<a href="/modify">회원 정보 수정</a>
 				  	<span style="color:white"> | </span>
@@ -27,7 +27,7 @@
 	</nav>
 	
 	<div class="container">
-		<h1>게시판 관리
+		<h1>libraryInfo 관리
 			<c:if test="${!admin}"> 
 			| <a href="/admin/user">유저 관리</a>
 			</c:if>
