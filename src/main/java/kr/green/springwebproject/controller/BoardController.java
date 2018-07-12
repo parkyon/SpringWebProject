@@ -50,24 +50,21 @@ public class BoardController {
 		if(cri == null) 
 			cri = new Criteria();
 		
-		PageMaker pageMaker = new PageMaker();
 		int totalCount = boardService.getCountByBoardList(type, cri, search);
 		ArrayList<Board> list = boardService.getListBoard(type, cri, search);
 
-		pageMaker.setCriteria(cri);
-		pageMaker.setTotalCount(totalCount);
-		
+	
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		
 		boolean admin = userService.isAdmin(user);
 		
 		model.addAttribute("list",list);
-		model.addAttribute("pageMaker", pageMaker);
+	
 		model.addAttribute("search", search);
 		model.addAttribute("type", type);
 		model.addAttribute("admin", admin);
-		
+		System.out.println(list);
 		return "/board/list";
 	}
 	@RequestMapping(value="detail")

@@ -1,6 +1,27 @@
 package kr.green.springwebproject.dao;
 
 public class LibraryInfo {
+	private Integer number;
+	private String disable;
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public String getDisable() {
+		return disable;
+	}
+	public void setDisable(String disable) {
+		this.disable = disable;
+	}
+	public String getFilePath() {
+		return filePath;
+	}
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+	private String filePath;
 	private String libraryName;
 	private String cityName;
 	private String  libraryType;
