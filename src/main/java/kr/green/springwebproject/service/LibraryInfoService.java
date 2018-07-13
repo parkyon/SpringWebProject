@@ -43,6 +43,18 @@ public class LibraryInfoService {
 		
 		return false;
 	}
-	
+
+	public boolean registerLibraryInfo(LibraryInfo libraryInfo, User user) throws Exception{
+		
+		libraryInfo.setAuthor(user.getId());
+		
+		
+		
+		libraryInfoMapper.insertLibraryInfo(libraryInfo);
+		
+		return true;
+	}
 	
 }
+	
+	

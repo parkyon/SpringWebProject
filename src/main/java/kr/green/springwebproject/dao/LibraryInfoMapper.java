@@ -16,5 +16,6 @@ public interface LibraryInfoMapper {
 	
 	public LibraryInfo getDetailLibraryInfoByNumber(
 			@Param("number")int number);
-	
+
+	public void insertLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
 }

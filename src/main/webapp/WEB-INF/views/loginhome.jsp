@@ -50,7 +50,7 @@
       </ul>
       <form class="navbar-form navbar-right" action="/action_page.php">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        
       </div>
     </form>
      

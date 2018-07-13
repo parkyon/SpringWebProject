@@ -12,11 +12,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
 <script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
-
-
-
 <script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
-     
+<!-- 밑에 유효성 검사를 위한 script는 순서를 맞추어줘야한다. -->
+
     
 </head>
 
@@ -46,9 +44,7 @@
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
       <form class="navbar-form navbar-right" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
+      
     </form>
      
       

@@ -1,42 +1,23 @@
 package kr.green.springwebproject.dao;
 
 public class LibraryInfo {
+
 	private Integer number;
-	private String disable;
-	
-	public int getNumber() {
+	private String libraryName;
+	private String cityName;
+	private String libraryType;
+	private String holiday;
+	private String openSeat;
+	private String bookCount;
+	private String bookCount2;
+	private String bookCount3;
+	private String loadAddress;
+	public Integer getNumber() {
 		return number;
-	}
-	public void setNumber(int number) {
-		this.number = number;
-	}
-	public String getDisable() {
-		return disable;
-	}
-	public void setDisable(String disable) {
-		this.disable = disable;
-	}
-	public String getFilePath() {
-		return filePath;
-	}
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
-	}
-	private String author;
-	public String getAuthor() {
-		return author;
-	}
-	public void setAuthor(String author) {
-		this.author = author;
 	}
 	public void setNumber(Integer number) {
 		this.number = number;
 	}
-	private String filePath;
-	private String libraryName;
-	private String cityName;
-	private String  libraryType;
-	private String  holiday;
 	public String getLibraryName() {
 		return libraryName;
 	}
@@ -103,26 +84,38 @@ public class LibraryInfo {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public String getArea() {
-		return area;
-	}
-	public void setArea(String area) {
-		this.area = area;
-	}
 	public String getHomepage() {
 		return homepage;
 	}
 	public void setHomepage(String homepage) {
 		this.homepage = homepage;
 	}
-	private String  openSeat;
-	private String  bookCount;
-	private String  bookCount2;
-	private String  bookCount3;
-	private String  loadAddress;
+	public String getFilepath() {
+		return filepath;
+	}
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getDisable() {
+		return disable;
+	}
+	public void setDisable(String disable) {
+		this.disable = disable;
+	}
 	private String operation;
 	private String phoneNumber;
-	private String  area;
-	private String  homepage;
-	
+	private String homepage;
+	private String filepath;
+	private String author;
+	private String disable;
+
+
 }
+
+

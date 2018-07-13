@@ -13,8 +13,46 @@
 	select * from libraryinfo
 	order by number desc
 	</select>
+	
 	<select id="getDetailLibraryInfoByNumber" resultType ="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
+	where number = #{number}
 	order by number desc
 	</select>
+	
+	<insert id="insertLibraryInfo">
+	insert into libraryinfo
+	(libraryName, cityName, libraryType, holiday, 
+	openSeat, bookCount, bookCount2, bookCount3, 
+	loadAddress, operation, phoneNumber, homepage)
+	values
+	(#{libraryInfo.libraryName},#{libraryInfo.cityName},#{libraryInfo.libraryType},#{libraryInfo.holiday},
+	#{libraryInfo.openSeat},#{libraryInfo.bookCount},#{libraryInfo.bookCount2},#{libraryInfo.bookCount3},
+	#{libraryInfo.loadAddress},#{libraryInfo.operation},#{libraryInfo.phoneNumber},#{libraryInfo.homepage})
+	
+	</insert>
+	
+	<update id="modifyLibraryInfo">
+		update 
+			libraryinfo 
+		set 
+			libraryName = #{libraryInfo.libraryName},
+			cityName = #{libraryInfo.cityName},
+			libraryType= #{libraryInfo.cityName},
+			holiday = #{libraryInfo.holiday},
+			openSeat= #{libraryInfo.openSeat},
+			bookCount= #{libraryInfo.bookCount},
+			bookCount2= #{libraryInfo.bookCount2},
+			bookCount3 = #{libraryInfo.bookCount3},
+			loadAddress= #{libraryInfo.loadAddress},
+			operation= #{libraryInfo.operation},
+			phoneNumber= #{libraryInfo.phoneNumber},
+			homepage= #{libraryInfo.homepage},
+	 	where
+	 		number = #{libraryinfo.number}
+	</update>
+	
+	
+	
+	
 </mapper>

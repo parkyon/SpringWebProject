@@ -41,25 +41,42 @@
     </script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<div class="container">
-			<div class="col-12">
-			  	
-			  	<div class="float-right">
-			  		<c:if test="${admin}">
-			  			<a href="/admin/board">관리자 페이지</a>
-			  			<span style="color:white"> | </span>
-			  		</c:if>
-			  		<a href="/board/myboards">내가쓴글</a>
-			  		<span style="color:white"> | </span>
-				  	<a href="/modify">회원 정보 수정</a>
-				  	<span style="color:white"> | </span>
-					<a href="/logout">로그아웃</a>
-					
-				</div>
-			</div>
-	  	</div>
-	</nav>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">도서관정보</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/loginhome">Home</a></li>
+       
+      </ul>
+
+       <ul class="nav navbar-nav navbar-right">
+         <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+      	<li><a href="/libraryinfo/myboards" class ="	glyphicon glyphicon-edit">내가쓴글</a></li>
+			  		<span style="color:white">  </span>
+		<li><a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></li>
+				  	<span style="color:white">  </span>
+      
+      <form class="navbar-form navbar-right" action="/action_page.php">
+      <div class="form-group">
+        
+      </div>
+    </form>
+     
+      
+    </div>
+  </div>
+</nav>
+	
 	
 	<div class="container">
 		<h1>자유 게시판 </a></h1>
@@ -85,8 +102,10 @@
 		</tbody>
 	</table>
 	
-	<a href="/libaryInfo/register">
+	<c:if test="${admin}">
+	<a href="/libraryInfo/register">
 		<button class="btn btn-primary"> 등록 </button>
+		</c:if>
 	</a>
 	</div>
 	

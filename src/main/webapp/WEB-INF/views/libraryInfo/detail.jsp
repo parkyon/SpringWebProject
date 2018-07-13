@@ -32,7 +32,7 @@
 		    	<label>첨부파일</label>
 		      	<div class="form-control" name="file" id="file" >
 		      		<c:if test="${fileName != null }">
-		      			<a href="/libaryInfo/download?fileName=${libraryInfo.filepath}"
+		      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
 		      			 target="_blank">${fileName}</a>
 		      		</c:if>
 		      		<c:if test="${fileName == null }">
@@ -50,7 +50,7 @@
 		    </div>
 	  	</form>
 	  	<div>
-		    <a href="/libraryInfo/list"><button class="btn btn-primary">목록</button></a>
+		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor}">
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>

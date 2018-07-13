@@ -9,8 +9,84 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="/resources/jquery.validate.js"></script>
+<script src="/resources/additional-methods.js"></script>
+
+   
 </head>
 <body>
+
+ <script>
+    $(function(){
+        $("form").validate({
+            rules: {
+                id: {
+                    required : true,
+                    minlength : 4
+                },
+                pw: {
+                    required : true,
+                    minlength : 8,
+                    regex: /^(?=\w{8,20}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+                },
+              
+                name: {
+                    required : true,
+                    minlength : 2
+                },
+                age: {
+                    digits : true
+                },
+                email: {
+                    required : true,
+                    minlength : 2,
+                    email : true
+                },
+                homepage: {
+                    url : true
+                }
+            },
+            //규칙체크 실패시 출력될 메시지
+            messages : {
+                id: {
+                    required : "필수로입력하세요",
+                    minlength : "최소 {0}글자이상이어야 합니다"
+                },
+                pw: {
+                    required : "필수로입력하세요",
+                    minlength : "최소 {0}글자이상이어야 합니다",
+                    regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
+                },
+                
+                name: {
+                    required : "필수로입력하세요",
+                    minlength : "최소 {0}글자이상이어야 합니다"
+                },
+                age: {
+                    digits : "숫자만입력하세요"
+                },
+                email: {
+                    required : "필수로입력하세요",
+                    minlength : "최소 {0}글자이상이어야 합니다",
+                    email : "메일규칙에 어긋납니다"
+                },
+                homepage: {
+                    url : "정상적인 URL이 아닙니다"
+                }
+            }
+        });
+    })
+    $.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        },
+        "Please check your input."
+    );
+    
+    
+    </script> 
 <div class="container">
 	<h1>
 		회원가입
@@ -18,16 +94,14 @@
   <form method="post" id="formId">
     <div class="form-group">
       <label for="usr">Id:</label>
-      <input type="text" class="form-control" id="usr" name="id"
-      	onchange="validationId(this)">
+      <input type="text" class="form-control" id="id" name="id">
       <div style="color:red; display:none;" id="inforId">
              아이디는 영문자와 숫자로 이루어져 있며, 5~10자이어야 합니다.
       </div>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" name="pw"
-        onchange="validationPw(this)">
+      <input type="password" class="form-control" id="pw" name="pw">
 	  <div style="color:red; display:none;" id="inforPw">
 	     비밀번호는 영문자와 숫자가 1개이상 포함되어야 하며, 8자~20자이어야 합니다.
 	  </div>
@@ -35,12 +109,12 @@
 
     <div class="form-group">
       <label for="pwd">Email:</label>
-      <input type="email" class="form-control" id="pwd" name="email">
+      <input type="email" class="form-control" id="email" name="email">
     </div>
     <button type="submit" class="btn btn-primary">로그인</button>
   </form>
 </div>
-<script>
+<!-- <script>
 	function validationId(id){
 		var inforId = document.getElementById('inforId');
 		var idText = id.value;
@@ -82,7 +156,7 @@
 		return true;
 	}
 	
-</script>
+</script> -->
 </body>
 </html>
 
