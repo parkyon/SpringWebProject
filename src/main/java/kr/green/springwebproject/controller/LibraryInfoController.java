@@ -65,12 +65,7 @@ public class LibraryInfoController {
 		boolean isAuthor = libraryInfoService.isAuthor(user, libraryInfo);
 		
 		//파일명 수정하는 과정
-		String filepath = libraryInfo.getFilepath();
-		if(filepath != null) {
-		//filepath : /년/월/일/uuid_파일명
-			String fileName = filepath.substring(filepath.indexOf("_")+1);
-			model.addAttribute("fileName", fileName);
-		}
+		
 		
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("libraryInfo", libraryInfo);		

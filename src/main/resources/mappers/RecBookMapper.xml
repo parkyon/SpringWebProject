@@ -1,1 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.green.springwebproject.dao.RecBookMapper">
+	<select id="getRecBookListByNumber" resultType="kr.green.springwebproject.dao.RecBook">
+	select * from recBook
+	
+	</select>
+
+	<insert id="insertRecBook">
+	insert into recBook
+	(bookName, bookType, bookStory, writer)
+	values
+	(#{recBook.bookName}, #{recBook.bookType},#{recBook.bookStory},#{recBook.writer})
+	
+	</insert>
+	<select id="getDetailRecBookByNumber" resultType="kr.green.springwebproject.dao.RecBook">
+	select * from recBook
+	where recBookNumber = #{recBookNumber}
+	
+	</select>
+</mapper>

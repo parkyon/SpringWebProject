@@ -22,27 +22,35 @@
   			<h1>게시글 상세</h1>
 		    <div class="form-group">
 		    	<label>번호</label>
-		      	<input type="text" class="form-control" name="number" value="${libraryInfo.number }" disabled>
+		      	<input type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber }" disabled>
 		    </div>
 		    <div class="form-group">
-		    	<label>도서관명</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" disabled>
-		    </div>
+		    	<label>책 이름</label>
+		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" disabled>
+		    </div>    
 		    
 		    <div class="form-group">
-		    	<label>작성자</label>
-		      	<input type="text" class="form-control" name="author" value="${libraryInfo.author}" disabled>
+		    	<label>책 유형</label>
+		      	<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" disabled>
 		    </div>
 		    <div class="form-group">
-		    	<label>홈페이지주소</label>
-		      	<textarea class="form-control" rows="5" name="homepage" disabled>${libraryInfo.homepage}</textarea>
+		    	<label>책 스토리</label>
+		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" disabled>
+		    </div>
+		    <div class="form-group">
+		    	<label>작가</label>
+		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" disabled>
+		    </div>
+		    <div class="form-group">
+		    	<label>작성자</label>
+		      	<input type="text" class="form-control" name="author" value="${recBook.author}" disabled>
 		    </div>
 	  	</form>
 	  	<div>
-		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
+		    <a href="/recBook/libraryList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor}">
-		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
-		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
+		    	<a href="/recBook/modify?number=${recBook.number }"><button class="btn btn-primary">수정</button></a>
+		    	<a href="/recBook/delete?number=${recBook.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
 	    </div>
 	</div>

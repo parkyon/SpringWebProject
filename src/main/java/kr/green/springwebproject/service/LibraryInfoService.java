@@ -21,6 +21,8 @@ import kr.green.springwebproject.utils.UploadFileUtils;
 public class LibraryInfoService {
 	@Autowired
 	private LibraryInfoMapper libraryInfoMapper;
+	
+	
 	public ArrayList<LibraryInfo> getLibraryInfo(int number) {
 		return libraryInfoMapper.getLibraryInfoByNumber(number);
 				}
