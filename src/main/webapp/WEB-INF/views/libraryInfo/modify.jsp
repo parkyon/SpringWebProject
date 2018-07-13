@@ -78,7 +78,7 @@
 		    
 		    <div>
 			    <button type="submit" class="btn btn-primary">수정</button>
-			    <a href="/libraryInfo/libarylist"><button type="button" class="btn btn-primary">취소</button></a>
+			    <a href="/libraryInfo/libraryList"><button type="button" class="btn btn-primary">취소</button></a>
 		    </div>
 	  	</form>
 	  	

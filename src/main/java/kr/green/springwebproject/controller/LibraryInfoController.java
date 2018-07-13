@@ -96,6 +96,33 @@ public class LibraryInfoController {
 		return "redirect:/libraryInfo/libraryList";
 	}
 	
+	@RequestMapping(value="modify", method=RequestMethod.GET)
+	public String libraryInfoModifyGet(HttpServletRequest request,
+			Model model,Integer del, Integer number) {
+				
+		LibraryInfo libraryInfo = libraryInfoService.getDetailLibraryInfo(number);
+		
+		model.addAttribute("libraryInfo", libraryInfo);
+		//파일명 수정하는 과정
+		
+		
+		return "/libraryInfo/modify";
+	}
+	@RequestMapping(value="modify", method=RequestMethod.POST)
+	public String libraryInfoModifyPost(HttpServletRequest request,
+			Model model, LibraryInfo libraryInfo, MultipartFile file, Integer del) 
+			throws Exception {
+		
+		libraryInfoService.modifyLibraryInfo(libraryInfo);
+		
+		return "redirect:/libraryInfo/libraryList";
+	}
+	@RequestMapping(value="/delete")
+	public String deleteLibraryInfo(LibraryInfo libaryInfo) {
+		libraryInfoService.deleteLibaryInfo(libaryInfo);
+		return "redirect:/libraryInfo/libraryList";
+	}
+	
 	
 	
 }

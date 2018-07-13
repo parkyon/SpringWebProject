@@ -48,12 +48,33 @@ public class LibraryInfoService {
 		
 		libraryInfo.setAuthor(user.getId());
 		
-		
-		
 		libraryInfoMapper.insertLibraryInfo(libraryInfo);
 		
 		return true;
 	}
+	
+	public boolean modifyLibraryInfo(LibraryInfo libraryInfo) throws Exception  {
+		//수정된 날짜로 created_date를 업데이트
+		Date created_date = new Date();
+		
+		//기존 첨부파일 경로를 가져오기 위함
+
+		//수정될 첨부파일이 있는 경우
+		
+		
+		libraryInfoMapper.modifyLibraryInfo(libraryInfo);
+		return false;
+	}
+
+	public boolean deleteLibaryInfo(LibraryInfo	libaryInfo) {
+		// TODO Auto-generated method stub
+		libraryInfoMapper.deleteLibraryInfo(libaryInfo);
+		return true;
+
+	}
+
+	
+
 	
 }
 	

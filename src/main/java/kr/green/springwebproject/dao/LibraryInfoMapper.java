@@ -18,4 +18,6 @@ public interface LibraryInfoMapper {
 			@Param("number")int number);
 
 	public void insertLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
+	public void modifyLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
+	public void deleteLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
 }

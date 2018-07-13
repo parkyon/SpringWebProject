@@ -38,7 +38,7 @@
 		set 
 			libraryName = #{libraryInfo.libraryName},
 			cityName = #{libraryInfo.cityName},
-			libraryType= #{libraryInfo.cityName},
+			libraryType= #{libraryInfo.libraryType},
 			holiday = #{libraryInfo.holiday},
 			openSeat= #{libraryInfo.openSeat},
 			bookCount= #{libraryInfo.bookCount},
@@ -47,10 +47,15 @@
 			loadAddress= #{libraryInfo.loadAddress},
 			operation= #{libraryInfo.operation},
 			phoneNumber= #{libraryInfo.phoneNumber},
-			homepage= #{libraryInfo.homepage},
+			homepage= #{libraryInfo.homepage}
 	 	where
-	 		number = #{libraryinfo.number}
+	 		number = #{libraryInfo.number}
 	</update>
+	<delete id="deleteLibraryInfo">
+		delete from libraryinfo
+			where number =#{libraryInfo.number}
+	
+	</delete>
 	
 	
 	

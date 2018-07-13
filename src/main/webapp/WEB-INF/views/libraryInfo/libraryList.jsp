@@ -61,8 +61,6 @@
        <ul class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav navbar-right">
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-      	<li><a href="/libraryinfo/myboards" class ="	glyphicon glyphicon-edit">내가쓴글</a></li>
-			  		<span style="color:white">  </span>
 		<li><a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></li>
 				  	<span style="color:white">  </span>
       
@@ -79,7 +77,7 @@
 	
 	
 	<div class="container">
-		<h1>자유 게시판 </a></h1>
+		<h1>도서관 정보</a></h1>
 		
 		<table class="table table-bordered" id="example">
 		<thead>
@@ -87,7 +85,7 @@
 				<th>번호</th>
 				<th>도서관명</th>
 				<th>지역</th>
-				<th>전화번호</th>)
+				<th>전화번호</th>
 			</tr>
 		</thead>
 		<tbody>
