@@ -108,6 +108,24 @@ public class AdminController {
 		adminService.boardDelete(number);
 		return "redirect:/admin/board";
 	}
+	
+	@RequestMapping(value="/recBookLog")
+	public String recBookLog() {
+		return "admin/recBookLog";
+	}
+	@RequestMapping(value="/accountLog")
+	public String accountLog() {
+		return "admin/accountLog";
+	}
+	@RequestMapping(value="/libraryInfoLog")
+	public String libraryInfoLog() {
+		return "admin/libraryInfoLog";
+	}
+	@RequestMapping(value="/boardLog")
+	public String boardLog() {
+		return "admin/boardLog";
+	}
+
 }
 
 

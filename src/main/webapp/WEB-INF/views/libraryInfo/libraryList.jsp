@@ -60,6 +60,10 @@
 
        <ul class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav navbar-right">
+         <c:if test="${admin}">
+			  	<li><a href="/admin/libraryInfoLog" class ="	glyphicon glyphicon-edit">로그보기</a></li>
+			  	<span style="color:white"></span>
+			</c:if>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
 		<li><a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></li>
 				  	<span style="color:white">  </span>
