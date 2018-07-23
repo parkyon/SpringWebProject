@@ -40,13 +40,17 @@ public class RecBookService {
 		
 	}
 
-	public void modifyRecBook(RecBook recBook) {
+	public boolean modifyRecBook(RecBook recBook) {
 		// TODO Auto-generated method stub
+		recBookMapper.modifyRecBook(recBook);
+		return false;
 		
 	}
 
-	public void deleteLibaryInfo(RecBook libaryInfo) {
+	public boolean deleteLibaryInfo(RecBook recBook) {
 		// TODO Auto-generated method stub
+		recBookMapper.deleteRecBook(recBook);
+		return false;
 		
 	}
 

@@ -10,8 +10,9 @@ public interface RecBookMapper {
 	public ArrayList<LibraryInfo> getRecBookListByNumber(
 			@Param("recBookNumber")int recBookNumber);
 
-	public void insertRecBook(@Param("number")RecBook recBook);
-
+	public void insertRecBook(@Param("recBook")RecBook recBook);
+	public void modifyRecBook(@Param("recBook")RecBook recBook);
+	public void deleteRecBook(@Param("recBook")RecBook recBook);
 
 	public RecBook getDetailRecBookByNumber(@Param("recBookNumber")int recBookNumber);
 	

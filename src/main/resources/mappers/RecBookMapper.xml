@@ -20,4 +20,20 @@
 	where recBookNumber = #{recBookNumber}
 	
 	</select>
+	<update id="modifyRecBook">
+	update 
+		recbook
+	set
+		bookName = #{recBook.bookName},
+		bookType = #{recBook.bookType},
+		bookStory = #{recBook.bookStory},
+		writer = # {recBook.writer}
+	where
+		number=#{recBook.number}
+	</update>
+	<delete id="deleteRecBook">
+	delete from recbook
+		where number=#{recBook.number}
+	</delete>
+	
 </mapper>
