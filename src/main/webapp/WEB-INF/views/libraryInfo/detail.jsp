@@ -19,7 +19,7 @@
 	</style>
 	<div class="container">
   		<form >
-  			<h1>게시글 상세</h1>
+  			<h1>도서관 정보 상세</h1>
 		    <div class="form-group">
 		    	<label>번호</label>
 		      	<input type="text" class="form-control" name="number" value="${libraryInfo.number }" disabled>

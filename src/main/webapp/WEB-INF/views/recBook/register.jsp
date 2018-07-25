@@ -24,7 +24,7 @@
 	<div class="container">
   		<form method="post" 
   			enctype="multipart/form-data">
-  			<h1>도서관 등록</h1>
+  			<h1>추천도서 등록</h1>
 		    <div class="form-group">
 		    	<label>책 이름</label>
 		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" >

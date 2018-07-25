@@ -25,9 +25,16 @@ public class RecBookService {
 	}
 
 	public boolean isAuthor(User user, RecBook recBook) {
-		// TODO Auto-generated method stub
+		if(user != null) {
+			if(user.getId().compareTo(recBook.getAuthor())==0)
+				return true;
+			else 
+				return false;
+		}
+		
 		return false;
 	}
+
 
 	public boolean registerRecBook(RecBook recBook, User user) {
 		

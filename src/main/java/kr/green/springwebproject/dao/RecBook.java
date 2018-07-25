@@ -8,6 +8,14 @@ public class RecBook {
 	private String bookType;
 	private String bookStory;
 	private String bookPhoto;
+	private int number;
+	
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
 	public int getRecBookNumber() {
 		return recBookNumber;
 	}

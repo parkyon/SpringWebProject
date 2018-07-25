@@ -19,7 +19,7 @@
 	</style>
 	<div class="container">
   		<form >
-  			<h1>게시글 상세</h1>
+  			<h1>추천 도서 상세</h1>
 		    <div class="form-group">
 		    	<label>번호</label>
 		      	<input type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber }" disabled>
@@ -47,7 +47,7 @@
 		    </div>
 	  	</form>
 	  	<div>
-		    <a href="/recBook/libraryList"><button class="btn btn-primary">목록</button></a>
+		    <a href="/recBook/recBookList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor}">
 		    	<a href="/recBook/modify?number=${recBook.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/recBook/delete?number=${recBook.number }"><button class="btn btn-outline-danger">삭제</button></a>

@@ -160,6 +160,8 @@
 		delete from board 
 			where number = #{board.number}
 	</delete>
+	
+	
 </mapper>
 
 

@@ -49,7 +49,7 @@ public class LibraryInfoController {
 		ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
 		
 		model.addAttribute("list", list);
-		System.out.println(list);
+	
 		return "libraryInfo/libraryList";
 	}
 	
@@ -69,6 +69,8 @@ public class LibraryInfoController {
 		
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("libraryInfo", libraryInfo);		
+		
+	
 		return "/libraryInfo/detail";
 	}
 	
@@ -87,6 +89,7 @@ public class LibraryInfoController {
 		User user = (User)session.getAttribute("user");
 		libraryInfoService.registerLibraryInfo(libraryInfo, user);
 	System.out.println(libraryInfo);
+	System.out.println("이건 유저정보");
 	System.out.println(user);
 		return "redirect:/libraryInfo/libraryList";
 	}

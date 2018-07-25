@@ -10,9 +10,9 @@
 
 	<insert id="insertRecBook">
 	insert into recBook
-	(bookName, bookType, bookStory, writer)
+	(bookName, bookType, bookStory, writer, author)
 	values
-	(#{recBook.bookName}, #{recBook.bookType},#{recBook.bookStory},#{recBook.writer})
+	(#{recBook.bookName}, #{recBook.bookType},#{recBook.bookStory},#{recBook.writer},#{recBook.author})
 	
 	</insert>
 	<select id="getDetailRecBookByNumber" resultType="kr.green.springwebproject.dao.RecBook">
