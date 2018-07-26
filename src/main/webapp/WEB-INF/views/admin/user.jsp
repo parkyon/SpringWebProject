@@ -57,7 +57,10 @@
 							</a>
 						</c:if>
 					</td>
-					<td><a href="Userdelete"><button>삭제</button></a> </td>
+							  
+					
+					<td><a href="/admin/Userdelete?id=${user.id }"><button>삭제</button></a> </td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>

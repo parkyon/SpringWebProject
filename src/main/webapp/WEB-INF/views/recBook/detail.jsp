@@ -54,7 +54,7 @@
 	  	</form>
 	  	<div>
 		    <a href="/recBook/recBookList"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${isAuthor}">
+		    <c:if test="${isAuthor || !USER }" >
 		    	<a href="/recBook/modify?number=${recBook.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/recBook/delete?number=${recBook.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>

@@ -22,7 +22,7 @@ public interface UserMapper {
 	public int countUsersExceptLoginUser(@Param("user")User user);
 	public void withdraw(@Param("user")User user);
 	
-	public void userDelete(@Param("user")User user);
+	public void deleteUser(@Param("user")User user,@Param("id")String id);
 	///로그용
 	
 		public ArrayList<User> getUserLog(

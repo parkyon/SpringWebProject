@@ -174,14 +174,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="/Userdelete")
-	public String withdraw(HttpServletRequest r) {
-		HttpSession session = r.getSession();
-		User user = (User)session.getAttribute("user");
-		userService.userDelete(user);
+	public String withdraw(String id, User user) {
 		
 		
+		userService.DeleteUser(id, user);
+		System.out.println("이건id");
+		System.out.println(id);
 		
-		return "admin/user";
+		return "redirect:/admin/user";
 	}
 
 }

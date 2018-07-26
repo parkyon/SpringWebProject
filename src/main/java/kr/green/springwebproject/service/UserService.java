@@ -40,6 +40,12 @@ public class UserService {
 		
 	
 	}
+		//유저 삭제
+	public boolean DeleteUser(String id, User user) {
+		userMapper.deleteUser(user, id);
+		return true;
+	}
+
 
 	public User login(String id, String pw) {
 		
@@ -101,11 +107,7 @@ public boolean isAdmin(User user) {
 		return false;
 	}
 
-public boolean userDelete(User user) {
-	
-userMapper.userDelete(user);
-return true;
-}
+
 
 //로그용
 

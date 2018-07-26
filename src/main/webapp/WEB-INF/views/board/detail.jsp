@@ -51,10 +51,12 @@
 	  	</form>
 	  	<div>
 		    <a href="/board/list"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${isAuthor}">
+		    <c:if test="${isAuthor || !USER }" >
 		    	<a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/board/delete?number=${board.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
+		    
+		    
 	    </div>
 	</div>
 </body>
