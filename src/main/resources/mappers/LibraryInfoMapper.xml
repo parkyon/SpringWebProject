@@ -60,7 +60,12 @@
 	
 	</delete>
 	
+	<!-- 로그용 -->
 	
+	<select id="getLibraryInfoLog" resultType="kr.green.springwebproject.dao.LibraryInfo">
+	select * from libraryinfolog
+	order by number desc
+	</select>
 	
 	
 </mapper>

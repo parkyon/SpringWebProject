@@ -41,4 +41,24 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", pw=" + pw + ", email=" + email + "]";
 	}
+	
+	
+	
+	
+	//로그용
+	
+		private String changedate;
+		private String action;
+		public String getChangedate() {
+			return changedate;
+		}
+		public void setChangedate(String changedate) {
+			this.changedate = changedate;
+		}
+		public String getAction() {
+			return action;
+		}
+		public void setAction(String action) {
+			this.action = action;
+		}
 }

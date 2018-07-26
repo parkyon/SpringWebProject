@@ -77,10 +77,10 @@ public class BoardController {
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = boardService.isAuthor(user, board);
 		
-		//파일명 수정하는 과정
+		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
 		String filepath = board.getFilepath();
 		if(filepath != null) {
-		//filepath : /년/월/일/uuid_파일명
+		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
 			String fileName = filepath.substring(filepath.indexOf("_")+1);
 			model.addAttribute("fileName", fileName);
 		}
@@ -95,15 +95,15 @@ public class BoardController {
 				
 		Board board = boardService.getBoard(number);
 		if(del != null && del == 1) {
-			//db불러온 게시판의 정보에서 업로드 파일 경로를 지움
-			//db에서는 지우지 않음
+			//db遺덈윭�삩 寃뚯떆�뙋�쓽 �젙蹂댁뿉�꽌 �뾽濡쒕뱶 �뙆�씪 寃쎈줈瑜� 吏���
+			//db�뿉�꽌�뒗 吏��슦吏� �븡�쓬
 			board.setFilepath(null);
 		}
 		model.addAttribute("board", board);
-		//파일명 수정하는 과정
+		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
 		String filepath = board.getFilepath();
 		if(filepath != null) {
-		//filepath : /년/월/일/uuid_파일명
+		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
 			String fileName = filepath.substring(filepath.indexOf("_")+1);
 			model.addAttribute("fileName", fileName);
 		}
@@ -165,13 +165,13 @@ public class BoardController {
 	    ResponseEntity<byte[]> entity = null;
 	    try{
 	    	String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
-	        /*	확장자를 통해 미디어 타입 정보를 가져옴*/
+	        /*	�솗�옣�옄瑜� �넻�빐 誘몃뵒�뼱 ���엯 �젙蹂대�� 媛��졇�샂*/
 	        MediaType mType = MediaUtils.getMediaType(FormatName);
 	        
 	        HttpHeaders headers = new HttpHeaders();
 	        in = new FileInputStream(uploadPath+fileName);
 	        
-	        /*	이미지이면 */
+	        /*	�씠誘몄��씠硫� */
 	        if(mType != null) {
 	        	headers.setContentType(mType);
 	        }else {
@@ -191,12 +191,12 @@ public class BoardController {
 	    return entity;
 	}
 	@RequestMapping(value="/delete")
-	public String delete(Integer number) {
-		boardService.deleteBoard(number);
+	public String delete(Integer number, Board board) {
+		boardService.deleteBoard(number, board);
 		return "redirect:/board/list";
 	}
-	/*	썸네일을 가져오기위해 서버에 일단 파일을 업로드하여 섬네일을 생성
-	 * 	(UploadFileUtils.uploadFile)하고 생성된 썸네일의 경로및 이름을 가져옴
+	/*	�뜽�꽕�씪�쓣 媛��졇�삤湲곗쐞�빐 �꽌踰꾩뿉 �씪�떒 �뙆�씪�쓣 �뾽濡쒕뱶�븯�뿬 �꽟�꽕�씪�쓣 �깮�꽦
+	 * 	(UploadFileUtils.uploadFile)�븯怨� �깮�꽦�맂 �뜽�꽕�씪�쓽 寃쎈줈諛� �씠由꾩쓣 媛��졇�샂
 	 * 	(return)	
 	 * */
 	@ResponseBody
@@ -209,6 +209,9 @@ public class BoardController {
 	    return new ResponseEntity<String>(fileName,
 				HttpStatus.OK);
 	}
+	
+	
+	
 	
 }
 

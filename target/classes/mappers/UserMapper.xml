@@ -33,4 +33,19 @@
 	<delete id="withdraw">
 		delete from account where id = #{user.id}
 	</delete>
+	
+	
+	<delete id="userDelete">
+		delete from account where id = #{user.id}
+	</delete>
+	
+	<!-- 로그용 -->
+	
+	<select id="getUserLog" resultType="kr.green.springwebproject.dao.User">
+	select * from accountlog
+	order by id desc
+	</select>
+	
+	
+	
 </mapper>

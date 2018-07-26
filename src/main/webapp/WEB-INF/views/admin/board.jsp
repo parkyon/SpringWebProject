@@ -27,76 +27,28 @@
 	</nav>
 	
 	<div class="container">
-		<h1>libraryInfo 관리
+		<h1>관리자 메뉴</h1>
+		<br>
+		<h1>
 			<c:if test="${!admin}"> 
-			| <a href="/admin/user">유저 관리</a>
+		 <a href="/admin/user">유저 관리</a>
 			</c:if>
+			
+			| <a href="/admin/boardLog">게시판 로그</a>
+		
+			
+			| <a href="/admin/libraryInfoLog">도서관 정보 로그</a>
+			
+		
+			| <a href="/admin/recBookLog">추천 도서 로그</a>
+			<c:if test="${!admin}"> 
+			| <a href="/admin/accountLog">유저 로그</a>
+			</c:if>
+			
 		</h1>
 		
-		<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-				<th>삭제</th>
-				<th>최종 삭제</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="board" items="${list}" varStatus="page">
-				<tr>
-					<td>${board.number}</td>
-					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
-					<td>${board.author }</td>
-					<td>
-						<c:if test="${board.disable.compareTo('TRUE')==0}">
-							<a href="/admin/board/disable?number=${board.number}&disable=FALSE&page=${pageMaker.criteria.page}">
-								<button>복구</button>
-							</a>
-						</c:if>
-						<c:if test="${board.disable.compareTo('FALSE')==0}">
-							<a href="/admin/board/disable?number=${board.number}&disable=TRUE&page=${pageMaker.criteria.page}">
-								<button>삭제</button>
-							</a>
-						</c:if>
-					</td>
-					<td>
-						<button onclick="deleteBoard(${board.number},${pageMaker.criteria.page} )">삭제</button>
-					</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	<ul class="pagination" style="justify-content: center;">
-		<c:if test="${pageMaker.prev}">
-	  		<li class="page-item">
-	  			<a class="page-link" 
-	  			href="/admin/board?page=${pageMaker.startPage-1}">Prev</a>
-  			</li>
-  		</c:if>
-	  	<c:forEach var="page" begin="${pageMaker.startPage}" 
-	  		end="${pageMaker.endPage}" >
-	  		<li class="page-item">
-	  			<a class="page-link" href="/admin/board?page=${page}">${page}</a>
-  			</li>
-	  	</c:forEach>
-	  	<c:if test="${pageMaker.next}">
-	  		<li class="page-item">
-	  			<a class="page-link" href="/admin/board?page=${pageMaker.endPage+1}">Next</a>
-  			</li>
-  		</c:if>
-	</ul>
+		
 	</div>
-	<script type="text/javascript">
-		function deleteBoard(number, page){
-			var conf = confirm("삭제하시겠습니까?");
-			if(conf){
-				var link = "/admin/board/delete?number=" 
-						+ number + "&page="+page;
-				location.href= link;
-			}
-		}
-	</script>
+	
 </body>
 </html>

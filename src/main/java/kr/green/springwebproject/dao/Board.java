@@ -2,15 +2,15 @@ package kr.green.springwebproject.dao;
 
 import java.util.Date;
 
-/* DB에서 게시판 정보를 가져와 저장할 클래스 */
+/* DB�뿉�꽌 寃뚯떆�뙋 �젙蹂대�� 媛��졇�� ���옣�븷 �겢�옒�뒪 */
 public class Board {
-	/* 멤버 : DB 테이블(board)에 있는 속성과 이름을
-	 * 일치 시켜야한다. */
+	/* 硫ㅻ쾭 : DB �뀒�씠釉�(board)�뿉 �엳�뒗 �냽�꽦怨� �씠由꾩쓣
+	 * �씪移� �떆耳쒖빞�븳�떎. */
 	private Integer number;
 	private String title;
 	private String author;
 	private String contents;
-	private String disable="FALSE";
+	
 	private Date created_date;
 	private String filepath;
 	
@@ -29,12 +29,7 @@ public class Board {
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
 	}
-	public String getDisable() {
-		return disable;
-	}
-	public void setDisable(String disable) {
-		this.disable = disable;
-	}
+
 	public Integer getNumber() {
 		return number;
 	}
@@ -63,5 +58,25 @@ public class Board {
 	public String toString() {
 		return "Board [number=" + number + ", title=" + title + ", author=" + author + ", contents=" + contents + "]";
 	}
+	
+	
+	////로그용
+	
+	private String action;
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
+	public String getChangedate() {
+		return changedate;
+	}
+	public void setChangedate(String changedate) {
+		this.changedate = changedate;
+	}
+
+
+	private String changedate;
 	
 }

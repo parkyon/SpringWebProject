@@ -76,8 +76,12 @@ public class LibraryInfoService {
 	}
 
 	
-
+	//로그용
 	
+	
+			public ArrayList<LibraryInfo> getLibraryInfoLog(int number) {
+				return libraryInfoMapper.getLibraryInfoLog(number);
+						}
 }
 	
 	

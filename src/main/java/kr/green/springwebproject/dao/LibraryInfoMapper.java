@@ -20,4 +20,13 @@ public interface LibraryInfoMapper {
 	public void insertLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
 	public void modifyLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
 	public void deleteLibraryInfo(@Param("libraryInfo")LibraryInfo libraryInfo);
+
+	//로그용
+	
+	public ArrayList<LibraryInfo> getLibraryInfoLog(
+			@Param("number")int number);
+
+	
+
+
 }

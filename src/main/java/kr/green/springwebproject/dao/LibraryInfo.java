@@ -102,20 +102,30 @@ public class LibraryInfo {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getDisable() {
-		return disable;
-	}
-	public void setDisable(String disable) {
-		this.disable = disable;
-	}
+	
 	private String operation;
 	private String phoneNumber;
 	private String homepage;
 	private String filepath;
 	private String author;
-	private String disable;
+	
 
-
+	//로그용
+	
+	private String changedate;
+	private String action;
+	public String getChangedate() {
+		return changedate;
+	}
+	public void setChangedate(String changedate) {
+		this.changedate = changedate;
+	}
+	public String getAction() {
+		return action;
+	}
+	public void setAction(String action) {
+		this.action = action;
+	}
 }
 
 

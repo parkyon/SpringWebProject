@@ -1,14 +1,15 @@
 package kr.green.springwebproject.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
 import kr.green.springwebproject.pagenation.Criteria;
 
-/* DB에 있는 게시판에 대한 정보를 처리하기 위한 메소드를
- * 가지고 있는 인터페이스 해당 내용은 BoardMapper.xml에
- * 쿼리문으로 작성되어 있음 */
+/* DB�뿉 �엳�뒗 寃뚯떆�뙋�뿉 ���븳 �젙蹂대�� 泥섎━�븯湲� �쐞�븳 硫붿냼�뱶瑜�
+ * 媛�吏�怨� �엳�뒗 �씤�꽣�럹�씠�뒪 �빐�떦 �궡�슜�� BoardMapper.xml�뿉
+ * 荑쇰━臾몄쑝濡� �옉�꽦�릺�뼱 �엳�쓬 */
 public interface BoardMapper {
 	public List<Board> getBoard();
 	
@@ -27,7 +28,7 @@ public interface BoardMapper {
 	public int getCountBoardByContents(@Param("search")String search);
 	public List<Board>getListPageByContents(@Param("cri")Criteria cri,
 			@Param("search")String search);
-	public void modifyBoardByDisable(@Param("board")Board board);
+
 	public List<Board> getBoardAll();
 	public List<Board> getListPageByAdmin(@Param("cri")Criteria cri);
 	public int getCountBoardByAdmin();
@@ -36,5 +37,13 @@ public interface BoardMapper {
 			@Param("cri")Criteria cri);
 	public int getCountMyBoards(@Param("author")String author);
 	public void deleteBoard(@Param("board")Board board);
+	
+	
+	///로그용
+	
+	public ArrayList<Board> getBoardLog(
+			@Param("number")int number);
+
+	
 	
 }

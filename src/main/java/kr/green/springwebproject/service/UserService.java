@@ -1,5 +1,7 @@
 package kr.green.springwebproject.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.dao.UserMapper;
 
@@ -98,7 +101,22 @@ public boolean isAdmin(User user) {
 		return false;
 	}
 
+public boolean userDelete(User user) {
 	
+userMapper.userDelete(user);
+return true;
+}
+
+//로그용
+
+
+public ArrayList<User> getUserLog(String id) {
+	return userMapper.getUserLog(id);
+			}
+
+
+
+
 
 }
 

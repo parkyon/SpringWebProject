@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java/kr/green/springwebproject/controller/BoardController.java=UTF-8
+encoding//src/main/java/kr/green/springwebproject/dao/Board.java=UTF-8
+encoding//src/main/java/kr/green/springwebproject/dao/BoardMapper.java=UTF-8
+encoding//src/main/java/kr/green/springwebproject/service/AdminService.java=UTF-8
+encoding//src/main/java/kr/green/springwebproject/service/BoardService.java=UTF-8

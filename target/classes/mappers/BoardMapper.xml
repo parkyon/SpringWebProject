@@ -6,7 +6,7 @@
     <select id="getBoard" 
     resultType="kr.green.springwebproject.dao.Board">
 		select * from board 
-		where disable='FALSE'
+		
 		order by number desc
 	</select>
 	<select id="getBoardByNumber"
@@ -37,7 +37,7 @@
 			*
 		from 
 			board
-		where disable='FALSE'
+		
 		order by number desc
 		<!-- limit
 			#{cri.pageStart},#{cri.perPageNum} -->
@@ -47,7 +47,7 @@
 			count(number)
 		from
 			board
-		where disable='FALSE'
+		
 	</select>
 	<select id="getListPageByTitle" 
 		resultType="kr.green.springwebproject.dao.Board">
@@ -56,8 +56,7 @@
 		from 
 			board
 		where 
-			disable='FALSE'
-			and
+		
 			title like #{search}
 			 
 		order by number desc
@@ -70,8 +69,7 @@
 		from
 			board
 		where 
-			disable='FALSE'
-			and  
+		 
 			title like #{search}
 	</select>
 	<select id="getListPageByAuthor" 
@@ -81,8 +79,7 @@
 		from 
 			board
 		where 
-			disable='FALSE'
-			and 
+			
 			author like #{search}
 		order by number desc
 		<!--  limit
@@ -94,8 +91,7 @@
 		from
 			board
 		where 
-			disable='FALSE' 
-			and
+			
 			author like #{search}
 			
 	</select>
@@ -103,8 +99,7 @@
 		resultType="kr.green.springwebproject.dao.Board">
 		select	*
 		from 	board
-		where 	disable='FALSE'
-				and 
+		where 	 
 				contents like #{search}
 		order 	by number desc
 		<!--  limit	#{cri.pageStart},#{cri.perPageNum}-->
@@ -112,17 +107,9 @@
 	<select id="getCountBoardByContents" resultType="java.lang.Integer">
 		select	count(number)
 		from	board
-		where	disable='FALSE'
-		and	 	contents like #{search}
+		where	 	contents like #{search}
 	</select>
-	<update id="modifyBoardByDisable">
-		update 
-			board 
-		set 
-			disable = #{board.disable}
-	 	where
-	 		number = #{board.number}
-	</update>
+
 	<select id="getBoardAll" 
     resultType="kr.green.springwebproject.dao.Board">
 		select * from board order by number desc
@@ -147,14 +134,14 @@
 		resultType="kr.green.springwebproject.dao.Board">
 		select *
 			from board
-			where author = #{author} and disable='FALSE'
+			where author = #{author} 
 			order by number desc
 			<!--  limit #{cri.pageStart}, #{cri.perPageNum}-->
 	</select>
 	<select id="getCountMyBoards" resultType="java.lang.Integer">
 		select count(number)
 			from board
-			where author = #{author} and disable='FALSE'
+			where author = #{author}
 	</select>
 	<delete id="deleteBoard">
 		delete from board 
@@ -162,6 +149,12 @@
 	</delete>
 	
 	
+	<!-- 로그용 -->
+	
+	<select id="getBoardLog" resultType="kr.green.springwebproject.dao.Board">
+	select * from boardlog
+	order by number desc
+	</select>
 </mapper>
 
 

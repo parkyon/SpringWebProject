@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.BoardMapper;
+import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.utils.UploadFileUtils;
@@ -103,26 +105,26 @@ public class BoardService {
 	
 		public boolean modifyBoard(Board board, MultipartFile file
 				, String uploadPath, Integer del) throws Exception  {
-			//수정된 날짜로 created_date를 업데이트
+			//�닔�젙�맂 �궇吏쒕줈 created_date瑜� �뾽�뜲�씠�듃
 			Date created_date = new Date();
 			board.setCreated_date(created_date);
-			//기존 첨부파일 경로를 가져오기 위함
+			//湲곗〈 泥⑤��뙆�씪 寃쎈줈瑜� 媛��졇�삤湲� �쐞�븿
 			Board tmp = boardMapper.getBoardByNumber(board.getNumber());
 		
-			//수정될 첨부파일이 있는 경우
+			//�닔�젙�맆 泥⑤��뙆�씪�씠 �엳�뒗 寃쎌슦
 			if(file != null && file.getOriginalFilename().length()!= 0) {
 				String filePath = UploadFileUtils.uploadFile
 						(uploadPath, file.getOriginalFilename(),file.getBytes());
 				board.setFilepath(filePath);
 			}
-			//수정될 첨부파일이 없지만 기존 첨부파일이 지워져야 하는 경우
+			//�닔�젙�맆 泥⑤��뙆�씪�씠 �뾾吏�留� 湲곗〈 泥⑤��뙆�씪�씠 吏��썙�졇�빞 �븯�뒗 寃쎌슦
 			else if(del != null && tmp.getFilepath() != null) {
-				//실제 파일을 삭제
+				//�떎�젣 �뙆�씪�쓣 �궘�젣
 				new File(uploadPath + tmp.getFilepath()
 					.replace('/', File.separatorChar)).delete();
 				board.setFilepath(null);
 			}
-			//수정될 파일이 없고 기존 파일을 유지하는 경우
+			//�닔�젙�맆 �뙆�씪�씠 �뾾怨� 湲곗〈 �뙆�씪�쓣 �쑀吏��븯�뒗 寃쎌슦
 			else {
 				board.setFilepath(tmp.getFilepath());
 			}
@@ -150,12 +152,22 @@ public class BoardService {
 		}
 		
 		
-		public boolean deleteBoard(Integer number) {
-			Board board = boardMapper.getBoardByNumber(number);
-			board.setDisable("TRUE");
-			boardMapper.modifyBoardByDisable(board);
+		public boolean deleteBoard(Integer number, Board board) {
+			
+			
+			boardMapper.deleteBoard(board);
 			return true;
 		}
+		
+		
+		//로그용
+		
+		
+		public ArrayList<Board> getBoardLog(int number) {
+			return boardMapper.getBoardLog(number);
+					}
+		
+		
 }
 		
 		

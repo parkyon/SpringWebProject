@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface RecBookMapper {
 
-	public ArrayList<LibraryInfo> getRecBookListByNumber(
+	public ArrayList<RecBook> getRecBookListByNumber(
 			@Param("recBookNumber")int recBookNumber);
 
 	public void insertRecBook(@Param("recBook")RecBook recBook);
@@ -16,4 +16,10 @@ public interface RecBookMapper {
 
 	public RecBook getDetailRecBookByNumber(@Param("recBookNumber")int recBookNumber);
 	
+	
+	//로그용
+	
+	public ArrayList<RecBook> getRecBookLog(
+			@Param("recBookNumber")int recBookNumber);
+
 }

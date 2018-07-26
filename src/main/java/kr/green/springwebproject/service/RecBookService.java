@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookMapper;
@@ -14,7 +15,7 @@ public class RecBookService {
 	@Autowired
 	private RecBookMapper recBookMapper;
 
-	public ArrayList<LibraryInfo> getRecBook(Integer recBookNumber) {
+	public ArrayList<RecBook> getRecBook(Integer recBookNumber) {
 		return recBookMapper.getRecBookListByNumber(recBookNumber);
 
 	}
@@ -60,5 +61,13 @@ public class RecBookService {
 		return false;
 		
 	}
+	
+	//로그용
+	
+	
+			public ArrayList<RecBook> getRecBookLog(int recBookNumber) {
+				return recBookMapper.getRecBookLog(recBookNumber);
+						}
+			
 
 }

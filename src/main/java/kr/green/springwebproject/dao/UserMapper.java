@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -20,4 +21,11 @@ public interface UserMapper {
 				@Param("cri")Criteria cri);
 	public int countUsersExceptLoginUser(@Param("user")User user);
 	public void withdraw(@Param("user")User user);
+	
+	public void userDelete(@Param("user")User user);
+	///로그용
+	
+		public ArrayList<User> getUserLog(
+				@Param("id")String id);
+
 }

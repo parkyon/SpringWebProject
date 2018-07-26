@@ -40,7 +40,7 @@ public class RecBookController {
 		model.addAttribute("admin", admin);
 		
 		
-		ArrayList<LibraryInfo> list = recBookService.getRecBook(number);
+		ArrayList<RecBook> list = recBookService.getRecBook(number);
 		
 		model.addAttribute("list", list);
 		System.out.println(list);

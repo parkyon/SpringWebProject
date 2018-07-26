@@ -30,7 +30,7 @@ public ArrayList<Board> getAdminBoards(Criteria cri){
 }
 
 public boolean isSuperAdmin(User user) {
-	//관리지인지 아닌지 알려주는거
+	//愿�由ъ��씤吏� �븘�땶吏� �븣�젮二쇰뒗嫄�
 	if(user.getAdmin().compareTo("ADMIN")==0)
 		
 			return  false;
@@ -38,15 +38,7 @@ public boolean isSuperAdmin(User user) {
 	}
 
 
-public boolean setBoardDissable(Integer number, String disable
-		) {
-	Board board = boardMapper.getBoardByNumber(number);
-	board.setDisable(disable);
-	boardMapper.modifyBoardByDisable(board);
-	
-	
-	return true;
-}
+
 
 public int countUsersExceptLoginUSer(User nowUser) {
 	

@@ -27,7 +27,7 @@
 	</nav>
 	
 	<div class="container">
-		<h1><a href="/admin/board">libraryInfo 관리</a> | 유저 관리</h1>
+		<h1> 유저 관리</h1>
 		
 		<table class="table table-bordered">
 		<thead>
@@ -36,6 +36,7 @@
 				<th>이메일</th>
 				<th>권한</th>
 				<th>권한수정</th>
+				<th>탈퇴</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -56,6 +57,7 @@
 							</a>
 						</c:if>
 					</td>
+					<td><a href="Userdelete"><button>삭제</button></a> </td>
 				</tr>
 			</c:forEach>
 		</tbody>

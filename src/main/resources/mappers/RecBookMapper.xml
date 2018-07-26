@@ -28,12 +28,22 @@
 		bookType = #{recBook.bookType},
 		bookStory = #{recBook.bookStory},
 		writer = # {recBook.writer}
-	where
-		number=#{recBook.number}
+	
+		where recBookNumber = #{recBook.recBookNumber}
 	</update>
 	<delete id="deleteRecBook">
 	delete from recbook
-		where number=#{recBook.number}
+		
+		where recBookNumber = #{recBook.recBookNumber}
 	</delete>
+	
+	
+	<!-- 로그용 -->
+	
+	<select id="getRecBookLog" resultType="kr.green.springwebproject.dao.RecBook">
+	select * from recbooklog
+	order by recBookNumber desc
+	</select>
+	
 	
 </mapper>
