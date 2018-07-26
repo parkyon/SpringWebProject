@@ -82,6 +82,27 @@ public class LibraryInfoService {
 			public ArrayList<LibraryInfo> getLibraryInfoLog(int number) {
 				return libraryInfoMapper.getLibraryInfoLog(number);
 						}
+//최신글 용
+			public int getCountByLibraryInfoList(Integer type, String search, Criteria cri) {
+				int totalCount2 = 0;
+				if(type == null)
+					type = 0;
+				if(type == 0) {
+					totalCount2 = libraryInfoMapper.getCountLibraryInfo();
+				}
+				
+				return totalCount2;
+			}
+
+			public ArrayList<LibraryInfo> getListLibraryInfo(Integer type, String search, Criteria cri) {
+				ArrayList<LibraryInfo> list2 = null;
+				if(type == null)
+					type = 0;
+				
+				list2 
+				= (ArrayList)libraryInfoMapper.searchLibraryInfos(cri, "%"+search+"%", type);
+			return list2;
+			}
 }
 	
 	

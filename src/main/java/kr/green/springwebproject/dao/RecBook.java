@@ -79,4 +79,14 @@ public class RecBook {
 	public void setAction(String action) {
 		this.action = action;
 	}
+	
+	//최신글용
+	private String title;
+
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }

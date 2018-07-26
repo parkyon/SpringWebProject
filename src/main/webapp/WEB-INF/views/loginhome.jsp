@@ -7,18 +7,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>도서관정보시스템</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
+<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
 
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.foundation.min.css">
 
-
-	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
-
-	<script type="text/javascript" class="init">
+<script type="text/javascript" class="init">
 
 	$.extend( true, $.fn.dataTable.defaults,
 	{
@@ -213,7 +209,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list1}">
+			<c:forEach var="board" items="${list}">
 				<tr>
 					<td>${board.number}</td>
 					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
@@ -237,7 +233,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="recBook" items="${list}">
+			<c:forEach var="recBook" items="${list1}">
 				<tr>
 					<td>${recBook.recBookNumber}</td>
 					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>

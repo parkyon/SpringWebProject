@@ -69,6 +69,25 @@
 	select * from libraryinfolog
 	order by number desc
 	</select>
+	<!-- 최신글 용 -->
 	
+	<select id="getCountLibraryInfo" resultType="java.lang.Integer">
+		select
+			count(number)
+		from
+			libraryInfo
+		
+	</select>
+	
+	
+	
+	<select id="searchLibraryInfos" resultType="kr.green.springwebproject.dao.LibraryInfo">
+		select * from libraryInfo
+		where 1 = 1 and disable='FALSE'
+			
+		order by number desc
+		limit
+			#{cri.pageStart},#{cri.perPageNum}
+	</select>
 	
 </mapper>

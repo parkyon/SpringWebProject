@@ -155,6 +155,24 @@
 	select * from boardlog
 	order by number desc
 	</select>
+	
+	
+	<select id="searchBoards" resultType="kr.green.springwebproject.dao.Board">
+		select * from board
+		where 1 = 1 and disable='FALSE'
+			<if test="type==1">
+				 and title like #{search}
+			</if>
+			<if test="type==2">
+				 and author like #{search}
+			</if>
+			<if test="type==3">
+				 and contents like #{search}
+			</if>
+		order by number desc
+		limit
+			#{cri.pageStart},#{cri.perPageNum}
+	</select>
 </mapper>
 
 

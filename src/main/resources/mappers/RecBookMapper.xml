@@ -46,4 +46,26 @@
 	</select>
 	
 	
+	<!-- 최신글용 -->
+	
+	<select id="getCountRecBook" resultType="java.lang.Integer">
+		select
+			count(recBookNumber)
+		from
+			recbook
+		
+	</select>
+	
+	
+	
+	<select id="searchRecBooks" resultType="kr.green.springwebproject.dao.RecBook">
+		select * from recbook
+		where 1 = 1 and disable='FALSE'
+			
+		order by recBookNumber desc
+		limit
+			#{cri.pageStart},#{cri.perPageNum}
+	</select>
+	
+	
 </mapper>

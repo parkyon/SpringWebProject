@@ -10,6 +10,7 @@ import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookMapper;
 import kr.green.springwebproject.dao.User;
+import kr.green.springwebproject.pagenation.Criteria;
 @Service
 public class RecBookService {
 	@Autowired
@@ -68,6 +69,30 @@ public class RecBookService {
 			public ArrayList<RecBook> getRecBookLog(int recBookNumber) {
 				return recBookMapper.getRecBookLog(recBookNumber);
 						}
+
+			
+			
+			//최신글용
+			public int getCountByRecBookList(Integer type, String search, Criteria cri) {
+				int totalCount1 = 0;
+				if(type == null)
+					type = 0;
+				if(type == 0) {
+					totalCount1 = recBookMapper.getCountRecBook();
+				}
+				
+				return totalCount1;
+			}
+
+			public ArrayList<RecBook> getRecBook(Integer type, String search, Criteria cri) {
+				ArrayList<RecBook> list1 = null;
+				if(type == null)
+					type = 0;
+				
+				list1 
+				= (ArrayList)recBookMapper.searchRecBooks(cri, "%"+search+"%", type);
+			return list1;
+			}
 			
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import kr.green.springwebproject.pagenation.Criteria;
+
 public interface RecBookMapper {
 
 	public ArrayList<RecBook> getRecBookListByNumber(
@@ -21,5 +23,16 @@ public interface RecBookMapper {
 	
 	public ArrayList<RecBook> getRecBookLog(
 			@Param("recBookNumber")int recBookNumber);
+
+	
+	//최신글용
+	
+	public int getCountRecBook();
+
+	public ArrayList searchRecBooks(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
+
+	
+
+	
 
 }

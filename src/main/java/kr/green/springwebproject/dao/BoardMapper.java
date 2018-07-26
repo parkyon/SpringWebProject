@@ -38,7 +38,7 @@ public interface BoardMapper {
 	public int getCountMyBoards(@Param("author")String author);
 	public void deleteBoard(@Param("board")Board board);
 	
-	
+	public List<Board> searchBoards(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
 	///로그용
 	
 	public ArrayList<Board> getBoardLog(

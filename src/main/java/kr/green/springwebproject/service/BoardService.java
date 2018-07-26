@@ -166,6 +166,41 @@ public class BoardService {
 		public ArrayList<Board> getBoardLog(int number) {
 			return boardMapper.getBoardLog(number);
 					}
+
+
+
+		public int getCountByBoardList(Integer type, String search, Criteria cri) {
+			int totalCount = 0;
+			if(type == null)
+				type = 0;
+			if(type == 0) {
+				totalCount = boardMapper.getCountBoard();
+			}
+			else if(type == 1) {
+				totalCount 
+				= boardMapper.getCountBoardByTitle("%"+search+"%");
+			}else if(type == 2) {
+				totalCount 
+				= boardMapper.getCountBoardByAuthor("%"+search+"%");
+			}else {
+				totalCount 
+				= boardMapper.getCountBoardByContents("%"+search+"%");
+			}
+			return totalCount;
+		}
+
+
+
+		public ArrayList<Board> getListBoard(Integer type, String search,
+				Criteria cri){
+			ArrayList<Board> list = null;
+			if(type == null)
+				type = 0;
+			
+			list 
+			= (ArrayList)boardMapper.searchBoards(cri, "%"+search+"%", type);
+		return list;
+		}
 		
 		
 }

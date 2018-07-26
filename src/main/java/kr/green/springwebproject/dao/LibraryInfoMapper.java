@@ -25,6 +25,10 @@ public interface LibraryInfoMapper {
 	
 	public ArrayList<LibraryInfo> getLibraryInfoLog(
 			@Param("number")int number);
+//최신글용
+	public int getCountLibraryInfo();
+	public List<Board> searchLibraryInfos(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
+
 
 	
 

@@ -78,5 +78,9 @@ public class Board {
 
 
 	private String changedate;
+
+	
+	//기타
+	
 	
 }
