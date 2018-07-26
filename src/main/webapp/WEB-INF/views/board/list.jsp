@@ -31,6 +31,7 @@
 	$(document).ready(function() {
 
 		var table = $('#example').DataTable();
+		"pageLength": 3
 
 	} );
 	</script>

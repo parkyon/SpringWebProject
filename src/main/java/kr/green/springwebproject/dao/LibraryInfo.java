@@ -1,5 +1,7 @@
 package kr.green.springwebproject.dao;
 
+import java.util.ArrayList;
+
 public class LibraryInfo {
 
 	private Integer number;
@@ -126,6 +128,7 @@ public class LibraryInfo {
 	public void setAction(String action) {
 		this.action = action;
 	}
+	
 }
 
 

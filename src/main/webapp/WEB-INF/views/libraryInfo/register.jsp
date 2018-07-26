@@ -73,6 +73,12 @@
 		    	<label>홈페이지 주소</label>
 		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
 		    </div>
+		    <div class="form-group">
+		        <label>파일</label>
+		        <input type="file" class="form-control" name="file"/>
+		        <div class="fileDrop"></div>
+		        <div class="uploadedList"></div>
+		    </div>
 		   
 		    <div>
 			    
@@ -83,6 +89,48 @@
 	</div>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
+	
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	/*	파일 이름에 jpg,gif,png,jpeg이 들어가있는지 확인 */
+	function checkImageType(fileName){
+		var pattern = /jpg|gif|png|jpeg/i;
+		return fileName.match(pattern);
+	}
+	$(".fileDrop").on("dragenter dragover", function(e){
+		e.preventDefault();
+	});
+	$(".fileDrop").on("drop", function(e){
+		e.preventDefault();
+		var files = e.originalEvent.dataTransfer.files;
+		var file = files[0];
+		console.log(file);
+		var formData = new FormData();
+		formData.append("file",file);
+		
+		$.ajax({
+			url : '/board/display',
+			data: formData,
+			dataType:'text',
+			processData: false,
+			contentType: false,
+			type:'POST',
+			success:function(data){
+				var str="";
+				if(checkImageType(data)){
+					str="<div>"
+						+"<img src='/board/download?fileName="
+						+data+"'/>"
+						+ data +"</div>";
+				}
+				else{
+					str = "<div>" + data + "</div>"
+				}
+				$(".uploadedList").append(str);
+			}
+		});
+	});
+	</script>
 	
 </body>
 </html>

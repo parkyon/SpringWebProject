@@ -7,11 +7,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>도서관정보시스템</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
-<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
+ <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.foundation.min.css">
+
+
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+	<script type="text/javascript" class="init">
+
+	$.extend( true, $.fn.dataTable.defaults,
+	{
+		"language": {
+			"url": "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Korean.json"
+		}
+	});
+
+	$(document).ready(function() {
+
+		var table = $('#example').DataTable({
+			  "pageLength": 5
+		});
+
+	} );
+	</script>
 
 
 
@@ -124,113 +147,113 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
     </div>
 
-<div class="container-fluid">
-
-<div>
-<h1>&nbsp;</h1>
-</div>
-<div class="row">
-<div class="col-sm-3">
-<div id="support">
-<h2>도서관 정보 시스템</h2>
-<h3>1-800-1234567(로고 추가)</h3>
-</div>
-<div id="login" class="boxed">
-<h2 class="title">Client Account</h2>
-
-<div id="updates" class="boxed">
-<h2 class="title">최신글</h2>
-<div class="content">
-<ul>
-<li>
-<h3>March 5, 2007</h3>
-<p><a href="#">In posuere eleifend odio quisque
-semper augue mattis wisi maecenas ligula…</a></p>
-</li>
-<li>
-<h3>March 3, 2007</h3>
-<p><a href="#">Quisque dictum integer nisl
-risus, sagittis convallis, rutrum id, congue, and nibh…</a></p>
-</li>
-<li>
-<h3>February 28, 2007</h3>
-<p><a href="#">Donec leo, vivamus fermentum nibh
-in augue praesent a lacus at urna congue rutrum…</a></p>
-</li>
-<li>
-<h3>February 25, 2007</h3>
-<p><a href="#">Nam pede erat, porta eu, lobortis
-eget, tempus et, tellus. Etiam nequea…</a></p>
-</li>
-<li>
-<h3>February 20, 2007</h3>
-<p><a href="#">Vivamus fermentum nibh in augue.
-Praesent a lacus at urna congue rutrum. Nulla enim eros…</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="aaaa">
-
-홈페이지 소개용 글ㅇ너란어라ㅣ더ㅏㅣㄹㄴ어라ㅣㅇㄴ
-</div>
-
-
- <div class="col-sm-6">
-<h4>이달의 추천도서</h4>
-<div id="aaaa">
-이달의 추천도서 내역
-</div>
-  
-  
-</diV>
-
-     <div class="col-sm-3">
-    	<h4>공지글</h4>
-    	<div id="aaaa">
-    	sfsdfsdfsdfsdfsdfsdf
-   		 </div>
-     </div>
- 
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-<div>
-후원사이트 움직이는 거 사용하는 쪽
-</div>
-
-
-
-<div id="footer">
-  sdfjdslkfjsdklfjsdlkfjdklsfjskldf
-</div>
-<div style="font-size: 0.8em; text-align: center; margin-top: 1em; margin-bottom: 1em;">
-Design downloaded from <a href="http://www.freewebtemplates.com/">Free
-Templates</a> - your source for free web templates<br />
-Supported by <a href="http://www.hosting24.com/" target="_blank">Hosting24.com</a>
-</div>
-  
-
 
   
-</div>
+<div class="container-fluid bg-3 text-center">    
+  <h3>Some of my Work</h3><br>
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+  </div>
+</div><br>
 
+<div class="container-fluid bg-3 text-center">    
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Some text..</p>
+      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+    </div>
+    <div class="col-sm-3"> 
+      <p>도서 정보 최신글</p>
+     <table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>도서관명</th>
+				<th>지역</th>
+				<th>전화번호</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="libraryInfo" items="${list2}">
+				<tr>
+					<td>${libraryInfo.number}</td>
+					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
+					<td>${libraryInfo.cityName }</td>
+					<td>${libraryInfo.phoneNumber }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+    </div>
+    <div class="col-sm-3"> 
+      <p>자유 게시판 최신글</p>
+      
+      
+      <table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="board" items="${list1}">
+				<tr>
+					<td>${board.number}</td>
+					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
+					<td>${board.author }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+    </div>
+    <div class="col-sm-3">
+      <p>추천 도서 최신글</p>
+    
+		
+		<table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>책이름</th>
+				
+				<th>작가</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="recBook" items="${list}">
+				<tr>
+					<td>${recBook.recBookNumber}</td>
+					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>
+					
+					<td>${recBook.writer }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Footer Text</p>
+</footer>
 
 </body>
 </html>
-

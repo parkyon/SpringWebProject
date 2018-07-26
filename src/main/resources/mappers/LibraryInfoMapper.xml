@@ -5,7 +5,10 @@
 <mapper namespace="kr.green.springwebproject.dao.LibraryInfoMapper">
 	<select id="getLibraryInfo" resultType ="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
+	
 	order by number desc
+	
+	limit 10
 	</select>
 
 

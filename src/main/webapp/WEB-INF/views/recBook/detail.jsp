@@ -20,10 +20,16 @@
 	<div class="container">
   		<form >
   			<h1>추천 도서 상세</h1>
+  			
+  					    <div style="border:1px solid; padding:10px;">
+이미지 없음
+</div>
 		    <div class="form-group">
 		    	<label>번호</label>
 		      	<input type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber }" disabled>
 		    </div>
+		    
+
 		    <div class="form-group">
 		    	<label>책 이름</label>
 		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" disabled>

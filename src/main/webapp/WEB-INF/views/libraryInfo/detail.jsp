@@ -34,9 +34,14 @@
 		      	<input type="text" class="form-control" name="author" value="${libraryInfo.author}" disabled>
 		    </div>
 		    <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<input type="text" class="form-control" name="author" value="${libraryInfo.filepath}" disabled>
+		    </div>
+		    <div class="form-group">
 		    	<label>홈페이지주소</label>
 		      	<textarea class="form-control" rows="5" name="homepage" disabled>${libraryInfo.homepage}</textarea>
 		    </div>
+		    
 	  	</form>
 	  	<div>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
