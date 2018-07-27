@@ -120,6 +120,19 @@ public ArrayList<User> getUserLog(String id) {
 
 
 
+//권한 수정용
+
+public boolean ChangeAdmin(String id) {
+	userMapper.changeAdmin(id);
+	
+	return true;
+}
+
+public boolean ChangeUser(String id) {
+	userMapper.changeUser(id);
+	return true;
+	
+}
 }
 
 

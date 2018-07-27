@@ -183,10 +183,47 @@ public class AdminController {
 		
 		return "redirect:/admin/user";
 	}
+	
+	//권한 수정 기능
+	
+	@RequestMapping(value="/changeAdmin")
+	public String chageAdmin(HttpServletRequest request,Model model,User user, String id, String admin, String aaa) {
+		
+		if(id == null) {
+			id = aaa;
+		}
+		
+	userService.ChangeAdmin(id);
+	
+	
+	model.addAttribute("id", id);
+	
+	System.out.println("이건아아디"+id);
+	
+	System.out.println("이건admin"+admin);
+	
+	return "redirect:/admin/user";
+
+	}
+	@RequestMapping(value="/changeUser")
+	public String chageUser(HttpServletRequest request,Model model,User user,String id, String admin, String aaa) {
+	
+		
+		
+		
+		
+		userService.ChangeUser(id);
+	
+	
+	model.addAttribute("id", id);
+	
+	
+	return "redirect:/admin/user";
+
+	}
+	
 
 }
-
-
 
 
 

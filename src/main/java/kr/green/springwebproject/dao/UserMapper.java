@@ -27,5 +27,9 @@ public interface UserMapper {
 	
 		public ArrayList<User> getUserLog(
 				@Param("id")String id);
+	//권한 수정용
+		
+		public void changeAdmin(@Param("id")String id);
+		public void changeUser(@Param("id")String id);
 
 }

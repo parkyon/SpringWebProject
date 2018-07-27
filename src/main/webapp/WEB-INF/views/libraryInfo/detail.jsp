@@ -44,6 +44,7 @@
 		    
 	  	</form>
 	  	<div>
+	  	<a href="/libraryInfo/map">지도</a>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor || !USER }" >
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>

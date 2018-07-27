@@ -121,6 +121,17 @@ public class LibraryInfoController {
 		return "redirect:/libraryInfo/libraryList";
 	}
 	
+	@RequestMapping(value="map")
+	public String map(Model model,Integer number,Double latitude,
+
+Double longitude) {
+	libraryInfoService.getLibraryInfo(number);
+	
+	model.addAttribute("latitude", latitude);
+	model.addAttribute("longitude", longitude);
+	
+	return "/libraryInfo/map";
+	}
 	
 	
 }

@@ -129,6 +129,26 @@ public class LibraryInfo {
 		this.action = action;
 	}
 	
+	
+	//지도용 위도 경도
+	
+	private Double latitudel;
+
+	public Double getLatitudel() {
+		return latitudel;
+	}
+	public void setLatitudel(Double latitudel) {
+		this.latitudel = latitudel;
+	}
+	public Double getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	private Double longitude;
+	
 }
 
 

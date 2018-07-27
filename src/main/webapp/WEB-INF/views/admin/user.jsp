@@ -11,6 +11,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
+
+
 <body>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 		<div class="container">
@@ -36,7 +38,7 @@
 				<th>이메일</th>
 				<th>권한</th>
 				<th>권한수정</th>
-				<th>탈퇴</th>
+				<th>유저삭제</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -46,16 +48,12 @@
 					<td>${user.email}</td>
 					<td>${user.admin}</td>
 					<td>
-						<c:if test="${user.admin.compareTo('ADMIN')==0}">
-							<a href="/admin/user/set?admin=USER&page=${pageMaker.criteria.page}&id=${user.id}">
-								<button>USER</button>
-							</a>
-						</c:if>
-						<c:if test="${user.admin.compareTo('USER')==0}">
-							<a href="/admin/user/set?admin=ADMIN&page=${pageMaker.criteria.page}&id=${user.id}">
-								<button>ADMIN</button>
-							</a>
-						</c:if>
+					<c:if test="${user.admin.compareTo('USER')==0}">
+						 <a href="/admin/changeAdmin?id=${user.id}"><button>ADMIN</button></a>
+					   </c:if>
+					  <c:if test="${user.admin.compareTo('ADMIN')==0}">
+					    <a href="/admin/changeUser?id=${user.id}"><button>USER</button></a>
+					    </c:if>
 					</td>
 							  
 					

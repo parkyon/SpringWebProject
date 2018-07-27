@@ -46,6 +46,14 @@
 	order by id desc
 	</select>
 	
+	<update id="changeAdmin">
+	update account set admin='ADMIN'
+	where id=#{id}
+	</update>
 	
+	<update id="changeUser">
+	update account set admin='USER'
+	where id=#{id}
+	</update>
 	
 </mapper>
