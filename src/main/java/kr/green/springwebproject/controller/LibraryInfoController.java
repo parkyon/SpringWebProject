@@ -122,13 +122,21 @@ public class LibraryInfoController {
 	}
 	
 	@RequestMapping(value="map")
-	public String map(Model model,Integer number,Double latitude,
+	public String map(Model model,Integer number,Double latitude, HttpServletRequest request,
 
 Double longitude) {
 	libraryInfoService.getLibraryInfo(number);
 	
+	
+	
+	if(number == null) {
+		number = 1;
+	}
 	model.addAttribute("latitude", latitude);
 	model.addAttribute("longitude", longitude);
+	System.out.println("sdfsdfsdf");
+	System.out.println(latitude);
+	System.out.println(longitude);
 	
 	return "/libraryInfo/map";
 	}

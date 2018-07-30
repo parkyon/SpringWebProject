@@ -5,4 +5,4 @@ encoding//src/main/java/kr/green/springwebproject/dao/BoardMapper.java=UTF-8
 encoding//src/main/java/kr/green/springwebproject/service/AdminService.java=UTF-8
 encoding//src/main/java/kr/green/springwebproject/service/BoardService.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/MainHome.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/siteInfo.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/siteInfo/siteInfo.jsp=UTF-8

@@ -34,7 +34,7 @@
 
 
 
-<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
+
      
     
 </head>
@@ -85,7 +85,7 @@
   <div class="btn-group btn-group-justified">
   
   
-    <a href="/siteInfo" class="btn btn-primary">사이트소개</a>
+    <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
     <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관 정보</a>
     <a href="/recBook/recBookList" class="btn btn-primary">책 소개</a>

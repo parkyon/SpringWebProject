@@ -111,35 +111,46 @@
   <div class="row content">
     <div class="col-sm-2 sidenav">
      <div id="accordion">
-  <h3></h3>
+  <h3>사이트소개</h3>
   <div>
-    <p>isi metus. Nat odio. Curabiue vulputate.</p>
+    	<ul>
+  	<li>	<a href="/siteInfo/siteInfo1" target="aaa">사이트 소개</a></li>
+  	<li>	<a href="/siteInfo/makepeople" target ="aaa">개발자 소개</a></li>
+  	<li>	<a href="/siteInfo/copyRight" target ="aaa">저작권 </a></li>
+  	
+  	</ul>
   </div>
-  <h3>Section 2</h3>
+  <h3>도서관정보</h3>
   <div>
-    <p>Sed non ulors libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+  	<ul>
+  	<li>	<a href="/siteInfo/libraryInfo" target ="aaa">도서관정보</a></li>
+ 
+  	
+  	</ul>
   </div>
-  <h3>Section 3</h3>
-  <div>
-    <p>Namque purus inedculis leo purus venenatis dui. </p>
-    <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
-    </ul>
+  <h3>추천도서 </h3>
+ <div>
+  	<ul>
+  	<li>	<a href="/siteInfo/recBookInfo" target ="aaa"> 추천도서</a></li>
+  	<li>	<a href="/siteInfo/monthsRecBook" target ="aaa">이달의 추천도서</a></li>
+  
+  	
+  	</ul>
   </div>
-  <h3>Section 4</h3>
+  <h3>자유 게시판</h3>
   <div>
-    <p>Craestiban lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+  	<ul>
+  	<li>	<a href="/siteInfo/boardInfo" target ="aaa">자유게시판</a></li>
+  	<li>	<a href="/stieInfo/event" target ="aaa">이벤트</a></li>
+  	
+  	
+  	</ul>
   </div>
 </div>
     </div>
-    <div class="col-sm-8 text-left"> 
-      <h1>Welcome</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
+    <div id="aaa" class="col-sm-8 text-left"> 
+      <object id="nzeo" width="100%" height="100%" data="http://www.nzeo.com" name="aaa">
+</object>
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">

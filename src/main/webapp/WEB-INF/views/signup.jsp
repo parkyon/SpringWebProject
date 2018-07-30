@@ -111,7 +111,8 @@
       <label for="pwd">Email:</label>
       <input type="email" class="form-control" id="email" name="email">
     </div>
-    <button type="submit" class="btn btn-primary">로그인</button>
+    <button type="submit" class="btn btn-primary">가입</button>
+    <button class="btn btn-primary" onClick="history.back();" >취소</button>
   </form>
 </div>
 <!-- <script>

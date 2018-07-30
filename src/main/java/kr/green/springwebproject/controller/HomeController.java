@@ -157,9 +157,13 @@ public class HomeController {
 		return "siteInfo";
 	}
 	
-			
-			
 	
+	
+	@RequestMapping(value = "/aaa", method = RequestMethod.GET)
+	public String aaa(Model model, HttpServletRequest request) {
+				
+		return "aaa";
+	}
 	
 }
 

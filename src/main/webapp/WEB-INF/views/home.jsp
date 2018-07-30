@@ -11,9 +11,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
-<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
-<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
-<!-- 밑에 유효성 검사를 위한 script는 순서를 맞추어줘야한다. -->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	
+	<script src="/resources/endlessRiver.js"></script>
+	
+
+
+<!-- <script language="JavaScript">
+
+<!--
+window.open('/aaa','sponsor','width=200, height=200');
+    
+//
+
+</script> -->
+
+    <script>
+$(document).ready(function(){
+    $("#myUl").endlessRiver();
+});
+</script>
 
     
 </head>
@@ -29,7 +47,62 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" >도서관정보시스템</a>
+      <a class="navbar-brand" >
+<script language="JavaScript1.2">
+
+var message="도서관정보 시스템"
+var neonbasecolor="gray"
+var neontextcolor="yellow"
+var flashspeed=100  //in milliseconds
+
+///No need to edit below this line/////
+
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+
+function crossref(number){
+var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+return crossobj
+}
+
+function neon(){
+
+//Change all letters to base color
+if (n==0){
+for (m=0;m<message.length;m++)
+//eval("document.all.neonlight"+m).style.color=neonbasecolor
+crossref(m).style.color=neonbasecolor
+}
+
+//cycle through and change individual letters to neon color
+crossref(n).style.color=neontextcolor
+
+if (n<message.length-1)
+n++
+else{
+n=0
+clearInterval(flashing)
+setTimeout("beginneon()",1500)
+return
+}
+}
+
+function beginneon(){
+if (document.all||document.getElementById)
+flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+
+
+</script>
+</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -57,9 +130,9 @@
 <div class="container">
   
   <div class="btn-group btn-group-justified">
-    <a href="siteInfo" class="btn btn-primary">사이트소개</a>
+    <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
-    <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관정보</a>
+    <a href="/login" class="btn btn-primary">도서관정보</a>
     <a href="/login" class="btn btn-primary">추천도서</a>
     <a href="/login" class="btn btn-primary">자유게시판</a>
     
@@ -117,54 +190,74 @@
         <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> 
     </div>
 
-<div class="container-fluid">
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-danger">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-success">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br>
 
-<div>
-<h1>&nbsp;</h1>
+<div class="container">    
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-sm-4"> 
+      <div class="panel panel-primary">
+        <div class="panel-heading">BLACK FRIDAY DEAL</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Online Store Copyright</p>  
+  <form class="form-inline">Get deals:
+
+<div class="container" style="margin-top:150px;">
+<ul id="myUl">
+    <li>1. 블루비</li>
+    <li>2. 자바스크립트</li>
+    <li>3. CSS/HTML</li>
+    <li>4. CODE SHOP</li>
+    <li>5. Jquery</li>
+    <li>6. 디자인</li>
+</ul>
 </div>
-<div class="row">
-<div class="col-sm-3">
-<div id="support">
-<h2>도서관 정보 시스템</h2>
-<h3>1-800-1234567(로고 추가)</h3>
-</div>
-<div id="login" class="boxed">
-<h2 class="title">Client Account</h2>
-<div class="content">
-<form id="form1" method="post" action="#">
-<fieldset> <legend>Sign-In</legend> 
-<label for="usr">Id:</label>
-      <input type="text" class="form-control" id="usr" name="id">
-<label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" name="pw">
-      <span style="float:right">
- <button  type="submit" class="btn btn-primary">로그인</button>
-
-
-</fieldset>
-</form>
-
-</div>
-</div>
-
-
-
-<div>
-후원사이트 움직이는 거 사용하는 쪽
-</div>
-
-</div>
-
-<div id="footer">
-  sdfjdslkfjsdklfjsdlkfjdklsfjskldf
-</div>
-<div style="font-size: 0.8em; text-align: center; margin-top: 1em; margin-bottom: 1em;">
-Design downloaded from <a href="http://www.freewebtemplates.com/">Free
-Templates</a> - your source for free web templates<br />
-Supported by <a href="http://www.hosting24.com/" target="_blank">Hosting24.com</a>
-</div>
-
+  </form>
+</footer>
 
 </body>
 </html>
-
