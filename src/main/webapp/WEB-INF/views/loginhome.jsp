@@ -12,7 +12,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
 
-
+<style>
+#div2{whdth:100vh;
+	}
+</style>
 
 <script type="text/javascript" class="init">
 
@@ -111,15 +114,17 @@ beginneon()
        
       </ul>
 
-       <ul class="nav navbar-nav navbar-right">
+      
          <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-      	</ul>
-      		<c:if test="${admin}">
+         	<c:if test="${admin}">
 			  	<li><a href="/admin/board" class ="	glyphicon glyphicon-edit">관리자페이지</a></li>
 			  	<span style="color:white"></span>
 			</c:if>
-      </ul>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+        
+      	</ul>
+      	
+     
       <form class="navbar-form navbar-right" action="/action_page.php">
       <div class="form-group">
         
@@ -206,79 +211,36 @@ beginneon()
 <div class="container-fluid bg-3 text-center">    
   <div class="row">
     <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+     
+     <h1>${user.id}님</br>  환영합니다</h1>
     </div>
     <div class="col-sm-3" > 
-      <p>도서 정보 최신글</p>
-     <table class="table table-bordered" id="example">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>도서관명</th>
-				<th>지역</th>
-				<th>전화번호</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="libraryInfo" items="${list2}">
-				<tr>
-					<td>${libraryInfo.number}</td>
-					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
-					<td>${libraryInfo.cityName }</td>
-					<td>${libraryInfo.phoneNumber }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+    <h4>도서정보 최신글</h4>
+     <div id="div2">
+      <object id="nzeo" width="100%" height="100%" data="/libraryInfo/recentlyLibraryInfo" name="aaa">
+</object>
+    </div>
     </div>
     <div class="col-sm-3"> 
-      <p>자유 게시판 최신글</p>
+    <h4>자유게시판 최신글</h4> 
       
       
-      <table class="table table-bordered" id="example">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>작성자</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="board" items="${list}">
-				<tr>
-					<td>${board.number}</td>
-					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
-					<td>${board.author }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+       
+      <div id="div2">
+      <object id="nzeo" width="100%" height="100%" data="/board/recentlyBoard" name="bbb">
+</object>
+    </div>
+      
     </div>
     <div class="col-sm-3">
-      <p>추천 도서 최신글</p>
+    <h4>추천 도서 최신글</h4>
     
+     <div id="div2">
+      <object id="nzeo" width="100%" height="100%" data="/recBook/recentlyRecBookList" name="ccc">
+</object>
+    </div>
 		
-		<table class="table table-bordered" id="example">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>책이름</th>
-				
-				<th>작가</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="recBook" items="${list1}">
-				<tr>
-					<td>${recBook.recBookNumber}</td>
-					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>
-					
-					<td>${recBook.writer }</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+		
     </div>
   </div>
 </div><br><br>

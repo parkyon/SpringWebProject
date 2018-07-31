@@ -19,28 +19,7 @@
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
-	<script type="text/javascript" class="init">
-
-	$.extend( true, $.fn.dataTable.defaults,
-	{
-		"language": {
-			"url": "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Korean.json"
-		}
-	});
-
-	$(document).ready(function() {
-
-		var table = $('#example').DataTable();
-		
-		
-	} );
-
-	</script>
-
-
-    <script type="text/javaScript" language="javascript" defer="defer">
-     
-    </script>
+	
 </head>
 <body>
 
@@ -48,7 +27,6 @@
 	
 	
 	<div class="container">
-		<h1>도서관 정보</a></h1>
 		
 		<table class="table table-bordered" id="example">
 		<thead>
@@ -60,7 +38,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="libraryInfo" items="${list}">
+			<c:forEach var="libraryInfo" items="${list2}">
 				<tr>
 					<td>${libraryInfo.number}</td>
 					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
@@ -71,11 +49,7 @@
 		</tbody>
 	</table>
 	
-	<c:if test="${admin}">
-	<a href="/libraryInfo/register">
-		<button class="btn btn-primary"> 등록 </button>
-		</c:if>
-	</a>
+	
 	</div>
 	
 	

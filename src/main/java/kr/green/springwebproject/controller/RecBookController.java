@@ -16,6 +16,7 @@ import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
+import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.service.RecBookService;
 import kr.green.springwebproject.service.UserService;
 
@@ -124,6 +125,21 @@ public class RecBookController {
 	}
 	
 	
+	
+	//최신글 5개
+	
+	
+	@RequestMapping(value="recentlyRecBookList")
+	public String recntlyRecBook(Model model, HttpServletRequest request, Integer number ,Criteria cri
+			,String search, Integer type) {
+int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
+		
+		ArrayList<RecBook> list1 =recBookService.getRecBook(type,search,cri);
+		
+		model.addAttribute("list1", list1);
+		
+		return "/recBook/recentlyRecBookList";
+	}
 	
 }
 

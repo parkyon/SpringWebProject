@@ -19,63 +19,39 @@
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
 
-	<script type="text/javascript" class="init">
-
-	$.extend( true, $.fn.dataTable.defaults,
-	{
-		"language": {
-			"url": "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Korean.json"
-		}
-	});
-
-	$(document).ready(function() {
-
-		var table = $('#example').DataTable();
-		
-		
-	} );
-
-	</script>
-
-
-    <script type="text/javaScript" language="javascript" defer="defer">
-     
-    </script>
+	
 </head>
 <body>
 
 
+  
+    
 	
 	
 	<div class="container">
-		<h1>도서관 정보</a></h1>
 		
 		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>
 				<th>번호</th>
-				<th>도서관명</th>
-				<th>지역</th>
-				<th>전화번호</th>
+				<th>책이름</th>
+				<th>책유형</th>
+				<th>작가</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="libraryInfo" items="${list}">
+			<c:forEach var="recBook" items="${list1}">
 				<tr>
-					<td>${libraryInfo.number}</td>
-					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
-					<td>${libraryInfo.cityName }</td>
-					<td>${libraryInfo.phoneNumber }</td>
+					<td>${recBook.recBookNumber}</td>
+					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>
+					<td>${recBook.bookType }</td>
+					<td>${recBook.writer }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
-	<c:if test="${admin}">
-	<a href="/libraryInfo/register">
-		<button class="btn btn-primary"> 등록 </button>
-		</c:if>
-	</a>
+	
 	</div>
 	
 	

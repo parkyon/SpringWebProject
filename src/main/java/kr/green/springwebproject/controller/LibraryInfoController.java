@@ -153,5 +153,14 @@ Double longitude) {
 	return "/libraryInfo/map";
 	}
 	
+	@RequestMapping(value="recentlyLibraryInfo")
+	public String recentlyLibraryInfo(Model model, HttpServletRequest request, Integer number ,Criteria cri
+			,String search, Integer type) {
+		int totalCount2 = libraryInfoService.getCountByLibraryInfoList(type, search, cri);
+		ArrayList<LibraryInfo> list2 = libraryInfoService.getListLibraryInfo(type, search, cri);
+		model.addAttribute("list2", list2);
+		
+		return "/libraryInfo/recentlyLibraryInfo";
+	}
 	
 }

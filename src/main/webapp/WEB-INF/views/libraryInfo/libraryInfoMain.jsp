@@ -226,7 +226,7 @@ beginneon()
    
     </div>
     <div class="col-sm-10 text-left" id="div2"> 
-      <object id="nzeo" width="100%" height="100%" data="#" name="aaa">
+      <object id="nzeo" width="100%" height="100%" data="/libraryInfo/libraryList" name="aaa">
 </object>
     </div>
     

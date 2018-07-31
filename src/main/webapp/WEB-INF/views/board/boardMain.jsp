@@ -220,6 +220,7 @@ beginneon()
      <tabel>
      <td> <p><a href="/board/list" target="aaa">자유 게시판</a></p></td>
      <td> <p><a href="/board/event" target="aaa">이벤트</a></p></td>
+     <td> <p><a href="/board/notice" target="aaa">공지사항</a></p></td>
      
     
      </tabel>
@@ -228,7 +229,7 @@ beginneon()
    
     </div>
     <div class="col-sm-10 text-left" id="div2"> 
-      <object id="nzeo" width="100%" height="100%" data="#" name="aaa">
+      <object id="nzeo" width="100%" height="100%" data="/board/list" name="aaa">
 </object>
     </div>
     

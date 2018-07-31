@@ -223,7 +223,48 @@ public class BoardController {
 	
 	
 	
+	//최신글 5개
 	
+	@RequestMapping(value = "/recentlyBoard", method = RequestMethod.GET)
+	public String recentlyBoard(Model model, HttpServletRequest request, Integer number ,Criteria cri
+			,String search, Integer type) {
+		
+		if(number == null) {
+			number = 1;
+		}
+		if(cri == null) {
+			cri = new Criteria();
+		}
+		//자유게시판 최신글
+		PageMaker pageMaker = new PageMaker();
+		int totalCount = boardService.getCountByBoardList(type, search, cri);
+		ArrayList<Board> list = boardService.getListBoard(type, search, cri);
+
+		pageMaker.setCriteria(cri);
+		pageMaker.setTotalCount(totalCount);
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		
+		model.addAttribute("list",list);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("search", search);
+		model.addAttribute("type", type);
+		model.addAttribute("admin", admin);
+		
+		System.out.println(list);
+		
+		return "/board/recentlyBoard";
+}
+	
+	
+	@RequestMapping(value="notice", method = RequestMethod.GET)
+	public String notice() {
+		
+		return "/board/notice";
+	}
 }
 
 
