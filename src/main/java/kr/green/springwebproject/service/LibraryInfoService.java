@@ -103,6 +103,17 @@ public class LibraryInfoService {
 				= (ArrayList)libraryInfoMapper.searchLibraryInfos(cri, "%"+search+"%", type);
 			return list2;
 			}
+			
+	//좌표용
+			
+			public void GetCoordinate(Integer number) {
+				libraryInfoMapper.getCoordinate(number);
+				
+			}
+
+			
+
+			
 }
 	
 	

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
   
   <script>
   $( function() {
@@ -131,8 +132,8 @@
   <h3>추천도서 </h3>
  <div>
   	<ul>
-  	<li>	<a href="/siteInfo/recBookInfo" target ="aaa"> 추천도서</a></li>
-  	<li>	<a href="/siteInfo/monthsRecBook" target ="aaa">이달의 추천도서</a></li>
+  		<div><a href="/siteInfo/recBookInfo" target ="aaa"> 추천도서</a></div>
+  		<div><a href="/siteInfo/monthsRecBook" target ="aaa">이달의 추천도서</a></div>
   
   	
   	</ul>
@@ -166,6 +167,21 @@
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
-
+<div class="container"">
+	<ul id="myUl">
+	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nl/"><img src="/resources/jpg/foot_banner2.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nill/user/index.jsp"><img src="/resources/jpg/foot_banner4.jpg"></img></a></li>
+	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
+	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
+	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+	</ul>
+	</div>
+	<script src="/resources/endlessRiver.js"></script>
+    <script>
+$(document).ready(function(){
+    $("#myUl").endlessRiver();
+});
+</script>
 </body>
 </html>

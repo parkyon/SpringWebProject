@@ -90,4 +90,11 @@
 			#{cri.pageStart},#{cri.perPageNum}
 	</select>
 	
+	<!-- 좌표용 -->
+	
+	<select id="getCoordinate" resultType="kr.green.springwebproject.dao.LibraryInfo">
+	select latitude, longitude from libraryInfo
+	where number =#{libraryInfo.number}	
+	</select>
+	
 </mapper>

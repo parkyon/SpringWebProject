@@ -193,11 +193,24 @@ beginneon()
 <div class="container">    
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
+      <div id="login" class="boxed">
+<h2 class="title">Client Account</h2>
+<div class="content">
+<form id="form1" method="post" action="#">
+<fieldset> <legend>Sign-In</legend> 
+<label for="usr">Id:</label>
+      <input type="text" class="form-control" id="usr" name="id">
+<label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name="pw">
+      <span style="float:right">
+ <button  type="submit" class="btn btn-primary">로그인</button>
+
+
+</fieldset>
+</form>
+
+</div>
+</div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
@@ -216,48 +229,24 @@ beginneon()
   </div>
 </div><br>
 
-<div class="container">    
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="panel panel-primary">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-      </div>
-    </div>
-  </div>
-</div><br><br>
 
-<footer class="container-fluid text-center">
-  <p>Online Store Copyright</p>  
-  <form class="form-inline">Get deals:
 
-<div class="container" style="margin-top:150px;">
-<ul id="myUl">
-    <li>1. 블루비</li>
-    <li>2. 자바스크립트</li>
-    <li>3. CSS/HTML</li>
-    <li>4. CODE SHOP</li>
-    <li>5. Jquery</li>
-    <li>6. 디자인</li>
-</ul>
-</div>
-  </form>
-</footer>
+	<footer class="container-fluid text-center">
+	  <p>Online Store Copyright</p>  
+	
+	
+	<div class="container"">
+	<ul id="myUl">
+	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nl/"><img src="/resources/jpg/foot_banner2.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nill/user/index.jsp"><img src="/resources/jpg/foot_banner4.jpg"></img></a></li>
+	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
+	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
+	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+	</ul>
+	</div>
+	
+	</footer>
 
 </body>
 </html>

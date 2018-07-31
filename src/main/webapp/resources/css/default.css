@@ -386,10 +386,9 @@ img {
 }
 
 /* 후원사이트*/
-
 .tickercontainer { /* the outer div with the black border */
-  width: 700px;
-  min-height: 50px;
+  width: 1150px;
+  height: 80px;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -403,6 +402,7 @@ img {
   position: relative;
   width: 100%;
   overflow: hidden;
+  
 }
 
 ul.newsticker { /* that's your list */
@@ -421,3 +421,5 @@ ul.newsticker li {
 }
 
 .btn-danger {cursor:pointer}
+
+}

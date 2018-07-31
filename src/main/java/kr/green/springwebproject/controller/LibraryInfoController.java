@@ -32,6 +32,12 @@ public class LibraryInfoController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping(value="libraryInfoMain", method = RequestMethod.GET)
+	public String libraryInfoMain() {
+		
+		return "libraryInfo/libraryInfoMain";
+	}
+	
 	@RequestMapping(value = "libraryList", method = RequestMethod.GET)
 	public String loginHomeGet(Model model, HttpServletRequest request, Integer number) {
 				
@@ -125,18 +131,18 @@ public class LibraryInfoController {
 	public String map(Model model,Integer number,Double latitude, HttpServletRequest request,
 
 Double longitude) {
-	libraryInfoService.getLibraryInfo(number);
+	
 	
 	
 	
 	if(number == null) {
 		number = 1;
 	}
-	model.addAttribute("latitude", latitude);
-	model.addAttribute("longitude", longitude);
-	System.out.println("sdfsdfsdf");
-	System.out.println(latitude);
-	System.out.println(longitude);
+	
+	
+	ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
+	
+	model.addAttribute("list", list);
 	
 	return "/libraryInfo/map";
 	}

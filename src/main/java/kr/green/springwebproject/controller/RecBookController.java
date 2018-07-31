@@ -26,6 +26,10 @@ public class RecBookController {
 	private UserService userService;
 	@Autowired
 	private RecBookService recBookService;
+	@RequestMapping(value="/recBookMain",method = RequestMethod.GET)
+	public String recBookListMainGet() {
+		return "recBook/recBookMain";
+	}
 	@RequestMapping(value = "/recBookList", method = RequestMethod.GET)
 	public String recBookListGet(Model model, HttpServletRequest request, Integer number) {
 		

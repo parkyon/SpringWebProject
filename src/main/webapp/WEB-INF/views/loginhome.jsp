@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
-<script src="http://www.tagkorea.pe.kr/js/starwiz.js"></script>
+
 
 
 <script type="text/javascript" class="init">
@@ -50,7 +50,60 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">도서관정보</a>
+      <a class="navbar-brand" ><script language="JavaScript1.2">
+
+var message="도서관정보 시스템"
+var neonbasecolor="gray"
+var neontextcolor="yellow"
+var flashspeed=100  //in milliseconds
+
+///No need to edit below this line/////
+
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+
+function crossref(number){
+var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+return crossobj
+}
+
+function neon(){
+
+//Change all letters to base color
+if (n==0){
+for (m=0;m<message.length;m++)
+//eval("document.all.neonlight"+m).style.color=neonbasecolor
+crossref(m).style.color=neonbasecolor
+}
+
+//cycle through and change individual letters to neon color
+crossref(n).style.color=neontextcolor
+
+if (n<message.length-1)
+n++
+else{
+n=0
+clearInterval(flashing)
+setTimeout("beginneon()",1500)
+return
+}
+}
+
+function beginneon(){
+if (document.all||document.getElementById)
+flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+
+
+</script></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -87,8 +140,8 @@
   
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
-    <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관 정보</a>
-    <a href="/recBook/recBookList" class="btn btn-primary">책 소개</a>
+    <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
     <a href="/board/list" class="btn btn-primary">자유게시판</a>
     
   </div>
@@ -148,27 +201,7 @@
 
 
   
-<div class="container-fluid bg-3 text-center">    
-  <h3>Some of my Work</h3><br>
-  <div class="row">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br>
+
 
 <div class="container-fluid bg-3 text-center">    
   <div class="row">
@@ -251,8 +284,27 @@
 </div><br><br>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+	  <p>Online Store Copyright</p>  
+	
+	
+	<div class="container"">
+	<ul id="myUl">
+	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nl/"><img src="/resources/jpg/foot_banner2.jpg"></img></a></li>
+	     <li><a href="http://www.nl.go.kr/nill/user/index.jsp"><img src="/resources/jpg/foot_banner4.jpg"></img></a></li>
+	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
+	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
+	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+	</ul>
+	</div>
+	
+	</footer>
+	<script src="/resources/endlessRiver.js"></script>
+	 <script>
+$(document).ready(function(){
+    $("#myUl").endlessRiver();
+});
+</script>
 
 </body>
 </html>
