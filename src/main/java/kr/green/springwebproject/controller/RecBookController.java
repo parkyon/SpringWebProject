@@ -26,8 +26,17 @@ public class RecBookController {
 	private UserService userService;
 	@Autowired
 	private RecBookService recBookService;
+	
+	
 	@RequestMapping(value="/recBookMain",method = RequestMethod.GET)
-	public String recBookListMainGet() {
+	public String recBookListMainGet(Model model, HttpServletRequest request) {
+		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 		return "recBook/recBookMain";
 	}
 	@RequestMapping(value = "/recBookList", method = RequestMethod.GET)

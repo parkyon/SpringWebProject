@@ -33,8 +33,14 @@ public class LibraryInfoController {
 	private UserService userService;
 	
 	@RequestMapping(value="libraryInfoMain", method = RequestMethod.GET)
-	public String libraryInfoMain() {
+	public String libraryInfoMain(Model model, HttpServletRequest request) {
 		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 		return "libraryInfo/libraryInfoMain";
 	}
 	

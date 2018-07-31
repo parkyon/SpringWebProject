@@ -160,7 +160,8 @@ beginneon()
 
 </script></a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+    
+   <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/loginhome">Home</a></li>
        
@@ -168,13 +169,14 @@ beginneon()
 
        <ul class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
-      	</ul>
-      		<c:if test="${admin}">
-			  	<li><a href="/admin/board" class ="	glyphicon glyphicon-edit">관리자페이지</a></li>
+         <c:if test="${admin}">
+			  	<li><a href="/admin/recBookLog" class ="	glyphicon glyphicon-edit">로그보기</a></li>
 			  	<span style="color:white"></span>
 			</c:if>
-      </ul>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
+		<li><a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></li>
+				  	<span style="color:white">  </span>
+      
       <form class="navbar-form navbar-right" action="/action_page.php">
       <div class="form-group">
         
@@ -195,9 +197,9 @@ beginneon()
   
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
-    <a href="/libraryInfo/libraryList" class="btn btn-primary">도서관 정보</a>
+    <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
     <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
-    <a href="/board/list" class="btn btn-primary">자유게시판</a>
+    <a href="/board/boardMain" class="btn btn-primary">자유게시판</a>
     
   </div>
    
@@ -224,7 +226,7 @@ beginneon()
    
     </div>
     <div class="col-sm-10 text-left" id="div2"> 
-      <object id="nzeo" width="100%" height="100%" data="http://www.nzeo.com" name="aaa">
+      <object id="nzeo" width="100%" height="100%" data="#" name="aaa">
 </object>
     </div>
     

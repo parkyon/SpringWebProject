@@ -142,7 +142,7 @@ beginneon()
     
     <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
     <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
-    <a href="/board/list" class="btn btn-primary">자유게시판</a>
+    <a href="/board/boardMain" class="btn btn-primary">게시판</a>
     
   </div>
      <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
@@ -209,7 +209,7 @@ beginneon()
       <p>Some text..</p>
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-3" > 
       <p>도서 정보 최신글</p>
      <table class="table table-bordered" id="example">
 		<thead>

@@ -43,6 +43,17 @@ public class BoardController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping(value="boardMain",method = RequestMethod.GET)
+	public String boardMainGet(Model model, HttpServletRequest request) {
+		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
+		return "board/boardMain";
+	}
 	@RequestMapping(value="list")
 	public String boardList(Model model,Criteria cri
 			,String search, Integer type,HttpServletRequest request) {
