@@ -35,14 +35,14 @@
 				}
 			},
 			"columns": [
-				{"title": "아이디", "data": "libraryName"},
-				{"title": "코드", "data": "cityName"},
-				{"title": "이름", "data": "libraryType"},
-				{"title": "유형코드", "data": "holiday"},
-				{"title": "도로명주소", "data": "openSeat"},
-				{"title": "지번주소", "data": "bookCount"},
-				{"title": "위도", "data": "bookCount2"},
-				{"title": "경도", "data": "bookCount3"},
+				{"title": "도서관이름", "data": "libraryName"},
+				{"title": "도시이름", "data": "cityName"},
+				{"title": "타입", "data": "libraryType"},
+				{"title": "휴일", "data": "holiday"},
+				{"title": "열람좌석수", "data": "openSeat"},
+				{"title": "책1", "data": "bookCount"},
+				{"title": "책2", "data": "bookCount2"},
+				{"title": "책3", "data": "bookCount3"},
 			
 		
 			],

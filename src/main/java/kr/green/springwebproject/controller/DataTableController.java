@@ -9,28 +9,40 @@ import java.util.TreeSet;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.green.springwebproject.service.DataTableService;
+import kr.green.springwebproject.dao.LibraryInfo;
+import kr.green.springwebproject.pagenation.Criteria;
+import kr.green.springwebproject.service.LibraryInfoService;
+import kr.green.springwebproject.service.UserService;
 
 @Controller	
 public class DataTableController {
 
-	@Resource(name = "dataTableService")
-	private DataTableService dataTableService;
+	@Autowired
+	private LibraryInfoService libraryInfoService;
+	@Resource
+	private String uploadPath;
+	@Autowired
+	private UserService userService;
 	
 	
 	
 	@RequestMapping(value = "/dataTable.do")
-	 public String dataTable() throws Exception 
-	{
-	 
+	public String recentlyLibraryInfo(Model model, HttpServletRequest request, Integer number ,Criteria cri
+			,String search, Integer type) {
+		int totalCount2 = libraryInfoService.getCountByLibraryInfoList(type, search, cri);
+		ArrayList<LibraryInfo> list2 = libraryInfoService.getListLibraryInfo(type, search, cri);
+		model.addAttribute("list2", list2);
 	  return "list";
 	 }
-
+	
 	
 	@RequestMapping(value = "/ajax.do")
 	 public @ResponseBody Map<String, Object> ajax(ServletRequest req) throws Exception 
@@ -115,10 +127,17 @@ public class DataTableController {
 		 mapSearch.put("listColumns", listColumns);
 		 
 		 
-		 // 데이터 검색 처리
-		 listData = dataTableService.ajax(mapSearch);
+		
+	
+		Integer type = null;
+		String search = null;
+		Criteria cri = null;
+		// 데이터 검색 처리
+		 listData = libraryInfoService.SSgetLibraryInfo(type, search, cri);
 		 //전체 데이터 개수 처리
-		 int nRecordTotal = dataTableService.ajaxTotCnt(mapSearch);
+		
+		int aaa = 0;
+		int nRecordTotal = libraryInfoService.CountLibrary(type, search, cri, aaa);
 		 
 		 //임시 - 파라메터 출력
 		 dispParams(req);

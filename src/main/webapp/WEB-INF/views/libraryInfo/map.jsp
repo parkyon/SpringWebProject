@@ -1,10 +1,15 @@
+
+
 <html>
 <head>
 	<meta charset="utf-8"/>
 	<title>Daum 지도 시작하기</title>
 </head>
 <body>
-<c:forEach var="libraryInfo" items="${list}">
+
+
+
+
 	<div id="map" style="width:500px;height:400px;"></div>
 	
 	
@@ -17,12 +22,12 @@
 	<script>
 		var container = document.getElementById('map');
 		var options = {
-			center: new daum.maps.LatLng("${libraryInfo.latitude}", "${libraryInfo.longitude}"),
+			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}),
 			level: 3
 		};
 
 		var map = new daum.maps.Map(container, options);
 	</script>
-	</c:forEach>
+	
 </body>
 </html>

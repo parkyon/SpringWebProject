@@ -25,6 +25,10 @@
 		      	<input type="text" class="form-control" name="number" value="${libraryInfo.number }" disabled>
 		    </div>
 		    <div class="form-group">
+		    	<div>지도</div>
+		      	 <div id="map" style="width:500px;height:400px;"></div>
+		    </div>
+		    <div class="form-group">
 		    	<label>도서관명</label>
 		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" disabled>
 		    </div>
@@ -41,6 +45,25 @@
 		    	<label>홈페이지주소</label>
 		      	<textarea class="form-control" rows="5" name="homepage" disabled>${libraryInfo.homepage}</textarea>
 		    </div>
+		    
+		   
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24895e7659c99a646c858cb49911f9e0"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}),
+			level: 3
+		};
+
+		var map = new daum.maps.Map(container, options);
+	</script>
 		    
 	  	</form>
 	  	<div>

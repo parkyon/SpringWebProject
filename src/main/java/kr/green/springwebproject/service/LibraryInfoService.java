@@ -3,6 +3,7 @@ package kr.green.springwebproject.service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,19 +105,39 @@ public class LibraryInfoService {
 			return list2;
 			}
 			
-	//좌표용
+
 			
 			
 
-			public int GetCoordinate(Integer number) {
-				libraryInfoMapper.getCoordinate(number);
-				return 0;
+			
+
+			
+			//server side 용
+			
+			public int CountLibrary(Integer type, String search, Criteria cri, int aaa) {
 				
 				
+				int totalCount2 = 0;
+				if(type == null)
+					type = 0;
+				if(type == 0) {
+					totalCount2 = libraryInfoMapper.getCountLibraryInfo();
+				}
+				
+				return totalCount2;
 			}
-//Map 용
 			
 			
+		
+			public ArrayList<LibraryInfo> SSgetLibraryInfo(Integer type, String search, Criteria cri) {
+				ArrayList<LibraryInfo> list2 = null;
+				if(type == null)
+					type = 0;
+				
+				list2 
+				= (ArrayList)libraryInfoMapper.searchLibraryInfos(cri, "%"+search+"%", type);
+			return list2;
+			}
 }
 	
 	

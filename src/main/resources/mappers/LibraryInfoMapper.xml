@@ -8,7 +8,7 @@
 	
 	order by number desc
 	
-	limit 10
+
 	</select>
 
 
@@ -97,6 +97,21 @@
 		where number = #{number}
 	</select>
 	
+	
+	
+	<!-- serverside -->
+	<select id="SSgetLibraryInfo" resultType="kr.green.springwebproject.dao.LibraryInfo">
+	select * from libraryInfo
+	limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="countLibrary" resultType="java.lang.Integer">
+		select
+			count(number)
+		from
+			libraryInfo
+		
+	</select>
 	
 	
 </mapper>

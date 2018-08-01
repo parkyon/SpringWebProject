@@ -261,11 +261,34 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="notice", method = RequestMethod.GET)
-	public String notice() {
+	public String notice(Model model, HttpServletRequest request) {
 		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 		return "/board/notice";
 	}
+	
+	
+	
+	
+	@RequestMapping(value="event", method = RequestMethod.GET)
+	public String event(Model model, HttpServletRequest request) {
+		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
+		return "/board/event";
+	}
 }
+
+
 
 
 
