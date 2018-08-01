@@ -28,11 +28,11 @@ public interface LibraryInfoMapper {
 //최신글용
 	public int getCountLibraryInfo();
 	public List<Board> searchLibraryInfos(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
-//위도 경도 가져오기
-	public double getCoordinate(@Param("number")int number);
-	
-	
 
+
+	//map
+	
+	public ArrayList<LibraryInfo> getCoordinate(@Param("number")int number);
 	
 
 

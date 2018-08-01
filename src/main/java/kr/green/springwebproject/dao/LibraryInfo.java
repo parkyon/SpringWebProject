@@ -132,22 +132,22 @@ public class LibraryInfo {
 	
 	//지도용 위도 경도
 	
-	private Double latitudel;
-
-	public Double getLatitudel() {
-		return latitudel;
+	private String latitude;
+	public String getLatitude() {
+		return latitude;
 	}
-	public void setLatitudel(Double latitudel) {
-		this.latitudel = latitudel;
+	public void setLatitudel(String latitude) {
+		this.latitude = latitude;
 	}
-	public Double getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Double longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 
-	private Double longitude;
+	private String longitude;
+	
 	
 }
 

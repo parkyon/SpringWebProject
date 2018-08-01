@@ -106,13 +106,16 @@ public class LibraryInfoService {
 			
 	//좌표용
 			
-			public void GetCoordinate(Integer number) {
-				libraryInfoMapper.getCoordinate(number);
-				
-			}
-
 			
 
+			public int GetCoordinate(Integer number) {
+				libraryInfoMapper.getCoordinate(number);
+				return 0;
+				
+				
+			}
+//Map 용
+			
 			
 }
 	

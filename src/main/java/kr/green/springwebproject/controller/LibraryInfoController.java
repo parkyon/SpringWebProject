@@ -134,22 +134,22 @@ public class LibraryInfoController {
 	}
 	
 	@RequestMapping(value="map")
-	public String map(Model model,Integer number,Double latitude, HttpServletRequest request,
-
-Double longitude) {
-	
-	
-	
-	
-	if(number == null) {
-		number = 1;
-	}
-	
-	
-	ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
-	
-	model.addAttribute("list", list);
-	
+	public String map(Model model,Integer number, HttpServletRequest request) 
+	{
+		if(number == null) {
+			number = 1;
+		}
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
+		
+		
+		ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
+		
+		model.addAttribute("list", list);
 	return "/libraryInfo/map";
 	}
 	

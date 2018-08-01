@@ -1,47 +1,28 @@
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Sample Maps App</title>
-    <style>
-        html, body, #map-canvas {
-            height: 100%;
-            margin: 0px;
-            padding: 0px
-        }
-    </style>
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&sensor=true"></script>
-
-    <script type="text/javascript" >
-        function initialize() {
-            var map;
-            var panorama;
-            var currPointer =  new google.maps.LatLng("${libraryInfo.latitude}", "${libraryInfo.longitude}");
-
-            // Set up the map
-            var mapOptions = {
-                center: currPointer,
-                zoom: 18,
-                streetViewControl: false
-            };
-
-            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-            // We get the map's default panorama and set up some defaults.
-            panorama = map.getStreetView();
-            panorama.setPosition(currPointer);
-            panorama.setPov(/** @type {google.maps.StreetViewPov} */({
-                heading: 265,
-                pitch: 0
-            }));
-
-            panorama.setVisible(true);
-        }
-
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+	<meta charset="utf-8"/>
+	<title>Daum 지도 시작하기</title>
 </head>
 <body>
-    <div id="map-canvas"></div>
+<c:forEach var="libraryInfo" items="${list}">
+	<div id="map" style="width:500px;height:400px;"></div>
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24895e7659c99a646c858cb49911f9e0"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new daum.maps.LatLng("${libraryInfo.latitude}", "${libraryInfo.longitude}"),
+			level: 3
+		};
+
+		var map = new daum.maps.Map(container, options);
+	</script>
+	</c:forEach>
 </body>
 </html>

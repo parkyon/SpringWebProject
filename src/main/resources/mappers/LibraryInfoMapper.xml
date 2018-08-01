@@ -94,7 +94,9 @@
 	
 	<select id="getCoordinate" resultType="kr.green.springwebproject.dao.LibraryInfo">
 	select latitude, longitude from libraryInfo
-	where number =#{libraryInfo.number}	
+		where number = #{number}
 	</select>
+	
+	
 	
 </mapper>

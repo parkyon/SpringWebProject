@@ -161,14 +161,12 @@ beginneon()
        
         <!--페이지-->
     
-        <div class="carousel-inner">
+         <div class="carousel-inner">
             <!--슬라이드1-->
             <div class="item active"> 
-                <img src="http://www.blueb.co.kr/SRC2/_image/w01.jpg" alt="First slide" width="89%" height="348" style="width:100%">
+                <img src="/resources/jpg/library1.jpg" alt="First slide" style="width:100%" data-src="">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Slide 1</h1>
-                        <p>텍스트 1</p>
                   </div>
               </div>
           </div>
@@ -176,11 +174,10 @@ beginneon()
     
             <!--슬라이드2-->
             <div class="item"> 
-                <img src="http://www.blueb.co.kr/SRC2/_image/w02.jpg" style="width:100%" data-src="" alt="Second slide">
+                <img src="/resources/jpg/library2.jpg" style="width:100%" data-src="" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Slide 2</h1>
-                        <p>텍스트 2</p>
+                    
                     </div>
                 </div>
             </div>
@@ -188,11 +185,10 @@ beginneon()
             
             <!--슬라이드3-->
             <div class="item"> 
-                <img src="http://www.blueb.co.kr/SRC2/_image/w03.jpg" style="width:100%" data-src="" alt="Third slide">
+                <img src="/resources/jpg/library3.jpg" style="width:100%" data-src="" alt="Third slide">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>Slide 3</h1>
-                        <p>텍스트 3</p>
+                    
                     </div>
                 </div>
             </div>
