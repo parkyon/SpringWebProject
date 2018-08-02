@@ -47,9 +47,15 @@ public class LibraryInfoService {
 		return false;
 	}
 
-	public boolean registerLibraryInfo(LibraryInfo libraryInfo, User user) throws Exception{
+	public boolean registerLibraryInfo(LibraryInfo libraryInfo, User user, MultipartFile file, String uploadPath) throws Exception{
 		
 		libraryInfo.setAuthor(user.getId());
+		
+		if(file != null) {
+			String filePath = UploadFileUtils.uploadFile
+				(uploadPath, file.getOriginalFilename(),file.getBytes());
+			libraryInfo.setFilepath(filePath);
+		}
 		
 		libraryInfoMapper.insertLibraryInfo(libraryInfo);
 		
@@ -137,6 +143,18 @@ public class LibraryInfoService {
 				list2 
 				= (ArrayList)libraryInfoMapper.searchLibraryInfos(cri, "%"+search+"%", type);
 			return list2;
+			}
+			
+			
+			//rec
+			
+			public boolean RecLibraryInfo(LibraryInfo libraryInfo) {
+				libraryInfoMapper.recLibraryInf(libraryInfo);
+				return true;
+			}
+			public boolean NotRecLibraryInfo(LibraryInfo libraryInfo) {
+				libraryInfoMapper.notrecLibraryInf(libraryInfo);
+				return true;
 			}
 }
 	

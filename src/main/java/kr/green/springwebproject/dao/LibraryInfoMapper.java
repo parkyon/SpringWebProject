@@ -42,7 +42,10 @@ public interface LibraryInfoMapper {
 	
 	public int countLibrary(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
 
-
+	//rec
+	
+	public void recLibraryInf(@Param("libraryInfo")LibraryInfo libraryInfo);
+	public void notrecLibraryInf(@Param("libraryInfo")LibraryInfo libraryInfo);
 	
 	
 }

@@ -28,12 +28,12 @@
 	(libraryName, cityName, libraryType, holiday, 
 	openSeat, bookCount, bookCount2, bookCount3, 
 	loadAddress, operation, phoneNumber, homepage,
-	author)
+	author, filepath)
 	values
 	(#{libraryInfo.libraryName},#{libraryInfo.cityName},#{libraryInfo.libraryType},#{libraryInfo.holiday},
 	#{libraryInfo.openSeat},#{libraryInfo.bookCount},#{libraryInfo.bookCount2},#{libraryInfo.bookCount3},
 	#{libraryInfo.loadAddress},#{libraryInfo.operation},#{libraryInfo.phoneNumber},#{libraryInfo.homepage}
-	,#{libraryInfo.author})
+	,#{libraryInfo.author},#{libraryInfo.filepath})
 	
 	</insert>
 	
@@ -52,7 +52,8 @@
 			loadAddress= #{libraryInfo.loadAddress},
 			operation= #{libraryInfo.operation},
 			phoneNumber= #{libraryInfo.phoneNumber},
-			homepage= #{libraryInfo.homepage}
+			homepage= #{libraryInfo.homepage},
+			filepath=#{libraryInfo.filepath}
 		
 	 	where
 	 		number = #{libraryInfo.number}
@@ -113,5 +114,21 @@
 		
 	</select>
 	
+	<update id="recLibraryInf" >
+	update 
+			libraryinfo 
+		set  
+			recomand = recomand+1
+			where
+	 		number = #{libraryInfo.number}
+	</update>
 	
+	<update id="notrecLibraryInf" >
+	update 
+			libraryinfo 
+		set  
+			notrecomand = notrecomand+1
+			where
+	 		number = #{libraryInfo.number}
+	</update>
 </mapper>

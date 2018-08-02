@@ -19,38 +19,50 @@
 	</style>
 	<div class="container">
   		<form >
-  			<h1>도서관 정보 상세</h1>
+  			<h1>${libraryInfo.libraryName}</h1>
+		    
 		    <div class="form-group">
-		    	<label>번호</label>
-		      	<input type="text" class="form-control" name="number" value="${libraryInfo.number }" disabled>
-		    </div>
-		    <div class="form-group">
-		    	<div>지도</div>
-		      	 <div id="map" style="width:500px;height:400px;"></div>
-		    </div>
-		    <div class="form-group">
-		    	<label>도서관명</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" disabled>
+		    	
+		    	<c:if test="${!empty libraryInfo.latitude}">
+		    	
+		      	 <div id="map" style="width:500px;height:400px; border:1px solid blue;" ></div>
+		      	 	
+		      	 </c:if>
+		      	 <c:if test="${empty libraryInfo.latitude}">
+		    	
+		      	 <div  style="width:500px;height:400px; border:1px solid blue;" ><img style='height: 100%; width: 100%; object-fit: contain' src="/resources/jpg/mapSorry.png" ></img></div>
+		      	 <div  style="width:500px;height:100px;"><h1>지도 요청 중입니다</div>
+		      	 	
+		      	 </c:if>
+		      	 
 		    </div>
 		    
 		    <div class="form-group">
+		    	<label>주소</label>
+		      	<input type="text" class="form-control" name="author" value="${libraryInfo.loadAddress}" disabled>
+		    </div> 
+		  
+		    <div class="form-group">
+		    	<label>전화번호</label>
+		      	<input type="text" class="form-control" name="author" value="${libraryInfo.phoneNumber}" disabled>
+		    </div>
+		   
+		    <div class="form-group">
+		    	<label>홈페이지주소</label>
+		      	<a href="${libraryInfo.homepage}" target="_blank">	
+		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" disabled></a>
+		      
+		    </div>
+		      <div class="form-group">
 		    	<label>작성자</label>
 		      	<input type="text" class="form-control" name="author" value="${libraryInfo.author}" disabled>
 		    </div>
-		    <div class="form-group">
-		    	<label>첨부파일</label>
-		      	<input type="text" class="form-control" name="author" value="${libraryInfo.filepath}" disabled>
-		    </div>
-		    <div class="form-group">
-		    	<label>홈페이지주소</label>
-		      	<textarea class="form-control" rows="5" name="homepage" disabled>${libraryInfo.homepage}</textarea>
-		    </div>
-		    
 		   
 	
 	
 	
-	
+		<div> <p>추천수 : <p>${libraryInfo.recomand} </div>
+		<div> <p>비추천수 : <p>${libraryInfo.notrecomand} </div>
 	
 	
 	
@@ -63,11 +75,23 @@
 		};
 
 		var map = new daum.maps.Map(container, options);
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}); 
+
+		// 마커를 생성합니다
+		var marker = new daum.maps.Marker({
+		    position: markerPosition
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
 	</script>
 		    
 	  	</form>
 	  	<div>
-	  	<a href="/libraryInfo/map">지도</a>
+	  		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
+	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor || !USER }" >
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>

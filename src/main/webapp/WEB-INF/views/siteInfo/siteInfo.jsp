@@ -82,7 +82,60 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">도서관정보</a>
+     <a class="navbar-brand" ><script language="JavaScript1.2">
+
+var message="도서관정보 시스템"
+var neonbasecolor="gray"
+var neontextcolor="yellow"
+var flashspeed=100  //in milliseconds
+
+///No need to edit below this line/////
+
+var n=0
+if (document.all||document.getElementById){
+document.write('<font color="'+neonbasecolor+'">')
+for (m=0;m<message.length;m++)
+document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+document.write('</font>')
+}
+else
+document.write(message)
+
+function crossref(number){
+var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+return crossobj
+}
+
+function neon(){
+
+//Change all letters to base color
+if (n==0){
+for (m=0;m<message.length;m++)
+//eval("document.all.neonlight"+m).style.color=neonbasecolor
+crossref(m).style.color=neonbasecolor
+}
+
+//cycle through and change individual letters to neon color
+crossref(n).style.color=neontextcolor
+
+if (n<message.length-1)
+n++
+else{
+n=0
+clearInterval(flashing)
+setTimeout("beginneon()",1500)
+return
+}
+}
+
+function beginneon(){
+if (document.all||document.getElementById)
+flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+
+
+</script></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -108,9 +161,24 @@
   </div>
 </nav>
   
+  <div class="container">
+  
+  <div class="btn-group btn-group-justified">
+  
+  
+    <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
+  
+   <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
+    <a href="/board/boardMain" class="btn btn-primary">게시판</a>
+   
+  </div>
+   
+  
+  
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-3 sidenav">
      <div id="accordion">
   <h3>사이트소개</h3>
   <div>
@@ -149,8 +217,8 @@
   </div>
 </div>
     </div>
-    <div id="aaa" class="col-sm-8 text-left"> 
-      <object id="nzeo" width="100%" height="100%" data="http://www.nzeo.com" name="aaa">
+    <div id="aaa" class="col-sm-7 text-left"> 
+      <object id="nzeo" width="100%" height="100%" data="/siteInfo/siteInfo1" name="aaa">
 </object>
     </div>
     <div class="col-sm-2 sidenav">

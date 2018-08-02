@@ -99,7 +99,7 @@ public class LibraryInfoController {
 	
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		libraryInfoService.registerLibraryInfo(libraryInfo, user);
+		
 	System.out.println(libraryInfo);
 	System.out.println("이건 유저정보");
 	System.out.println(user);
@@ -133,25 +133,7 @@ public class LibraryInfoController {
 		return "redirect:/libraryInfo/libraryList";
 	}
 	
-	@RequestMapping(value="map")
-	public String map(Model model,Integer number, HttpServletRequest request) 
-	{
-		if(number == null) {
-			number = 1;
-		}
-		
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
-		
-		boolean admin = userService.isAdmin(user);
-		model.addAttribute("admin", admin);
-		
-		
-		ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
-		
-		model.addAttribute("list", list);
-	return "/libraryInfo/map";
-	}
+	
 	
 	@RequestMapping(value="recentlyLibraryInfo")
 	public String recentlyLibraryInfo(Model model, HttpServletRequest request, Integer number ,Criteria cri
@@ -161,6 +143,18 @@ public class LibraryInfoController {
 		model.addAttribute("list2", list2);
 		
 		return "/libraryInfo/recentlyLibraryInfo";
+	}
+	
+	@RequestMapping(value="rec")
+	public String rec(LibraryInfo libraryInfo) {
+		libraryInfoService.RecLibraryInfo(libraryInfo);
+		return "redirect:/libraryInfo/libraryList";
+	}
+	
+	@RequestMapping(value="notrec")
+	public String notrec(LibraryInfo libraryInfo) {
+		libraryInfoService.NotRecLibraryInfo(libraryInfo);
+		return "redirect:/libraryInfo/libraryList";
 	}
 	
 }

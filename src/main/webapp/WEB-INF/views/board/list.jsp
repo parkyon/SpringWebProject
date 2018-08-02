@@ -52,6 +52,7 @@
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
+				<th>작성일</th>
 				<th>작성자</th>
 			</tr>
 		</thead>
@@ -60,6 +61,7 @@
 				<tr>
 					<td>${board.number}</td>
 					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
+					<td>${board.created_date }</td>
 					<td>${board.author }</td>
 				</tr>
 			</c:forEach>

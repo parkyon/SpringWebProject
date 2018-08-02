@@ -57,6 +57,7 @@
 				<th>도서관명</th>
 				<th>지역</th>
 				<th>전화번호</th>
+				<th>추천</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -66,6 +67,7 @@
 					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
 					<td>${libraryInfo.cityName }</td>
 					<td>${libraryInfo.phoneNumber }</td>
+					<td>${libraryInfo.recomand }</td>
 				</tr>
 			</c:forEach>
 		</tbody>

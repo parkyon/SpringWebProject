@@ -219,6 +219,7 @@ beginneon()
      <div><h2> 메뉴</h2></div> 
      <tabel>
      <td> <p><a href="/board/list" target="aaa">자유 게시판</a></p></td>
+          <td> <p><a href="/board/myboards" target="aaa">내가쓴글</a></p></td>
      <td> <p><a href="/board/event" target="aaa">이벤트</a></p></td>
      <td> <p><a href="/board/notice" target="aaa">공지사항</a></p></td>
      

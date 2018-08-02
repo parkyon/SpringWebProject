@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/siteInfo/*")
 public class SiteInfoController {
 
-	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String sitemain(Model model, HttpServletRequest request) {
+				
+		return "siteInfo";
+	}
 	
 	
 	@RequestMapping(value = "siteInfo", method = RequestMethod.GET)
@@ -64,4 +68,10 @@ public class SiteInfoController {
 		return "siteInfo/boardInfo";
 	}
 	
+	
+	@RequestMapping(value = "/notloginSiteHome", method = RequestMethod.GET)
+	public String notloginSiteHome(Model model, HttpServletRequest request) {
+				
+		return "siteInfo/notloginSiteHome";
+	}
 }

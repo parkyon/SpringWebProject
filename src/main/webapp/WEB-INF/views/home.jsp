@@ -18,10 +18,10 @@
 	
 
 
-<!-- <script language="JavaScript">
+< <script language="JavaScript">
 
-<!--
-window.open('/aaa','sponsor','width=200, height=200');
+
+window.open('/aaa','sponsor','width=400, height=400');
     
 //
 
@@ -32,6 +32,9 @@ $(document).ready(function(){
     $("#myUl").endlessRiver();
 });
 </script>
+
+
+
 
 
 <!-- 달력  스크립트-->
@@ -219,11 +222,11 @@ beginneon()
 </nav>
   
 
-</div>
+
 <div class="container">
   
   <div class="btn-group btn-group-justified">
-    <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
+    <a href="/siteInfo/notloginSiteHome" class="btn btn-primary">사이트소개</a>
     
     <a href="/login" class="btn btn-primary">도서관정보</a>
     <a href="/login" class="btn btn-primary">추천도서</a>
@@ -303,9 +306,11 @@ beginneon()
     </div>
     <div class="col-sm-6"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">BLACK FRIDAY DEAL</div>
-        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <video width="100%" height="100%" autoplay>
+  <source src="/resources/video/video1.mp4" type="video/mp4">
+  
+  Your browser does not support the video tag.
+</video>
       </div>
     </div>
     <div class="col-sm-3"> 

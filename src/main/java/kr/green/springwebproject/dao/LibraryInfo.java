@@ -149,6 +149,25 @@ public class LibraryInfo {
 	private String longitude;
 	
 	
+	//추천수
+	
+	private int recomand;
+	public int getRecomand() {
+		return recomand;
+	}
+	public void setRecomand(int recomand) {
+		this.recomand = recomand;
+	}
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+	private int notrecomand;
+	public int getNotrecomand() {
+		return notrecomand;
+	}
+	public void setNotrecomand(int notrecomand) {
+		this.notrecomand = notrecomand;
+	}
 }
 
 
