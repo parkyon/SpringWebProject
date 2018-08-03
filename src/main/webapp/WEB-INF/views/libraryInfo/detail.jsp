@@ -89,6 +89,10 @@
 	</script>
 		    
 	  	</form>
+	  	
+	  	
+	  	
+	  	
 	  	<div>
 	  		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
