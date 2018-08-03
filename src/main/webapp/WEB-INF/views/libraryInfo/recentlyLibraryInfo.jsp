@@ -41,7 +41,7 @@
 			<c:forEach var="libraryInfo" items="${list2}">
 				<tr>
 					<td>${libraryInfo.number}</td>
-					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
+					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}" target=_blank>${libraryInfo.libraryName }</a></td>
 					<td>${libraryInfo.cityName }</td>
 					<td>${libraryInfo.phoneNumber }</td>
 				</tr>

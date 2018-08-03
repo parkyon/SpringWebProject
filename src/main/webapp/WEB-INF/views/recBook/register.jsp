@@ -41,6 +41,10 @@
 		    	<label>작가</label>
 		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" >
 		    </div>
+		    <div class="form-group">
+		    	<label>작가</label>
+		      	<input type="text" class="form-control" name="file" />
+		    </div>
 		     
 		   
 		   

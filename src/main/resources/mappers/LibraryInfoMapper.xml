@@ -147,6 +147,25 @@
 	values
 	(#{libraryInfo.number},#{libraryInfo.content},#{libraryInfo.writer})
 
-	
 	</insert>
+	
+	
+	<select id="getCountComment" resultType="java.lang.Integer">
+		select
+			count(cno)
+		from
+			comment
+		
+	</select>
+	
+	
+	
+	<select id="searchComment" resultType="kr.green.springwebproject.dao.LibraryInfo">
+		select * from comment
+	
+			
+		order by cno desc
+		limit
+			#{cri.pageStart},#{cri.perPageNum}
+	</select>
 </mapper>

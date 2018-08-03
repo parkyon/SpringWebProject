@@ -173,6 +173,30 @@ public class LibraryInfoService {
 			
 			return true;
 			}
+			
+			
+			
+
+			public int getCountByComment(Integer type, String search, Criteria cri) {
+				int totalCount2 = 0;
+				if(type == null)
+					type = 0;
+				if(type == 0) {
+					totalCount2 = libraryInfoMapper.getCountComment();
+				}
+				
+				return totalCount2;
+			}
+
+			public ArrayList<LibraryInfo> getListComment(Integer type, String search, Criteria cri) {
+				ArrayList<LibraryInfo> list2 = null;
+				if(type == null)
+					type = 0;
+				
+				list2 
+				= (ArrayList)libraryInfoMapper.searchComment(cri, "%"+search+"%", type);
+			return list2;
+			}
 }
 	
 	

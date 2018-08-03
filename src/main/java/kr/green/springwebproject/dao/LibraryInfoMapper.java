@@ -57,4 +57,7 @@ public interface LibraryInfoMapper {
 	
 	
 	public void insertComment(@Param("libraryInfo")LibraryInfo libraryInfo);
+	
+	public int getCountComment();
+	public List<Board> searchComment(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
 }

@@ -44,12 +44,32 @@
 			<c:forEach var="board" items="${list}">
 				<tr>
 					<td>${board.number}</td>
-					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
+					<td><a href="/board/detail?number=${board.number}"target=_blank>${board.title }</a></td>
 					<td>${board.author }</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<ul class="pagination" style="justify-content: center;">
+		<c:if test="${pageMaker.prev}">
+	  		<li class="page-item">
+	  			<a class="page-link" 
+	  			href="/board/list?page=${pageMaker.startPage-1}&type=${type}&search=${search}">Prev</a>
+  			</li>
+  		</c:if>
+	  	<c:forEach var="page" begin="${pageMaker.startPage}" 
+	  		end="${pageMaker.endPage}" >
+	  		<li class="page-item">
+	  			<a class="page-link" href="/board/list?page=${page}&type=${type}&search=${search}">${page}</a>
+  			</li>
+	  	</c:forEach>
+	  	<c:if test="${pageMaker.next}">
+	  		<li class="page-item">
+	  			<a class="page-link" href="/board/list?page=${pageMaker.endPage+1}&type=${type}&search=${search}">Next</a>
+  			</li>
+  		</c:if>
+	</ul>
 	
 	
 	</div>

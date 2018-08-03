@@ -43,7 +43,7 @@
 			<c:forEach var="recBook" items="${list1}">
 				<tr>
 					<td>${recBook.recBookNumber}</td>
-					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>
+					<td><a href="/recBook/detail?number=${recBook.recBookNumber}"target=_blank>${recBook.bookName }</a></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
 				</tr>
