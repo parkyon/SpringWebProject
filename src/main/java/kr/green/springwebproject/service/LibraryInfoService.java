@@ -156,6 +156,23 @@ public class LibraryInfoService {
 				libraryInfoMapper.notrecLibraryInf(libraryInfo);
 				return true;
 			}
+			
+			
+			
+//댓글용
+			
+			
+			public List<LibraryInfo> getComment(int bno) {
+				return libraryInfoMapper.getCommentByCno(bno);
+			}
+			
+			public boolean insertComment(User user, int cno, LibraryInfo libraryInfo) {
+			libraryInfo.setWriter(user.getId());
+			
+			libraryInfoMapper.insertComment(libraryInfo);
+			
+			return true;
+			}
 }
 	
 	

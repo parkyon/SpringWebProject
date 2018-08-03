@@ -1,6 +1,7 @@
 package kr.green.springwebproject.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -67,10 +68,11 @@ public class LibraryInfoController {
 	
 	@RequestMapping(value="detail")
 	public String libraryInfoDetail(HttpServletRequest request,
-			Model model, Integer number) {
+			Model model, Integer number, Integer bno) {
 		
 	
 		LibraryInfo libraryInfo = libraryInfoService.getDetailLibraryInfo(number);
+		
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -82,6 +84,12 @@ public class LibraryInfoController {
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("libraryInfo", libraryInfo);		
 		
+	List<LibraryInfo> comment = libraryInfoService.getComment(number); 
+		model.addAttribute("comment", comment);
+		System.out.println(comment);
+		
+		
+	
 	
 		return "/libraryInfo/detail";
 	}

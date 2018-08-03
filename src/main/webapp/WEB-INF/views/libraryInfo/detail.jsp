@@ -88,11 +88,36 @@
 		marker.setMap(map);
 	</script>
 		    
+		    
+		    
+		    
+		    
 	  	</form>
 	  	
 	  	
-	  	
-	  	
+	  	<h1>댓글</h1>
+		<table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>내용</th>
+				<th>글쓴이</th>
+				<th>작성날짜</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="comment" items="${comment }">
+				<tr>
+					<td>1++</td>
+					<td>${comment.content}</td>
+					<td>${comment.writer}</td>
+					<td>${comment.reg_date}</td>
+					
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 	  	<div>
 	  		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>

@@ -131,4 +131,13 @@
 			where
 	 		number = #{libraryInfo.number}
 	</update>
+	
+	
+	<!-- 도서관 댓글 -->
+	<select id="getCommentByCno" resultType="kr.green.springwebproject.dao.LibraryInfo">
+	select * from comment
+	where
+	bno = #{bno}
+	
+	</select>
 </mapper>
