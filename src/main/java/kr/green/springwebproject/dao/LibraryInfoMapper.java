@@ -53,8 +53,8 @@ public interface LibraryInfoMapper {
 	//댓글용
 	
 	public List<LibraryInfo> getCommentByCno(@Param("bno")int bno);
-	//댓글 번호로 가져오기
 	
 	
-	public void insertComment(@Param("comment")LibraryInfo libraryInfo);
+	
+	public void insertComment(@Param("libraryInfo")LibraryInfo libraryInfo);
 }

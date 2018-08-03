@@ -140,4 +140,13 @@
 	bno = #{bno}
 	
 	</select>
+	
+	<insert id="insertComment">
+	insert into comment
+	(bno,content,writer)
+	values
+	(#{libraryInfo.number},#{libraryInfo.content},#{libraryInfo.writer})
+
+	
+	</insert>
 </mapper>

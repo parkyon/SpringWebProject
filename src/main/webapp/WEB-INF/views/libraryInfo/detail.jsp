@@ -10,6 +10,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+
+	<script type="text/javascript" class="init">
+
+
+
+	$(document).ready(function() {
+
+		var table = $('#example').DataTable();
+		
+		
+	} );
+
+	</script>
+
+
 </head>
 <body>
 	<style> 
@@ -93,6 +113,23 @@
 		    
 		    
 	  	</form>
+	  	
+	  	
+  	<div class="container">
+  		<form method="post" 
+  			enctype="multipart/form-data">
+  		
+		    <div class="form-group">
+		    	
+		    	<input  type="text" class="form-control" name="content" value="" >
+		      	<button type="submit" class="btn btn-primary">등록</button>
+		    </div>
+		</form>
+	</div>
+		
+	
+	  	
+	  	
 	  	
 	  	
 	  	<h1>댓글</h1>

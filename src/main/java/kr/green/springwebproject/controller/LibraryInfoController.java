@@ -89,12 +89,30 @@ public class LibraryInfoController {
 		System.out.println(comment);
 		
 		
+		
 	
 	
 		return "/libraryInfo/detail";
 	}
 	
-
+	@RequestMapping(value ="detail", method = RequestMethod.POST)
+	public String DPOST(LibraryInfo libraryInfo
+			,HttpServletRequest request,  String content, Model model) throws Exception {
+		
+		
+		System.out.println(content);
+		System.out.println(libraryInfo.getNumber());
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		libraryInfoService.insertComment(user, libraryInfo);
+		
+		model.addAttribute("number", libraryInfo.getNumber());
+		
+		
+		
+	return "redirect:/libraryInfo/detail";
+	}
+	
 	@RequestMapping(value ="register", method = RequestMethod.GET)
 	public String libraryInfoRegisterGet() {
 		
@@ -107,11 +125,11 @@ public class LibraryInfoController {
 	
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		
+		libraryInfoService.registerLibraryInfo(libraryInfo, user, file, uploadPath);
 	System.out.println(libraryInfo);
 	System.out.println("이건 유저정보");
 	System.out.println(user);
-		return "redirect:/libraryInfo/libraryList";
+	return "/libraryInfo/detail";
 	}
 	
 	@RequestMapping(value="modify", method=RequestMethod.GET)
@@ -164,5 +182,10 @@ public class LibraryInfoController {
 		libraryInfoService.NotRecLibraryInfo(libraryInfo);
 		return "redirect:/libraryInfo/libraryList";
 	}
+	//댓글 작성
+
+	
+	
+	
 	
 }

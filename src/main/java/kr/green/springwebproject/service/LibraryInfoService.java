@@ -166,7 +166,7 @@ public class LibraryInfoService {
 				return libraryInfoMapper.getCommentByCno(bno);
 			}
 			
-			public boolean insertComment(User user, int cno, LibraryInfo libraryInfo) {
+			public boolean insertComment(User user, LibraryInfo libraryInfo) {
 			libraryInfo.setWriter(user.getId());
 			
 			libraryInfoMapper.insertComment(libraryInfo);
