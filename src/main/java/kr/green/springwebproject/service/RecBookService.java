@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.LibraryInfo;
@@ -11,6 +12,7 @@ import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookMapper;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
+import kr.green.springwebproject.utils.UploadFileUtils;
 @Service
 public class RecBookService {
 	@Autowired
@@ -38,9 +40,16 @@ public class RecBookService {
 	}
 
 
-	public boolean registerRecBook(RecBook recBook, User user) {
+	public boolean registerRecBook(RecBook recBook, User user, MultipartFile file, String uploadPath)throws Exception{
 		
 		recBook.setAuthor(user.getId());
+		
+		if(file != null) {
+			String filePath = UploadFileUtils.uploadFile
+				(uploadPath, file.getOriginalFilename(),file.getBytes());
+			recBook.setFilepath(filePath);
+		}
+		
 		
 		recBookMapper.insertRecBook(recBook);
 		

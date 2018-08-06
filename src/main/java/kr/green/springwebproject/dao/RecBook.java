@@ -101,4 +101,19 @@ public class RecBook {
 			public void setHits(int hits) {
 				this.hits = hits;
 			}
+			
+			
+	//파일첨부
+			
+			private String filepath;
+
+			public String getFilepath() {
+				return filepath;
+			}
+			public void setFilepath(String filepath) {
+				this.filepath = filepath;
+			}
+
+	
+	
 }

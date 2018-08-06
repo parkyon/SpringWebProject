@@ -46,6 +46,19 @@
 		      	<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" disabled>
 		    </div>
 		    <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<div class="form-control" name="file" id="file" >
+		      		<c:if test="${fileName != null }">
+		      			<a href="/recBook/download?fileName=${recBook.filepath}"
+		      			 target="_blank">${fileName}</a>
+		      		</c:if>
+		      		<c:if test="${fileName == null }">
+		      			첨부파일 없음
+		      		</c:if>
+		      	</div>
+		    </div>
+		    
+		    <div class="form-group">
 		    	<label>책 스토리</label>
 		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" disabled>
 		    </div>

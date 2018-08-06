@@ -28,7 +28,7 @@ public class DataTableController {
 	@Autowired
 	private LibraryInfoService libraryInfoService;
 	@Resource
-	private String uploadPath;
+	private String uploadPat;
 	@Autowired
 	private UserService userService;
 	

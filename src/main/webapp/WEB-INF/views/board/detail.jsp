@@ -24,6 +24,13 @@
 		    	<label>번호</label>
 		      	<input type="text" class="form-control" name="number" value="${board.number }" disabled>
 		    </div>
+		    
+		    <div> 
+     <object id="nzeo" width="100%" height="100%" data="/board/download?fileName=${board.filepath}" name="aaa">
+</object>
+     
+    </div>
+		    
 		    <div class="form-group">
 		    	<label>제목</label>
 		      	<input type="text" class="form-control" name="title" value="${board.title}" disabled>
@@ -33,7 +40,7 @@
 		      	<div class="form-control" name="file" id="file" >
 		      		<c:if test="${fileName != null }">
 		      			<a href="/board/download?fileName=${board.filepath}"
-		      			 target="_blank">${fileName}</a>
+		      			>${fileName}</a>
 		      		</c:if>
 		      		<c:if test="${fileName == null }">
 		      			첨부파일 없음

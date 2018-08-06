@@ -35,13 +35,10 @@ public class UploadFileUtils {
 		
 		String uploadFileName = null;
 		/*	확장자가 이미지이면(JPG, PNG, GIF)*/
-		if(MediaUtils.getMediaType(formatName)!=null) {
-			uploadFileName = 
-				makeThumbnail(uploadPath, savedPath, savedName);
-		}else {
+		
 			uploadFileName =
 				makeIcon(uploadPath, savedPath, savedName);
-		}
+		
 		return uploadFileName;
 	}
 	
@@ -87,30 +84,6 @@ public class UploadFileUtils {
 		//폴더경로/파일명으로 수정(예: 2018\06\28\파일 => 2018/06/28/파일)
 		return iconName.substring(uploadPath.length()).replace(File.separatorChar, '/');
 	}
-	private static String makeThumbnail(String uploadPath,
-			String path, String fileName)throws Exception{
-		/* 	File을 통해 이미지 파일을 경로를 읽어오고 ImageIO.read를 통해
-			이미지 파일을 BufferedImage에 저장
-		*/		
-		BufferedImage sourceImg = ImageIO.read(
-			new File(uploadPath+path,fileName));
-		/* 	원본 이미지를 기준으로 썸네일을 생성 */
-		BufferedImage destImg = Scalr.resize(sourceImg, 
-				Scalr.Method.AUTOMATIC, 
-				Scalr.Mode.FIT_TO_HEIGHT,50);
-		/*	썸네일명을 생성하는데 파일명 앞에 s_가 붙음 */
-		String thumbnailName = uploadPath+path+File.separator+"s_"
-				+fileName;
-		/*	썸네일명을 가지는 파일을 생성 */
-		File newFile = new File(thumbnailName);
-		/*	이미지의 확장자 추출 */
-		String formatName = 
-			fileName.substring(fileName.lastIndexOf(".")+1);
-		/*	썸네일 이미지를 저장 */
-		ImageIO.write(destImg, formatName.toUpperCase(), newFile);
-		/* 	썸네일 경로를 서버 경로에서 URL경로로 수정 */
-		return thumbnailName.substring(uploadPath.length())
-				.replace(File.separatorChar, '/');
-	}
+	
 }
 

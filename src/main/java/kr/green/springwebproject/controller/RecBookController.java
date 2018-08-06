@@ -1,18 +1,27 @@
 package kr.green.springwebproject.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.RecBook;
@@ -20,6 +29,8 @@ import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.service.RecBookService;
 import kr.green.springwebproject.service.UserService;
+import kr.green.springwebproject.utils.MediaUtils;
+import kr.green.springwebproject.utils.UploadFileUtils;
 
 @Controller
 @RequestMapping(value="/recBook/*")
@@ -28,6 +39,8 @@ public class RecBookController {
 	private UserService userService;
 	@Autowired
 	private RecBookService recBookService;
+	@Resource
+	private String uploadPath;
 	
 	
 	@RequestMapping(value="/recBookMain",method = RequestMethod.GET)
@@ -74,6 +87,17 @@ public class RecBookController {
 		boolean isAuthor = recBookService.isAuthor(user, recBook);
 		
 		
+		String filepath = recBook.getFilepath();
+		if(filepath != null) {
+		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
+			String fileName = filepath.substring(filepath.indexOf("_")+1);
+			model.addAttribute("fileName", fileName);
+		}
+		
+		
+		model.addAttribute("filepath", filepath);
+		System.out.println(filepath);
+		
 		
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("recBook", recBook);		
@@ -93,12 +117,57 @@ public class RecBookController {
 	
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		recBookService.registerRecBook(recBook, user);
-	System.out.println(recBook);
-	System.out.println(user);
-	
+		
+		
+		recBookService.registerRecBook(recBook, user, file, uploadPath);
+
 	
 		return "redirect:/recBook/recBookList";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("download")
+	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+	    InputStream in = null;
+	    ResponseEntity<byte[]> entity = null;
+	    try{
+	    	String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
+	        /*	�솗�옣�옄瑜� �넻�빐 誘몃뵒�뼱 ���엯 �젙蹂대�� 媛��졇�샂*/
+	        MediaType mType = MediaUtils.getMediaType(FormatName);
+	        
+	        HttpHeaders headers = new HttpHeaders();
+	        in = new FileInputStream(uploadPath+fileName);
+	        
+	        /*	�씠誘몄��씠硫� */
+	        if(mType != null) {
+	        	headers.setContentType(mType);
+	        }else {
+	        	fileName = fileName.substring(fileName.indexOf("_")+1);
+		        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		        headers.add("Content-Disposition",  "attachment; filename=\"" 
+					+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	        }
+	        entity = new ResponseEntity<byte[]>(
+	        		IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+	    }catch(Exception e) {
+	        e.printStackTrace();
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally {
+	        in.close();
+	    }
+	    return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/display")
+	public ResponseEntity<String> displayFile(MultipartFile file)
+			throws Exception{
+		String fileName = UploadFileUtils.uploadFile
+				(uploadPath, file.getOriginalFilename(),file.getBytes());
+	    
+	    return new ResponseEntity<String>(fileName,
+				HttpStatus.OK);
 	}
 	
 	
@@ -111,6 +180,13 @@ public class RecBookController {
 		model.addAttribute("recBook", recBook);
 		//파일명 수정하는 과정
 		
+		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
+		String filepath = recBook.getFilepath();
+		if(filepath != null) {
+		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
+			String fileName = filepath.substring(filepath.indexOf("_")+1);
+			model.addAttribute("fileName", fileName);
+		}
 		
 		return "/recBook/modify";
 	}
