@@ -81,6 +81,14 @@ public class Board {
 
 	
 	//기타
-	
+	//조회수
+
+			private int hits;
+			public int getHits() {
+				return hits;
+			}
+			public void setHits(int hits) {
+				this.hits = hits;
+			}
 	
 }

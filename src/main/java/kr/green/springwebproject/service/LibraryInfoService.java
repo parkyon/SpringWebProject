@@ -197,6 +197,15 @@ public class LibraryInfoService {
 				= (ArrayList)libraryInfoMapper.searchComment(cri, "%"+search+"%", type);
 			return list2;
 			}
+			
+			
+			//조회수
+			
+			
+			public boolean LibraryInfoHits(LibraryInfo libraryInfo) {
+				libraryInfoMapper.libraryInfoHits(libraryInfo);
+				return true;
+			}
 }
 	
 	

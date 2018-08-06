@@ -54,6 +54,7 @@
 				<th>제목</th>
 				<th>작성일</th>
 				<th>작성자</th>
+				<th>조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -63,6 +64,7 @@
 					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
 					<td>${board.created_date }</td>
 					<td>${board.author }</td>
+					<td>${board.hits}
 				</tr>
 			</c:forEach>
 		</tbody>

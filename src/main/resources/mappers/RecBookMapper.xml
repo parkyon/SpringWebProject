@@ -67,5 +67,14 @@
 			#{cri.pageStart},#{cri.perPageNum}
 	</select>
 	
+	<update id="recBookHits" >
+	update 
+			recbook 
+		set  
+			hits = hits+1
+			
+	 		where recBookNumber = #{recBook.recBookNumber}
+	</update>
+	
 	
 </mapper>

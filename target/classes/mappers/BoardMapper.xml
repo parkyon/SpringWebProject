@@ -165,6 +165,17 @@
 		limit
 			#{cri.pageStart},#{cri.perPageNum}
 	</select>
+	
+	
+	
+		<update id="boardHits" >
+	update 
+			board 
+		set  
+			hits = hits+1
+		
+	 		where number = #{board.number}
+	</update>
 </mapper>
 
 

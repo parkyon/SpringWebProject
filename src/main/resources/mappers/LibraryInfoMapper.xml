@@ -168,4 +168,17 @@
 		limit
 			#{cri.pageStart},#{cri.perPageNum}
 	</select>
+	
+	
+<!-- 조회수 -->
+
+
+<update id="libraryInfoHits" >
+	update 
+			libraryinfo 
+		set  
+			hits = hits+1
+			where
+	 		number = #{libraryInfo.number}
+	</update>
 </mapper>

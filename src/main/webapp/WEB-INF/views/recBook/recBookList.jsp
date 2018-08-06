@@ -57,6 +57,7 @@
 				<th>책이름</th>
 				<th>책유형</th>
 				<th>작가</th>
+				<th>조회수</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -66,6 +67,7 @@
 					<td><a href="/recBook/detail?number=${recBook.recBookNumber}">${recBook.bookName }</a></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
+					<td>${recBook.hits}  </td>
 				</tr>
 			</c:forEach>
 		</tbody>

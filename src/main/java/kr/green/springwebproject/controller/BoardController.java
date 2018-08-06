@@ -83,7 +83,7 @@ public class BoardController {
 			Model model, int number) {
 		
 		Board board = boardService.getBoard(number);
-		
+		boardService.BoardHits(board);
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = boardService.isAuthor(user, board);
@@ -286,6 +286,12 @@ public class BoardController {
 		model.addAttribute("admin", admin);
 		return "/board/event";
 	}
+	
+	
+	
+	
+	
+	
 }
 
 

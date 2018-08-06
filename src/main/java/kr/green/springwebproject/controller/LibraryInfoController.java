@@ -69,11 +69,11 @@ public class LibraryInfoController {
 	@RequestMapping(value="detail")
 	public String libraryInfoDetail(HttpServletRequest request,
 			Model model, Integer number, Integer bno, Criteria cri
-			,String search, Integer type) {
+			,String search, Integer type ) {
 		
-	
+		
 		LibraryInfo libraryInfo = libraryInfoService.getDetailLibraryInfo(number);
-		
+		libraryInfoService.LibraryInfoHits(libraryInfo);
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -85,19 +85,7 @@ public class LibraryInfoController {
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("libraryInfo", libraryInfo);		
 		
-		
-		
-		
-		
-		//댓글
-	// <페이지네이션>
-		//int totalCount2 = libraryInfoService.getCountByComment(type, search, cri);
-		//ArrayList<LibraryInfo> comment = libraryInfoService.getListComment(type, search, cri);
-		//model.addAttribute("comment", comment);
-		
-		
 	
-		
 		List<LibraryInfo> comment = libraryInfoService.getComment(number); 
 		model.addAttribute("comment", comment);
 		System.out.println(comment);
@@ -194,10 +182,8 @@ public class LibraryInfoController {
 		libraryInfoService.NotRecLibraryInfo(libraryInfo);
 		return "redirect:/libraryInfo/libraryList";
 	}
-	//댓글 작성
 
-	
-	
+
 	
 	
 }

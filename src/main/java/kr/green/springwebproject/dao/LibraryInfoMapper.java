@@ -60,4 +60,10 @@ public interface LibraryInfoMapper {
 	
 	public int getCountComment();
 	public List<Board> searchComment(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
+	
+	
+	//조회수
+	
+	public int libraryInfoHits(@Param("libraryInfo")LibraryInfo libraryInfo);
+	
 }

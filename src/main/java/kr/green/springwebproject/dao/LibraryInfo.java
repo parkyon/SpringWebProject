@@ -210,6 +210,18 @@ public class LibraryInfo {
 		this.reg_date = reg_date;
 	}
 	private Date reg_date;
+
+	//조회수
+
+		private int hits;
+		public int getHits() {
+			return hits;
+		}
+		public void setHits(int hits) {
+			this.hits = hits;
+		}
 }
+
+
 
 

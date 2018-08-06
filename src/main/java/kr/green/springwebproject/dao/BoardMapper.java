@@ -45,7 +45,8 @@ public interface BoardMapper {
 			@Param("number")int number);
 
 	
-	
+	//조회수
+	public int boardHits(@Param("board")Board board);
 	
 	
 }

@@ -33,6 +33,8 @@ public interface RecBookMapper {
 
 	
 
+	//조회수
 	
+	public int recBookHits(@Param("recBook")RecBook recBook);
 
 }

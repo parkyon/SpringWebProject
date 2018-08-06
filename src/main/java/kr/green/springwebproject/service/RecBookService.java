@@ -94,5 +94,11 @@ public class RecBookService {
 			return list1;
 			}
 			
+			
+			//조회수
+			public boolean RecBookHits(RecBook recBook) {
+				recBookMapper.recBookHits(recBook);
+				return true;
+			}
 
 }

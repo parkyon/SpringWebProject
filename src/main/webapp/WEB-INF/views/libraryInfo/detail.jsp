@@ -136,9 +136,9 @@
 	  	
 	  	
 	  	
-	  	
+	  	<div>
 	  	<h1>댓글</h1>
-		<table class="table table-bordered" id="example">
+		<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -160,6 +160,9 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	  	
+	  	</div>
+	  	
 	  	<div>
 	  		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>

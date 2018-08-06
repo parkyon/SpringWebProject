@@ -67,6 +67,7 @@ public class RecBookController {
 		
 	
 		RecBook recBook = recBookService.getDetailRecBook(number);
+		recBookService.RecBookHits(recBook);
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");

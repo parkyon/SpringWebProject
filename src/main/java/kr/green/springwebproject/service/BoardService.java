@@ -203,6 +203,11 @@ public class BoardService {
 		}
 		
 		
+		//조회수
+		public boolean BoardHits(Board board) {
+			boardMapper.boardHits(board);
+			return true;
+		}
 }
 		
 		
