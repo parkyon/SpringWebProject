@@ -180,6 +180,7 @@ public class RecBookController {
 		model.addAttribute("recBook", recBook);
 		//파일명 수정하는 과정
 		
+		
 		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
 		String filepath = recBook.getFilepath();
 		if(filepath != null) {
@@ -193,17 +194,18 @@ public class RecBookController {
 	@RequestMapping(value="modify", method=RequestMethod.POST)
 	public String recBookModifyPost(HttpServletRequest request,
 			Model model, RecBook recBook, MultipartFile file, Integer del) 
-			throws Exception {
+					throws Exception {
 		
-		recBookService.modifyRecBook(recBook);
+		recBookService.modifyRecBook(recBook, file, uploadPath, del);
 		
 		return "redirect:/recBook/recBookList";
 	}
 	@RequestMapping(value="/delete")
-	public String deleteRecBook(RecBook libaryInfo) {
-		recBookService.deleteLibaryInfo(libaryInfo);
+	public String deleteRecBook(Integer recBookNumber ,RecBook recBook) {
+		recBookService.DeleteRecBook(recBookNumber, recBook);
 		return "redirect:/recBook/recBookList";
 	}
+	
 	
 	
 	

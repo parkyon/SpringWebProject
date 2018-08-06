@@ -13,7 +13,12 @@
 
 
 
+<style>
+#none{ display:none;}
 
+</style>
+
+<!-- 유효성검사 -->
 
 
 </head>
@@ -25,38 +30,36 @@
 	</style>
 	<div class="container">
   		<form >
-  			<h1>추천 도서 상세</h1>
+  			<h1>${recBook.bookName}</h1>
   			
-  					    <div style="border:1px solid; padding:10px;">
-이미지 없음
-</div>
+  					    
 		    <div class="form-group">
 		    	<label>번호</label>
 		      	<input type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber }" disabled>
 		    </div>
-		    
+		     <div> 
+		     
+     <object id="nzeo" width="400px" height="400px" data="/recBook/download?fileName=${recBook.filepath}" name="aaa">
+</object>
+     
+    </div>
 
-		    <div class="form-group">
-		    	<label>책 이름</label>
-		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" disabled>
-		    </div>    
+		   
 		    
 		    <div class="form-group">
 		    	<label>책 유형</label>
 		      	<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" disabled>
 		    </div>
-		    <div class="form-group">
-		    	<label>첨부파일</label>
-		      	<div class="form-control" name="file" id="file" >
+		
+		    	
+		      
 		      		<c:if test="${fileName != null }">
 		      			<a href="/recBook/download?fileName=${recBook.filepath}"
-		      			 target="_blank">${fileName}</a>
+		      			 target="aaa"></a>
 		      		</c:if>
-		      		<c:if test="${fileName == null }">
-		      			첨부파일 없음
-		      		</c:if>
-		      	</div>
-		    </div>
+		      	
+		      
+		
 		    
 		    <div class="form-group">
 		    	<label>책 스토리</label>
@@ -74,8 +77,8 @@
 	  	<div>
 		    <a href="/recBook/recBookList"><button class="btn btn-primary">목록</button></a>
 		    <c:if test="${isAuthor || !USER }" >
-		    	<a href="/recBook/modify?number=${recBook.number }"><button class="btn btn-primary">수정</button></a>
-		    	<a href="/recBook/delete?number=${recBook.number }"><button class="btn btn-outline-danger">삭제</button></a>
+		    	<a href="/recBook/modify?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-primary">수정</button></a>
+		    	<a href="/recBook/delete?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
 	    </div>
 	</div>

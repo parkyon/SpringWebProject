@@ -1,6 +1,8 @@
 package kr.green.springwebproject.service;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,14 +60,18 @@ public class RecBookService {
 		
 	}
 
-	public boolean modifyRecBook(RecBook recBook) {
+	public boolean modifyRecBook(RecBook recBook,MultipartFile file
+			, String uploadPath, Integer del) throws Exception  {
 		// TODO Auto-generated method stub
+		
+		
 		recBookMapper.modifyRecBook(recBook);
-		return false;
+	
+		return true;
 		
 	}
 
-	public boolean deleteLibaryInfo(RecBook recBook) {
+	public boolean DeleteRecBook(Integer recBookNumber, RecBook recBook) {
 		// TODO Auto-generated method stub
 		recBookMapper.deleteRecBook(recBook);
 		return false;

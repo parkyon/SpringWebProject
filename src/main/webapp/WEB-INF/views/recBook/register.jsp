@@ -10,6 +10,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
+
+<script>
+    $(function(){
+        $("form").validate({
+            rules: {
+            	bookName: {
+                    required : true,
+                   
+                }
+                
+            },
+            //규칙체크 실패시 출력될 메시지
+            messages : {
+            	bookName: {
+                    required : "필수로입력하세요",
+               
+                }
+                
+                
+            }
+        });
+    })
+    $.validator.addMethod(
+        "regex",
+        function(value, element, regexp) {
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        },
+        "Please check your input."
+    );
+    
+    
+    </script> 
 <body>
 	<style> 
 		.form-control:disabled, .form-control[readonly]{
@@ -22,12 +55,12 @@
 		}
 	</style>
 	<div class="container">
-  		<form method="post" 
+  		<form method="post" id="formId" 
   			enctype="multipart/form-data">
   			<h1>추천도서 등록</h1>
 		    <div class="form-group">
 		    	<label>책 이름</label>
-		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" >
+		      	<input type="text" class="form-control" name="bookName" id="bookName" value="${recBook.bookName}" >
 		    </div>
 		     <div class="form-group">
 		    	<label>책 유형</label>
@@ -50,7 +83,7 @@
 		    </div>
 		    <div class="form-group">
 		    	<label>작가</label>
-		      	<input type="text" class="form-control" name="file" />
+		      	<input type="text" class="form-control" name="file" , id="file" />
 		    </div>
 		     
 		   
