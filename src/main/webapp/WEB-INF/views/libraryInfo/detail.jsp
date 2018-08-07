@@ -71,6 +71,18 @@
 		    	<label>전화번호</label>
 		      	<input type="text" class="form-control" name="author" value="${libraryInfo.phoneNumber}" disabled>
 		    </div>
+		   <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<div class="form-control" name="file" id="file" >
+		      		<c:if test="${fileName != null }">
+		      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
+		      			>${fileName}</a>
+		      		</c:if>
+		      		<c:if test="${fileName == null }">
+		      			첨부파일 없음
+		      		</c:if>
+		      	</div>
+		    </div>
 		   
 		    <div class="form-group">
 		    	<label>홈페이지주소</label>

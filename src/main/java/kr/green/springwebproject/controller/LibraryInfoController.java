@@ -1,5 +1,7 @@
 package kr.green.springwebproject.controller;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,11 +9,17 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
@@ -21,6 +29,8 @@ import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
 import kr.green.springwebproject.service.LibraryInfoService;
 import kr.green.springwebproject.service.UserService;
+import kr.green.springwebproject.utils.MediaUtils;
+import kr.green.springwebproject.utils.UploadFileUtils;
 
 @Controller
 @RequestMapping(value="/libraryInfo/*")
@@ -79,6 +89,13 @@ public class LibraryInfoController {
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = libraryInfoService.isAuthor(user, libraryInfo);
 		
+		
+		String filepath = libraryInfo.getFilepath();
+		if(filepath != null) {
+		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
+			String fileName = filepath.substring(filepath.indexOf("_")+1);
+			model.addAttribute("fileName", fileName);
+		}
 		//파일명 수정하는 과정
 		
 		
@@ -129,7 +146,7 @@ public class LibraryInfoController {
 	System.out.println(libraryInfo);
 	System.out.println("이건 유저정보");
 	System.out.println(user);
-	return "/libraryInfo/detail";
+	return "redirect:/libraryInfo/libraryList";
 	}
 	
 	@RequestMapping(value="modify", method=RequestMethod.GET)
@@ -184,6 +201,50 @@ public class LibraryInfoController {
 	}
 
 
+	//첨부파일
 	
+	@ResponseBody
+	@RequestMapping("download")
+	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
+	    InputStream in = null;
+	    ResponseEntity<byte[]> entity = null;
+	    try{
+	    	String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
+	        /*	�솗�옣�옄瑜� �넻�빐 誘몃뵒�뼱 ���엯 �젙蹂대�� 媛��졇�샂*/
+	        MediaType mType = MediaUtils.getMediaType(FormatName);
+	        
+	        HttpHeaders headers = new HttpHeaders();
+	        in = new FileInputStream(uploadPath+fileName);
+	        
+	        /*	�씠誘몄��씠硫� */
+	        if(mType != null) {
+	        	headers.setContentType(mType);
+	        }else {
+	        	fileName = fileName.substring(fileName.indexOf("_")+1);
+		        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+		        headers.add("Content-Disposition",  "attachment; filename=\"" 
+					+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
+	        }
+	        entity = new ResponseEntity<byte[]>(
+	        		IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
+	    }catch(Exception e) {
+	        e.printStackTrace();
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	    }finally {
+	        in.close();
+	    }
+	    return entity;
+	}
+	
+	@ResponseBody
+	@RequestMapping("/display")
+	public ResponseEntity<String> displayFile(MultipartFile file)
+			throws Exception{
+		String fileName = UploadFileUtils.uploadFile
+				(uploadPath, file.getOriginalFilename(),file.getBytes());
+	    
+	    return new ResponseEntity<String>(fileName,
+				HttpStatus.OK);
+	}
 	
 }
