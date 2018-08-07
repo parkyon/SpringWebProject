@@ -62,8 +62,27 @@ public class RecBookService {
 
 	public boolean modifyRecBook(RecBook recBook,MultipartFile file
 			, String uploadPath, Integer del) throws Exception  {
-		// TODO Auto-generated method stub
 		
+		//湲곗〈 泥⑤��뙆�씪 寃쎈줈瑜� 媛��졇�삤湲� �쐞�븿
+		RecBook tmp = recBookMapper.getDetailRecBookByNumber(recBook.getRecBookNumber());
+	
+		//�닔�젙�맆 泥⑤��뙆�씪�씠 �엳�뒗 寃쎌슦
+		if(file != null && file.getOriginalFilename().length()!= 0) {
+			String filePath = UploadFileUtils.uploadFile
+					(uploadPath, file.getOriginalFilename(),file.getBytes());
+			recBook.setFilepath(filePath);
+		}
+		//�닔�젙�맆 泥⑤��뙆�씪�씠 �뾾吏�留� 湲곗〈 泥⑤��뙆�씪�씠 吏��썙�졇�빞 �븯�뒗 寃쎌슦
+		else if(del != null && tmp.getFilepath() != null) {
+			//�떎�젣 �뙆�씪�쓣 �궘�젣
+			new File(uploadPath + tmp.getFilepath()
+				.replace('/', File.separatorChar)).delete();
+			recBook.setFilepath(null);
+		}
+		//�닔�젙�맆 �뙆�씪�씠 �뾾怨� 湲곗〈 �뙆�씪�쓣 �쑀吏��븯�뒗 寃쎌슦
+		else {
+			recBook.setFilepath(tmp.getFilepath());
+		}
 		
 		recBookMapper.modifyRecBook(recBook);
 	

@@ -173,9 +173,15 @@ public class RecBookController {
 	
 	@RequestMapping(value="modify", method=RequestMethod.GET)
 	public String recBookModifyGet(HttpServletRequest request,
-			Model model,Integer del, Integer number) {
+			Model model,Integer del, Integer number, Integer recBookNumber) {
 				
-		RecBook recBook = recBookService.getDetailRecBook(number);
+		RecBook recBook = recBookService.getDetailRecBook(recBookNumber);
+		if(del != null && del == 1) {
+			//db遺덈윭�삩 寃뚯떆�뙋�쓽 �젙蹂댁뿉�꽌 �뾽濡쒕뱶 �뙆�씪 寃쎈줈瑜� 吏���
+			//db�뿉�꽌�뒗 吏��슦吏� �븡�쓬
+			recBook.setFilepath(null);
+		}
+		
 		
 		model.addAttribute("recBook", recBook);
 		//파일명 수정하는 과정

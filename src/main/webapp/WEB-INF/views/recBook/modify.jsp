@@ -20,61 +20,45 @@
 	</style>
 	<div class="container">
   		<form method="post" enctype="multipart/form-data">
-  			<h1>도서관정보 수정</h1>
+  			<h1>추천 책 수정</h1>
 		    <div class="form-group">
-		    	<label>도서관 이름</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" >
+		    	<label>책 이름</label>
+		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookName}" >
 		    </div>
-		    <div class="form-group">
-		    	<label>도시 이름</label>
-		      	<input type="text" class="form-control" name="cityName" value="${libraryInfo.cityName}" >
+		       <div class="form-group">
+		    	<label>책 타입</label>
+		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookType}" >
 		    </div>
-		    <div class="form-group">
-		    	<label>도서관 유형</label>
-		      	<input type="text" class="form-control" name="libraryType" value="${libraryInfo.libraryType}" >
+		       <div class="form-group">
+		    	<label>책 내용</label>
+		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookStory}" >
 		    </div>
-		    <div class="form-group">
-		    	<label>휴일</label>
-		      	<input type="text" class="form-control" name="holiday" value="${libraryInfo.holiday}" >
+		       <div class="form-group">
+		    	<label>작가</label>
+		      	<input type="text" class="form-control" name="libraryName" value="${recBook.writer}" >
 		    </div>
-		    <div class="form-group">
-		    	<label>좌석 수</label>
-		      	<input type="text" class="form-control" name="openSeat" value="${libraryInfo.openSeat}" >
+		      <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<div class="form-control" name="fileName" >
+		      		<c:if test="${fileName != null }">
+		      			<a href="/recBook/download?fileName=${recBook.filepath}"
+		      			 target="_blank">${fileName}</a>
+		      			<a href="/recBook/modify?recBookNumber=${recBook.recBookNumber}&del=1">
+		      				<i class="fas fa-times"></i>
+		      			</a>
+		      		</c:if>
+		      		<c:if test="${fileName == null }">
+		      			첨부파일 없음
+		      		</c:if>
+		      	</div>
 		    </div>
-		    <div class="form-group">
-		    	<label>자료수(도서)</label>
-		      	<input type="text" class="form-control" name="bookCount" value="${libraryInfo.bookCount}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>자료수(연속간행)</label>
-		      	<input type="text" class="form-control" name="bookCount2" value="${libraryInfo.bookCount2}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>자료수(비도서)</label>
-		      	<input type="text" class="form-control" name="bookCount3" value="${libraryInfo.bookCount3}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>도로명주소</label>
-		      	<input type="text" class="form-control" name="loadAddress" value="${libraryInfo.loadAddress}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>운영기관</label>
-		      	<input type="text" class="form-control" name="operation" value="${libraryInfo.operation}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>전화번호</label>
-		      	<input type="text" class="form-control" name="phoneNumber" value="${libraryInfo.phoneNumber}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>홈페이지 주소</label>
-		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
-		    </div>
-		   
-		    <div>
 		    
-		   
-		    
+		   </div>
+		    <div class="form-group">
+		        <label>첨부파일 수정</label>
+		        <input type="file" class="form-control" name="file"/>
 		    </div>
+		  
 		    
 		    <div>
 			    <button type="submit" class="btn btn-primary">수정</button>

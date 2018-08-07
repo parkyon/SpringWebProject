@@ -1,5 +1,7 @@
 package kr.green.springwebproject.dao;
 
+import java.util.Date;
+
 public class RecBook {
 
 	
@@ -108,6 +110,11 @@ public class RecBook {
 			public void setFilepath(String filepath) {
 				this.filepath = filepath;
 			}
+			public void setCreated_date(Date created_date) {
+				// TODO Auto-generated method stub
+				
+			}
+			
 
 	
 	
