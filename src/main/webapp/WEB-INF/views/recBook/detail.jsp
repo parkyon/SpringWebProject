@@ -65,10 +65,12 @@
 		    	<label>책 스토리</label>
 		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" disabled>
 		    </div>
+		    
 		    <div class="form-group">
 		    	<label>작가</label>
 		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" disabled>
 		    </div>
+		    
 		    <div class="form-group">
 		    	<label>작성자</label>
 		      	<input type="text" class="form-control" name="author" value="${recBook.author}" disabled>

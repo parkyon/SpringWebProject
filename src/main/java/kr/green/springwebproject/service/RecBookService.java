@@ -86,7 +86,7 @@ public class RecBookService {
 		
 		recBookMapper.modifyRecBook(recBook);
 	
-		return true;
+		return false;
 		
 	}
 

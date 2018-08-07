@@ -62,14 +62,29 @@ public class LibraryInfoService {
 		return true;
 	}
 	
-	public boolean modifyLibraryInfo(LibraryInfo libraryInfo) throws Exception  {
-		//수정된 날짜로 created_date를 업데이트
-		Date created_date = new Date();
+	public boolean modifyLibraryInfo(LibraryInfo libraryInfo,MultipartFile file, String uploadPath, Integer del) throws Exception  {
 		
-		//기존 첨부파일 경로를 가져오기 위함
-
-		//수정될 첨부파일이 있는 경우
-		
+	
+		//湲곗〈 泥⑤��뙆�씪 寃쎈줈瑜� 媛��졇�삤湲� �쐞�븿
+		LibraryInfo tmp = libraryInfoMapper.getDetailLibraryInfoByNumber(libraryInfo.getNumber());
+	
+		//�닔�젙�맆 泥⑤��뙆�씪�씠 �엳�뒗 寃쎌슦
+		if(file != null && file.getOriginalFilename().length()!= 0) {
+			String filePath = UploadFileUtils.uploadFile
+					(uploadPath, file.getOriginalFilename(),file.getBytes());
+			libraryInfo.setFilepath(filePath);
+		}
+		//�닔�젙�맆 泥⑤��뙆�씪�씠 �뾾吏�留� 湲곗〈 泥⑤��뙆�씪�씠 吏��썙�졇�빞 �븯�뒗 寃쎌슦
+		else if(del != null && tmp.getFilepath() != null) {
+			//�떎�젣 �뙆�씪�쓣 �궘�젣
+			new File(uploadPath + tmp.getFilepath()
+				.replace('/', File.separatorChar)).delete();
+			libraryInfo.setFilepath(null);
+		}
+		//�닔�젙�맆 �뙆�씪�씠 �뾾怨� 湲곗〈 �뙆�씪�쓣 �쑀吏��븯�뒗 寃쎌슦
+		else {
+			libraryInfo.setFilepath(tmp.getFilepath());
+		}
 		
 		libraryInfoMapper.modifyLibraryInfo(libraryInfo);
 		return false;

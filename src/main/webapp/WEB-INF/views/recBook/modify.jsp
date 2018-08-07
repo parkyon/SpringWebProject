@@ -23,20 +23,21 @@
   			<h1>추천 책 수정</h1>
 		    <div class="form-group">
 		    	<label>책 이름</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookName}" >
+		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" >
 		    </div>
 		       <div class="form-group">
 		    	<label>책 타입</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookType}" >
+		      	<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" >
 		    </div>
 		       <div class="form-group">
 		    	<label>책 내용</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${recBook.bookStory}" >
+		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
 		    </div>
 		       <div class="form-group">
 		    	<label>작가</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${recBook.writer}" >
+		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" >
 		    </div>
+		    
 		      <div class="form-group">
 		    	<label>첨부파일</label>
 		      	<div class="form-control" name="fileName" >
@@ -51,9 +52,14 @@
 		      			첨부파일 없음
 		      		</c:if>
 		      	</div>
-		    </div>
+		   
 		    
-		   </div>
+		 
+		   <div class="form-group">
+		        <input type="text" class="form-control" name="del"
+		        	style="display:none" 
+		        	value="${fileName==null?1:null}"/>
+		    </div>
 		    <div class="form-group">
 		        <label>첨부파일 수정</label>
 		        <input type="file" class="form-control" name="file"/>

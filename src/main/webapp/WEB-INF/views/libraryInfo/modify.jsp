@@ -70,6 +70,33 @@
 		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
 		    </div>
 		   
+		   <div class="form-group">
+		    	<label>첨부파일</label>
+		      	<div class="form-control" name="fileName" >
+		      		<c:if test="${fileName != null }">
+		      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
+		      			 target="_blank">${fileName}</a>
+		      			<a href="/libraryInfo/modify?number=${libraryInfo.number}&del=1">
+		      				<i class="fas fa-times"></i>
+		      			</a>
+		      		</c:if>
+		      		<c:if test="${fileName == null }">
+		      			첨부파일 없음
+		      		</c:if>
+		      	</div>
+		    </div>
+		    
+		    <div class="form-group">
+		        <input type="text" class="form-control" name="del"
+		        	style="display:none" 
+		        	value="${fileName==null?1:null}"/>
+		    </div>
+		    <div class="form-group">
+		        <label>첨부파일 수정</label>
+		        <input type="file" class="form-control" name="file"/>
+		    </div>
+		   
+		   
 		    <div>
 		    
 		   

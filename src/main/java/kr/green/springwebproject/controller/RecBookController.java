@@ -184,6 +184,7 @@ public class RecBookController {
 		
 		
 		model.addAttribute("recBook", recBook);
+	
 		//파일명 수정하는 과정
 		
 		
@@ -203,6 +204,8 @@ public class RecBookController {
 					throws Exception {
 		
 		recBookService.modifyRecBook(recBook, file, uploadPath, del);
+		System.out.println("RECBOOK");
+		System.out.println(recBook.getWriter());
 		
 		return "redirect:/recBook/recBookList";
 	}

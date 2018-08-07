@@ -40,7 +40,7 @@
 		      	<div class="form-control" name="file" id="file" >
 		      		<c:if test="${fileName != null }">
 		      			<a href="/board/download?fileName=${board.filepath}"
-		      			>${fileName}</a>
+		      			target="aaa">${fileName}</a>
 		      		</c:if>
 		      		<c:if test="${fileName == null }">
 		      			첨부파일 없음

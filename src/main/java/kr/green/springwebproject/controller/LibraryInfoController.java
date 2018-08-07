@@ -155,7 +155,20 @@ public class LibraryInfoController {
 				
 		LibraryInfo libraryInfo = libraryInfoService.getDetailLibraryInfo(number);
 		
+		if(del != null && del == 1) {
+			
+			libraryInfo.setFilepath(null);
+		}
 		model.addAttribute("libraryInfo", libraryInfo);
+		
+		String filepath = libraryInfo.getFilepath();
+		if(filepath != null) {
+	
+			String fileName = filepath.substring(filepath.indexOf("_")+1);
+			model.addAttribute("fileName", fileName);
+		}
+		
+		
 		//파일명 수정하는 과정
 		
 		
@@ -166,7 +179,7 @@ public class LibraryInfoController {
 			Model model, LibraryInfo libraryInfo, MultipartFile file, Integer del) 
 			throws Exception {
 		
-		libraryInfoService.modifyLibraryInfo(libraryInfo);
+		libraryInfoService.modifyLibraryInfo(libraryInfo, file, uploadPath, del);
 		
 		return "redirect:/libraryInfo/libraryList";
 	}
