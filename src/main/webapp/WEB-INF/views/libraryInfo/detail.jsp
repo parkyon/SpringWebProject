@@ -161,9 +161,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="comment" items="${comment }">
+			<c:forEach var="comment" items="${comment }" varStatus="status">
 				<tr>
-					<td>1++</td>
+				
+			
+					<td>${status.count}</td>
+				 
 					<td>${comment.content}</td>
 					<td>${comment.writer}</td>
 					<td>${comment.reg_date}</td>
