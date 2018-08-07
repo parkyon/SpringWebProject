@@ -42,6 +42,21 @@
 			background: #ffffff;
 		}
 	</style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<div class="container">
   		<form >
   			<h1>${libraryInfo.libraryName}</h1>
@@ -166,6 +181,7 @@
 				
 			
 					<td>${status.count}</td>
+					
 				 
 					<td>${comment.content}</td>
 					<td>${comment.writer}</td>

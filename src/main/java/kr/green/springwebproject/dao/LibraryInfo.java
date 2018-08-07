@@ -220,6 +220,22 @@ public class LibraryInfo {
 		public void setHits(int hits) {
 			this.hits = hits;
 		}
+		
+		
+		private String publisher;
+		private int price;
+		public String getPublisher() {
+			return publisher;
+		}
+		public void setPublisher(String publisher) {
+			this.publisher = publisher;
+		}
+		public int getPrice() {
+			return price;
+		}
+		public void setPrice(int price) {
+			this.price = price;
+		}
 }
 
 

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
@@ -98,7 +99,8 @@ public class RecBookController {
 		model.addAttribute("filepath", filepath);
 		System.out.println(filepath);
 		
-		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("recBook", recBook);		
 		return "/recBook/detail";
@@ -232,6 +234,22 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		
 		return "/recBook/recentlyRecBookList";
 	}
+	
+	
+	//좋아요 싫어요
+	
+	@RequestMapping(value="rec")
+	public String recRecBook(RecBook recBook) {
+		recBookService.RecRecBook(recBook);
+		return "redirect:/recBook/recBookList";
+	}
+	
+	@RequestMapping(value="notrec")
+	public String notrecRecBook(RecBook recBook) {
+		recBookService.NotRecBook(recBook);
+		return "redirect:/recBook/recBookList";
+	}
+	
 	
 }
 

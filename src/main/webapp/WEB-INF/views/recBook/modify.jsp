@@ -33,6 +33,18 @@
 		    	<label>책 내용</label>
 		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
 		    </div>
+		      <div class="form-group">
+		    	<label>리뷰</label>
+		      	<input type="text" class="form-control" name="review" value="${recBook.review}" >
+		    </div>
+		        <div class="form-group">
+		    	<label>출판사</label>
+		      	<input type="text" class="form-control" name="publisher" value="${recBook.publisher}" >
+		    </div>
+		        <div class="form-group">
+		    	<label>가격</label>
+		      	<input type="text" class="form-control" name="price" value="${recBook.price}" >
+		    </div>
 		       <div class="form-group">
 		    	<label>작가</label>
 		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" >

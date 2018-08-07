@@ -116,6 +116,56 @@ public class RecBook {
 			}
 			
 
+			
+			
+			
+			
 	
-	
+			//추천수
+			
+			private int recomand;
+			public int getRecomand() {
+				return recomand;
+			}
+			public void setRecomand(int recomand) {
+				this.recomand = recomand;
+			}
+			
+			private int notrecomand;
+			public int getNotrecomand() {
+				return notrecomand;
+			}
+			public void setNotrecomand(int notrecomand) {
+				this.notrecomand = notrecomand;
+			}
+			
+			
+			//리뷰
+			
+			private String review;
+
+
+
+			public String getReview() {
+				return review;
+			}
+			public void setReview(String review) {
+				this.review = review;
+			}
+			
+			private int price;
+			public int getPrice() {
+				return price;
+			}
+			public void setPrice(int price) {
+				this.price = price;
+			}
+			public String getPublisher() {
+				return publisher;
+			}
+			public void setPublisher(String publisher) {
+				this.publisher = publisher;
+			}
+
+			private String publisher;
 }

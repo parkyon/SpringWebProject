@@ -135,4 +135,16 @@ public class RecBookService {
 				return true;
 			}
 
+			
+//rec
+			
+			public boolean RecRecBook(RecBook recBook) {
+				recBookMapper.recRecBook(recBook);
+				return true;
+			}
+			public boolean NotRecBook(RecBook recBook) {
+				recBookMapper.notRecBook(recBook);
+				return true;
+			}
+			
 }
