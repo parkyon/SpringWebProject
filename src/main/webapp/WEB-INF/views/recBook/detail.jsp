@@ -17,6 +17,11 @@
 <style>
 #none{ display:none;}
 
+
+
+
+
+
 </style>
 
 <!-- 유효성검사 -->
@@ -49,9 +54,9 @@
         
        <div class="row">
         <div class="col-sm-6">
-         
+ 
            
-            <object id="nzeo" width="400px" height="400px" data="/recBook/download?fileName=${recBook.filepath}" name="aaa">
+            <object id="nzeo" width="300px" height="400px" data="/recBook/download?fileName=${recBook.filepath}" name="aaa">
 		  </object>
          
         </div>
@@ -89,7 +94,7 @@
 	 </div>
      
       
-       <hr>
+       
        
        <div>
         <ul class="tabs" data-persist="true">
@@ -101,11 +106,46 @@
             <div id="view1">
                 ${recBook.bookStory}
                 
+      
+                
             </div>
             <div id="view2">
                ${recBook.review}
+               
+             
             </div>
             <div id="view3">
+            
+           
+           
+		<table class="table table-bordered" id="example">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>도서관명</th>
+				<th>지역</th>
+				<th>전화번호</th>
+				<th>추천</th>
+				<th>조회수</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="recBookReview" items="${list}">
+				<tr>
+					<td>${recbookreview.number}</td>
+					<td>${recbookreview.writer}</td>
+					<td>${recbookreview.reg_date}</td>
+					
+					
+					
+					
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+            
+            
                 
             </div>
         </div>

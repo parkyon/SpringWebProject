@@ -45,6 +45,8 @@
 		</interceptor>
 		<interceptor>
 			<mapping path="/board/*"/>
+			<mapping path="/libraryInfo/*"/>
+			<mapping path="/recBook/*"/>
 			<mapping path="/modify"/>
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>

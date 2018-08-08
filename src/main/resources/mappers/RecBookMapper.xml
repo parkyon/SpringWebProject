@@ -104,4 +104,18 @@
 	 		recBookNumber = #{recBook.recBookNumber}
 	</update>
 	
+	
+	
+	
+	
+	<select id="getReview" resultType="kr.green.springwebproject.dao.RecBook">
+	SELECT * 
+	from recbookreview 
+	inner join recbook on 
+	bno = recBookNumber	
+	</select>
+	
+	
+	
+	
 </mapper>

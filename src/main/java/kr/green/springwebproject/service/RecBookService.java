@@ -2,16 +2,14 @@ package kr.green.springwebproject.service;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.green.springwebproject.dao.Board;
-import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookMapper;
+import kr.green.springwebproject.dao.RecBookReview;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.utils.UploadFileUtils;
@@ -19,6 +17,7 @@ import kr.green.springwebproject.utils.UploadFileUtils;
 public class RecBookService {
 	@Autowired
 	private RecBookMapper recBookMapper;
+	
 
 	public ArrayList<RecBook> getRecBook(Integer recBookNumber) {
 		return recBookMapper.getRecBookListByNumber(recBookNumber);
@@ -147,4 +146,9 @@ public class RecBookService {
 				return true;
 			}
 			
+	//조회수
+			
+			public ArrayList<RecBookReview> GetReview(RecBook recBook, RecBookReview recBookReview){
+				return recBookMapper.getReview(recBook, recBookReview);
+			}
 }

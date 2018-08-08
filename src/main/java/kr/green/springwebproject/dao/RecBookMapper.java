@@ -1,7 +1,6 @@
 package kr.green.springwebproject.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -43,4 +42,9 @@ public interface RecBookMapper {
 		public void recRecBook(@Param("recBook")RecBook recBook);
 		public void notRecBook(@Param("recBook")RecBook recBook);
 
+		
+	//댓글용
+		public ArrayList<RecBookReview> getReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
+
+		
 }

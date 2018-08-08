@@ -1,10 +1,9 @@
 package kr.green.springwebproject.controller;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +17,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
+import kr.green.springwebproject.dao.RecBookReview;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.service.RecBookService;
@@ -77,8 +75,12 @@ public class RecBookController {
 	}
 	@RequestMapping(value="detail")
 	public String recBookDetail(HttpServletRequest request,
-			Model model, Integer number) {
+			Model model, Integer number, RecBookReview recBookReview) {
 		
+		
+		if(number == null) {
+			number = 1;
+		}
 	
 		RecBook recBook = recBookService.getDetailRecBook(number);
 		recBookService.RecBookHits(recBook);
@@ -86,6 +88,13 @@ public class RecBookController {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = recBookService.isAuthor(user, recBook);
+		
+		
+		ArrayList<RecBookReview> list = recBookService.GetReview(recBook, recBookReview);
+		
+		model.addAttribute("list", list);
+		System.out.println("이것은 리스트");
+		System.out.println(list);
 		
 		
 		String filepath = recBook.getFilepath();
@@ -97,12 +106,17 @@ public class RecBookController {
 		
 		
 		model.addAttribute("filepath", filepath);
-		System.out.println(filepath);
+		
 		
 		boolean admin = userService.isAdmin(user);
 		model.addAttribute("admin", admin);
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("recBook", recBook);		
+		
+		//댓글용
+		
+		
+		
 		return "/recBook/detail";
 	}
 	
