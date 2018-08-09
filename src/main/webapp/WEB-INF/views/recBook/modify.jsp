@@ -11,7 +11,68 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+
+
 </head>
+
+
+<script>
+	
+	jQuery.extend(jQuery.validator.messages, {
+		required: "필수항목",
+		email: "이메일 형식",
+		
+		minlength: jQuery.validator.format("{0}글자 이상.")
+	});
+
+	$().ready(function() {
+
+		// validate the comment form when it is submitted
+		$("#commentForm1").validate();
+
+		// validate signup form on keyup and submit
+		$("#commentForm2").validate({   //많이 사용함
+			rules: {
+				bookName: {
+					required: true,
+					
+				},
+				file: {
+					required: true,
+					
+				},
+				price: {
+					required: true,
+					digits: true,
+					
+				},
+			
+				
+			
+			
+			},
+			messages: {
+				bookName: {
+					required: "책 이름은 필수항목 입니다.",
+					
+				},
+				file: {
+					required: "책 사진은 필수항목 입니다.",
+					
+				},
+				price: {
+					required: "책 가격은 필수항목 입니다.",
+					digits : "숫자만입력하세요",
+					
+				},
+				
+				
+			}
+		});
+	});
+	</script>
 <body>
 	<style> 
 		.form-control:disabled, .form-control[readonly]{
@@ -19,38 +80,20 @@
 		}
 	</style>
 	<div class="container">
-  		<form method="post" enctype="multipart/form-data">
-  			<h1>추천 책 수정</h1>
-		    <div class="form-group">
-		    	<label>책 이름</label>
-		      	<input type="text" class="form-control" name="bookName" value="${recBook.bookName}" >
-		    </div>
-		       <div class="form-group">
-		    	<label>책 타입</label>
-		      	<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" >
-		    </div>
-		       <div class="form-group">
-		    	<label>책 내용</label>
-		      	<input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
-		    </div>
-		      <div class="form-group">
-		    	<label>리뷰</label>
-		      	<input type="text" class="form-control" name="review" value="${recBook.review}" >
-		    </div>
-		        <div class="form-group">
-		    	<label>출판사</label>
-		      	<input type="text" class="form-control" name="publisher" value="${recBook.publisher}" >
-		    </div>
-		        <div class="form-group">
-		    	<label>가격</label>
-		      	<input type="text" class="form-control" name="price" value="${recBook.price}" >
-		    </div>
-		       <div class="form-group">
-		    	<label>작가</label>
-		      	<input type="text" class="form-control" name="writer" value="${recBook.writer}" >
-		    </div>
-		    
-		      <div class="form-group">
+  		<form method="post" enctype="multipart/form-data" id="commentForm2" action="">
+  			<div class="container-fluid text-center">    
+  <div class="row content">
+
+    <div class="col-sm-10 text-left"> 
+      <h1>도서명:<input type="text" class="form-control" name="bookName" value="${recBook.bookName}"></h1>
+        <hr>
+        
+        
+        
+       <div class="row">
+        <div class="col-sm-6">
+         
+          <div class="form-group">
 		    	<label>첨부파일</label>
 		      	<div class="form-control" name="fileName" >
 		      		<c:if test="${fileName != null }">
@@ -65,17 +108,34 @@
 		      		</c:if>
 		      	</div>
 		   
+          
+		        <label>책 사진</label>
+		        <input type="file" class="form-control" name="file"/>
+		        <div class="fileDrop"></div>
+		        <div class="uploadedList"></div>
+		    </div>
+         
+        </div>
+        <div class="col-sm-6">
+        
+        	저자:<input type="text" class="form-control" name="writer" value="${recBook.writer}" > </br>
+         	유형:<input type="text" class="form-control" name="bookType" value="${recBook.bookType}" ></br>
+       		 출판사:	<input type="text" class="form-control" name="publisher" value="${recBook.publisher}" ></br>
+       		<hr>
+       		
+       		 가격:<input type="text" class="form-control" name="price" value="${recBook.price}"></br>
+       		
+       		
+       		리뷰 : <input type="text" class="form-control" name="review" value="${recBook.review}" ></br>
+         	책 내용: <input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
+        </div>
+ 
+		</div>
+		    
+		   
 		    
 		 
-		   <div class="form-group">
-		        <input type="text" class="form-control" name="del"
-		        	style="display:none" 
-		        	value="${fileName==null?1:null}"/>
-		    </div>
-		    <div class="form-group">
-		        <label>첨부파일 수정</label>
-		        <input type="file" class="form-control" name="file"/>
-		    </div>
+		   
 		  
 		    
 		    <div>

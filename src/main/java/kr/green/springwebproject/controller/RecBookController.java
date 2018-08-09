@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookReview;
 import kr.green.springwebproject.dao.User;
@@ -92,6 +93,8 @@ public class RecBookController {
 		boolean isAuthor = recBookService.isAuthor(user, recBook);
 		
 		
+		
+		
 		ArrayList<RecBookReview> list = recBookReviewService.GetReview(recBook, recBookReview);
 		
 		model.addAttribute("list", list);
@@ -122,7 +125,23 @@ public class RecBookController {
 		return "/recBook/detail";
 	}
 	
-
+	@RequestMapping(value ="detail", method = RequestMethod.POST)
+	public String DPOST(LibraryInfo libraryInfo
+			,HttpServletRequest request,  String content, Model model, RecBook recBook, RecBookReview recbookreview, int bno) throws Exception {
+		
+		
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		recBookReviewService.InsertReview(user, recBook, recbookreview);
+		
+	
+		model.addAttribute("recBookNumber", recBook.getRecBookNumber());
+		
+		
+		
+	return "redirect:/recBook/detail";
+	}
 	@RequestMapping(value ="register", method = RequestMethod.GET)
 	public String recBookRegisterGet() {
 		

@@ -12,6 +12,15 @@
 	where
 	bno = #{recBook.recBookNumber}	
 	</select>
+	
+	<insert id="insertReview">
+	insert 
+	into recbookreview
+	(bno, content, writer)
+	values
+	(#{recBookNumber},#{recbookreview.content},#{recbookreview.writer})
+	
+	</insert>
 
 
 </mapper>

@@ -99,7 +99,7 @@
 					
 				},
 				price: {
-					required: "책 사진은 필수항목 입니다.",
+					required: "책 가격은 필수항목 입니다.",
 					digits : "숫자만입력하세요",
 					
 				},
@@ -122,8 +122,7 @@
 		}
 	</style>
 	
-	<form method="post" id="commentForm2" 
-  			enctype="multipart/form-data" action="">
+	<form method="post" enctype="multipart/form-data" id="commentForm2" action="">
 	<div class="container-fluid text-center">    
   <div class="row content">
 
