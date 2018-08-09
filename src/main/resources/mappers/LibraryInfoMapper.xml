@@ -28,12 +28,12 @@
 	(libraryName, cityName, libraryType, holiday, 
 	openSeat, bookCount, bookCount2, bookCount3, 
 	loadAddress, operation, phoneNumber, homepage,
-	author, filepath)
+	author, filepath,latitude, longitude)
 	values
 	(#{libraryInfo.libraryName},#{libraryInfo.cityName},#{libraryInfo.libraryType},#{libraryInfo.holiday},
 	#{libraryInfo.openSeat},#{libraryInfo.bookCount},#{libraryInfo.bookCount2},#{libraryInfo.bookCount3},
 	#{libraryInfo.loadAddress},#{libraryInfo.operation},#{libraryInfo.phoneNumber},#{libraryInfo.homepage}
-	,#{libraryInfo.author},#{libraryInfo.filepath})
+	,#{libraryInfo.author},#{libraryInfo.filepath},#{libraryInfo.latitude},#{libraryInfo.longitude})
 	
 	</insert>
 	
@@ -53,7 +53,9 @@
 			operation= #{libraryInfo.operation},
 			phoneNumber= #{libraryInfo.phoneNumber},
 			homepage= #{libraryInfo.homepage},
-			filepath=#{libraryInfo.filepath}
+			filepath= #{libraryInfo.filepath},
+			latitude= #{libraryInfo.latitude},
+			longtitude = #{libraryInfo.longtitude}
 		
 	 	where
 	 		number = #{libraryInfo.number}

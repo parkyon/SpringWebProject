@@ -10,6 +10,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="/resources/tabcontent.js" type="text/javascript"></script>
+    <link href="/resources/css/tabcontent.css" rel="stylesheet" type="text/css" />
 
 
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -43,78 +45,89 @@
 		}
 	</style>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="container">
-  		<form >
-  			<h1>${libraryInfo.libraryName}</h1>
-		    
-		    <div class="form-group">
+<div class="container-fluid text-center">    
+  <div class="row content">
+
+    <div class="col-sm-10 text-left"> 
+      <h1>${libraryInfo.libraryName}</h1>
+        <hr>
+        
+        
+        
+       <div class="row">
+        <div class="col-sm-6">
+ 		
+ 		
+
+			<div class="form-group">
 		    	
 		    	<c:if test="${!empty libraryInfo.latitude}">
 		    	
-		      	 <div id="map" style="width:500px;height:400px; border:1px solid blue;" ></div>
+		      	 <div id="map" style="width:300px;height:400px; border:1px solid blue;" ></div>
 		      	 	
 		      	 </c:if>
 		      	 <c:if test="${empty libraryInfo.latitude}">
 		    	
-		      	 <div  style="width:500px;height:400px; border:1px solid blue;" ><img style='height: 100%; width: 100%; object-fit: contain' src="/resources/jpg/mapSorry.png" ></img></div>
-		      	 <div  style="width:500px;height:100px;"><h1>지도 요청 중입니다</div>
+		      	 <div  style="width:300px;height:400px; border:1px solid blue;" ><img style='height: 100%; width: 100%; object-fit: contain' src="/resources/jpg/mapSorry.png" ></img></div>
+		      	 <div  style="width:300px;height:400px;"><h1>지도 요청 중입니다</div>
 		      	 	
 		      	 </c:if>
 		      	 
 		    </div>
+
+
+ 	
+        
+          
+
+
+          
+         
+        </div>
+        <div class="col-sm-6">
+        
+        	주소:${libraryInfo.loadAddress} </br>
+         	전화번호:${libraryInfo.phoneNumber}</br>
+			홈페이지:<a href="${libraryInfo.homepage}" target="_blank">${libraryInfo.homepage}</a></br>
+			위도:${libraryInfo.latitude}</br>
+			경도:${libraryInfo.longitude}</br>
+       		<hr>
+       		보유도서
+       		도서:${libraryInfo.bookCount}</br>
+       		비도서:${libraryInfo.bookCount3 }</br>
+       		연속간행물:${libraryInfo.bookCount2}</br>
+       		<hr>
+       		네티즌 </br>
+       		추천수 :${libraryInfo.recomand} </br>
+			비추천수 : ${libraryInfo.notrecomand}
+       		
+       		 <hr>
+			 작성자: ${libraryInfo.author}
+       		
+       		
+         	
+        </div>
+ 
+		</div>
+		
+		<div>
+		<span style="float:right">
+		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
+	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
+		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
+		    <c:if test="${isAuthor || !USER }" >
+		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
+		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
+		    </c:if>
 		    
-		    <div class="form-group">
-		    	<label>주소</label>
-		      	<input type="text" class="form-control" name="author" value="${libraryInfo.loadAddress}" disabled>
-		    </div> 
-		  
-		    <div class="form-group">
-		    	<label>전화번호</label>
-		      	<input type="text" class="form-control" name="author" value="${libraryInfo.phoneNumber}" disabled>
-		    </div>
-		   <div class="form-group">
-		    	<label>첨부파일</label>
-		      	<div class="form-control" name="file" id="file" >
-		      		<c:if test="${fileName != null }">
-		      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
-		      			>${fileName}</a>
-		      		</c:if>
-		      		<c:if test="${fileName == null }">
-		      			첨부파일 없음
-		      		</c:if>
-		      	</div>
-		    </div>
-		   
-		    <div class="form-group">
-		    	<label>홈페이지주소</label>
-		      	<a href="${libraryInfo.homepage}" target="_blank">	
-		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" disabled></a>
-		      
-		    </div>
-		      <div class="form-group">
-		    	<label>작성자</label>
-		      	<input type="text" class="form-control" name="author" value="${libraryInfo.author}" disabled>
-		    </div>
-		   
-	
-	
-	
-		<div> <p>추천수 : <p>${libraryInfo.recomand} </div>
-		<div> <p>비추천수 : <p>${libraryInfo.notrecomand} </div>
+      </span>
+ 
+      </br>
+	 </div>
+	 
+	 
+	 
+	 
 	
 	
 	
@@ -144,65 +157,95 @@
 		    
 		    
 		    
-	  	</form>
+	 
 	  	
 	  	
-  	<div class="container">
-  		<form method="post" 
-  			enctype="multipart/form-data">
-  		
-		    <div class="form-group">
-		    	
-		    	<input  type="text" class="form-control" name="content" value="" >
-		      	<button type="submit" class="btn btn-primary">등록</button>
-		    </div>
-		</form>
-	</div>
+  	
 		
 	
 	  	
 	  	
-	  	
 	  	<div>
-	  	<h1>댓글</h1>
-		<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>내용</th>
-				<th>글쓴이</th>
-				<th>작성날짜</th>
-			
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="comment" items="${comment }" varStatus="status">
-				<tr>
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view1">Lorem</a></li>
+            <li><a href="#view2">한줄평</a></li>
+            <li><a href="#view3">첨부파일</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view1">
+              
+                
+            </div>
+            <div id="view2">
+               <div class="container">
+		  		<form method="post" 
+		  			enctype="multipart/form-data">
+		  		
+				    <div class="form-group">
+				    	
+				    	<span><input  type="text" name="content" value="" >
+				      	<button type="submit" class="btn btn-primary">등록</button></span>
+				    </div>
+				</form>
+				</div>
 				
-			
-					<td>${status.count}</td>
-					
-				 
-					<td>${comment.content}</td>
-					<td>${comment.writer}</td>
-					<td>${comment.reg_date}</td>
-					
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				<h1>댓글</h1>
+					<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>내용</th>
+							<th>글쓴이</th>
+							<th>작성날짜</th>
+						
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="comment" items="${comment }" varStatus="status">
+							<tr>
+							
+						
+								<td>${status.count}</td>
+								
+							 
+								<td>${comment.content}</td>
+								<td>${comment.writer}</td>
+								<td>${comment.reg_date}</td>
+								
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+            </div>
+            
+            <div id="view3">
+	            <div class="form-group">
+			    	<label>첨부파일</label>
+			      	<div class="form-control" name="file" id="file" >
+			      		<c:if test="${fileName != null }">
+			      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
+			      			>${fileName}</a>
+			      		</c:if>
+			      		<c:if test="${fileName == null }">
+			      			첨부파일 없음
+			      		</c:if>
+			      	</div>
+			    </div>
+            
+               
+            </div>
+        </div>
+    </div>
 	  	
-	  	</div>
 	  	
-	  	<div>
-	  		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
-	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
-		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${isAuthor || !USER }" >
-		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
-		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
-		    </c:if>
-	    </div>
+	  	
+	  	
+	  	
+
+	  	
+	  	
 	</div>
+	
+	 
 </body>
 </html>

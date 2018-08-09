@@ -36,7 +36,7 @@
 				<th>번호</th>
 				<th>책이름</th>
 				<th>책유형</th>
-				<th>작가</th>
+			
 			</tr>
 		</thead>
 		<tbody>
@@ -45,7 +45,7 @@
 					<td>${recBook.recBookNumber}</td>
 					<td><a href="/recBook/detail?number=${recBook.recBookNumber}"target=_blank>${recBook.bookName }</a></td>
 					<td>${recBook.bookType }</td>
-					<td>${recBook.writer }</td>
+				
 				</tr>
 			</c:forEach>
 		</tbody>

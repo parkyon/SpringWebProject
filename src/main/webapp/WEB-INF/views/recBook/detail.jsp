@@ -40,7 +40,7 @@
 	
 	
 	
-	<div>
+
 
   
 <div class="container-fluid text-center">    

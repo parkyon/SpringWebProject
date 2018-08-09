@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /* DB�뿉�꽌 寃뚯떆�뙋 �젙蹂대�� 媛��졇�� ���옣�븷 �겢�옒�뒪 */
@@ -17,8 +18,12 @@ public class Board {
 	
 	
 	
-	public Date getCreated_date() {
-		return created_date;
+	public String getCreated_date() {
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String to = transFormat.format(created_date);
+
+		return to;
 	}
 	public String getFilepath() {
 		return filepath;

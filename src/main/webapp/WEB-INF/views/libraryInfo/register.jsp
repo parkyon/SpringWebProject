@@ -121,7 +121,18 @@
 		        <div class="fileDrop"></div>
 		        <div class="uploadedList"></div>
 		    </div>
-		   
+		      <div class="form-group">
+		    	<label>위도</label>
+		      	<input type="text" class="form-control" name="latitude" value="${libraryInfo.latitude}" >
+		     </div>
+		     
+		       <div class="form-group">
+		    	<label>경도</label>
+		      	<input type="text" class="form-control" name="longitude" value="${libraryInfo.longitude}" >
+		     </div>
+		     
+		     
+		     
 		    <div>
 			    
 			    <button type="submit" class="btn btn-primary">등록</button>
