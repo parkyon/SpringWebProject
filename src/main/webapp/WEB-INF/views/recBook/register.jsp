@@ -79,6 +79,11 @@
 					required: true,
 					
 				},
+				price: {
+					required: true,
+					digits: true,
+					
+				},
 			
 				
 			
@@ -91,6 +96,11 @@
 				},
 				file: {
 					required: "책 사진은 필수항목 입니다.",
+					
+				},
+				price: {
+					required: "책 사진은 필수항목 입니다.",
+					digits : "숫자만입력하세요",
 					
 				},
 				
@@ -143,10 +153,10 @@
        		 출판사:	<input type="text" class="form-control" name="publisher" value="${recBook.publisher}" ></br>
        		<hr>
        		
-       		 가격:<input type="text" class="form-control" name="price" value="${recBook.price}">
+       		 가격:<input type="text" class="form-control" name="price" value="${recBook.price}"></br>
        		
        		
-       		리뷰 : <input type="text" class="form-control" name="review" value="${recBook.review}" >
+       		리뷰 : <input type="text" class="form-control" name="review" value="${recBook.review}" ></br>
          	책 내용: <input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
         </div>
  

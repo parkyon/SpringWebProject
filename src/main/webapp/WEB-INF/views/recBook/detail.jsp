@@ -54,10 +54,19 @@
         
        <div class="row">
         <div class="col-sm-6">
- 
-           
-            <object id="nzeo" width="300px" height="400px" data="/recBook/download?fileName=${recBook.filepath}" name="aaa">
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+          
+           <object codetype="jpg/png/bmp" id="nzeo" width="300px" height="400px" data="/recBook/download?fileName=${recBook.filepath}" name="aaa">
 		  </object>
+        
+
+
+          
          
         </div>
         <div class="col-sm-6">

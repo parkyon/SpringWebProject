@@ -43,8 +43,9 @@ public interface RecBookMapper {
 		public void notRecBook(@Param("recBook")RecBook recBook);
 
 		
+
+		
 	//댓글용
-		public ArrayList<RecBookReview> getReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 
 		
 }

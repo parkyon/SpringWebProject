@@ -28,11 +28,11 @@
 		bookName = #{recBook.bookName},
 		bookType = #{recBook.bookType},
 		bookStory = #{recBook.bookStory},
-		writer = # {recBook.writer},
-		filepath = #{recBook.filepath},
+		writer = #{recBook.writer},
 		review = #{recBook.review},
+		publisher = #{recBook.publisher},
 		price = #{recBook.price},
-		publisher=#{recBook.publisher}
+		filepath = #{recBook.filepath}
 	
 		where recBookNumber = #{recBook.recBookNumber}
 	</update>
@@ -108,12 +108,7 @@
 	
 	
 	
-	<select id="getReview" resultType="kr.green.springwebproject.dao.RecBook">
-	SELECT * 
-	from recbookreview 
-	inner join recbook on 
-	bno = recBookNumber	
-	</select>
+	
 	
 	
 	

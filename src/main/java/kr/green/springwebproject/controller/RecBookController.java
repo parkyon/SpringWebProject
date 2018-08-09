@@ -3,7 +3,6 @@ package kr.green.springwebproject.controller;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +25,7 @@ import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.RecBookReview;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
+import kr.green.springwebproject.service.RecBookReviewService;
 import kr.green.springwebproject.service.RecBookService;
 import kr.green.springwebproject.service.UserService;
 import kr.green.springwebproject.utils.MediaUtils;
@@ -38,6 +38,8 @@ public class RecBookController {
 	private UserService userService;
 	@Autowired
 	private RecBookService recBookService;
+	@Autowired
+	private RecBookReviewService recBookReviewService;
 	@Resource
 	private String uploadPath;
 	
@@ -90,7 +92,7 @@ public class RecBookController {
 		boolean isAuthor = recBookService.isAuthor(user, recBook);
 		
 		
-		ArrayList<RecBookReview> list = recBookService.GetReview(recBook, recBookReview);
+		ArrayList<RecBookReview> list = recBookReviewService.GetReview(recBook, recBookReview);
 		
 		model.addAttribute("list", list);
 		System.out.println("이것은 리스트");
@@ -124,6 +126,7 @@ public class RecBookController {
 	@RequestMapping(value ="register", method = RequestMethod.GET)
 	public String recBookRegisterGet() {
 		
+		
 		return "/recBook/register";
 	}
 	
@@ -136,7 +139,7 @@ public class RecBookController {
 		
 		
 		recBookService.registerRecBook(recBook, user, file, uploadPath);
-
+		
 	
 		return "redirect:/recBook/recBookList";
 	}

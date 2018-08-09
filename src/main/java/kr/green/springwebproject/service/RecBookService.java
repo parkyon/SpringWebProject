@@ -148,7 +148,5 @@ public class RecBookService {
 			
 	//조회수
 			
-			public ArrayList<RecBookReview> GetReview(RecBook recBook, RecBookReview recBookReview){
-				return recBookMapper.getReview(recBook, recBookReview);
-			}
+			
 }
