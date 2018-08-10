@@ -63,9 +63,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="libraryInfo" items="${list}">
+			<c:forEach var="libraryInfo" items="${list}" varStatus="status">
 				<tr>
-					<td>${libraryInfo.number}</td>
+				
+			
+					<td>${status.count}</td>
 					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
 					<td>${libraryInfo.cityName }</td>
 					<td>${libraryInfo.phoneNumber }</td>

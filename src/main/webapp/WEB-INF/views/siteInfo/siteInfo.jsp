@@ -237,6 +237,7 @@ beginneon()
 <div class="container"">
 	<ul id="myUl">
 	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>
+	    <li><a href="http://www.aladin.co.kr/home/welcome.aspx"><img src="/resources/jpg/foot_banner8.jpg"></img></a></li>
 	     <li><a href="http://www.nl.go.kr/nl/"><img src="/resources/jpg/foot_banner2.jpg"></img></a></li>
 	     <li><a href="http://www.nl.go.kr/nill/user/index.jsp"><img src="/resources/jpg/foot_banner4.jpg"></img></a></li>
 	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>

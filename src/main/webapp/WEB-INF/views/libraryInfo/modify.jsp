@@ -69,6 +69,7 @@
 		    	<label>홈페이지 주소</label>
 		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
 		    </div>
+		    
 		   
 		   <div class="form-group">
 		    	<label>첨부파일</label>

@@ -1,5 +1,8 @@
 package kr.green.springwebproject.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +18,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -93,6 +97,19 @@ public class HomeController {
 	public String signupGet(HttpServletRequest request) {
 		return "signup";
 	}
+	
+	@RequestMapping("/member/dup")
+	@ResponseBody
+	public Map<Object, Object> idcheck(@RequestBody String id){
+	    int count = 0;
+	    Map<Object, Object> map = new HashMap<Object, Object>();
+	    if(userService.checkUser(id))
+	        count = 1;
+	    map.put("cnt", count);
+	    System.out.println(id);
+	    return map;
+	}
+	
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String signupPost(HttpServletRequest request, User user) {
 		if(!userService.signUp(user))

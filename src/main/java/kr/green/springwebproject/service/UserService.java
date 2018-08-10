@@ -133,6 +133,13 @@ public boolean ChangeUser(String id) {
 	return true;
 	
 }
+
+public boolean checkUser(String id) {
+	User user = userMapper.loginById(id);
+	if(user != null)
+		return true;
+	return false;
+}
 }
 
 

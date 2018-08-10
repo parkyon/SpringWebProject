@@ -61,9 +61,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="recBook" items="${list}">
+			<c:forEach var="recBook" items="${list}" varStatus="status">
 				<tr>
-					<td>${recBook.recBookNumber}</td>
+				
+			
+					<td>${status.count}</td>
 					<td><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName }</a></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>

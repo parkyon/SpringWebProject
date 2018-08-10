@@ -15,7 +15,27 @@
    
 </head>
 <body>
+<script>
 
+$("#dup").on("click",function(){
+	var id = $("#id").val();//id가 id인 input 태그에 입력된 id 가져오기
+	$.ajax({
+		async:true,
+		type:'POST',
+		data:id,
+		url:"member/dup",
+		dataType:"json",
+		contentType:"application/json; charset=UTF-8",
+		success : function(data){
+			if(data.cnt > 0){
+				alert("아이디 존재");
+			}else{
+				alert("아이디 사용 가능");
+			}
+		}
+	});
+});
+</script>
  <script>
     $(function(){
         $("form").validate({
@@ -95,7 +115,9 @@
     <div class="form-group">
       <label for="usr">Id:</label>
       <input type="text" class="form-control" id="id" name="id">
+        <button class="btn" id="dup">중복확인</button>
       <div style="color:red; display:none;" id="inforId">
+    
              아이디는 영문자와 숫자로 이루어져 있며, 5~10자이어야 합니다.
       </div>
     </div>

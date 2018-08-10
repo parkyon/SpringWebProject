@@ -168,4 +168,16 @@ public class RecBook {
 			}
 
 			private String publisher;
+			
+			
+			private String sell;
+
+
+
+			public String getSell() {
+				return sell;
+			}
+			public void setSell(String sell) {
+				this.sell = sell;
+			}
 }

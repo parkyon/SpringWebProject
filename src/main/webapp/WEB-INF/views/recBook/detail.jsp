@@ -104,8 +104,8 @@
          
         </div>
         <div class="col-sm-6">
-        	<input  type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber}" >
-        	저자:<input  type="text" class="form-control" name="writer" value="${recBook.writer}" > </br>
+        	번호:${recBook.recBookNumber}</br>
+        	저자:${recBook.writer} </br>
          	유형:${recBook.bookType}</br>
        		 출판사:${recBook.publisher}</br>
        		<hr>
@@ -115,7 +115,7 @@
        		
        		 <hr>
        		<h2> 가격:${recBook.price}</h2>
-       		<button>구입하기</button>
+       	<a href="${recBook.sell}" target="_blank"><button>구입하러가기</button></a>
        		
        		
          	

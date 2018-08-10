@@ -58,9 +58,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list}">
+			<c:forEach var="board" items="${list}" varStatus="status">
 				<tr>
-					<td>${board.number}</td>
+				
+			
+					<td>${status.count}</td>
 					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
 					<td>${board.created_date }</td>
 					<td>${board.author }</td>

@@ -128,6 +128,8 @@
        		
        		리뷰 : <input type="text" class="form-control" name="review" value="${recBook.review}" ></br>
          	책 내용: <input type="text" class="form-control" name="bookStory" value="${recBook.bookStory}" >
+         	구입처  : <input type="text" class="form-control" name="sell" value="${recBook.sell}" >
+    
         </div>
  
 		</div>

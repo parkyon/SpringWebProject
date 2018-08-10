@@ -10,10 +10,10 @@
 
 	<insert id="insertRecBook">
 	insert into recBook
-	(bookName, bookType, bookStory, writer, author, filepath, review, price, publisher)
+	(bookName, bookType, bookStory, writer, author, filepath, review, price, publisher, sell)
 	values
 	(#{recBook.bookName}, #{recBook.bookType},#{recBook.bookStory},#{recBook.writer},#{recBook.author},#{recBook.filepath},
-	 #{recBook.review},#{recBook.price}, #{recBook.publisher})
+	 #{recBook.review},#{recBook.price}, #{recBook.publisher},#{recBook.sell})
 	
 	</insert>
 	<select id="getDetailRecBookByNumber" resultType="kr.green.springwebproject.dao.RecBook">
@@ -32,8 +32,8 @@
 		review = #{recBook.review},
 		publisher = #{recBook.publisher},
 		price = #{recBook.price},
-		filepath = #{recBook.filepath}
-	
+		filepath = #{recBook.filepath},
+		sell = #{recBook.sell}
 		where recBookNumber = #{recBook.recBookNumber}
 	</update>
 	<delete id="deleteRecBook">
