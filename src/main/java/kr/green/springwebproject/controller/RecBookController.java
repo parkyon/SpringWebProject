@@ -57,10 +57,10 @@ public class RecBookController {
 		return "recBook/recBookMain";
 	}
 	@RequestMapping(value = "/recBookList", method = RequestMethod.GET)
-	public String recBookListGet(Model model, HttpServletRequest request, Integer number) {
+	public String recBookListGet(Model model, HttpServletRequest request, Integer recBookNumber) {
 		
-		if(number == null) {
-			number = 1;
+		if(recBookNumber == null) {
+			recBookNumber = 1;
 		}
 		
 		HttpSession session = request.getSession();
@@ -70,7 +70,7 @@ public class RecBookController {
 		model.addAttribute("admin", admin);
 		
 		
-		ArrayList<RecBook> list = recBookService.getRecBook(number);
+		ArrayList<RecBook> list = recBookService.getRecBook(recBookNumber);
 		
 		model.addAttribute("list", list);
 		System.out.println(list);
@@ -78,14 +78,14 @@ public class RecBookController {
 	}
 	@RequestMapping(value="detail", method = RequestMethod.GET)
 	public String recBookDetail(HttpServletRequest request,
-			Model model, Integer number, RecBookReview recBookReview) {
+			Model model, Integer recBookNumber, RecBookReview recBookReview) {
 		
 		
-		if(number == null) {
-			number = 1;
+		if(recBookNumber == null) {
+			recBookNumber = 1;
 		}
 	
-		RecBook recBook = recBookService.getDetailRecBook(number);
+		RecBook recBook = recBookService.getDetailRecBook(recBookNumber);
 		recBookService.RecBookHits(recBook);
 		
 		HttpSession session = request.getSession();
@@ -211,7 +211,7 @@ public class RecBookController {
 	
 	@RequestMapping(value="modify", method=RequestMethod.GET)
 	public String recBookModifyGet(HttpServletRequest request,
-			Model model,Integer del, Integer number, Integer recBookNumber) {
+			Model model,Integer del, Integer recBookNumber) {
 				
 		RecBook recBook = recBookService.getDetailRecBook(recBookNumber);
 		if(del != null && del == 1) {
@@ -260,7 +260,7 @@ public class RecBookController {
 	
 	
 	@RequestMapping(value="recentlyRecBookList")
-	public String recntlyRecBook(Model model, HttpServletRequest request, Integer number ,Criteria cri
+	public String recntlyRecBook(Model model, HttpServletRequest request, Integer recBookNumber ,Criteria cri
 			,String search, Integer type) {
 int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		

@@ -21,6 +21,9 @@
 			border : solid 1px blue;
 		}
 	</style>
+	
+	
+	
 	<div class="container">
   		<form method="post" 
   			enctype="multipart/form-data">
@@ -46,6 +49,9 @@
 		    </div>
 	  	</form>
 	</div>
+	
+	
+	
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 	/*	파일 이름에 jpg,gif,png,jpeg이 들어가있는지 확인 */

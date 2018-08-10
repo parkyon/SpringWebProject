@@ -115,7 +115,7 @@
 		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${isAuthor || !USER }" >
+		      <c:if test="${admin }" >
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>

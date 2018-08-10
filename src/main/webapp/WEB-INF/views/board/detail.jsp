@@ -26,8 +26,7 @@
 		    </div>
 		    
 		    <div> 
-     <object id="nzeo" width="100%" height="100%" data="/board/download?fileName=${board.filepath}" name="aaa">
-</object>
+     
      
     </div>
 		    
@@ -58,7 +57,7 @@
 	  	</form>
 	  	<div>
 		    <a href="/board/list"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${isAuthor || !USER }" >
+		    <c:if test="${isAuthor}">
 		    	<a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/board/delete?number=${board.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
