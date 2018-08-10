@@ -42,7 +42,7 @@
 	
 
 
-  
+
 <div class="container-fluid text-center">    
   <div class="row content">
 
@@ -104,8 +104,8 @@
          
         </div>
         <div class="col-sm-6">
-        
-        	저자:${recBook.writer} </br>
+        	<input  type="text" class="form-control" name="recBookNumber" value="${recBook.recBookNumber}" >
+        	저자:<input  type="text" class="form-control" name="writer" value="${recBook.writer}" > </br>
          	유형:${recBook.bookType}</br>
        		 출판사:${recBook.publisher}</br>
        		<hr>
@@ -167,7 +167,8 @@
 		<div class="container">
   		<form method="post" 
   			enctype="multipart/form-data">
-  		
+  		<input type="hidden" value="${recBook.recBookNumber}" name="recBookNumber">
+  		<input type="hidden" value="${recBook.author}" name="author">
 		    <div class="form-group">
 		    	
 		    	<input  type="text" class="form-control" name="content" value="" >

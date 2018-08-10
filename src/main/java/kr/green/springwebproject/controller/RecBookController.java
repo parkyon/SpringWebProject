@@ -76,7 +76,7 @@ public class RecBookController {
 		System.out.println(list);
 		return "recBook/recBookList";
 	}
-	@RequestMapping(value="detail")
+	@RequestMapping(value="detail", method = RequestMethod.GET)
 	public String recBookDetail(HttpServletRequest request,
 			Model model, Integer number, RecBookReview recBookReview) {
 		
@@ -127,9 +127,9 @@ public class RecBookController {
 	
 	@RequestMapping(value ="detail", method = RequestMethod.POST)
 	public String DPOST(LibraryInfo libraryInfo
-			,HttpServletRequest request,  String content, Model model, RecBook recBook, RecBookReview recbookreview, int bno) throws Exception {
+			,HttpServletRequest request,  String content, Model model, RecBook recBook, RecBookReview recbookreview, Integer bno) throws Exception {
 		
-		
+		String rec = (String) request.getParameter("recBookNumber");
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");

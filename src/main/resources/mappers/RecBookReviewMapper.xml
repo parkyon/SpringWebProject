@@ -18,7 +18,7 @@
 	into recbookreview
 	(bno, content, writer)
 	values
-	(#{recBookNumber},#{recbookreview.content},#{recbookreview.writer})
+	(#{recBook.recBookNumber},#{recbookreview.content},#{recbookreview.writer})
 	
 	</insert>
 

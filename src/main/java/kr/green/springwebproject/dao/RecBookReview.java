@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class RecBookReview {
 
-	private int recviewnumber;
-	private int bno;
+	private Integer recviewnumber;
+	private Integer bno;
 	private String content;
 	private String writer;
 
@@ -15,16 +15,16 @@ public class RecBookReview {
 		return "RecBookReview [recviewnumber=" + recviewnumber + ", bno=" + bno + ", content=" + content + ", writer="
 				+ writer + ", reg_date=" + reg_date + "]";
 	}
-	public int getRecviewnumber() {
+	public Integer getRecviewnumber() {
 		return recviewnumber;
 	}
-	public void setRecviewnumber(int recviewnumber) {
+	public void setRecviewnumber(Integer recviewnumber) {
 		this.recviewnumber = recviewnumber;
 	}
-	public int getBno() {
+	public Integer getBno() {
 		return bno;
 	}
-	public void setBno(int bno) {
+	public void setBno(Integer bno) {
 		this.bno = bno;
 	}
 	public String getContent() {
