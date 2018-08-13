@@ -287,6 +287,19 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 	}
 	
 	
+	@RequestMapping(value="contentDelete")
+	public String ContentDelete(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+		recBookReviewService.deleteReview(recviewnumber, recBook, recbookReview);
+		System.out.println("recviewnumber");
+		
+		return "redirect:/recBook/recBookList";
+	}
+	
+	@RequestMapping(value="contentModify")
+	public String ContentModify(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+		recBookReviewService.modifyReview(recviewnumber, recBook, recbookReview);
+		return "redirec:recbook/recBookList";
+	}
 }
 
 

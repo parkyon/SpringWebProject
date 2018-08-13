@@ -169,6 +169,11 @@
   			enctype="multipart/form-data">
   		<input type="hidden" value="${recBook.recBookNumber}" name="recBookNumber">
   		<input type="hidden" value="${recBook.author}" name="author">
+  	  		
+  	
+  	
+  	
+  	
 		    <div class="form-group">
 		    	
 		    	<input  type="text" class="form-control" name="content" value="" >
@@ -183,6 +188,7 @@
 				<th>내용</th>
 				<th>작성자</th>
 				<th>날짜</th>
+				<th>수정</th>
 			
 			
 			</tr>
@@ -197,12 +203,20 @@
 					
 					<td>${recbookReview.writer}</td>
 					<td>${recbookReview.reg_date}</td>
+					<td><c:if test="${isAuthor}">
+					<a href="contentModify?recviewnumber=${recbookReview.recviewnumber}">수정</a>/
+					<a href="contentDelete?recviewnumber=${recbookReview.recviewnumber}">삭제</a>
+					</c:if></td>
+					
 					
 					
 					
 					
 				</tr>
 			</c:forEach>
+		
+			
+		
 		</tbody>
 	</table>
             

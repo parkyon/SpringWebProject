@@ -21,6 +21,24 @@
 	(#{recBook.recBookNumber},#{recbookreview.content},#{recbookreview.writer})
 	
 	</insert>
+	
 
+	
+	<delete id="deleteReview">
+	delete from recbookreview
+	where recviewnumber = #{recbookreview.recviewnumber}
+	</delete>
+	
+	
+<update id="modifyReview">
+	update
+		recBookreview
+	set
+		content = #{recbookreview.content},
+		reg_date = #{recbookreview.reg_date}
+		
+		where recviewnumber = #{recbookreview.recviewnumber}
+
+	</update>
 
 </mapper>

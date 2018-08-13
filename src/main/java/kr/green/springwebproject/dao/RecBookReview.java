@@ -9,6 +9,7 @@ public class RecBookReview {
 	private Integer bno;
 	private String content;
 	private String writer;
+	
 
 	@Override
 	public String toString() {

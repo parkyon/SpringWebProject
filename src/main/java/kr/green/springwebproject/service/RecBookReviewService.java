@@ -25,4 +25,15 @@ public class RecBookReviewService {
 	return true;
 	}
 	
+	
+	public boolean deleteReview(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+		recBookReviewMapper.deleteReview(recBook, recbookReview);
+		return true;
+	}
+	public boolean modifyReview(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+		
+		recBookReviewMapper.modifyReview(recBook, recbookReview);
+		return true;
+	}
+	
 }
