@@ -32,10 +32,10 @@
 	
 <update id="modifyReview">
 	update
-		recBookreview
+		recbookreview
 	set
-		content = #{recbookreview.content},
-		reg_date = #{recbookreview.reg_date}
+		content = #{recbookreview.content}
+		
 		
 		where recviewnumber = #{recbookreview.recviewnumber}
 

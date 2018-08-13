@@ -127,12 +127,13 @@ public class RecBookController {
 	
 	@RequestMapping(value ="detail", method = RequestMethod.POST)
 	public String DPOST(LibraryInfo libraryInfo
-			,HttpServletRequest request,  String content, Model model, RecBook recBook, RecBookReview recbookreview, Integer bno) throws Exception {
+			,HttpServletRequest request,  String content, Model model, RecBook recBook, RecBookReview recbookreview, Integer bno, Integer recviewnumber, RecBookReview recbookReview) throws Exception {
 		
 		String rec = (String) request.getParameter("recBookNumber");
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
+		
 		recBookReviewService.InsertReview(user, recBook, recbookreview);
 		
 	
@@ -151,7 +152,7 @@ public class RecBookController {
 	
 	@RequestMapping(value="register", method=RequestMethod.POST)
 	public String boardRegisterPost(RecBook recBook
-			,HttpServletRequest request, MultipartFile file) throws Exception {
+			,HttpServletRequest request, MultipartFile file, Integer recviewnumber, RecBookReview recbookReview) throws Exception {
 	
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -295,10 +296,13 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		return "redirect:/recBook/recBookList";
 	}
 	
-	@RequestMapping(value="contentModify")
-	public String ContentModify(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+
+	
+	@RequestMapping(value="contentModify" , method=RequestMethod.POST)
+	public String ContentModifyPOST(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview, String content1) {
+		recbookReview.setContent(content1);
 		recBookReviewService.modifyReview(recviewnumber, recBook, recbookReview);
-		return "redirec:recbook/recBookList";
+		return "redirect:/recBook/recBookList";
 	}
 }
 

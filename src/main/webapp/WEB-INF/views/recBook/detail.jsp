@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
  <script src="/resources/tabcontent.js" type="text/javascript"></script>
     <link href="/resources/css/tabcontent.css" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style>
 #none{ display:none;}
@@ -103,6 +103,7 @@
           
          
         </div>
+        
         <div class="col-sm-6">
         	번호:${recBook.recBookNumber}</br>
         	저자:${recBook.writer} </br>
@@ -149,7 +150,7 @@
         <div class="tabcontents">
             <div id="view1">
                 ${recBook.bookStory}
-                
+
       
                 
             </div>
@@ -169,6 +170,7 @@
   			enctype="multipart/form-data">
   		<input type="hidden" value="${recBook.recBookNumber}" name="recBookNumber">
   		<input type="hidden" value="${recBook.author}" name="author">
+  	
   	  		
   	
   	
@@ -178,17 +180,22 @@
 		    	
 		    	<input  type="text" class="form-control" name="content" value="" >
 		      	<button type="submit" class="btn btn-primary">등록</button>
+		      	
 		    </div>
 		</form>
 	</div>
 		
 		
 			<tr>
+			<th>sdfsd</th>
 				<th>번호</th>
 				<th>내용</th>
 				<th>작성자</th>
 				<th>날짜</th>
-				<th>수정</th>
+				<c:if test="${isAuthor}">
+				<th>수정/삭제</th>
+				</c:if>
+				
 			
 			
 			</tr>
@@ -197,16 +204,38 @@
 			<c:forEach var="recbookReview" items="${list}" varStatus="status">
 				<tr>
 				
-			
+					<td>${recbookReview.recviewnumber}</td>
 					<td>${status.count}</td>
 					<td>${recbookReview.content}</td>
 					
 					<td>${recbookReview.writer}</td>
 					<td>${recbookReview.reg_date}</td>
-					<td><c:if test="${isAuthor}">
-					<a href="contentModify?recviewnumber=${recbookReview.recviewnumber}">수정</a>/
-					<a href="contentDelete?recviewnumber=${recbookReview.recviewnumber}">삭제</a>
-					</c:if></td>
+					
+					<c:if test="${isAuthor}"><td>
+					 
+					 
+					 <a href="contentDelete?recviewnumber=${recbookReview.recviewnumber}">삭제</a>
+					<button onclick="onModals(${recbookReview.recviewnumber},'${recbookReview.content}')">수정</button>
+					
+
+					  <div id="id01" class="w3-modal id01">
+					    <div class="w3-modal-content">
+					      <header class="w3-container w3-teal"> 
+					        <span onclick="$('.id01').css('display','none')" 
+					        class="w3-button w3-display-topright">&times;</span>
+					        <h2>수정/삭제</h2>
+					      </header>
+					      <div class="w3-container">
+					     <form method="post" class="form-test" action="contentModify?recviewnumber=${recbookReview.recviewnumber}"   >
+					     
+					        <input  type="text" class="form-control content1" name="content1" value="" >
+		      				<button type="submit" class="btn btn-primary">수정</button>
+						</form>
+					 	
+					 		
+					  </div>
+					</td>
+					</c:if>
 					
 					
 					
@@ -233,7 +262,7 @@
 		      			>${fileName}</a>
 		      		</c:if>
 		      		<c:if test="${fileName == null }">
-		      			첨부파일 없음
+		      			첨부파일 없음 
 		      		</c:if>
 		      	</div>
                 
@@ -257,7 +286,16 @@
 
 
 </div>
+<script>
+//$(document).ready(function(){
+	function onModals(num, content){
+		$('.id01').css('display','block');
+		$('.content1').val(content);
+		$('.form-test').prop('action', 'contentModify?recviewnumber='+num);
+	}
 	
+//});
+</script>	
 	
 </body>
 </html>
