@@ -49,4 +49,11 @@ public interface BoardMapper {
 	public int boardHits(@Param("board")Board board);
 	
 	
+	//추천수
+	public void recBoard(@Param("board")Board board);
+	public void notrecBoard(@Param("board")Board board);
+	
+	
+	
+	
 }

@@ -207,7 +207,7 @@ beginneon()
   <div class="row">
     <div class="col-sm-3">
      
-     <h1>${user.id}님</br>  환영합니다</h1>
+     <h1>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h1>
     </div>
     <div class="col-sm-3" > 
     <h4>도서정보 최신글</h4>
@@ -241,7 +241,7 @@ beginneon()
 </div><br><br>
 
 <footer class="container-fluid text-center">
-	  <p>Online Store Copyright</p>  
+	  
 	
 	
 	<div class="container"">

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
+import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
@@ -288,6 +289,25 @@ public class BoardController {
 	}
 	
 	
+	
+	
+	
+	
+	//좋아요 싫어요
+	
+		@RequestMapping(value="rec")
+		public String RecBoard(Board board) {
+			boardService.Recboard(board);
+			System.out.println("board");
+			System.out.println(board.getRecomand());
+			return "redirect:/board/list";
+		}
+		
+		@RequestMapping(value="notrec")
+		public String NotRecBoard(Board board) {
+			boardService.RecNotboard(board);
+			return "redirect:/board/list";
+		}
 	
 	
 	

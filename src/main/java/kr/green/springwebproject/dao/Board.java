@@ -96,4 +96,24 @@ public class Board {
 				this.hits = hits;
 			}
 	
+			
+//추천수
+			
+			private int recomand;
+			public int getRecomand() {
+				return recomand;
+			}
+			public void setRecomand(int recomand) {
+				this.recomand = recomand;
+			}
+			
+			private int notrecomand;
+			public int getNotrecomand() {
+				return notrecomand;
+			}
+			public void setNotrecomand(int notrecomand) {
+				this.notrecomand = notrecomand;
+			}
+					
+			
 }

@@ -19,22 +19,33 @@
 	</style>
 	<div class="container">
   		<form >
-  			<h1>게시글 상세</h1>
-		    <div class="form-group">
-		    	<label>번호</label>
-		      	<input type="text" class="form-control" name="number" value="${board.number }" disabled>
-		    </div>
-		    
-		    <div> 
-     
-     
-    </div>
+  		<div class="form-group">
+		    	<h1>${board.title}</h1>
+		</div>
+		 
 		    
 		    <div class="form-group">
-		    	<label>제목</label>
-		      	<input type="text" class="form-control" name="title" value="${board.title}" disabled>
+		    작성자 ${board.author}</br>
+		    조회수${board.hits}</br> 
+		  작성날짜${board.created_date}</br>
+		  추천수${board.recomand }</br>
+		 비추천수${board.notrecomand}</br>
+		  
+		    
 		    </div>
+ 
+
+		    
+		    <hr>
+		
+		   
 		    <div class="form-group">
+		    
+		      	<textarea class="form-control" rows="5" name="contents" disabled>${board.contents}</textarea>
+		    </div>
+		    
+		    
+		        <div class="form-group">
 		    	<label>첨부파일</label>
 		      	<div class="form-control" name="file" id="file" >
 		      		<c:if test="${fileName != null }">
@@ -46,17 +57,12 @@
 		      		</c:if>
 		      	</div>
 		    </div>
-		    <div class="form-group">
-		    	<label>작성자</label>
-		      	<input type="text" class="form-control" name="author" value="${board.author}" disabled>
-		    </div>
-		    <div class="form-group">
-		    	<label>내용</label>
-		      	<textarea class="form-control" rows="5" name="contents" disabled>${board.contents}</textarea>
-		    </div>
 	  	</form>
 	  	<div>
+	  	<a href="/board/rec?number=${board.number }"><button class="btn btn-primary">추천</button></a>
+		   <a href="/board/notrec?number=${board.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/board/list"><button class="btn btn-primary">목록</button></a>
+		    <a href="/board/register"><button class="btn btn-primary">글쓰기</button></a>
 		    <c:if test="${isAuthor}">
 		    	<a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/board/delete?number=${board.number }"><button class="btn btn-outline-danger">삭제</button></a>

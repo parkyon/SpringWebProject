@@ -208,6 +208,22 @@ public class BoardService {
 			boardMapper.boardHits(board);
 			return true;
 		}
+		
+		
+		
+		
+		//rec
+		
+		public boolean Recboard(Board board) {
+			boardMapper.recBoard(board);
+			return true;
+		}
+		public boolean RecNotboard(Board board) {
+			boardMapper.notrecBoard(board);
+			return true;
+		}
+		
+		
 }
 		
 		

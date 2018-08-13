@@ -176,6 +176,28 @@
 	</update>
 	
 
+
+<!-- rec -->
+
+
+<update id="recBoard" >
+	update 
+			board 
+		set  
+			recomand = recomand+1
+			 		where number = #{board.number}
+
+	</update>
+	
+	<update id="notrecBoard" >
+	update 
+			board 
+		set  
+			notrecomand = notrecomand+1
+			 		where number = #{board.number}
+
+	</update>
+
 </mapper>
 
 

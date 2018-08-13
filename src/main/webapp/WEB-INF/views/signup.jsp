@@ -11,102 +11,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="/resources/jquery.validate.js"></script>
 <script src="/resources/additional-methods.js"></script>
-
-   
 </head>
 <body>
-<script>
-
-$("#dup").on("click",function(){
-	var id = $("#id").val();//id가 id인 input 태그에 입력된 id 가져오기
-	$.ajax({
-		async:true,
-		type:'POST',
-		data:id,
-		url:"member/dup",
-		dataType:"json",
-		contentType:"application/json; charset=UTF-8",
-		success : function(data){
-			if(data.cnt > 0){
-				alert("아이디 존재");
-			}else{
-				alert("아이디 사용 가능");
-			}
-		}
-	});
-});
-</script>
- <script>
-    $(function(){
-        $("form").validate({
-            rules: {
-                id: {
-                    required : true,
-                    minlength : 4
-                },
-                pw: {
-                    required : true,
-                    minlength : 8,
-                    regex: /^(?=\w{8,20}$)\w*(\d[A-z]|[A-z]\d)\w*$/
-                },
-              
-                name: {
-                    required : true,
-                    minlength : 2
-                },
-                age: {
-                    digits : true
-                },
-                email: {
-                    required : true,
-                    minlength : 2,
-                    email : true
-                },
-                homepage: {
-                    url : true
-                }
-            },
-            //규칙체크 실패시 출력될 메시지
-            messages : {
-                id: {
-                    required : "필수로입력하세요",
-                    minlength : "최소 {0}글자이상이어야 합니다"
-                },
-                pw: {
-                    required : "필수로입력하세요",
-                    minlength : "최소 {0}글자이상이어야 합니다",
-                    regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
-                },
-                
-                name: {
-                    required : "필수로입력하세요",
-                    minlength : "최소 {0}글자이상이어야 합니다"
-                },
-                age: {
-                    digits : "숫자만입력하세요"
-                },
-                email: {
-                    required : "필수로입력하세요",
-                    minlength : "최소 {0}글자이상이어야 합니다",
-                    email : "메일규칙에 어긋납니다"
-                },
-                homepage: {
-                    url : "정상적인 URL이 아닙니다"
-                }
-            }
-        });
-    })
-    $.validator.addMethod(
-        "regex",
-        function(value, element, regexp) {
-            var re = new RegExp(regexp);
-            return this.optional(element) || re.test(value);
-        },
-        "Please check your input."
-    );
-    
-    
-    </script> 
+<style>
+.error{
+color : red;
+}
+</style>
 <div class="container">
 	<h1>
 		회원가입
@@ -115,9 +26,8 @@ $("#dup").on("click",function(){
     <div class="form-group">
       <label for="usr">Id:</label>
       <input type="text" class="form-control" id="id" name="id">
-        <button class="btn" id="dup">중복확인</button>
+      <button class="btn" id="dup">중복확인</button>
       <div style="color:red; display:none;" id="inforId">
-    
              아이디는 영문자와 숫자로 이루어져 있며, 5~10자이어야 합니다.
       </div>
     </div>
@@ -134,11 +44,109 @@ $("#dup").on("click",function(){
       <input type="email" class="form-control" id="email" name="email">
     </div>
     <button type="submit" class="btn btn-primary">가입</button>
-    <button class="btn btn-primary" onClick="history.back();" >취소</button>
+        <button class="btn btn-primary" onClick="history.back();" >취소</button>
+    
+    
   </form>
+  
 </div>
-<!-- <script>
-	function validationId(id){
+<script>
+$(function(){
+    $("form").validate({
+        rules: {
+            id: {
+                required : true,
+                minlength : 4,
+                regex: /^\w{5,10}$/
+            },
+            pw: {
+                required : true,
+                minlength : 8,
+                regex: /^(?=\w{8,20}$)\w*(\d[A-z]|[A-z]\d)\w*$/
+            },
+            /* repassword: {
+                required : true,
+                minlength : 8,
+                equalTo : pwd
+            }, */
+            name: {
+                required : true,
+                minlength : 2
+            },
+            age: {
+                digits : true
+            },
+            email: {
+                required : true,
+                minlength : 2,
+                email : true
+            },
+            homepage: {
+                url : true
+            }
+        },
+        //규칙체크 실패시 출력될 메시지
+        messages : {
+            id: {
+                required : "필수로입력하세요",
+                minlength : "최소 {0}글자이상이어야 합니다",
+                regex : "영문자와 숫자로 이루어져야합니다"
+            },
+            pw: {
+                required : "필수로입력하세요",
+                minlength : "최소 {0}글자이상이어야 합니다",
+                regex : "영문자, 숫자로 이루어져있으며 최소 하나이상 포함"
+            },
+            /* repassword: {
+                required : "필수로입력하세요",
+                minlength : "최소 {0}글자이상이어야 합니다",
+                equalTo : "비밀번호가 일치하지 않습니다."
+            }, */
+            name: {
+                required : "필수로입력하세요",
+                minlength : "최소 {0}글자이상이어야 합니다"
+            },
+            age: {
+                digits : "숫자만입력하세요"
+            },
+            email: {
+                required : "필수로입력하세요",
+                minlength : "최소 {0}글자이상이어야 합니다",
+                email : "메일규칙에 어긋납니다"
+            },
+            homepage: {
+                url : "정상적인 URL이 아닙니다"
+            }
+        }
+    });
+})
+$.validator.addMethod(
+    "regex",
+    function(value, element, regexp) {
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+    },
+    "Please check your input."
+);
+$("#dup").on("click",function(){
+	var id = $("#id").val();
+	$.ajax({
+		async:true,
+		type:'POST',
+		data:id,
+		url:"member/dup",
+		dataType:"json",
+		contentType:"application/json; charset=UTF-8",
+		success : function(data){
+			if(data.cnt > 0){
+				alert("아이디 존재");
+			}else{
+				alert("아이디 사용 가능");
+			}
+		}
+	});
+});
+/* 	function validationId(id){
 		var inforId = document.getElementById('inforId');
 		var idText = id.value;
 		var idRegex = /^\w{5,10}$/;
@@ -177,9 +185,9 @@ $("#dup").on("click",function(){
 		if(!isOk)
 			return false;
 		return true;
-	}
+	} */
 	
-</script> -->
+</script>
 </body>
 </html>
 
