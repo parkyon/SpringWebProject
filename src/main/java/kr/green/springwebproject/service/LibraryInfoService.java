@@ -221,6 +221,19 @@ public class LibraryInfoService {
 				libraryInfoMapper.libraryInfoHits(libraryInfo);
 				return true;
 			}
+			
+			//댓글 삭제/수정
+			
+			public boolean DeleteComment(LibraryInfo libraryInfo) {
+				libraryInfoMapper.deleteComment(libraryInfo);
+				return true;
+			}
+			
+			public boolean ModifyComment(LibraryInfo libraryInfo) {
+				libraryInfoMapper.modifyComment(libraryInfo);
+				return true;
+			}
 }
+
 	
 	

@@ -12,6 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 <script src="/resources/tabcontent.js" type="text/javascript"></script>
     <link href="/resources/css/tabcontent.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -131,27 +132,7 @@
 	
 	
 	
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24895e7659c99a646c858cb49911f9e0"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}),
-			level: 3
-		};
-
-		var map = new daum.maps.Map(container, options);
-		
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}); 
-
-		// 마커를 생성합니다
-		var marker = new daum.maps.Marker({
-		    position: markerPosition
-		});
-
-		// 마커가 지도 위에 표시되도록 설정합니다
-		marker.setMap(map);
-	</script>
+	
 		    
 		    
 		    
@@ -180,7 +161,8 @@
                <div class="container">
 		  		<form method="post" 
 		  			enctype="multipart/form-data">
-		  		
+		  		<input type="hidden" value="${libraryInfo.cno}" name="cno">
+  		<input type="hidden" value="${libraryInfo.writer}" name="author">
 				    <div class="form-group">
 				    	
 				    	<span><input  type="text" name="content" value="" >
@@ -197,6 +179,10 @@
 							<th>내용</th>
 							<th>글쓴이</th>
 							<th>작성날짜</th>
+							<c:if test="${isAuthor }">
+							<th>수정/삭제
+							</th>
+							</c:if>
 						
 						</tr>
 					</thead>
@@ -206,11 +192,34 @@
 							
 						
 								<td>${status.count}</td>
-								
-							 
 								<td>${comment.content}</td>
 								<td>${comment.writer}</td>
 								<td>${comment.reg_date}</td>
+								<c:if test="${isAuthor }"><td>
+							
+								<p onclick="onModals(${comment.cno},'${comment.content}')">수정/삭제</p>
+					
+
+								  <div id="id01" class="w3-modal id01">
+								    <div class="w3-modal-content">
+								      <header class="w3-container w3-teal"> 
+								        <span onclick="$('.id01').css('display','none')" 
+								        class="w3-button w3-display-topright">&times;</span>
+								        <h2>수정/삭제</h2>
+								      </header>
+								      <div class="w3-container">
+								     <form method="post" class="form-test" action="modifyComment?cno=${comment.cno}"   >
+								     
+								        <input  type="text" class="form-control content1" name="content1" value="" >
+					      				<button type="submit" class="btn btn-primary">수정</button>
+					      			<button class="btn btn-primary"><a href="deleteComment?cno=${comment.cno}">삭제</a></button>
+									</form>
+								
+								 	
+								 		
+								  </div>
+								</td>
+								</c:if>
 								
 							</tr>
 						</c:forEach>
@@ -236,16 +245,39 @@
             </div>
         </div>
     </div>
-	  	
-	  	
-	  	
-	  	
-	  	
-
-	  	
-	  	
 	</div>
 	
-	 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=24895e7659c99a646c858cb49911f9e0"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}),
+			level: 3
+		};
+
+		var map = new daum.maps.Map(container, options);
+		
+		// 마커가 표시될 위치입니다 
+		var markerPosition  = new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}); 
+
+		// 마커를 생성합니다
+		var marker = new daum.maps.Marker({
+		    position: markerPosition
+		});
+
+		// 마커가 지도 위에 표시되도록 설정합니다
+		marker.setMap(map);
+	</script>	 
+	
+	<script>
+	//$(document).ready(function(){
+	function onModals(num, content){
+		$('.id01').css('display','block');
+		$('.content1').val(content);
+		$('.form-test').prop('action', 'modifyComment?cno='+num);
+	}
+	
+//});
+</script>	
 </body>
 </html>

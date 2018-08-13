@@ -66,4 +66,9 @@ public interface LibraryInfoMapper {
 	
 	public int libraryInfoHits(@Param("libraryInfo")LibraryInfo libraryInfo);
 	
+	//댓글 수정 및 삭제
+	
+	public void deleteComment(@Param("libraryInfo")LibraryInfo libraryInfo);
+	public void modifyComment(@Param("libraryInfo")LibraryInfo libraryInfo);
+	
 }

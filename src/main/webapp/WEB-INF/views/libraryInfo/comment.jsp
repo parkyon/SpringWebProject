@@ -29,11 +29,8 @@
 		    	<label>댓글</label>
 		      	<input type="text" class="form-control" name="comment" value="${comment.content}" >
 		    </div>
-		   
-		  
-		   
-		    <div>
-			    
+
+		    <div>			  
 			    <button type="submit" class="btn btn-primary">등록</button>
 			    <a href="/libraryInfo/libraryList"><button type="button" class="btn btn-primary">취소</button></a>
 		    </div>

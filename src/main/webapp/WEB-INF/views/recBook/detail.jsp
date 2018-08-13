@@ -94,14 +94,6 @@
 </c:forTokens>
 
 
-
- 	
-        
-          
-
-
-          
-         
         </div>
         
         <div class="col-sm-6">
@@ -214,8 +206,8 @@
 					<c:if test="${isAuthor}"><td>
 					 
 					 
-					 <a href="contentDelete?recviewnumber=${recbookReview.recviewnumber}">삭제</a>
-					<button onclick="onModals(${recbookReview.recviewnumber},'${recbookReview.content}')">수정</button>
+					 
+					<p onclick="onModals(${recbookReview.recviewnumber},'${recbookReview.content}')">수정/삭제</p>
 					
 
 					  <div id="id01" class="w3-modal id01">
@@ -230,6 +222,7 @@
 					     
 					        <input  type="text" class="form-control content1" name="content1" value="" >
 		      				<button type="submit" class="btn btn-primary">수정</button>
+		      				<button class="btn btn-primay"><a href="contentDelete?recviewnumber=${recbookReview.recviewnumber}">삭제</a></button>
 						</form>
 					 	
 					 		

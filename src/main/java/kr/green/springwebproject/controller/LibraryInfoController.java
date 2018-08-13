@@ -260,4 +260,19 @@ public class LibraryInfoController {
 				HttpStatus.OK);
 	}
 	
+	
+	//댓글 수정/삭제
+	
+	@RequestMapping(value="deleteComment")
+	public String DeleteCommentLibrayInfo(LibraryInfo libraryInfo) {
+		libraryInfoService.DeleteComment(libraryInfo);
+		return "redirect:/libraryInfo/libraryList";
+	}
+	
+	@RequestMapping(value="modifyComment", method=RequestMethod.POST)
+	public String ModifyCommentLibraryInfo(LibraryInfo libraryInfo, String content1) {
+		libraryInfo.setContent(content1);
+		libraryInfoService.ModifyComment(libraryInfo);
+		return "redirect:/libraryInfo/libraryList";
+	}
 }
