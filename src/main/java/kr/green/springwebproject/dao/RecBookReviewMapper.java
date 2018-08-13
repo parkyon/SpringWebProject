@@ -13,7 +13,7 @@ public interface RecBookReviewMapper {
 	public void insertReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 	
 
-	
+	//삭제/ 수정
 	public void deleteReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 
 	public void modifyReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
