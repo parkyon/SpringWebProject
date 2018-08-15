@@ -44,7 +44,7 @@
 		    
 		      	<textarea class="form-control" rows="5" name="contents" disabled>${board.contents}</textarea>
 		    </div>
-		<div class="form-group">
+		
 		    	
 		      	
 		   
@@ -83,9 +83,9 @@
                 
             </div>
             <div id="view2">
-                <b>Switch to other templates</b>
-                <p>Open this page with Notepad, and update the CSS link to:</P>
-                <p>template1 ~ 6.</p>                
+                
+                
+                
             </div>
             <div id="view3">
                 <div class="form-control" name="file" id="file" >
