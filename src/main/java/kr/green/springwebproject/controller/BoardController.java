@@ -334,7 +334,23 @@ public class BoardController {
 		}
 	
 	
+	//댓글 수정/삭제
+		
+	@RequestMapping(value="commentDelete")
+	public String CommentDelete(Integer cno, Board board, BoardComment boardComment ) {
+		boardCommentService.DeleteBoardComment(cno, boardComment, board);
+		
+		return "redirect:/board/list";
+	}
 	
+	
+	@RequestMapping(value="commentModify")
+	public String CommentModify(Integer cno, Board board, BoardComment boardComment, String content1 ) {
+		boardComment.setContent(content1);
+		boardCommentService.modifyBoardComment(cno, boardComment, board);
+		
+		return "redirect:/board/list";
+	}
 	
 }
 
