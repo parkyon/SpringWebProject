@@ -136,7 +136,7 @@
         <ul class="tabs" data-persist="true">
             <li><a href="#view1">책정보</a></li>
             <li><a href="#view2">작성자리뷰</a></li>
-            <li><a href="#view3">네티즌리뷰</a></li>
+            <li><a href="#view3">네티즌리뷰 (${totalCount})</a></li>
             <li><a href="#view4">첨부파일</a></li>
         </ul>
         <div class="tabcontents">
@@ -179,7 +179,7 @@
 		
 		
 			<tr>
-			<th>sdfsd</th>
+			
 				<th>번호</th>
 				<th>내용</th>
 				<th>작성자</th>
@@ -196,7 +196,7 @@
 			<c:forEach var="recbookReview" items="${list}" varStatus="status">
 				<tr>
 				
-					<td>${recbookReview.recviewnumber}</td>
+					
 					<td>${status.count}</td>
 					<td>${recbookReview.content}</td>
 					

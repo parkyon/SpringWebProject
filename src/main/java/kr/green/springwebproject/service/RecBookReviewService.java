@@ -36,4 +36,10 @@ public class RecBookReviewService {
 		return true;
 	}
 	
+	
+	public int CountReview(RecBook recBook, RecBookReview recbookReview) {
+		int totalCount = 0;
+		totalCount = recBookReviewMapper.countReview(recBook, recbookReview);
+		return totalCount;
+	}
 }

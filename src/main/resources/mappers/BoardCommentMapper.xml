@@ -36,4 +36,13 @@
 	 
 	 where cno = #{boardComment.cno}
 	</update>
+	
+	
+	<select id="commentCount" resultType="java.lang.Integer">
+	select count(*)
+	from boardComment
+	where
+	bno = #{board.number}
+	
+	</select> 
 </mapper>

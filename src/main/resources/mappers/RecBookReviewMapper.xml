@@ -40,5 +40,14 @@
 		where recviewnumber = #{recbookreview.recviewnumber}
 
 	</update>
+	
+	
+	<select id="countReview" resultType="java.lang.Integer">
+	select count(*)
+	from recbookreview
+	where
+	bno = #{recBook.recBookNumber}	
+	
+	</select> 
 
 </mapper>

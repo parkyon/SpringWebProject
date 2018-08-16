@@ -97,6 +97,10 @@ public class RecBookController {
 		
 		ArrayList<RecBookReview> list = recBookReviewService.GetReview(recBook, recBookReview);
 		
+		int totalCount = recBookReviewService.CountReview(recBook, recBookReview);
+		
+		model.addAttribute("totalCount", totalCount);
+		
 		model.addAttribute("list", list);
 		System.out.println("이것은 리스트");
 		System.out.println(list);

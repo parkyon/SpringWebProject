@@ -89,7 +89,11 @@ public class LibraryInfoController {
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = libraryInfoService.isAuthor(user, libraryInfo);
 		
+		libraryInfo.setBno(libraryInfo.getNumber());
 		
+		int totalCount = libraryInfoService.CountComment(libraryInfo);
+		model.addAttribute("totalCount", totalCount);
+		System.out.println("비엔오"+ libraryInfo.getBno());
 		String filepath = libraryInfo.getFilepath();
 		if(filepath != null) {
 		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�

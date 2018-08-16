@@ -24,7 +24,7 @@
 	</select>
 	
 	<insert id="insertLibraryInfo">
-	insert into libraryinfo
+	insert -o libraryinfo
 	(libraryName, cityName, libraryType, holiday, 
 	openSeat, bookCount, bookCount2, bookCount3, 
 	loadAddress, operation, phoneNumber, homepage,
@@ -200,4 +200,12 @@
 	where
 	cno = #{libraryInfo.cno}
 	</update>
+	
+	<select id="countComment" resultType="java.lang.Integer">
+	select count(*)
+	from comment
+	where
+	bno = #{libraryInfo.bno}
+	
+	</select> 
 </mapper>

@@ -36,4 +36,9 @@ public class BoardCommentService {
 		boardCommentMapper.modifyBoardComment(board, boardComment);
 		return true;
 	}
+	public int CountComment(BoardComment boardComment, Board board) {
+		int totalCount = 0;
+		totalCount = boardCommentMapper.commentCount(board, boardComment);
+		return totalCount;
+	}
 }

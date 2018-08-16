@@ -66,7 +66,7 @@
 				
 			
 					<td>${status.count}</td>
-					<td><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName }</a></td>
+					<td><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName } </a></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
 					<td>${recBook.hits}  </td>

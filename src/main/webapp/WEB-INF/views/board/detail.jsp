@@ -72,16 +72,12 @@
 	</br>
 	<div>
         <ul class="tabs" data-persist="true">
-            <li><a href="#view1">Lorem</a></li>
-            <li><a href="#view2">Using other templates</a></li>
-            <li><a href="#view3">첨부파일</a></li>
+           
+            <li><a href="#view2">댓글(${totalCount})</a></li>
+            <li><a href="#view3">첨부파일 </a></li>
         </ul>
         <div class="tabcontents">
-            <div id="view1">
-                <b>Lorem Issum</b>
-                <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
-                
-            </div>
+            
             <div id="view2">
                 <table class="table table-bordered" id="example">
 		<thead>

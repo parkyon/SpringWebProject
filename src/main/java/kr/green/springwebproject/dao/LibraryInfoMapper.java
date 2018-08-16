@@ -71,4 +71,6 @@ public interface LibraryInfoMapper {
 	public void deleteComment(@Param("libraryInfo")LibraryInfo libraryInfo);
 	public void modifyComment(@Param("libraryInfo")LibraryInfo libraryInfo);
 	
+	//댓글 수
+	public int countComment(@Param("libraryInfo")LibraryInfo libraryInfo);
 }

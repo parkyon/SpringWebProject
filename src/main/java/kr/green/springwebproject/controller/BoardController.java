@@ -96,7 +96,8 @@ public class BoardController {
 		System.out.println("이것은 댓글 리스트");
 		System.out.println(list);
 		
-		
+		int totalCount = boardCommentService.CountComment(boardComment, board);
+		model.addAttribute("totalCount", totalCount);
 		
 		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
 		String filepath = board.getFilepath();

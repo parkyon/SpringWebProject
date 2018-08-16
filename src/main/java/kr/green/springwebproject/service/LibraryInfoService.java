@@ -233,6 +233,14 @@ public class LibraryInfoService {
 				libraryInfoMapper.modifyComment(libraryInfo);
 				return true;
 			}
+			
+			//댓글수
+			
+			public int CountComment(LibraryInfo libraryInfo ) {
+				int totalCount = 0;
+				libraryInfoMapper.countComment(libraryInfo);
+				return totalCount;
+			}
 }
 
 	
