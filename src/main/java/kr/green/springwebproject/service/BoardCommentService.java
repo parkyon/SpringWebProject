@@ -19,7 +19,7 @@ public class BoardCommentService {
 	
 	
 	public ArrayList<BoardComment> GetBoardComment(Board board,BoardComment boardComment){
-		return boardCommentMapper.getBoardComent(board, boardComment);
+		return boardCommentMapper.getBoardComment(board, boardComment);
 	}
 	
 	public boolean InsertBoardComment(User user, Board board, BoardComment boardComment) {

@@ -1,10 +1,8 @@
 package kr.green.springwebproject.controller;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
-import kr.green.springwebproject.dao.RecBook;
+import kr.green.springwebproject.dao.BoardComment;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
+import kr.green.springwebproject.service.BoardCommentService;
 import kr.green.springwebproject.service.BoardService;
 import kr.green.springwebproject.service.UserService;
 import kr.green.springwebproject.utils.MediaUtils;
@@ -43,6 +42,8 @@ public class BoardController {
 	private String uploadPath;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BoardCommentService boardCommentService;
 	
 	@RequestMapping(value="boardMain",method = RequestMethod.GET)
 	public String boardMainGet(Model model, HttpServletRequest request) {
@@ -79,15 +80,23 @@ public class BoardController {
 		System.out.println(list);
 		return "/board/list";
 	}
-	@RequestMapping(value="detail")
+	@RequestMapping(value="detail", method = RequestMethod.GET)
 	public String boardDetail(HttpServletRequest request,
-			Model model, int number) {
+			Model model, int number, BoardComment boardComment) {
 		
 		Board board = boardService.getBoard(number);
 		boardService.BoardHits(board);
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = boardService.isAuthor(user, board);
+		
+	
+		ArrayList<BoardComment> list = boardCommentService.GetBoardComment(board, boardComment);
+		model.addAttribute("list", list);
+		System.out.println("이것은 댓글 리스트");
+		System.out.println(list);
+		
+		
 		
 		//�뙆�씪紐� �닔�젙�븯�뒗 怨쇱젙
 		String filepath = board.getFilepath();

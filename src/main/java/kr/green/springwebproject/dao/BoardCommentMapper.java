@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 public interface BoardCommentMapper {
 	
 	
-	public ArrayList<BoardComment> getBoardComent(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
+	public ArrayList<BoardComment> getBoardComment(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
 	
 	public void insertBoardComment(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
 	

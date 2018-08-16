@@ -83,6 +83,57 @@
                 
             </div>
             <div id="view2">
+                <table class="table table-bordered" id="example">
+		<thead>
+		<div class="container">
+  		<form method="post" 
+  			enctype="multipart/form-data">
+  		<input type="hidden" value="${board.number}" name="recBookNumber">
+  		<input type="hidden" value="${board.author}" name="author">
+  	  		<input type="hidden" value="${boardcomment.cno}" name="cno">
+  	
+  	  		
+  	
+  	
+  	
+  	
+		    <div class="form-group">
+		    	
+		    	<input  type="text" class="form-control" name="content" value="" >
+		      	<button type="submit" class="btn btn-primary">등록</button>
+		      	
+		    </div>
+		</form>
+	</div>
+		
+		
+			<tr>
+			
+				<th>번호</th>
+				<th>내용</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="boardcomment" items="${list}" varStatus="status">
+				<tr>
+				
+					
+					<td>${status.count}</td>
+					<td>${boardcomment.content}</td>
+					
+					<td>${boardcomment.writer}</td>
+					<td>${boardcomment.reg_date}</td>
+			
+				</tr>
+			</c:forEach>
+		
+			
+		
+		</tbody>
+	</table>
                 
                 
                 
