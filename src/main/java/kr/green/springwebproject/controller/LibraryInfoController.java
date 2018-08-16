@@ -24,9 +24,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.LibraryInfo;
+import kr.green.springwebproject.dao.LibraryInfoComment;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
+import kr.green.springwebproject.service.LibraryInfoCommentService;
 import kr.green.springwebproject.service.LibraryInfoService;
 import kr.green.springwebproject.service.UserService;
 import kr.green.springwebproject.utils.MediaUtils;
@@ -42,6 +44,8 @@ public class LibraryInfoController {
 	private String uploadPath;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private LibraryInfoCommentService libraryInfoCommentService;
 	
 	@RequestMapping(value="libraryInfoMain", method = RequestMethod.GET)
 	public String libraryInfoMain(Model model, HttpServletRequest request) {
@@ -70,16 +74,16 @@ public class LibraryInfoController {
 		
 		
 		ArrayList<LibraryInfo> list = libraryInfoService.getLibraryInfo(number);
-		
+	
 		model.addAttribute("list", list);
 	
 		return "libraryInfo/libraryList";
 	}
 	
-	@RequestMapping(value="detail")
+	@RequestMapping(value="detail", method=RequestMethod.GET)
 	public String libraryInfoDetail(HttpServletRequest request,
 			Model model, Integer number, Integer bno, Criteria cri
-			,String search, Integer type ) {
+			,String search, Integer type, LibraryInfoComment libraryInfoComment ) {
 		
 		
 		LibraryInfo libraryInfo = libraryInfoService.getDetailLibraryInfo(number);
@@ -89,11 +93,10 @@ public class LibraryInfoController {
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = libraryInfoService.isAuthor(user, libraryInfo);
 		
-		libraryInfo.setBno(libraryInfo.getNumber());
 		
-		int totalCount = libraryInfoService.CountComment(libraryInfo);
+		int totalCount = libraryInfoCommentService.CountComment(libraryInfo, libraryInfoComment);
 		model.addAttribute("totalCount", totalCount);
-		System.out.println("비엔오"+ libraryInfo.getBno());
+		
 		String filepath = libraryInfo.getFilepath();
 		if(filepath != null) {
 		//filepath : /�뀈/�썡/�씪/uuid_�뙆�씪紐�
@@ -107,10 +110,10 @@ public class LibraryInfoController {
 		model.addAttribute("libraryInfo", libraryInfo);		
 		
 	
-		List<LibraryInfo> comment = libraryInfoService.getComment(number); 
-		model.addAttribute("comment", comment);
-		System.out.println(comment);
-		
+		ArrayList<LibraryInfoComment> list = libraryInfoCommentService.GetComment(libraryInfo, libraryInfoComment);
+		System.out.println("리스트");
+		System.out.println(list);
+		model.addAttribute("list", list);
 	
 	
 		return "/libraryInfo/detail";
@@ -118,14 +121,15 @@ public class LibraryInfoController {
 	
 	@RequestMapping(value ="detail", method = RequestMethod.POST)
 	public String DPOST(LibraryInfo libraryInfo
-			,HttpServletRequest request,  String content, Model model) throws Exception {
+			,HttpServletRequest request,  String content, Model model, LibraryInfoComment libraryInfoComment) throws Exception {
 		
 		
 		System.out.println(content);
 		System.out.println(libraryInfo.getNumber());
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		libraryInfoService.insertComment(user, libraryInfo);
+		
+		libraryInfoCommentService.InsertComment(user, libraryInfo, libraryInfoComment);
 		
 		model.addAttribute("number", libraryInfo.getNumber());
 		
@@ -268,15 +272,16 @@ public class LibraryInfoController {
 	//댓글 수정/삭제
 	
 	@RequestMapping(value="deleteComment")
-	public String DeleteCommentLibrayInfo(LibraryInfo libraryInfo) {
-		libraryInfoService.DeleteComment(libraryInfo);
+	public String DeleteCommentLibrayInfo(Integer cno,LibraryInfo libraryInfo, LibraryInfoComment libraryInfoComment) {
+		libraryInfoCommentService.DeleteComment(cno, libraryInfo, libraryInfoComment);
+		System.out.println(cno);
 		return "redirect:/libraryInfo/libraryList";
 	}
 	
 	@RequestMapping(value="modifyComment", method=RequestMethod.POST)
-	public String ModifyCommentLibraryInfo(LibraryInfo libraryInfo, String content1) {
-		libraryInfo.setContent(content1);
-		libraryInfoService.ModifyComment(libraryInfo);
+	public String ModifyCommentLibraryInfo(LibraryInfo libraryInfo, String content1, LibraryInfoComment libraryInfoComment) {
+		libraryInfoComment.setContent(content1);
+		libraryInfoCommentService.ModifyComment(libraryInfo, libraryInfoComment);
 		return "redirect:/libraryInfo/libraryList";
 	}
 }

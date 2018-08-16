@@ -52,14 +52,6 @@ public interface LibraryInfoMapper {
 	
 	//댓글용
 	
-	public List<LibraryInfo> getCommentByCno(@Param("bno")int bno);
-	
-	
-	
-	public void insertComment(@Param("libraryInfo")LibraryInfo libraryInfo);
-	
-	public int getCountComment();
-	public List<Board> searchComment(@Param("cri")Criteria cri, @Param("search")String search, @Param("type")int type);
 	
 	
 	//조회수

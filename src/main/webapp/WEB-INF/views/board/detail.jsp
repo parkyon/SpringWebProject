@@ -127,7 +127,7 @@
 					 
 					 
 					 
-					<p onclick="onModals(${boardComment.cno},'${boardComment.content}')">수정/삭제</p>
+					<a href="#"><p onclick="onModals(${boardComment.cno},'${boardComment.content}')">수정</a>/<a href="commentDelete?cno=${boardComment.cno}">삭제</a></p>
 					
 
 					  <div id="id01" class="w3-modal id01">
@@ -135,14 +135,14 @@
 					      <header class="w3-container w3-teal"> 
 					        <span onclick="$('.id01').css('display','none')" 
 					        class="w3-button w3-display-topright">&times;</span>
-					        <h2>수정/삭제</h2>
+					        <h2>수정</h2>
 					      </header>
 					      <div class="w3-container">
 					     <form method="post" class="form-test" action="commentModify?cno=${boardComment.cno}"   >
 					     
 					        <input  type="text" class="form-control content1" name="content1" value="" >
 		      				<button type="submit" class="btn btn-primary">수정</button>
-		      				<button class="btn btn-primay"><a href="commentDelete?cno=${boardComment.cno}">삭제</a></button>
+		      				
 						</form>
 					 	
 					 		

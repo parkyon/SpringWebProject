@@ -125,27 +125,7 @@
  
       </br>
 	 </div>
-	 
-	 
-	 
-	 
-	
-	
-	
-	
-		    
-		    
-		    
-		    
-		    
-	 
-	  	
-	  	
-  	
-		
-	
-	  	
-	  	
+
 	  	<div>
         <ul class="tabs" data-persist="true">
            
@@ -157,8 +137,8 @@
                <div class="container">
 		  		<form method="post" 
 		  			enctype="multipart/form-data">
-		  		<input type="hidden" value="${libraryInfo.cno}" name="cno">
-  		<input type="hidden" value="${libraryInfo.writer}" name="author">
+		  		<input type="hidden" value="${libraryInfo.number}" name="number">
+  		<input type="hidden" value="${libraryInfo.author}" name="author">
 				    <div class="form-group">
 				    	
 				    	<span><input  type="text" name="content" value="" >
@@ -183,17 +163,17 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="comment" items="${comment }" varStatus="status">
+						<c:forEach var="libraryInfoComment" items="${list }" varStatus="status">
 							<tr>
 							
 						
 								<td>${status.count}</td>
-								<td>${comment.content}</td>
-								<td>${comment.writer}</td>
-								<td>${comment.reg_date}</td>
+								<td>${libraryInfoComment.content}</td>
+								<td>${libraryInfoComment.writer}</td>
+								<td>${libraryInfoComment.reg_date}</td>
 								<c:if test="${isAuthor }"><td>
 							
-								<p onclick="onModals(${comment.cno},'${comment.content}')">수정/삭제</p>
+								<span><a href="#"><p onclick="onModals(${libraryInfoComment.cno},'${libraryInfoComment.content}')">수정</a>/<a href="deleteComment?cno=${libraryInfoComment.cno}">삭제</a></span></p>
 					
 
 								  <div id="id01" class="w3-modal id01">
@@ -201,19 +181,23 @@
 								      <header class="w3-container w3-teal"> 
 								        <span onclick="$('.id01').css('display','none')" 
 								        class="w3-button w3-display-topright">&times;</span>
-								        <h2>수정/삭제</h2>
+								        <h2>수정</h2>
 								      </header>
-								      <div class="w3-container">
-								     <form method="post" class="form-test" action="modifyComment?cno=${comment.cno}"   >
-								     
-								        <input  type="text" class="form-control content1" name="content1" value="" >
-					      				<button type="submit" class="btn btn-primary">수정</button>
-					      			<button class="btn btn-primary"><a href="deleteComment?cno=${comment.cno}">삭제</a></button>
-									</form>
+								    	<div class="w3-container">
+									     <form method="post" class="form-test" action="modifyComment?cno=${libraryInfoComment.cno}"   >
+									     
+									        <input  type="text" class="form-control content1" name="content1" value="" >
+						      				<button type="submit" class="btn btn-primary">수정</button>
+										</form>
+										</div>
+									</div>
+								</div>
 								
 								 	
 								 		
-								  </div>
+								
+									
+								  
 								</td>
 								</c:if>
 								

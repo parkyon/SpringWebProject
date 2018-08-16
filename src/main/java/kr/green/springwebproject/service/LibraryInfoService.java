@@ -173,47 +173,6 @@ public class LibraryInfoService {
 			}
 			
 			
-			
-//댓글용
-			
-			
-			public List<LibraryInfo> getComment(int bno) {
-				return libraryInfoMapper.getCommentByCno(bno);
-			}
-			
-			public boolean insertComment(User user, LibraryInfo libraryInfo) {
-			libraryInfo.setWriter(user.getId());
-			
-			libraryInfoMapper.insertComment(libraryInfo);
-			
-			return true;
-			}
-			
-			
-			
-
-			public int getCountByComment(Integer type, String search, Criteria cri) {
-				int totalCount2 = 0;
-				if(type == null)
-					type = 0;
-				if(type == 0) {
-					totalCount2 = libraryInfoMapper.getCountComment();
-				}
-				
-				return totalCount2;
-			}
-
-			public ArrayList<LibraryInfo> getListComment(Integer type, String search, Criteria cri) {
-				ArrayList<LibraryInfo> list2 = null;
-				if(type == null)
-					type = 0;
-				
-				list2 
-				= (ArrayList)libraryInfoMapper.searchComment(cri, "%"+search+"%", type);
-			return list2;
-			}
-			
-			
 			//조회수
 			
 			
@@ -222,25 +181,9 @@ public class LibraryInfoService {
 				return true;
 			}
 			
-			//댓글 삭제/수정
 			
-			public boolean DeleteComment(LibraryInfo libraryInfo) {
-				libraryInfoMapper.deleteComment(libraryInfo);
-				return true;
-			}
 			
-			public boolean ModifyComment(LibraryInfo libraryInfo) {
-				libraryInfoMapper.modifyComment(libraryInfo);
-				return true;
-			}
 			
-			//댓글수
-			
-			public int CountComment(LibraryInfo libraryInfo ) {
-				int totalCount = 0;
-				libraryInfoMapper.countComment(libraryInfo);
-				return totalCount;
-			}
 }
 
 	

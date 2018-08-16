@@ -101,21 +101,7 @@
 	</select>
 	
 	
-	
-	<!-- serverside -->
-	<select id="SSgetLibraryInfo" resultType="kr.green.springwebproject.dao.LibraryInfo">
-	select * from libraryInfo
-	limit #{cri.pageStart}, #{cri.perPageNum}
-	</select>
-	
-	<select id="countLibrary" resultType="java.lang.Integer">
-		select
-			count(number)
-		from
-			libraryInfo
-		
-	</select>
-	
+	<!-- 좋아요 실헝요 -->
 	<update id="recLibraryInf" >
 	update 
 			libraryinfo 
@@ -135,41 +121,6 @@
 	</update>
 	
 	
-	<!-- 도서관 댓글 -->
-	<select id="getCommentByCno" resultType="kr.green.springwebproject.dao.LibraryInfo">
-	select * from comment
-	where
-	bno = #{bno}
-	
-	</select>
-	
-	<insert id="insertComment">
-	insert into comment
-	(bno,content,writer)
-	values
-	(#{libraryInfo.number},#{libraryInfo.content},#{libraryInfo.writer})
-
-	</insert>
-	
-	
-	<select id="getCountComment" resultType="java.lang.Integer">
-		select
-			count(cno)
-		from
-			comment
-		
-	</select>
-	
-	
-	
-	<select id="searchComment" resultType="kr.green.springwebproject.dao.LibraryInfo">
-		select * from comment
-	
-			
-		order by cno desc
-		limit
-			#{cri.pageStart},#{cri.perPageNum}
-	</select>
 	
 	
 <!-- 조회수 -->
@@ -185,27 +136,5 @@
 	</update>
 	
 	
-<!-- 댓글 수정/삭제 -->
 
-	<delete id="deleteComment">
-	delete from comment
-	where cno = #{libraryInfo.cno}
-	</delete>
-	
-	<update id="modifyComment">
-	update comment
-	
-	set 
-	content = #{libraryInfo.content}
-	where
-	cno = #{libraryInfo.cno}
-	</update>
-	
-	<select id="countComment" resultType="java.lang.Integer">
-	select count(*)
-	from comment
-	where
-	bno = #{libraryInfo.bno}
-	
-	</select> 
 </mapper>

@@ -19,7 +19,7 @@ public class RecBookReviewService {
 	}
 	
 	public boolean InsertReview(User user,RecBook recBook, RecBookReview recbookreview) {
-	
+		
 		recbookreview.setWriter(user.getId());
 	recBookReviewMapper.insertReview(recBook, recbookreview);
 	return true;
