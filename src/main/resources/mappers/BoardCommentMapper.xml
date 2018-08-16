@@ -6,7 +6,7 @@
 
 	<select id="getBoardComment" resultType ="kr.green.springwebproject.dao.BoardComment">
 	select * from 
-	boardcomment
+	boardComment
 	where
 	bno = #{board.number}
 	</select>
@@ -14,26 +14,26 @@
 
 	<insert id="insertBoardComment">
 	insert
-	into boardcomment
-	(bno, cnotent, writer)
+	into boardComment
+	(bno, content, writer)
 	values
-	(#{board.number},#{boardcomment.content},#{boardcomment.writer})
+	(#{board.number},#{boardComment.content},#{boardComment.writer})
 	
 	
 	</insert>
 	
 	
 	<delete id="deleteBoardComment">
-	delete from boardcomment
-	where cno = #{boardcomment.cno}
+	delete from boardComment
+	where cno = #{boardComment.cno}
 	
 	</delete>
 	
 	<update id="modifyBoardComment">
-	update boardcomment
+	update boardComment
 	set
-	 content = #{boardcomment.content}
+	 content = #{boardComment.content}
 	 
-	 where cno = #{boardcomment.cno}
+	 where cno = #{boardComment.cno}
 	</update>
 </mapper>

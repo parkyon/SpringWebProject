@@ -90,7 +90,6 @@
   			enctype="multipart/form-data">
   		<input type="hidden" value="${board.number}" name="recBookNumber">
   		<input type="hidden" value="${board.author}" name="author">
-  	  		<input type="hidden" value="${boardcomment.cno}" name="cno">
   	
   	  		
   	
@@ -117,15 +116,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="boardcomment" items="${list}" varStatus="status">
+			<c:forEach var="boardComment" items="${list}" varStatus="status">
 				<tr>
 				
 					
 					<td>${status.count}</td>
-					<td>${boardcomment.content}</td>
+					<td>${boardComment.content}</td>
 					
-					<td>${boardcomment.writer}</td>
-					<td>${boardcomment.reg_date}</td>
+					<td>${boardComment.writer}</td>
+					<td>${boardComment.reg_date}</td>
 			
 				</tr>
 			</c:forEach>

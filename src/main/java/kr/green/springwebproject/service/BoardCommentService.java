@@ -32,8 +32,8 @@ public class BoardCommentService {
 		boardCommentMapper.deleteBoardComment(board, boardComment);
 		return true;
 	}
-	public boolean modifyBoardComment(Integer cno, BoardComment boardcomment, Board board) {
-		boardCommentMapper.modifyBoardComment(board, boardcomment);
+	public boolean modifyBoardComment(Integer cno, BoardComment boardComment, Board board) {
+		boardCommentMapper.modifyBoardComment(board, boardComment);
 		return true;
 	}
 }

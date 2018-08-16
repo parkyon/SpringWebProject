@@ -110,6 +110,21 @@ public class BoardController {
 		model.addAttribute("board", board);		
 		return "/board/detail";
 	}
+	
+	
+	@RequestMapping(value="detail", method=RequestMethod.POST)
+	public String detailPost(Board board, BoardComment boardComment, HttpServletRequest request, Model model)throws Exception {
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boardCommentService.InsertBoardComment(user, board, boardComment);
+		
+		model.addAttribute("number",board.getNumber());
+		
+		
+		return "redirect:/board/detail";
+	}
 	@RequestMapping(value="modify", method=RequestMethod.GET)
 	public String boardModifyGet(HttpServletRequest request,
 			Model model,Integer del, Integer number) {
