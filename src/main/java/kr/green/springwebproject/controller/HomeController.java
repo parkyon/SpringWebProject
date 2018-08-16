@@ -139,7 +139,7 @@ public class HomeController {
 		session.removeAttribute("user");
 		session.setAttribute("user", user);
 	}
-		return "redirect:/board/list";
+		return "redirect:/loginhome";
 }
 	
 	// mailSending 코드

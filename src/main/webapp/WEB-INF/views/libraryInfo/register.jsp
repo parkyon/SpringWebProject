@@ -10,6 +10,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script type="text/javascript">
 	/*	파일 이름에 jpg,gif,png,jpeg이 들어가있는지 확인 */
 	function checkImageType(fileName){
@@ -51,6 +52,91 @@
 	});
 	</script>
 
+
+<!-- 유효성 검사 -->
+
+<script>
+	
+	jQuery.extend(jQuery.validator.messages, {
+		required: "필수항목",
+		email: "이메일 형식",
+		
+		minlength: jQuery.validator.format("{0}글자 이상.")
+	});
+
+	$().ready(function() {
+
+		// validate the comment form when it is submitted
+		$("#commentForm1").validate();
+
+		// validate signup form on keyup and submit
+		$("#commentForm2").validate({   //많이 사용함
+			rules: {
+				libraryName: {
+					required: true,
+					
+				},
+				cityName: {
+					required: true,
+					
+				},
+				libraryType: {
+					required: true,
+					
+				},
+				loadAddress: {
+					required: true,
+					
+				},
+				latitude: {
+					required: true,
+					digits: true,
+					
+				},
+				longitude: {
+					required: true,
+					digits: true,
+					
+				},
+			
+				
+			
+			
+			},
+			messages: {
+				libraryName: {
+					required: "도서관 이름은 필수항목 입니다.",
+					
+				},
+				cityName: {
+					required: "도시 이름은 필수항목 입니다.",
+					
+				},
+				libraryType: {
+					required: "도서관 타입은 필수항목 입니다.",
+					
+				},
+				loadAddress: {
+					required: "도로명 주소는 필수항목 입니다.",
+					
+				},
+				latitude: {
+					required: "위도는  필수항목 입니다.",
+					digits : "숫자만입력하세요",
+					
+				},
+				longitude: {
+					required: "경도는 필수항목 입니다.",
+					digits : "숫자만입력하세요",
+					
+				},
+				
+				
+			}
+		});
+	});
+	</script>
+
 </head>
 <body>
 	<style> 
@@ -65,18 +151,18 @@
 	</style>
 	<div class="container">
   		<form method="post" 
-  			enctype="multipart/form-data">
+  			enctype="multipart/form-data" id="commentForm2">
   			<h1>도서관 등록</h1>
 		    <div class="form-group">
-		    	<label>도서관 이름</label>
+		    	<label>도서관 이름(필수)</label>
 		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" >
 		    </div>
 		    <div class="form-group">
-		    	<label>도시 이름</label>
+		    	<label>도시 이름(필수)</label>
 		      	<input type="text" class="form-control" name="cityName" value="${libraryInfo.cityName}" >
 		    </div>
 		    <div class="form-group">
-		    	<label>도서관 유형</label>
+		    	<label>도서관 유형(필수)</label>
 		      	<input type="text" class="form-control" name="libraryType" value="${libraryInfo.libraryType}" >
 		    </div>
 		    <div class="form-group">
@@ -122,12 +208,12 @@
 		        <div class="uploadedList"></div>
 		    </div>
 		      <div class="form-group">
-		    	<label>위도</label>
+		    	<label>위도(필수)</label>
 		      	<input type="text" class="form-control" name="latitude" value="${libraryInfo.latitude}" >
 		     </div>
 		     
 		       <div class="form-group">
-		    	<label>경도</label>
+		    	<label>경도(필수)</label>
 		      	<input type="text" class="form-control" name="longitude" value="${libraryInfo.longitude}" >
 		     </div>
 		     

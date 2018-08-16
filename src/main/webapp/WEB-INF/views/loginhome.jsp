@@ -208,6 +208,8 @@ beginneon()
     <div class="col-sm-3">
      
      <h1>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h1>
+   		<span><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a>
+		<a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></span>
     </div>
     <div class="col-sm-3" > 
     <h4>도서정보 최신글</h4>

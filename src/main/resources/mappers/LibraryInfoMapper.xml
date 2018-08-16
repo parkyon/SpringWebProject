@@ -24,7 +24,7 @@
 	</select>
 	
 	<insert id="insertLibraryInfo">
-	insert -o libraryinfo
+	insert into libraryinfo
 	(libraryName, cityName, libraryType, holiday, 
 	openSeat, bookCount, bookCount2, bookCount3, 
 	loadAddress, operation, phoneNumber, homepage,

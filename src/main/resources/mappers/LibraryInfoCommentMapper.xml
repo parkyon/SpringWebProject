@@ -9,6 +9,8 @@ select * from libraryInfoComment
 where
 bno = #{libraryInfo.number}
 
+
+
 </select>
 
 <insert id="insertComment">
@@ -43,8 +45,9 @@ set
 
 
 <select id="countComment" resultType="java.lang.Integer">
-select count(*)
-from libraryinfocomment
+select count(*) from libraryInfo
+inner join libraryInfocomment
+on libraryInfo.number = libraryInfocomment.bno
 where
 bno = #{libraryInfo.number}
 </select>

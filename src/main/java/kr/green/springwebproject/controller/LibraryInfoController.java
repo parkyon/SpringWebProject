@@ -60,11 +60,16 @@ public class LibraryInfoController {
 	}
 	
 	@RequestMapping(value = "libraryList", method = RequestMethod.GET)
-	public String loginHomeGet(Model model, HttpServletRequest request, Integer number) {
+	public String loginHomeGet(Model model, HttpServletRequest request, Integer number, LibraryInfoComment libraryInfoComment, LibraryInfo libraryInfo) {
 				
 		if(number == null) {
 			number = 1;
 		}
+		
+	
+		int totalCount = libraryInfoCommentService.CountComment(libraryInfo, libraryInfoComment);
+		model.addAttribute("totalCount", totalCount);
+		
 		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -114,7 +119,8 @@ public class LibraryInfoController {
 		System.out.println("리스트");
 		System.out.println(list);
 		model.addAttribute("list", list);
-	
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 	
 		return "/libraryInfo/detail";
 	}

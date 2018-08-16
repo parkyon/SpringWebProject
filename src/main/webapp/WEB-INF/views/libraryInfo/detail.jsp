@@ -52,41 +52,21 @@
     <div class="col-sm-10 text-left"> 
       <h1>${libraryInfo.libraryName}</h1>
         <hr>
-        
-        
-        
        <div class="row">
         <div class="col-sm-6">
- 		
- 		
-
 			<div class="form-group">
 		    	
-		    	<c:if test="${!empty libraryInfo.latitude}">
-		    	
-		      	 <div id="map" style="width:300px;height:400px; border:1px solid blue;" ></div>
-		      	 	
+		    	<c:if test="${!empty libraryInfo.latitude}">		    	
+		      	 <div id="map" style="width:300px;height:400px; border:1px solid blue;" ></div>		      	 	
 		      	 </c:if>
-		      	 <c:if test="${empty libraryInfo.latitude}">
-		    	
-		      	 <div  style="width:300px;height:400px; border:1px solid blue;" ><img style='height: 100%; width: 100%; object-fit: contain' src="/resources/jpg/mapSorry.png" ></img></div>
-		      	 <div  style="width:300px;height:400px;"><h1>지도 요청 중입니다</div>
-		      	 	
-		      	 </c:if>
-		      	 
-		    </div>
+			      	 <c:if test="${empty libraryInfo.latitude}">		    	
+				      	 <div  style="width:300px;height:400px; border:1px solid blue;" ><img style='height: 100%; width: 100%; object-fit: contain' src="/resources/jpg/mapSorry.png" ></img></div>
+				      	
+		      	 	</c:if>		  	 
+		   	 </div>
 
-
- 	
-        
-          
-
-
-          
-         
         </div>
         <div class="col-sm-6">
-        
         	주소:${libraryInfo.loadAddress} </br>
          	전화번호:${libraryInfo.phoneNumber}</br>
 			홈페이지:<a href="${libraryInfo.homepage}" target="_blank">${libraryInfo.homepage}</a></br>
@@ -100,32 +80,27 @@
        		<hr>
        		네티즌 </br>
        		추천수 :${libraryInfo.recomand} </br>
-			비추천수 : ${libraryInfo.notrecomand}
-       		
+			비추천수 : ${libraryInfo.notrecomand}</br>       		
        		 <hr>
-			 작성자: ${libraryInfo.author}
-       		
-       		
-         	
+			 작성자: ${libraryInfo.author}     
         </div>
  
-		</div>
-		
-		<div>
+	</div>
+<!-- 중간-->
+	<div>
 		<span style="float:right">
 		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
-		      <c:if test="${admin }" >
+		    <c:if test="${admin }" >
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
 		    
       </span>
- 
-      </br>
-	 </div>
+	</div>
 
+<!-- 페이지  -->
 	  	<div>
         <ul class="tabs" data-persist="true">
            
@@ -163,7 +138,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="libraryInfoComment" items="${list }" varStatus="status">
+						<c:forEach var="libraryInfoComment" items="${list}" varStatus="status">
 							<tr>
 							
 						

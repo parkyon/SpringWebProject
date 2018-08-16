@@ -91,10 +91,7 @@ public class RecBookController {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		boolean isAuthor = recBookService.isAuthor(user, recBook);
-		
-		
-		
-		
+	
 		ArrayList<RecBookReview> list = recBookReviewService.GetReview(recBook, recBookReview);
 		
 		int totalCount = recBookReviewService.CountReview(recBook, recBookReview);

@@ -37,21 +37,12 @@
 		    
 		    </div>
  
-
-		    
 		    <hr>
 		    <div class="form-group">
 		    
 		      	<textarea class="form-control" rows="5" name="contents" disabled>${board.contents}</textarea>
 		    </div>
 		
-		    	
-		      	
-		   
-		    
-		    
-		    
-		        
 	  	</form>
 	  	<div>
 	  	<hr>
@@ -60,7 +51,7 @@
 		   <a href="/board/notrec?number=${board.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/board/list"><button class="btn btn-primary">목록</button></a>
 		    <a href="/board/register"><button class="btn btn-primary">글쓰기</button></a>
-		    <c:if test="${isAuthor}">
+		    <c:if test="${admin or isAuthor}">
 		    	<a href="/board/modify?number=${board.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/board/delete?number=${board.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
@@ -86,13 +77,7 @@
   			enctype="multipart/form-data">
   		<input type="hidden" value="${board.number}" name="recBookNumber">
   		<input type="hidden" value="${board.author}" name="author">
-  	
-  	  		
-  	
-  	
-  	
-  	
-		    <div class="form-group">
+  		<div class="form-group">
 		    	
 		    	<input  type="text" class="form-control" name="content" value="" >
 		      	<button type="submit" class="btn btn-primary">등록</button>

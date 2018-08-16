@@ -133,21 +133,21 @@ public class LibraryInfo {
 	
 	//지도용 위도 경도
 	
-	private String latitude;
-	public String getLatitude() {
+	private double latitude;
+	public double getLatitude() {
 		return latitude;
 	}
-	public void setLatitudel(String latitude) {
+	public void setLatitudel(double latitude) {
 		this.latitude = latitude;
 	}
-	public String getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(String longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
-	private String longitude;
+	private double longitude;
 	
 	
 	//추천수
@@ -159,7 +159,7 @@ public class LibraryInfo {
 	public void setRecomand(int recomand) {
 		this.recomand = recomand;
 	}
-	public void setLatitude(String latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 	private int notrecomand;

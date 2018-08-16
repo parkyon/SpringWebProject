@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 </head>
 <body>
 	<style> 
@@ -22,11 +23,51 @@
 		}
 	</style>
 	
+<script>
 	
+	jQuery.extend(jQuery.validator.messages, {
+		required: "필수항목",
+		email: "이메일 형식",
+		
+		minlength: jQuery.validator.format("{0}글자 이상.")
+	});
+
+	$().ready(function() {
+
+		// validate the comment form when it is submitted
+		$("#commentForm1").validate();
+
+		// validate signup form on keyup and submit
+		$("#commentForm2").validate({   //많이 사용함
+			rules: {
+				title: {
+					required: true,
+					
+				},
+				contents: {
+					required: true,
+					
+				},
+
+			},
+			messages: {
+				title: {
+					required: "제목은 필수항목 입니다.",
+					
+				},
+				contents: {
+					required: "내용은 필수항목 입니다.",
+					
+				},
+			
+			}
+		});
+	});
+	</script>	
 	
 	<div class="container">
   		<form method="post" 
-  			enctype="multipart/form-data">
+  			enctype="multipart/form-data" id="commentForm2">
   			<h1>게시글 등록</h1>
 		    <div class="form-group">
 		    	<label>제목</label>
@@ -35,8 +76,7 @@
 		    <div class="form-group">
 		        <label>파일</label>
 		        <input type="file" class="form-control" name="file"/>
-		        <div class="fileDrop"></div>
-		        <div class="uploadedList"></div>
+		       
 		    </div>
 		    <div class="form-group">
 		    	<label>내용</label>

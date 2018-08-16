@@ -107,6 +107,8 @@ public class BoardController {
 			model.addAttribute("fileName", fileName);
 		}
 		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
 		model.addAttribute("isAuthor", isAuthor);
 		model.addAttribute("board", board);		
 		return "/board/detail";

@@ -37,7 +37,7 @@
       value="${nowUser.email }">
     </div>
     <button type="submit" class="btn btn-primary">회원정보 수정</button>
-    <a href="/board/list">
+    <a href="/loginhome">
     <input type="button" value="취소" class="btn btn-primary"/> 
     </a>
     <a href="/member/withdraw">

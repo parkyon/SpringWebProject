@@ -59,6 +59,7 @@
 				<th>전화번호</th>
 				<th>추천</th>
 				<th>조회수</th>
+				<th>sdfs</th>
 			
 			</tr>
 		</thead>
@@ -68,11 +69,14 @@
 				
 			
 					<td>${status.count}</td>
+					
 					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
+					
 					<td>${libraryInfo.cityName }</td>
 					<td>${libraryInfo.phoneNumber }</td>
 					<td>${libraryInfo.recomand }</td>
 					<td>${libraryInfo.hits }</td>
+					<td>${totalCount}</td>
 					
 				</tr>
 			</c:forEach>
