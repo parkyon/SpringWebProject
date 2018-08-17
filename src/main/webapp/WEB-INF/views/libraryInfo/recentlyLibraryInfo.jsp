@@ -31,18 +31,18 @@
 		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>
-				<th>번호</th>
+			
 				<th>도서관명</th>
-				<th>지역</th>
+				
 			
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="libraryInfo" items="${list2}">
 				<tr>
-					<td>${libraryInfo.number}</td>
+				
 					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}" target=_blank>${libraryInfo.libraryName }</a></td>
-					<td>${libraryInfo.cityName }</td>
+				
 					
 				</tr>
 			</c:forEach>

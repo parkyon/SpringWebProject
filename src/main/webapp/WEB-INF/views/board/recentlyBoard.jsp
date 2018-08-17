@@ -35,17 +35,17 @@
 		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>
-				<th>번호</th>
+			
 				<th>제목</th>
-				<th>작성자</th>
+			
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="board" items="${list}">
 				<tr>
-					<td>${board.number}</td>
+				
 					<td><a href="/board/detail?number=${board.number}"target=_blank>${board.title }</a></td>
-					<td>${board.author }</td>
+					
 				</tr>
 			</c:forEach>
 		</tbody>

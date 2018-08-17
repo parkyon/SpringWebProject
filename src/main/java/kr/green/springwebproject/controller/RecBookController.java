@@ -308,6 +308,13 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		recBookReviewService.modifyReview(recviewnumber, recBook, recbookReview);
 		return "redirect:/recBook/recBookList";
 	}
+	
+	@RequestMapping(value="thisRecBook")
+	public String thisRecBook(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+		
+		
+		return "/recBook/thisRecBook";
+	}
 }
 
 

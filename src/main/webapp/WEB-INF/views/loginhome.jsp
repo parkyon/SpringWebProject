@@ -15,6 +15,8 @@
 <style>
 #div2{whdth:100vh;
 	}
+	
+	
 </style>
 
 <script type="text/javascript" class="init">
@@ -205,40 +207,51 @@ beginneon()
 
 <div class="container-fluid bg-3 text-center">    
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" >
      
      <h1>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h1>
    		<span><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a>
 		<a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></span>
     </div>
-    <div class="col-sm-3" > 
-    <h4>도서정보 최신글</h4>
-     <div id="div2">
-      <object id="nzeo" width="100%" height="100%" data="/libraryInfo/recentlyLibraryInfo" name="aaa">
-</object>
+   
+    
+     <div  class="col-sm-3" style=" border:1px solid gray;">
+    <span style="float:right"><input type="button" value="+더보기" onClick="location.href='/recBook/recBookMain'"></span> 
+
+
+     <h4>추천도서</h4>
+    
+   <object id="nzeo" width="100%" height="350" data="/recBook/thisRecBook" name="ddd">
+	</object>
     </div>
-    </div>
-    <div class="col-sm-3"> 
-    <h4>자유게시판 최신글</h4> 
+  
+    
       
       
        
-      <div id="div2">
-      <object id="nzeo" width="100%" height="100%" data="/board/recentlyBoard" name="bbb">
-</object>
+      <div class="col-sm-3" style=" border:1px solid gray;">
+     asdf
     </div>
       
-    </div>
-    <div class="col-sm-3">
-    <h4>추천 도서 최신글</h4>
+   
     
-     <div id="div2">
-      <object id="nzeo" width="100%" height="100%" data="/recBook/recentlyRecBookList" name="ccc">
-</object>
+  
+    
+     <div  class=" col-sm-3">
+   	<div style=" border:1px solid gray;">
+ 	<h4>자유게시판 최신글</h4> 
+      <object id="nzeo" width="100%" height="100%" data="/board/recentlyBoard" name="bbb">
+	</object>
+	</div>
+	<div style=" border:1px solid gray;">
+	<h4>도서정보 최신글</h4>
+      <object id="nzeo" width="100%" height="100%" data="/libraryInfo/recentlyLibraryInfo" name="aaa">
+	</object>
+	</div>
     </div>
 		
 		
-    </div>
+   
   </div>
 </div><br><br>
 

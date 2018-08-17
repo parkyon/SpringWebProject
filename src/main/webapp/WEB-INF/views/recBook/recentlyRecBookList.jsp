@@ -33,18 +33,18 @@
 		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>
-				<th>번호</th>
+			
 				<th>책이름</th>
-				<th>책유형</th>
+			
 			
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="recBook" items="${list1}">
 				<tr>
-					<td>${recBook.recBookNumber}</td>
+				
 					<td><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}"target=_blank>${recBook.bookName }</a></td>
-					<td>${recBook.bookType }</td>
+				
 				
 				</tr>
 			</c:forEach>
