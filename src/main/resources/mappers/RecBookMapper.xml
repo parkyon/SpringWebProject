@@ -106,7 +106,16 @@
 	
 	
 	
+	<!-- 메인 네티즌리뷰 갯수 -->
+	<update id="recBookGuestReview">
+	update recbook
+	set guestReview = (
+	select count(bno)
+	from recbookreview
+	where recbook.recBookNumber = recbookreview.bno
+	group by bno)
 	
+	</update>
 	
 	
 	

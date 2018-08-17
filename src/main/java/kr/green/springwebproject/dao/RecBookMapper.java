@@ -45,7 +45,8 @@ public interface RecBookMapper {
 		
 
 		
-	//댓글용
+		//메인 네티즌리뷰 수
+		public void recBookGuestReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 
 		
 }

@@ -137,4 +137,16 @@
 	
 	
 
+<!-- 댓글 수 -->
+<update id="libraryinfoMainReview">
+update libraryinfo
+	set review = (
+	select count(bno)
+	from libraryinfocomment
+	where libraryinfo.number = libraryinfocomment.bno
+	group by bno)
+
+</update>
+
+
 </mapper>

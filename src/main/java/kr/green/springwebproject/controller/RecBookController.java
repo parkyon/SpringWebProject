@@ -57,7 +57,10 @@ public class RecBookController {
 		return "recBook/recBookMain";
 	}
 	@RequestMapping(value = "/recBookList", method = RequestMethod.GET)
-	public String recBookListGet(Model model, HttpServletRequest request, Integer recBookNumber) {
+	public String recBookListGet(Model model, HttpServletRequest request, Integer recBookNumber, RecBook recBook, RecBookReview recbookreview) {
+		
+		
+		recBookService.RecBookGuestReview(recBook, recbookreview);
 		
 		if(recBookNumber == null) {
 			recBookNumber = 1;

@@ -58,36 +58,28 @@
 				<th>지역</th>
 				<th>전화번호</th>
 				<th>추천</th>
-				<th>조회수</th>
-				<th>sdfs</th>
-			
+				<th>조회수</th>			
 			</tr>
 		</thead>
-		<tbody>
-			<c:forEach var="libraryInfo" items="${list}" varStatus="status">
-				<tr>
-				
-			
-					<td>${status.count}</td>
-					
-					<td><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a></td>
-					
-					<td>${libraryInfo.cityName }</td>
-					<td>${libraryInfo.phoneNumber }</td>
-					<td>${libraryInfo.recomand }</td>
-					<td>${libraryInfo.hits }</td>
-					<td>${totalCount}</td>
-					
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+			<tbody>
+				<c:forEach var="libraryInfo" items="${list}" varStatus="status">
+					<tr>
+						<td>${status.count}</td>					
+						<td><span><a href="/libraryInfo/detail?number=${libraryInfo.number}">${libraryInfo.libraryName }</a><a href="/libraryInfo/detail?number=${libraryInfo.number}"style="color:red"> (${libraryInfo.review })</a></span></td>					
+						<td>${libraryInfo.cityName }</td>
+						<td>${libraryInfo.phoneNumber }</td>
+						<td>${libraryInfo.recomand }</td>
+						<td>${libraryInfo.hits }</td>							
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	
-	<c:if test="${admin}">
-	<a href="/libraryInfo/register">
+		<c:if test="${admin}">
+		<a href="/libraryInfo/register">
 		<button class="btn btn-primary"> 등록 </button>
 		</c:if>
-	</a>
+	
 	</div>
 	
 	

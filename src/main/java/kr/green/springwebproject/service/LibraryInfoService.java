@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.BoardMapper;
 import kr.green.springwebproject.dao.LibraryInfo;
+import kr.green.springwebproject.dao.LibraryInfoComment;
 import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.LibraryInfoMapper;
 import kr.green.springwebproject.dao.User;
@@ -181,7 +182,11 @@ public class LibraryInfoService {
 				return true;
 			}
 			
-			
+			//main댓글
+			public boolean LibraryinfoMainReview(LibraryInfo libraryInfo, LibraryInfoComment libraryInfoComment) {
+				libraryInfoMapper.libraryinfoMainReview(libraryInfo, libraryInfoComment);
+				return true;
+			}
 			
 			
 }

@@ -63,7 +63,7 @@
 				
 			
 					<td>${status.count}</td>
-					<td><a href="/board/detail?number=${board.number}">${board.title }</a></td>
+					<td><span><a href="/board/detail?number=${board.number}">${board.title } </a><a href="/board/detail?number=${board.number}" style="color:red">(${board.review })</a></span></td>
 					<td>${board.created_date }</td>
 					<td>${board.author }</td>
 					<td>${board.hits}

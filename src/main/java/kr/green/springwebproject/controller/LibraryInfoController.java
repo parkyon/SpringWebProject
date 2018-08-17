@@ -67,8 +67,7 @@ public class LibraryInfoController {
 		}
 		
 	
-		int totalCount = libraryInfoCommentService.CountComment(libraryInfo, libraryInfoComment);
-		model.addAttribute("totalCount", totalCount);
+		libraryInfoService.LibraryinfoMainReview(libraryInfo, libraryInfoComment);
 		
 		
 		HttpSession session = request.getSession();

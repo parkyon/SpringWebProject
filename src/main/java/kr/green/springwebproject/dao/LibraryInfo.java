@@ -199,6 +199,14 @@ public class LibraryInfo {
 		public void setPrice(int price) {
 			this.price = price;
 		}
+		
+		private int review;
+		public int getReview() {
+			return review;
+		}
+		public void setReview(int review) {
+			this.review = review;
+		}
 }
 
 

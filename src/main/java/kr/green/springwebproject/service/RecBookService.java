@@ -146,7 +146,12 @@ public class RecBookService {
 				return true;
 			}
 			
-	//조회수
+			//메인에 잇는 네티즌 리뷰 수
+			
+			public boolean RecBookGuestReview(RecBook recBook, RecBookReview recbookreview) {
+				recBookMapper.recBookGuestReview(recBook, recbookreview);
+				return true;
+			}
 			
 			
 }

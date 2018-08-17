@@ -55,5 +55,8 @@ public interface BoardMapper {
 	
 	
 	
+	//메인 댓긋ㄹ수
+	public void boardMainReview(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
+	
 	
 }

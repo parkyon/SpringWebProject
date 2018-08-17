@@ -198,6 +198,15 @@
 
 	</update>
 
+<update id="boardMainReview">
+	update board 
+	set review = (
+	select count(bno)
+	from boardcomment
+	where board.number = boardcomment.bno
+	group by bno);
+	
+</update>
 </mapper>
 
 

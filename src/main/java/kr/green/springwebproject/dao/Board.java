@@ -115,5 +115,15 @@ public class Board {
 				this.notrecomand = notrecomand;
 			}
 					
-			
+			private int review;
+
+
+
+
+			public int getReview() {
+				return review;
+			}
+			public void setReview(int review) {
+				this.review = review;
+			}
 }

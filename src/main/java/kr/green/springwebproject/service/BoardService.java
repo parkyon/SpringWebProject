@@ -1,22 +1,16 @@
 package kr.green.springwebproject.service;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
+import kr.green.springwebproject.dao.BoardComment;
 import kr.green.springwebproject.dao.BoardMapper;
-import kr.green.springwebproject.dao.LibraryInfo;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.utils.UploadFileUtils;
@@ -223,6 +217,12 @@ public class BoardService {
 			return true;
 		}
 		
+		//boardmainReveiw
+		
+		public boolean BoardMainReview(Board board, BoardComment boardComment) {
+			boardMapper.boardMainReview(board, boardComment);
+			return true;
+		}
 		
 }
 		

@@ -180,4 +180,14 @@ public class RecBook {
 			public void setSell(String sell) {
 				this.sell = sell;
 			}
+			private int guestReview;
+
+
+
+			public int getGuestReview() {
+				return guestReview;
+			}
+			public void setGuestReview(int guestReview) {
+				this.guestReview = guestReview;
+			}
 }

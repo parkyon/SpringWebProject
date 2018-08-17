@@ -58,10 +58,12 @@ public class BoardController {
 	}
 	@RequestMapping(value="list")
 	public String boardList(Model model,Criteria cri
-			,String search, Integer type,HttpServletRequest request) {
+			,String search, Integer type,HttpServletRequest request, Board board, BoardComment boardComment) {
 		//Criteria cri = new Criteria(1,5);
 		if(cri == null) 
 			cri = new Criteria();
+		
+		boardService.BoardMainReview(board, boardComment);
 		
 		int totalCount = boardService.getCountByBoardList(type, cri, search);
 		ArrayList<Board> list = boardService.getListBoard(type, cri, search);

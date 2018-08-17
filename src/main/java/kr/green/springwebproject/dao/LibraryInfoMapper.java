@@ -65,4 +65,8 @@ public interface LibraryInfoMapper {
 	
 	//댓글 수
 	public int countComment(@Param("libraryInfo")LibraryInfo libraryInfo);
+	
+	//메인 댓글수
+	public void libraryinfoMainReview(@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
+	
 }
