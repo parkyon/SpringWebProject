@@ -26,7 +26,7 @@
 		    	<h1>${board.title}</h1>
 		</div>
 		 
-		    
+		    <hr></hr>
 		    <div class="form-group">
 		    작성자 ${board.author}</br>
 		    조회수${board.hits}</br> 

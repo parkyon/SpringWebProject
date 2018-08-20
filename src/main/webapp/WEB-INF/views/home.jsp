@@ -321,14 +321,10 @@ beginneon()
       </div>
     </div>
   </div>
-</div><br>
+</div>
 
 
 
-	<footer class="container-fluid text-center">
-	  <p>Online Store Copyright</p>  
-	
-	
 	<div class="container"">
 	<ul id="myUl">
 	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>
@@ -338,9 +334,23 @@ beginneon()
 	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
 	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
 	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+	     	     <li><a href="http://book.interpark.com/bookPark/html/book.html"><img src="/resources/jpg/foot_banner1.jpg"></img></a></li>
+	     
 	</ul>
 	</div>
 	
+
+	<script src="/resources/endlessRiver.js"></script>
+	 <script>
+$(document).ready(function(){
+    $("#myUl").endlessRiver();
+});
+</script>
+<hr></hr>
+<footer class="container-fluid text-center">
+	<div>
+	<p><strong> 주소 : 충청북도 청주시 서원구 사창동 148-7 4,5층 그린아트 컴퓨터 학원 문의 전화 : 010-9552-5344</strong></p>
+	</div>
 	</footer>
 
 </body>

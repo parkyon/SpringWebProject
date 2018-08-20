@@ -204,13 +204,6 @@ beginneon()
   </div>
    
 
-  
-
-
-
-
-
-
 
 
 <div class="container-fluid text-center" id="div1" >    
@@ -246,6 +239,8 @@ beginneon()
 	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
 	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
 	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+		<li><a href="http://book.interpark.com/bookPark/html/book.html"><img src="/resources/jpg/foot_banner1.jpg"></img></a></li>
+		
 	</ul>
 	</div>
 	

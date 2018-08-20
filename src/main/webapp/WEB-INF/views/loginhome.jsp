@@ -209,19 +209,19 @@ beginneon()
   <div class="row">
     <div class="col-sm-3" >
      
-     <h1>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h1>
+     <h2>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h2>
    		<span><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a>
 		<a href="/modify" class ="	glyphicon glyphicon-edit">회원정보수정</a></span>
     </div>
    
     
-     <div  class="col-sm-3" style=" border:1px solid gray;">
+     <div  class="col-sm-3" >
     <span style="float:right"><input type="button" value="+더보기" onClick="location.href='/recBook/recBookMain'"></span> 
 
 
      <h4>추천도서</h4>
     
-   <object id="nzeo" width="100%" height="350" data="/recBook/thisRecBook" name="ddd">
+   <object id="nzeo" width="100%" height="318" data="/recBook/thisRecBook" name="ddd">
 	</object>
     </div>
   
@@ -229,8 +229,35 @@ beginneon()
       
       
        
-      <div class="col-sm-3" style=" border:1px solid gray;">
-     asdf
+      <div class="col-sm-3" >
+     <h4>자주 이용하는 서비스</h4>
+     </br>
+	     <div class="col-sm-4" >
+	      <a href="/libraryInfo/libraryList"><h2 class="glyphicon glyphicon-folder-open"></h2></br>
+	      <p style="font-size:4px">도서관 정보</p> </a>
+	      </div>
+	        <div class="col-sm-4" >
+	      <h2 class="glyphicon glyphicon-folder-open"> </h2></br>
+	      <p style="font-size:4px">자유게시판</p>
+	      </div>
+	        <div class="col-sm-4" >
+	      <h2 class="glyphicon glyphicon-folder-open"></h2></br> 
+	   <p style="font-size:4px">공지사항</p>
+	      </div>
+	           <div class="col-sm-4" >
+	      <h2 class="glyphicon glyphicon-folder-open"></h2></br>
+	     <p style="font-size:4px">준비중</p>
+	      </div>
+	        <div class="col-sm-4" >
+	      <h2 class="glyphicon glyphicon-folder-open"> </h2></br>
+	  <p style="font-size:4px">준비중</p>
+	      </div>
+	        <div class="col-sm-4" >
+	      <h2 class="glyphicon glyphicon-folder-open"></h2></br> 
+	  <p style="font-size:4px">준비중</p>
+	      </div>
+	  
+     
     </div>
       
    
@@ -268,6 +295,8 @@ beginneon()
 	   <li><a href="https://www.nanet.go.kr/main.do"><img src="/resources/jpg/foot_banner5.jpg"></img></a></li>
 	     <li><a href="https://www.nlcy.go.kr/index.do"><img src="/resources/jpg/foot_banner6.jpg"></img></a></li>
 	     <li><a href="http://nld.nl.go.kr/ableFront/index.jsp"><img src="/resources/jpg/foot_banner7.jpg"></img></a></li>
+	<li><a href="http://book.interpark.com/bookPark/html/book.html"><img src="/resources/jpg/foot_banner1.jpg"></img></a></li>
+	
 	</ul>
 	</div>
 	

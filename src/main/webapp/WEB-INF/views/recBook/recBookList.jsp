@@ -54,6 +54,7 @@
 		<thead>
 			<tr>
 				<th>번호</th>
+				<th>사진</th>
 				<th>책이름</th>
 				<th>책유형</th>
 				<th>작가</th>
@@ -66,6 +67,42 @@
 				
 			
 					<td>${status.count}</td>
+					<td>
+					<c:set var="originalfilename" value="jquery.min.js" />
+					<!-- 확장자가 대문자일경우를 고려하여 소문자로 파일명 변경 -->
+					<c:set var="lowerfilename" value="${recBook.filepath}" />
+					<!-- 문자열들을 .으로 split 한후 c:forTokens을이용하여 문자열들을 iterator한다 -->
+					
+					<c:forTokens var="ext" items="${lowerfilename}" delims="." varStatus="status">
+					    <!-- 파일명중간에 "." 이 존재할수도 있으니 항상 status.last(마지막번째) 를 실행해주어야 한다 -->
+					    <c:if test="${status.last}">
+					        <c:choose>
+					            <c:when test="${ext eq 'bmp' }">
+					                <!-- 엑셀파일일경우 -->
+							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
+					        </center>
+					            </c:when>
+					            <c:when test="${ext eq 'png'}">
+					                <!-- 한글파일일경우 -->
+							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
+					        </center>
+					        
+					            </c:when>
+					            <c:when test="${ext eq 'jpg'}">
+					                <!-- 자바스크립트파일일경우 -->
+					               
+							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
+					        </center>
+					            </c:when>
+					            <c:when test="${!ext eq 'bmp'&& !ext eq'jpg' && !ext eq 'png' }">
+					                <!-- 엑셀파일일경우 -->
+							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
+					        </center>
+					            </c:when>
+					        </c:choose>
+					    </c:if>
+					</c:forTokens>
+					</td>
 					<td><span><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName }</a> <a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}" style="color:red">(${recBook.guestReview })</a></span></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
