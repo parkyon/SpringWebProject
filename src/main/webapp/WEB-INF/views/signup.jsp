@@ -22,31 +22,39 @@ color : red;
 	<h1>
 		회원가입
 	</h1>
+	
   <form method="post" id="formId">
-    <div class="form-group">
-      <label for="usr">Id:</label>
-      <input type="text" class="form-control" id="id" name="id">
-      <button class="btn" id="dup">중복확인</button>
-      <div style="color:red; display:none;" id="inforId">
-             아이디는 영문자와 숫자로 이루어져 있며, 5~10자이어야 합니다.
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pw" name="pw">
-	  <div style="color:red; display:none;" id="inforPw">
-	     비밀번호는 영문자와 숫자가 1개이상 포함되어야 하며, 8자~20자이어야 합니다.
-	  </div>
-    </div>
+  <div class="col-sm-3">
+	</div>
+	<div class="col-sm-6">
+	
+	    <div class="form-group">
+	      <label for="usr">Id:</label>
+	      <input type="text" placeholder="XXXXXXXXXX" class="form-control" id="id" name="id">
+	      <button class="btn btn-primary" id="dup">중복확인</button>
+		      <div style="color:red; display:none;" id="inforId">
+		             아이디는 영문자와 숫자로 이루어져 있며, 5~10자이어야 합니다.
+		      </div>
+	    </div>
+	    <div class="form-group">
+	      <label for="pwd">Password:</label>
+	      <input type="password"  placeholder="XXXXXXXXXXX" class="form-control" id="pw" name="pw">
+			  <div style="color:red; display:none;" id="inforPw">
+			     비밀번호는 영문자와 숫자가 1개이상 포함되어야 하며, 8자~20자이어야 합니다.
+			  </div>
+	    </div>
 
     <div class="form-group">
       <label for="pwd">Email:</label>
-      <input type="email" class="form-control" id="email" name="email">
+      <input type="email"  placeholder="XXXXXX@XXXXXX.XXX" class="form-control" id="email" name="email">
     </div>
     <button type="submit" class="btn btn-primary">가입</button>
-        <button class="btn btn-primary" onClick="history.back();" >취소</button>
+    <button class="btn btn-primary" onClick="history.back();" >취소</button>
     
-    
+    </div>
+   
+    <div class="col-sm-3">
+	</div>
   </form>
   
 </div>

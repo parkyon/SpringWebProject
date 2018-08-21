@@ -217,11 +217,11 @@ beginneon()
     <div class="col-sm-2 sidenav">
      <h2> 메뉴</h2> 
     
-   
-     <p><a href="#">이달의 추천도서</a></p>
-       <p><a href="/recBook/recBookList" target="aaa">역대 추천도서</a></p>
+   <ul>
+    <li> <p><a href="#">이달의 추천도서</a></p><hr></li>
+      <li><p><a href="/recBook/recBookList" target="aaa">역대 추천도서</a></p><hr></li> 
   
-    
+    </ul>
      
     
    

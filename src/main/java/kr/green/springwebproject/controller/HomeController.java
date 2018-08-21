@@ -172,10 +172,10 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping(value = "/aaa", method = RequestMethod.GET)
+	@RequestMapping(value = "/signup1", method = RequestMethod.GET)
 	public String aaa(Model model, HttpServletRequest request) {
 				
-		return "aaa";
+		return "signup1";
 	}
 	
 	

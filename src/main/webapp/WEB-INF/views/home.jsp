@@ -18,14 +18,14 @@
 	
 
 
-< <script language="JavaScript">
+ <script language="JavaScript">
 
 
 window.open('/aaa','sponsor','width=400, height=400');
     
 //
 
-</script> -->
+</script>
 
     <script>
 $(document).ready(function(){
