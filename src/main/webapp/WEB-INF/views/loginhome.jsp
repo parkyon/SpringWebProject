@@ -233,12 +233,12 @@ beginneon()
      <h4>자주 이용하는 서비스</h4>
      </br>
 	     <div class="col-sm-4" >
-	      <a href="/libraryInfo/libraryList"><h2 class="glyphicon glyphicon-folder-open"></h2></br>
+	      <a href="/libraryInfo/libaryInfoMain"><h2 class="glyphicon glyphicon-folder-open"></h2></br>
 	      <p style="font-size:4px">도서관 정보</p> </a>
 	      </div>
 	        <div class="col-sm-4" >
-	      <h2 class="glyphicon glyphicon-folder-open"> </h2></br>
-	      <p style="font-size:4px">자유게시판</p>
+	      <a href="/board/boardMain"><h2 class="glyphicon glyphicon-folder-open"> </h2></br>
+	      <p style="font-size:4px">자유게시판</p></a>
 	      </div>
 	        <div class="col-sm-4" >
 	      <h2 class="glyphicon glyphicon-folder-open"></h2></br> 

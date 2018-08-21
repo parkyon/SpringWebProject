@@ -103,7 +103,10 @@
 					    </c:if>
 					</c:forTokens>
 					</td>
-					<td><span><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName }</a> <a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}" style="color:red">(${recBook.guestReview })</a></span></td>
+					<td><span><a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}">${recBook.bookName }</a> <a href="/recBook/detail?recBookNumber=${recBook.recBookNumber}" style="color:red">(${recBook.guestReview })</a>
+					
+				
+					</span></td>
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
 					<td>${recBook.hits}  </td>

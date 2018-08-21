@@ -81,8 +81,6 @@
   border: 2px solid rgba(255, 255, 255, 0.5);
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
-  
-
   }
     #div1{margin:5px; padding:10px;}
     #div2{whdth:100vh;
@@ -90,11 +88,10 @@
 
 </style>
 
-     
-    
+  
 </head>
 
-<body background="">
+<body>
 
 
 <nav class="navbar navbar-inverse">
@@ -107,58 +104,58 @@
       </button>
       <a class="navbar-brand" ><script language="JavaScript1.2">
 
-var message="도서관정보 시스템"
-var neonbasecolor="gray"
-var neontextcolor="yellow"
-var flashspeed=100  //in milliseconds
-
-///No need to edit below this line/////
-
-var n=0
-if (document.all||document.getElementById){
-document.write('<font color="'+neonbasecolor+'">')
-for (m=0;m<message.length;m++)
-document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
-document.write('</font>')
-}
-else
-document.write(message)
-
-function crossref(number){
-var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
-return crossobj
-}
-
-function neon(){
-
-//Change all letters to base color
-if (n==0){
-for (m=0;m<message.length;m++)
-//eval("document.all.neonlight"+m).style.color=neonbasecolor
-crossref(m).style.color=neonbasecolor
-}
-
-//cycle through and change individual letters to neon color
-crossref(n).style.color=neontextcolor
-
-if (n<message.length-1)
-n++
-else{
-n=0
-clearInterval(flashing)
-setTimeout("beginneon()",1500)
-return
-}
-}
-
-function beginneon(){
-if (document.all||document.getElementById)
-flashing=setInterval("neon()",flashspeed)
-}
-beginneon()
-
-
-</script></a>
+	var message="도서관정보 시스템"
+	var neonbasecolor="gray"
+	var neontextcolor="yellow"
+	var flashspeed=100  //in milliseconds
+	
+	///No need to edit below this line/////
+	
+	var n=0
+	if (document.all||document.getElementById){
+	document.write('<font color="'+neonbasecolor+'">')
+	for (m=0;m<message.length;m++)
+	document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+	document.write('</font>')
+	}
+	else
+	document.write(message)
+	
+	function crossref(number){
+	var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+	return crossobj
+	}
+	
+	function neon(){
+	
+	//Change all letters to base color
+	if (n==0){
+	for (m=0;m<message.length;m++)
+	//eval("document.all.neonlight"+m).style.color=neonbasecolor
+	crossref(m).style.color=neonbasecolor
+	}
+	
+	//cycle through and change individual letters to neon color
+	crossref(n).style.color=neontextcolor
+	
+	if (n<message.length-1)
+	n++
+	else{
+	n=0
+	clearInterval(flashing)
+	setTimeout("beginneon()",1500)
+	return
+	}
+	}
+	
+	function beginneon(){
+	if (document.all||document.getElementById)
+	flashing=setInterval("neon()",flashspeed)
+	}
+	beginneon()
+	
+	
+	</script></a>
     </div>
     
    <div class="collapse navbar-collapse" id="myNavbar">
@@ -198,20 +195,10 @@ beginneon()
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
     <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
-    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">추천도서</a>
     <a href="/board/boardMain" class="btn btn-primary">자유게시판</a>
     
   </div>
-   
-
-  
-
-
-
-
-
-
-
 
 <div class="container-fluid text-center" id="div1" >    
   <div class="row content">
@@ -222,12 +209,7 @@ beginneon()
           <td> <p><a href="/board/myboards" target="aaa">내가쓴글</a></p></td>
      <td> <p><a href="/board/event" target="aaa">이벤트</a></p></td>
      <td> <p><a href="/board/notice" target="aaa">공지사항</a></p></td>
-     
-    
      </tabel>
-     
-    
-   
     </div>
     <div class="col-sm-10 text-left" id="div2"> 
       <object id="nzeo" width="100%" height="100%" data="/board/list" name="aaa">

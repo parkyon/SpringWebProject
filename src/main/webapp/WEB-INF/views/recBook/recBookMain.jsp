@@ -182,14 +182,13 @@ beginneon()
         
       </div>
     </form>
-     
-      
+
     </div>
   </div>
 </nav>
   
 
-</div>
+
 <div class="container">
   
   <div class="btn-group btn-group-justified">
@@ -198,7 +197,7 @@ beginneon()
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
     <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
-    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">추천도서</a>
     <a href="/board/boardMain" class="btn btn-primary">자유게시판</a>
     
   </div>
@@ -218,7 +217,7 @@ beginneon()
     <div class="col-sm-2 sidenav">
      <h2> 메뉴</h2> 
     
-    <p><a href="#">책 소개</a></p>
+   
      <p><a href="#">이달의 추천도서</a></p>
        <p><a href="/recBook/recBookList" target="aaa">역대 추천도서</a></p>
   
@@ -239,6 +238,11 @@ beginneon()
 
 </div>
 
+</br>
+</br>
+</br>
+</br>
+</br>
 	<div class="container"">
 	<ul id="myUl">
 	    <li><a href="https://cheongju.greenart.co.kr/"><img src="/resources/jpg/greenComputer.jpg"></img></a></li>

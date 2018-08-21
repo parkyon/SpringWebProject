@@ -198,7 +198,7 @@ beginneon()
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
     
     <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
-    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">추천도서</a>
     <a href="/board/boardMain" class="btn btn-primary">자유게시판</a>
     
   </div>

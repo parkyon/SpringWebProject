@@ -137,7 +137,7 @@
             <li><a href="#view1">책정보</a></li>
             <li><a href="#view2">작성자리뷰</a></li>
             <li><a href="#view3">네티즌리뷰 (${totalCount})</a></li>
-            <li><a href="#view4">첨부파일</a></li>
+           
         </ul>
         <div class="tabcontents">
             <div id="view1">
@@ -242,35 +242,12 @@
 		
 		</tbody>
 	</table>
-            
-            
-                
+  
             </div>
-            
-            
-            <div id="view4">
-               <label>첨부파일</label>
-		      	<div class="form-control" name="file" id="file" >
-		      		<c:if test="${fileName != null }">
-		      			<a href="/recBook/download?fileName=${recBook.filepath}"
-		      			>${fileName}</a>
-		      		</c:if>
-		      		<c:if test="${fileName == null }">
-		      			첨부파일 없음 
-		      		</c:if>
-		      	</div>
-                
-      
-                
             </div>
-       
     </div>
     </div>
-   
-   
-   
-   
-    
+
   </div>
 </div>
 

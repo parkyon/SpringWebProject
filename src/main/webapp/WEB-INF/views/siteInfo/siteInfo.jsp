@@ -160,6 +160,7 @@ beginneon()
   </div>
 </nav>
   
+  </br>
   <div class="container">
   
   <div class="btn-group btn-group-justified">
@@ -168,12 +169,12 @@ beginneon()
     <a href="/siteInfo/siteInfo" class="btn btn-primary">사이트소개</a>
   
    <a href="/libraryInfo/libraryInfoMain" class="btn btn-primary">도서관 정보</a>
-    <a href="/recBook/recBookMain" class="btn btn-primary">책 소개</a>
+    <a href="/recBook/recBookMain" class="btn btn-primary">추천도서</a>
     <a href="/board/boardMain" class="btn btn-primary">게시판</a>
    
   </div>
    
-  
+ 
   
 <div class="container-fluid text-center">    
   <div class="row content">

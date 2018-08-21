@@ -63,7 +63,16 @@
 				
 			
 					<td>${status.count}</td>
-					<td><span><a href="/board/detail?number=${board.number}">${board.title } </a><a href="/board/detail?number=${board.number}" style="color:red">(${board.review })</a></span></td>
+					<td><span><a href="/board/detail?number=${board.number}">${board.title } </a><a href="/board/detail?number=${board.number}" style="color:red">(${board.review })</a>
+					
+					<!-- 첨부파일 있으면 디스켓 모양 보여줌 
+					<c:if test="${!empty board.filepath}">
+					<a href="/board/download?fileName=${board.filepath}">
+					<p class="glyphicon glyphicon-floppy-disk"></p>    
+					</a>
+					</c:if>
+					-->
+					</span></td>
 					<td>${board.created_date }</td>
 					<td>${board.author }</td>
 					<td>${board.hits}
