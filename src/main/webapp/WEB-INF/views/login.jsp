@@ -8,43 +8,17 @@
 	<meta charset="utf-8">
 	<title>login/signup</title>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
-   <style>
- #div1 {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    background-color:#DAD8D8;
-    border:2px solid green;
-}
-   p{
-	   font-size:14px
-   }
-   
-.error{
-	color:red
-	
-}
-.cmxform {
-    width: 500px;
-}
+<script type="text/javascript"></script>
 
-	
-   
-   </style> 
-   
-   
 
-	<script>
+
+<script>
 	
 
 	$().ready(function() {
@@ -83,7 +57,32 @@
 		});
 	});
 	</script>
+   <style>
+ #div1 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color:#DAD8D8;
+    border:2px solid green;
+}
+   p{
+	   font-size:14px
+   }
+   
+.error{
+	color:red
+	
+}
+.cmxform {
+    width: 500px;
+}
 
+	
+   
+   </style> 
+   
+   
 <style rel="stylesheet">
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
@@ -363,11 +362,11 @@ body .container .content .signup-cont {
 			     
 			        <div class="tabs">
 				            <span class="tab signin active"><a href="#signin">Sign in</a></span>
-				           <!--  <span class="tab signup"><a href="#signup">Sign up</a></span> -->
+				         <!--   <span class="tab signup"><a href="#signup">Sign up</a></span>-->
 			        </div>
 			        <div class="content">
 				            <div class="signin-cont cont">
-					                <form method="post">
+					                <form method="post" id="commentForm2">
 								
 									<div>
 									
@@ -389,20 +388,13 @@ body .container .content .signup-cont {
 								     
 								  </form>
     				        </div>
-    				       <!--   <div class="signup-cont cont">
-                <form action="#" method="post" enctype="multipart/form-data">
-						                    <input type="email" name="email" id="name" class="inpt" required="required" placeholder="Your name">
-						                    <label for="name">Your name</label>
-                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="Your email">
-						                    <label for="email">Your email</label>
-						                    <input type="password" name="password" id="password" class="inpt" required="required" placeholder="Your password">
-                						    <label for="password">Your password</label>
-						                    <div class="submit-wrap">
-							                        <input type="submit" value="Sign up" class="submit">
-							                        <a href="#" class="more">Terms and conditions</a>
-						                    </div>
+    				      <!--   <div class="signup-cont cont">
+			                <form action="/signup" method="post" enctype="multipart/form-data" >
+									                 
+							<object id="nzeo" width="100%" height="90%" data="/signup" name="ddd">
+							</object>
         					        </form>
-            </div>-->
+            				</div>-->
 			        </div>
 		    </article>
 		    <div class="half bg"></div>
@@ -432,5 +424,7 @@ $('.container .bg').mousemove(function(e){
     $(this).css('background-position', amountMovedX + 'px ' + amountMovedY + 'px');
 });
 </script>
+
+
 </body>
 </html>
