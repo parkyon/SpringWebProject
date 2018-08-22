@@ -6,21 +6,20 @@
 	<select id="getLibraryInfo" resultType ="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
 	
-	order by number desc
-	
+
 
 	</select>
 
 
 <select id="getLibraryInfoByNumber" resultType ="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
-	order by number desc
+	
 	</select>
 	
 	<select id="getDetailLibraryInfoByNumber" resultType ="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
 	where number = #{number}
-	order by number desc
+	
 	</select>
 	
 	<insert id="insertLibraryInfo">
@@ -148,5 +147,11 @@ update libraryinfo
 
 </update>
 
+
+<!-- 메인 검색 -->
+<select id="LM_libraryInfo" resultType="kr.green.springwebproject.dao.LibraryInfo">
+	select * from libraryinfo
+	where libraryName = #{search}
+</select>
 
 </mapper>

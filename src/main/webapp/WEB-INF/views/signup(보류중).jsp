@@ -35,30 +35,56 @@
 	    $( "#resizable3" ).resizable();
 	  } );
   </script>
+  <style>
+  #div1 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color:#DAD8D8;
+    border:2px solid green;
+}
+  
+  </style>
 </head>
 <body>
- <div class="col-sm-3">
- sdfsdfs
-	</div>
-	<div class="col-sm-6">
-	<div id="resizable" class="ui-widget-content">
-  <h3 class="ui-widget-header">Resizable</h3>
-</div>
-<div id="resizable1" class="ui-widget-content">
-  <h3 class="ui-widget-header">Resizable</h3>
-</div>
-<div id="resizable2" class="ui-widget-content">
-  <h3 class="ui-widget-header">Resizable</h3>
-</div>
-<div id="resizable3" class="ui-widget-content">
-  <h3 class="ui-widget-header">Resizable</h3>
-</div>
+<form action="signup2" method="get">
+<h1>동의합니다  </h1>
+ 	<div class="col-sm-3">
+		 
 	</div>
 	
-	<div class="col-sm-3">
-	sdfsdf
+<div class="col-sm-6" id="div1">
+	
+	<div id="resizable1" class="ui-widget-content">
+		  <h3 class="ui-widget-header">1조약</h3>
+		<p>  여기서 생기는 피해에 대해 제작자 및 관리자는 책임이 없습니다.</p>
 	</div>
-
+	 <span style="float:right"><input type="checkbox" name="vehicle" value="agree"> 예 동의합니다</span><br>
+	</br>
+	<div id="resizable2" class="ui-widget-content">
+	 	 <h3 class="ui-widget-header">2조약</h3>
+	 	 <p>생각중</p>
+	</div>
+	<span style="float:right"> <input type="checkbox" name="vehicle" value="agree">  예 동의합니다</span><br>
+	</br>
+	<div id="resizable3" class="ui-widget-content">
+	 	 <h3 class="ui-widget-header">3조약</h3>
+	 	  <p>생각중</p>
+	</div>
+	<span style="float:right"> <input type="checkbox" name="vehicle" value="agree"> 예 동의합니다</span> <br>
+	</br>
+	
+	<center><button type="submit" class="btn btn-primary">동의합니다</button>
+    <button class="btn btn-primary" onClick="history.back();" >취소</button></center>
+</div>
+	
+	<div class="col-sm-3">
+	
+	</div>
+	
+	
+</form>
  
  
 </body>

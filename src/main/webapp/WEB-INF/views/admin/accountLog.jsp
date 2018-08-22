@@ -59,6 +59,7 @@
     
       	<ul class="nav navbar-nav navbar-right">
          <ul class="nav navbar-nav navbar-right">
+         
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>
       	</ul>
       		<c:if test="${admin}">

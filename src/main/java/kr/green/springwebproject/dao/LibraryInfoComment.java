@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LibraryInfoComment {
@@ -33,8 +34,12 @@ public class LibraryInfoComment {
 		public void setWriter(String writer) {
 			this.writer = writer;
 		}
-		public Date getReg_date() {
-			return reg_date;
+		public String getReg_date() {
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+			String to = transFormat.format(reg_date);
+
+			return to;
 		}
 		public void setReg_date(Date reg_date) {
 			this.reg_date = reg_date;

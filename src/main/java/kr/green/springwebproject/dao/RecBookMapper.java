@@ -48,5 +48,6 @@ public interface RecBookMapper {
 		//메인 네티즌리뷰 수
 		public void recBookGuestReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 
-		
+		//이번달 추천도서
+		public ArrayList thisRecBook(@Param("recBook")RecBook recBook);
 }

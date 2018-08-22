@@ -59,6 +59,7 @@
 				<th>책유형</th>
 				<th>작가</th>
 				<th>조회수</th>
+				<th>작성일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -110,6 +111,7 @@
 					<td>${recBook.bookType }</td>
 					<td>${recBook.writer }</td>
 					<td>${recBook.hits}  </td>
+					<td>${recBook.date}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

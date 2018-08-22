@@ -52,9 +52,10 @@
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
-				<th>작성일</th>
+				
 				<th>작성자</th>
 				<th>조회수</th>
+				<th>작성일</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -73,9 +74,10 @@
 					</c:if>
 					-->
 					</span></td>
-					<td>${board.created_date }</td>
+					
 					<td>${board.author }</td>
 					<td>${board.hits}
+					<td>${board.created_date }</td>
 				</tr>
 			</c:forEach>
 		</tbody>

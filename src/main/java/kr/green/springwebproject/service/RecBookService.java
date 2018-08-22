@@ -96,6 +96,11 @@ public class RecBookService {
 		
 	}
 	
+	//이번달 추천도서
+	public ArrayList<RecBook> ThisRecBook(RecBook recBook){
+		return recBookMapper.thisRecBook(recBook);
+	}
+	
 	//로그용
 	
 	

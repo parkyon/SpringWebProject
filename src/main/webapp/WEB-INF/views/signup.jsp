@@ -17,6 +17,15 @@
 .error{
 color : red;
 }
+
+ #div1 {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color:#DAD8D8;
+    border:2px solid green;
+}
 </style>
 <div class="container">
 	<h1>
@@ -26,7 +35,7 @@ color : red;
   <form method="post" id="formId">
   <div class="col-sm-3">
 	</div>
-	<div class="col-sm-6">
+	<div class="col-sm-6" id="div1">
 	
 	    <div class="form-group">
 	      <label for="usr">Id:</label>

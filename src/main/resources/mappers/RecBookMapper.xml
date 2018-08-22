@@ -119,6 +119,21 @@
 	
 	
 	
+	<!-- 이달의 추천도서 -->
+	<select id="thisRecBook" resultType="kr.green.springwebproject.dao.RecBook">
+	select * from recbook
+	where year(date) = year(now()) and month(date) = month(now());
+	
+	</select>
+	
+	
+	
+	<!-- 메인 검색 -->
+<select id="LM_RecBook"  resultType="kr.green.springwebproject.dao.RecBook">
+	select * from recbook
+	where bookName = #{search}
+</select>
+	
 	
 	
 </mapper>

@@ -210,10 +210,10 @@ beginneon()
   <div class="row content">
     <div class="col-sm-2 sidenav">
      <div><h2> 메뉴</h2></div> 
-     <tabel>
-     <td> <p><a href="/libraryInfo/libraryList" target="aaa">도서관 정보</a></p></td>
-    
-     </tabel>
+    <ul>
+    <li><p><a href="/libraryInfo/libraryList" target="aaa">도서관 정보</a></p><hr></hr></li> 
+    </ul>
+ 
      
     
    

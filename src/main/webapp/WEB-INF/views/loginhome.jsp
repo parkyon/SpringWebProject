@@ -166,10 +166,30 @@ beginneon()
             <!--슬라이드1-->
             <div class="item active"> 
                 <img src="/resources/jpg/library1.jpg" alt="First slide" style="width:100%" data-src="">
-                <div class="container">
-                    <div class="carousel-caption">
+             
+                
+                    <div class="carousel-caption" style="background-color:green">
+                    
+                    	<form class="form-inline" style="display:inline-block">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>선택</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >도서관</option>
+					    <option value="2"
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >추천도서</option>
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit">Search</button>
+			  	</form>
+
                   </div>
-              </div>
+              
           </div>
             <!--슬라이드1-->
     
@@ -204,10 +224,11 @@ beginneon()
 
   
 
+</br>
 
 <div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div class="col-sm-3" >
+  <div class="row" style=" border:1px solid gray;">
+    <div class="col-sm-3"  >
      
      <h2>${user.admin} 권한의 ${user.id}님</br>  환영합니다</h2>
    		<span><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a>
@@ -215,13 +236,13 @@ beginneon()
     </div>
    
     
-     <div  class="col-sm-3" >
+     <div  class="col-sm-3" style=" border-right:1px solid gray; border-left:1px solid gray;">
     <span style="float:right"><input type="button" value="+더보기" onClick="location.href='/recBook/recBookMain'"></span> 
 
 
      <h4>추천도서</h4>
     
-   <object id="nzeo" width="100%" height="318" data="/recBook/thisRecBook" name="ddd">
+   <object id="nzeo" width="100%" height="373" data="/recBook/loginHomeRecBook" name="ddd">
 	</object>
     </div>
   
@@ -229,10 +250,10 @@ beginneon()
       
       
        
-      <div class="col-sm-3" >
+      <div class="col-sm-3"  >
      <h4>자주 이용하는 서비스</h4>
      </br>
-	     <div class="col-sm-4" >
+	     <div class="col-sm-4"  >
 	      <a href="/libraryInfo/libaryInfoMain"><h2 class="glyphicon glyphicon-folder-open"></h2></br>
 	      <p style="font-size:4px">도서관 정보</p> </a>
 	      </div>
@@ -241,8 +262,8 @@ beginneon()
 	      <p style="font-size:4px">자유게시판</p></a>
 	      </div>
 	        <div class="col-sm-4" >
-	      <h2 class="glyphicon glyphicon-folder-open"></h2></br> 
-	   <p style="font-size:4px">공지사항</p>
+	      <a href="/recBook/thisRecBook"><h2 class="glyphicon glyphicon-folder-open"></h2></br> 
+	   <p style="font-size:4px">이달의 </br>추천도서</p></a>
 	      </div>
 	           <div class="col-sm-4" >
 	      <h2 class="glyphicon glyphicon-folder-open"></h2></br>
@@ -265,13 +286,14 @@ beginneon()
   
     
      <div  class=" col-sm-3">
-   	<div style=" border:1px solid gray;">
+   	<div style=" border:1px solid white; border-left:1px solid gray;">
+	
  	<h4>자유게시판 최신글</h4> 
       <object id="nzeo" width="100%" height="100%" data="/board/recentlyBoard" name="bbb">
 	</object>
 	</div>
-	<div style=" border:1px solid gray;">
-	<h4>도서정보 최신글</h4>
+	<div style=" border:1px solid white; border-left:1px solid gray;">
+	<h4>도서관정보 최신글</h4>
       <object id="nzeo" width="100%" height="100%" data="/libraryInfo/recentlyLibraryInfo" name="aaa">
 	</object>
 	</div>

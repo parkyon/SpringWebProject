@@ -309,11 +309,37 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		return "redirect:/recBook/recBookList";
 	}
 	
-	@RequestMapping(value="thisRecBook")
-	public String thisRecBook(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+	@RequestMapping(value="loginHomeRecBook")
+	public String loginHomeRecBookGet(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
 		
 		
-		return "/recBook/thisRecBook";
+		return "/recBook/loginHomeRecBook";
+	}
+	
+	//이번달 추천도서
+	
+	@RequestMapping(value = "/thisRecBook", method = RequestMethod.GET)
+	public String thisRecBookGet(Model model, HttpServletRequest request, Integer recBookNumber, RecBook recBook, RecBookReview recbookreview) {
+		
+		
+		recBookService.RecBookGuestReview(recBook, recbookreview);
+		
+		if(recBookNumber == null) {
+			recBookNumber = 1;
+		}
+		
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		model.addAttribute("admin", admin);
+		
+		
+		ArrayList<RecBook> list = recBookService.ThisRecBook(recBook);
+		
+		model.addAttribute("list", list);
+		System.out.println(list);
+		return "recBook/thisRecBook";
 	}
 }
 

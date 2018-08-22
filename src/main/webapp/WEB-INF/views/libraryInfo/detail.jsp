@@ -67,6 +67,7 @@
 
         </div>
         <div class="col-sm-6">
+        	작성일:${libraryInfo.reg_date }
         	주소:${libraryInfo.loadAddress} </br>
          	전화번호:${libraryInfo.phoneNumber}</br>
 			홈페이지:<a href="${libraryInfo.homepage}" target="_blank">${libraryInfo.homepage}</a></br>
@@ -86,6 +87,8 @@
         </div>
  
 	</div>
+</br>
+</br>
 <!-- 중간-->
 	<div>
 		<span style="float:right">
@@ -123,7 +126,7 @@
 				</div>
 				
 				<h1>댓글</h1>
-					<table class="table table-bordered">
+					<table width="800" border="1" bordercolor="white">
 					<thead>
 						<tr>
 							<th>번호</th>

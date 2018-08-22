@@ -218,7 +218,7 @@ beginneon()
      <h2> 메뉴</h2> 
     
    <ul>
-    <li> <p><a href="#">이달의 추천도서</a></p><hr></li>
+    <li> <p><a href="/recBook/thisRecBook" target="aaa">이달의 추천도서</a></p><hr></li>
       <li><p><a href="/recBook/recBookList" target="aaa">역대 추천도서</a></p><hr></li> 
   
     </ul>

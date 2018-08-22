@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -111,14 +112,30 @@ public class LibraryInfo {
 	private String homepage;
 	private String filepath;
 	private String author;
-	
+	private Date reg_date;
 
+
+	public String getReg_date() {
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+		String to = transFormat.format(reg_date);
+
+		return to;
+	}
+	
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
 	//로그용
 	
 	private String changedate;
 	private String action;
 	public String getChangedate() {
-		return changedate;
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String to = transFormat.format(changedate);
+
+		return to;
 	}
 	public void setChangedate(String changedate) {
 		this.changedate = changedate;

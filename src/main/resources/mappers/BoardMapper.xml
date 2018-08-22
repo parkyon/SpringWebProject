@@ -207,6 +207,14 @@
 	group by bno);
 	
 </update>
+
+
+<!-- 메인 검색 -->
+<select id="LM_Board" resultType="kr.green.springwebproject.dao.Board">
+select * from board
+where title like #{search}
+
+</select>
 </mapper>
 
 

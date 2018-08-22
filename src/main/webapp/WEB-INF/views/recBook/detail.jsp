@@ -98,6 +98,7 @@
         
         <div class="col-sm-6">
         	번호:${recBook.recBookNumber}</br>
+        	날짜:${recBook.date }</br>
         	저자:${recBook.writer} </br>
          	유형:${recBook.bookType}</br>
        		 출판사:${recBook.publisher}</br>
@@ -105,6 +106,7 @@
        		네티즌 </br>
        		추천수 :${recBook.recomand} </br>
 			비추천수 : ${recBook.notrecomand}
+			
        		
        		 <hr>
        		<h2> 가격:${recBook.price}</h2>

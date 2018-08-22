@@ -58,7 +58,8 @@
 				<th>지역</th>
 				<th>전화번호</th>
 				<th>추천</th>
-				<th>조회수</th>			
+				<th>조회수</th>
+						
 			</tr>
 		</thead>
 			<tbody>
@@ -69,7 +70,8 @@
 						<td>${libraryInfo.cityName }</td>
 						<td>${libraryInfo.phoneNumber }</td>
 						<td>${libraryInfo.recomand }</td>
-						<td>${libraryInfo.hits }</td>							
+						<td>${libraryInfo.hits }</td>	
+										
 					</tr>
 				</c:forEach>
 			</tbody>

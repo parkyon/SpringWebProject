@@ -1,5 +1,6 @@
 package kr.green.springwebproject.dao;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class RecBook {
@@ -190,4 +191,20 @@ public class RecBook {
 			public void setGuestReview(int guestReview) {
 				this.guestReview = guestReview;
 			}
+			
+			private Date date;
+
+
+
+			public String getDate() {
+				SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+				String to = transFormat.format(date);
+
+				return to;
+			}
+			public void setDate(Date date) {
+				this.date = date;
+			}
+			
 }
