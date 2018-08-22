@@ -212,8 +212,17 @@
 <!-- 메인 검색 -->
 <select id="LM_Board" resultType="kr.green.springwebproject.dao.Board">
 select * from board
-where title like #{search}
-
+where 1 = 1
+	
+	<if test="type==0">
+				 and title like #{search}
+			</if>
+			<if test="type==1">
+				 and author like #{search}
+			</if>
+			<if test="type==2">
+				 and contents like #{search}
+			</if>
 </select>
 </mapper>
 

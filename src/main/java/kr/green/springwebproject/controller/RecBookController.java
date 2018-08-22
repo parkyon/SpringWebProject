@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -340,6 +341,25 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 		model.addAttribute("list", list);
 		System.out.println(list);
 		return "recBook/thisRecBook";
+	}
+	
+	@RequestMapping(value="/searchRecBook", method = RequestMethod.GET)
+	public String searchRecBook(Integer type, String search, HttpServletRequest request, Model model) {
+		ArrayList<RecBook> list = recBookService.LM_RecBook(type, search);
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		boolean admin = userService.isAdmin(user);
+		
+		model.addAttribute("list", list);
+		System.out.println("리스트"+list);
+		model.addAttribute("search", search);
+		
+		System.out.println("서치"+search);
+		model.addAttribute("type", type);
+		model.addAttribute("admin", admin);
+		
+		
+		return "recBook/searchRecBook";
 	}
 }
 

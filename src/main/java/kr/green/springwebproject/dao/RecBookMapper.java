@@ -50,4 +50,8 @@ public interface RecBookMapper {
 
 		//이번달 추천도서
 		public ArrayList thisRecBook(@Param("recBook")RecBook recBook);
+		
+		//메인검색
+		
+		public ArrayList<RecBook> LM_RecBook(@Param("search")String search,@Param("type")int type);
 }

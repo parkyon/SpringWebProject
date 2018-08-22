@@ -131,7 +131,17 @@
 	<!-- 메인 검색 -->
 <select id="LM_RecBook"  resultType="kr.green.springwebproject.dao.RecBook">
 	select * from recbook
-	where bookName = #{search}
+	where 1 = 1
+	
+	<if test="type==0">
+				 and bookName like #{search}
+			</if>
+			<if test="type==1">
+				 and writer like #{search}
+			</if>
+			<if test="type==2">
+				 and author like #{search}
+			</if>
 </select>
 	
 	

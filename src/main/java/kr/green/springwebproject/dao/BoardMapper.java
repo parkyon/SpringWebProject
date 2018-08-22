@@ -44,19 +44,16 @@ public interface BoardMapper {
 	public ArrayList<Board> getBoardLog(
 			@Param("number")int number);
 
-	
 	//조회수
 	public int boardHits(@Param("board")Board board);
-	
-	
+
 	//추천수
 	public void recBoard(@Param("board")Board board);
 	public void notrecBoard(@Param("board")Board board);
-	
-	
-	
 	//메인 댓긋ㄹ수
 	public void boardMainReview(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
 	
-	
+	//메인 검색
+	public ArrayList<Board> LM_Board(@Param("search")String search,@Param("type")int type);
+
 }

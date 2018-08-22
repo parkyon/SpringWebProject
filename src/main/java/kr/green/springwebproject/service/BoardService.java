@@ -223,7 +223,15 @@ public class BoardService {
 			boardMapper.boardMainReview(board, boardComment);
 			return true;
 		}
-		
+		//메인검색
+				public ArrayList<Board> LM_Board(String search, Integer type){
+					ArrayList<Board> list = null;
+					if(type == null)
+						type = 0;
+					list = (ArrayList)boardMapper.LM_Board("%"+search+"%", type);
+					return list;
+					
+				}
 }
 		
 		

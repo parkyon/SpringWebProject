@@ -69,4 +69,6 @@ public interface LibraryInfoMapper {
 	//메인 댓글수
 	public void libraryinfoMainReview(@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
 	
+	//메인검색
+	public ArrayList<LibraryInfo> LM_LibraryInfo(@Param("search")String search,@Param("type")int type);
 }

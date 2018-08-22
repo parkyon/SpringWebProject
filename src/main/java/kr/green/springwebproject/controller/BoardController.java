@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.green.springwebproject.dao.Board;
 import kr.green.springwebproject.dao.BoardComment;
+import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
 import kr.green.springwebproject.pagenation.PageMaker;
@@ -355,6 +356,25 @@ public class BoardController {
 		boardCommentService.modifyBoardComment(cno, boardComment, board);
 		
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping(value="/searchBoard", method = RequestMethod.GET)
+	public String searchBoard(Integer type, String search, HttpServletRequest request, Model model) {
+		ArrayList<Board> list = boardService.LM_Board(search, type);
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		boolean admin = userService.isAdmin(user);
+		
+		model.addAttribute("list", list);
+		System.out.println("리스트"+list);
+		model.addAttribute("search", search);
+		
+		System.out.println("서치"+search);
+		model.addAttribute("type", type);
+		model.addAttribute("admin", admin);
+		
+		
+		return "board/searchBoard";
 	}
 	
 }

@@ -149,9 +149,17 @@ update libraryinfo
 
 
 <!-- 메인 검색 -->
-<select id="LM_libraryInfo" resultType="kr.green.springwebproject.dao.LibraryInfo">
+<select id="LM_LibraryInfo" resultType="kr.green.springwebproject.dao.LibraryInfo">
 	select * from libraryinfo
-	where libraryName = #{search}
+	where 1 = 1
+	
+	<if test="type==0">
+				 and libraryName like #{search}
+			</if>
+			<if test="type==1">
+				 and loadAddress like #{search}
+			</if>
+			
 </select>
 
 </mapper>

@@ -189,6 +189,16 @@ public class LibraryInfoService {
 			}
 			
 			
+			//메인 검색
+			public ArrayList<LibraryInfo> LM_LibraryInfo(Integer type, String search){
+				ArrayList<LibraryInfo> list = null;
+				if(type == null)
+					type = 0;
+				
+				list = (ArrayList)libraryInfoMapper.LM_LibraryInfo("%"+search+"%", type);
+				return list;
+				
+			}
 }
 
 	

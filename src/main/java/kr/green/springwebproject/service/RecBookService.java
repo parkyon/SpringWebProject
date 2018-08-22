@@ -158,5 +158,14 @@ public class RecBookService {
 				return true;
 			}
 			
+			//메인 검색
+			public ArrayList<RecBook> LM_RecBook(Integer type, String search){
+			ArrayList<RecBook> list = null;
+			if(type == null)
+				type = 0;
 			
+			list = (ArrayList)recBookMapper.LM_RecBook("%"+search+"%", type);
+					return list;
+			
+			}
 }

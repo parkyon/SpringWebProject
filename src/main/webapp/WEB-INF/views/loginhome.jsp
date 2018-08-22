@@ -11,11 +11,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/resources/css/default.css" rel="stylesheet" type="text/css" />
+ 
+ <script src="/resources/tabcontent.js" type="text/javascript"></script>
+    <link href="/resources/css/tabcontent.css" rel="stylesheet" type="text/css" />
 
 <style>
 #div2{whdth:100vh;
 	}
-	
+#div1{
+	margin: 30px 10px 120px 50px;
+}	
 	
 </style>
 
@@ -151,6 +156,7 @@ beginneon()
     <a href="/board/boardMain" class="btn btn-primary">게시판</a>
     
   </div>
+  </br>
      <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
         
         <!--페이지-->
@@ -168,26 +174,74 @@ beginneon()
                 <img src="/resources/jpg/library1.jpg" alt="First slide" style="width:100%" data-src="">
              
                 
-                    <div class="carousel-caption" style="background-color:green">
+           <div id="div1" class="carousel-caption">
                     
-                    	<form class="form-inline" style="display:inline-block">
+       <div>
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view1">도서관 정보</a></li>
+            <li><a href="#view2">추천 도서</a></li>
+            <li><a href="#view3">자유 게시판</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view1">
+                 <form class="form-inline" style="display:inline-block"  action="/libraryInfo/searchLibraryInfo">
 		  		  	<select class="form-control" name="type">
-		  		  		<option value="0"
+		  		  	<option value="0"
 		  		  			<c:out value="${type==0?'selected':''}"/>
-		  		  		>선택</option>
+		  		  		>도서관 명</option>
 					    <option value="1" 
 					    	<c:out value="${type==1?'selected':''}"/>
-					    >도서관</option>
-					    <option value="2"
-					    	<c:out value="${type==2?'selected':''}"/>
-					    >추천도서</option>
+					    >지역</option>
+					  
 					   
 					</select>
 			    	<input class="form-control mr-sm-2" type="text" 
 			    	placeholder="Search" name="search" value="${search}">
-			    	<button class="btn btn-success" type="submit">Search</button>
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 			  	</form>
-
+                
+            </div>
+            <div id="view2">
+                <form class="form-inline" style="display:inline-block"  action="/recBook/searchRecBook">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>책제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작가</option>
+					    <option value="2"
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >작성자</option>
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+            <div id="view3">
+                 <form class="form-inline" style="display:inline-block"  action="/board/searchBoard">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작성자</option>
+					     <option value="2" 
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >내용</option>
+					  
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+        </div>
+    </div>
                   </div>
               
           </div>
@@ -197,9 +251,75 @@ beginneon()
             <div class="item"> 
                 <img src="/resources/jpg/library2.jpg" style="width:100%" data-src="" alt="Second slide">
                 <div class="container">
-                    <div class="carousel-caption">
+                    <div id="div1" class="carousel-caption">
                     
-                    </div>
+       <div>
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view4">도서관 정보</a></li>
+            <li><a href="#view5">추천 도서</a></li>
+            <li><a href="#view6">자유 게시판</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view4">
+                 <form class="form-inline" style="display:inline-block"  action="/libraryInfo/searchLibraryInfo">
+		  		  	<select class="form-control" name="type">
+		  		  	<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>도서관 명</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >지역</option>
+					  
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+                
+            </div>
+            <div id="view5">
+                <form class="form-inline" style="display:inline-block"  action="/recBook/searchRecBook">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>책제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작가</option>
+					    <option value="2"
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >작성자</option>
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+            <div id="view6">
+                 <form class="form-inline" style="display:inline-block"  action="/board/searchBoard">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작성자</option>
+					     <option value="2" 
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >내용</option>
+					  
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+        </div>
+    </div>
+                  </div>
                 </div>
             </div>
             <!--슬라이드2-->
@@ -208,9 +328,75 @@ beginneon()
             <div class="item"> 
                 <img src="/resources/jpg/library3.jpg" style="width:100%" data-src="" alt="Third slide">
                 <div class="container">
-                    <div class="carousel-caption">
+                   <div id="div1" class="carousel-caption">
                     
-                    </div>
+       <div>
+        <ul class="tabs" data-persist="true">
+            <li><a href="#view7">도서관 정보</a></li>
+            <li><a href="#view8">추천 도서</a></li>
+            <li><a href="#view9">자유 게시판</a></li>
+        </ul>
+        <div class="tabcontents">
+            <div id="view7">
+                 <form class="form-inline" style="display:inline-block"  action="/libraryInfo/searchLibraryInfo">
+		  		  	<select class="form-control" name="type">
+		  		  	<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>도서관 명</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >지역</option>
+					  
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+                
+            </div>
+            <div id="view8">
+                <form class="form-inline" style="display:inline-block"  action="/recBook/searchRecBook">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>책제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작가</option>
+					    <option value="2"
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >작성자</option>
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+            <div id="view9">
+                 <form class="form-inline" style="display:inline-block"  action="/board/searchBoard">
+		  		  	<select class="form-control" name="type">
+		  		  		<option value="0"
+		  		  			<c:out value="${type==0?'selected':''}"/>
+		  		  		>제목</option>
+					    <option value="1" 
+					    	<c:out value="${type==1?'selected':''}"/>
+					    >작성자</option>
+					     <option value="2" 
+					    	<c:out value="${type==2?'selected':''}"/>
+					    >내용</option>
+					  
+					   
+					</select>
+			    	<input class="form-control mr-sm-2" type="text" 
+			    	placeholder="Search" name="search" value="${search}">
+			    	<button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+			  	</form>
+            </div>
+        </div>
+    </div>
+                  </div>
                 </div>
             </div>
             <!--슬라이드3-->
