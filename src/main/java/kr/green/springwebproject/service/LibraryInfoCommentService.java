@@ -29,8 +29,8 @@ public class LibraryInfoCommentService {
 	}
 	
 	
-	public boolean ModifyComment(LibraryInfo libraryInfo, LibraryInfoComment libraryInfoComment) {
-		libraryInfoCommentMapper.modifyComment(libraryInfo, libraryInfoComment);
+	public boolean ModifyComment(LibraryInfo libraryInfo, LibraryInfoComment libraryInfoComment, User user) {
+		libraryInfoCommentMapper.modifyComment(user, libraryInfo, libraryInfoComment);
 		return true;
 	}
 	

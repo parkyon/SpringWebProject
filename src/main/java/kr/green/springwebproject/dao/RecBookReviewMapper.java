@@ -16,7 +16,7 @@ public interface RecBookReviewMapper {
 	//삭제/ 수정
 	public void deleteReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 
-	public void modifyReview(@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
+	public void modifyReview(@Param("user")User user,@Param("recBook")RecBook recBook, @Param("recbookreview")RecBookReview recbookreview);
 	
 	//댓글 숫자
 	

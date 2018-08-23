@@ -35,6 +35,7 @@ where cno = #{libraryInfoComment.cno}
 update
 libraryinfocomment
 set
+	 writer = #{user.id},
 	content = #{libraryInfoComment.content}
 	
 	where cno = #{libraryInfoComment.cno}

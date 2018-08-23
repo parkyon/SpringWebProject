@@ -95,7 +95,7 @@
 		<a href="/libraryInfo/rec?number=${libraryInfo.number }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/libraryInfo/notrec?number=${libraryInfo.number }"><button class="btn btn-primary">비추천</button></a>
 		    <a href="/libraryInfo/libraryList"><button class="btn btn-primary">목록</button></a>
-		    <c:if test="${admin }" >
+		     <c:if test="${admin or isAuthor}">
 		    	<a href="/libraryInfo/modify?number=${libraryInfo.number }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/libraryInfo/delete?number=${libraryInfo.number }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
@@ -133,7 +133,7 @@
 							<th>내용</th>
 							<th>글쓴이</th>
 							<th>작성날짜</th>
-							<c:if test="${isAuthor }">
+							 <c:if test="${admin or isAuthor}">
 							<th>수정/삭제
 							</th>
 							</c:if>
@@ -149,7 +149,7 @@
 								<td>${libraryInfoComment.content}</td>
 								<td>${libraryInfoComment.writer}</td>
 								<td>${libraryInfoComment.reg_date}</td>
-								<c:if test="${isAuthor }"><td>
+							 <c:if test="${admin or isAuthor}"><td>
 							
 								<span><a href="#"><p onclick="onModals(${libraryInfoComment.cno},'${libraryInfoComment.content}')">수정</a>/<a href="deleteComment?cno=${libraryInfoComment.cno}">삭제</a></span></p>
 					

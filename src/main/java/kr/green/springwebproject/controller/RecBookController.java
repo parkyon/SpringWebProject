@@ -304,9 +304,14 @@ int totalCount1 = recBookService.getCountByRecBookList(type, search, cri);
 
 	
 	@RequestMapping(value="contentModify" , method=RequestMethod.POST)
-	public String ContentModifyPOST(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview, String content1) {
+	public String ContentModifyPOST(HttpServletRequest request, Integer recviewnumber, RecBook recBook, RecBookReview recbookReview, String content1) {
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		
 		recbookReview.setContent(content1);
-		recBookReviewService.modifyReview(recviewnumber, recBook, recbookReview);
+		recBookReviewService.modifyReview(recviewnumber, recBook, recbookReview, user);
 		return "redirect:/recBook/recBookList";
 	}
 	

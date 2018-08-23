@@ -285,9 +285,15 @@ public class LibraryInfoController {
 	}
 	
 	@RequestMapping(value="modifyComment", method=RequestMethod.POST)
-	public String ModifyCommentLibraryInfo(LibraryInfo libraryInfo, String content1, LibraryInfoComment libraryInfoComment) {
+	public String ModifyCommentLibraryInfo(LibraryInfo libraryInfo, String content1, LibraryInfoComment libraryInfoComment,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
+		
+		
 		libraryInfoComment.setContent(content1);
-		libraryInfoCommentService.ModifyComment(libraryInfo, libraryInfoComment);
+		libraryInfoCommentService.ModifyComment(libraryInfo, libraryInfoComment, user);
 		return "redirect:/libraryInfo/libraryList";
 	}
 	

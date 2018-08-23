@@ -30,9 +30,9 @@ public class RecBookReviewService {
 		recBookReviewMapper.deleteReview(recBook, recbookReview);
 		return true;
 	}
-	public boolean modifyReview(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview) {
+	public boolean modifyReview(Integer recviewnumber, RecBook recBook, RecBookReview recbookReview, User user) {
 		
-		recBookReviewMapper.modifyReview(recBook, recbookReview);
+		recBookReviewMapper.modifyReview(user, recBook, recbookReview);
 		return true;
 	}
 	

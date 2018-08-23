@@ -122,7 +122,7 @@
 		<span style="float:right"><a href="/recBook/rec?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-primary">추천</button></a>
 	  		<a href="/recBook/notrec?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-primary">비추천</button></a>
       <a href="/recBook/recBookList"><button class="btn btn-primary">목록</button></a> 
-      <c:if test="${admin }" >
+       <c:if test="${admin or isAuthor}">
 		    	<a href="/recBook/modify?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-primary">수정</button></a>
 		    	<a href="/recBook/delete?recBookNumber=${recBook.recBookNumber }"><button class="btn btn-outline-danger">삭제</button></a>
 		    </c:if>
@@ -186,7 +186,7 @@
 				<th>내용</th>
 				<th>작성자</th>
 				<th>날짜</th>
-				<c:if test="${isAuthor}">
+			 <c:if test="${admin or isAuthor}">
 				<th>수정/삭제</th>
 				</c:if>
 				
@@ -205,7 +205,7 @@
 					<td>${recbookReview.writer}</td>
 					<td>${recbookReview.reg_date}</td>
 					
-					<c:if test="${isAuthor}"><td>
+				 <c:if test="${admin or isAuthor}"><td>
 					 
 					 
 					 

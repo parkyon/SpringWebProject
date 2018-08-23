@@ -93,7 +93,7 @@
 				<th>내용</th>
 				<th>작성자</th>
 				<th>날짜</th>
-				<c:if test="${isAuthor}">
+				 <c:if test="${admin or isAuthor}">
 				<th>수정/삭제</th>
 				</c:if>
 			</tr>
@@ -108,7 +108,7 @@
 					
 					<td>${boardComment.writer}</td>
 					<td>${boardComment.reg_date}</td>
-					<c:if test="${isAuthor}"><td>
+					 <c:if test="${admin or isAuthor}"><td>
 					 
 					 
 					 

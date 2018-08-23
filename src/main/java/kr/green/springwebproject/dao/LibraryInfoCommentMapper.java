@@ -21,7 +21,7 @@ public interface LibraryInfoCommentMapper {
 	
 	public void deleteComment(@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
 	
-	public void modifyComment(@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
+	public void modifyComment(@Param("user")User user,@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
 	
 	public int countComment(@Param("libraryInfo")LibraryInfo libraryInfo,@Param("libraryInfoComment")LibraryInfoComment libraryInfoComment);
 	

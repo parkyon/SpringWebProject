@@ -32,7 +32,9 @@
 	<update id="modifyBoardComment">
 	update boardComment
 	set
+	 writer = #{user.id},
 	 content = #{boardComment.content}
+	 
 	 
 	 where cno = #{boardComment.cno}
 	</update>

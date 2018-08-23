@@ -343,7 +343,11 @@ public class BoardController {
 	//댓글 수정/삭제
 		
 	@RequestMapping(value="commentDelete")
-	public String CommentDelete(Integer cno, Board board, BoardComment boardComment ) {
+	public String CommentDelete(Integer cno, Board board, BoardComment boardComment,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
 		boardCommentService.DeleteBoardComment(cno, boardComment, board);
 		
 		return "redirect:/board/list";
@@ -351,9 +355,13 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="commentModify")
-	public String CommentModify(Integer cno, Board board, BoardComment boardComment, String content1 ) {
+	public String CommentModify(Integer cno, Board board, BoardComment boardComment, String content1, HttpServletRequest request, String writer ) {
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		
+		boolean admin = userService.isAdmin(user);
 		boardComment.setContent(content1);
-		boardCommentService.modifyBoardComment(cno, boardComment, board);
+		boardCommentService.modifyBoardComment(cno, boardComment, user);
 		
 		return "redirect:/board/list";
 	}
