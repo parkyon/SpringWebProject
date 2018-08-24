@@ -72,7 +72,7 @@
          	전화번호:${libraryInfo.phoneNumber}</br>
 			홈페이지:<a href="${libraryInfo.homepage}" target="_blank">${libraryInfo.homepage}</a></br>
 			위도:${libraryInfo.latitude}</br>
-			경도:${libraryInfo.longitude}</br>
+			경도:${libraryInfo.longtitude}</br>
        		<hr>
        		보유도서
        		도서:${libraryInfo.bookCount}</br>
@@ -209,14 +209,14 @@
 	<script>
 		var container = document.getElementById('map');
 		var options = {
-			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}),
+			center: new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longtitude}),
 			level: 3
 		};
 
 		var map = new daum.maps.Map(container, options);
 		
 		// 마커가 표시될 위치입니다 
-		var markerPosition  = new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longitude}); 
+		var markerPosition  = new daum.maps.LatLng(${libraryInfo.latitude}, ${libraryInfo.longtitude}); 
 
 		// 마커를 생성합니다
 		var marker = new daum.maps.Marker({

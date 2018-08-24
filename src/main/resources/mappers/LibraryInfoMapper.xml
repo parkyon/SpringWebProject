@@ -27,12 +27,12 @@
 	(libraryName, cityName, libraryType, holiday, 
 	openSeat, bookCount, bookCount2, bookCount3, 
 	loadAddress, operation, phoneNumber, homepage,
-	author, filepath,latitude, longitude)
+	author, filepath,latitude, longtitude)
 	values
 	(#{libraryInfo.libraryName},#{libraryInfo.cityName},#{libraryInfo.libraryType},#{libraryInfo.holiday},
 	#{libraryInfo.openSeat},#{libraryInfo.bookCount},#{libraryInfo.bookCount2},#{libraryInfo.bookCount3},
 	#{libraryInfo.loadAddress},#{libraryInfo.operation},#{libraryInfo.phoneNumber},#{libraryInfo.homepage}
-	,#{libraryInfo.author},#{libraryInfo.filepath},#{libraryInfo.latitude},#{libraryInfo.longitude})
+	,#{libraryInfo.author},#{libraryInfo.filepath},#{libraryInfo.latitude},#{libraryInfo.longtitude})
 	
 	</insert>
 	
@@ -95,7 +95,7 @@
 	<!-- 좌표용 -->
 	
 	<select id="getCoordinate" resultType="kr.green.springwebproject.dao.LibraryInfo">
-	select latitude, longitude from libraryInfo
+	select latitude, longtitude from libraryInfo
 		where number = #{number}
 	</select>
 	

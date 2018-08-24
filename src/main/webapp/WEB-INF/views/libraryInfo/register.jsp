@@ -93,7 +93,7 @@
 					digits: true,
 					
 				},
-				longitude: {
+				longtitude: {
 					required: true,
 					digits: true,
 					
@@ -125,7 +125,7 @@
 					digits : "숫자만입력하세요",
 					
 				},
-				longitude: {
+				longtitude: {
 					required: "경도는 필수항목 입니다.",
 					digits : "숫자만입력하세요",
 					
@@ -214,7 +214,7 @@
 		     
 		       <div class="form-group">
 		    	<label>경도(필수)</label>
-		      	<input type="text" class="form-control" name="longitude" value="${libraryInfo.longitude}" >
+		      	<input type="text" class="form-control" name="longtitude" value="${libraryInfo.longtitude}" >
 		     </div>
 		     
 		     

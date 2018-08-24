@@ -157,18 +157,19 @@ public class LibraryInfo {
 	public void setLatitudel(double latitude) {
 		this.latitude = latitude;
 	}
-	public double getLongitude() {
-		return longitude;
-	}
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	private double longitude;
+	private double longtitude;
 	
+	public double getLongtitude() {
+		return longtitude;
+	}
+	public void setLongtitude(double longtitude) {
+		this.longtitude = longtitude;
+	}
 	
 	//추천수
 	
+
+
 	private int recomand;
 	public int getRecomand() {
 		return recomand;
