@@ -306,10 +306,10 @@ public class LibraryInfoController {
 		boolean admin = userService.isAdmin(user);
 		
 		model.addAttribute("list", list);
-		System.out.println("리스트"+list);
+	
 		model.addAttribute("search", search);
 		
-		System.out.println("서치"+search);
+		
 		model.addAttribute("type", type);
 		model.addAttribute("admin", admin);
 		

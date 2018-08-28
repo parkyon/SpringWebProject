@@ -472,13 +472,13 @@ beginneon()
   
     
      <div  class=" col-sm-3">
-   	<div style=" border:1px solid white; border-left:1px solid gray;">
+   	<div style=" border-up:1px solid gray;">
 	
  	<h4>자유게시판 최신글</h4> 
       <object id="nzeo" width="100%" height="100%" data="/board/recentlyBoard" name="bbb">
 	</object>
 	</div>
-	<div style=" border:1px solid white; border-left:1px solid gray;">
+	<div style=" border:1px solid white; ">
 	<h4>도서관정보 최신글</h4>
       <object id="nzeo" width="100%" height="100%" data="/libraryInfo/recentlyLibraryInfo" name="aaa">
 	</object>

@@ -270,24 +270,17 @@ public class BoardController {
 		PageMaker pageMaker = new PageMaker();
 		int totalCount = boardService.getCountByBoardList(type, search, cri);
 		ArrayList<Board> list = boardService.getListBoard(type, search, cri);
-
 		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totalCount);
-		
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
-		
 		boolean admin = userService.isAdmin(user);
-		
 		model.addAttribute("list",list);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("search", search);
 		model.addAttribute("type", type);
 		model.addAttribute("admin", admin);
-		
-		System.out.println(list);
-		
-		return "/board/recentlyBoard";
+	return "/board/recentlyBoard";
 }
 	
 	
