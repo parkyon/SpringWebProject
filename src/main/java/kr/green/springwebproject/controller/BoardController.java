@@ -272,14 +272,10 @@ public class BoardController {
 		ArrayList<Board> list = boardService.getListBoard(type, search, cri);
 		pageMaker.setCriteria(cri);
 		pageMaker.setTotalCount(totalCount);
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
-		boolean admin = userService.isAdmin(user);
 		model.addAttribute("list",list);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("search", search);
 		model.addAttribute("type", type);
-		model.addAttribute("admin", admin);
 	return "/board/recentlyBoard";
 }
 	

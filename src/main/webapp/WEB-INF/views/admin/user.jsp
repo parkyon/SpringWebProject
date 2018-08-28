@@ -14,24 +14,12 @@
 
 
 <body>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-		<div class="container">
-			<div class="col-12">
-			  	<div class="float-right">
-			  		<a href="/">홈으로</a>
-		  			<span style="color:white"> | </span>
-			  		<a href="/modify">회원 정보 수정</a>
-				  	<span style="color:white"> | </span>
-					<a href="/logout">로그아웃</a>
-				</div>
-			</div>
-	  	</div>
-	</nav>
+	
 	
 	<div class="container">
 		<h1> 유저 관리</h1>
 		
-		<table class="table table-bordered">
+		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>
 				<th>아이디</th>

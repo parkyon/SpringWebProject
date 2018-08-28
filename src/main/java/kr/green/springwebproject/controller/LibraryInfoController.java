@@ -116,8 +116,7 @@ public class LibraryInfoController {
 		
 	
 		ArrayList<LibraryInfoComment> list = libraryInfoCommentService.GetComment(libraryInfo, libraryInfoComment);
-		System.out.println("리스트");
-		System.out.println(list);
+	
 		model.addAttribute("list", list);
 		boolean admin = userService.isAdmin(user);
 		model.addAttribute("admin", admin);
@@ -227,54 +226,6 @@ public class LibraryInfoController {
 		return "redirect:/libraryInfo/libraryList";
 	}
 
-
-	//첨부파일
-	
-	@ResponseBody
-	@RequestMapping("download")
-	public ResponseEntity<byte[]> downloadFile(String fileName)throws Exception{
-	    InputStream in = null;
-	    ResponseEntity<byte[]> entity = null;
-	    try{
-	    	String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
-	        /*	�솗�옣�옄瑜� �넻�빐 誘몃뵒�뼱 ���엯 �젙蹂대�� 媛��졇�샂*/
-	        MediaType mType = MediaUtils.getMediaType(FormatName);
-	        
-	        HttpHeaders headers = new HttpHeaders();
-	        in = new FileInputStream(uploadPath+fileName);
-	        
-	        /*	�씠誘몄��씠硫� */
-	        if(mType != null) {
-	        	headers.setContentType(mType);
-	        }else {
-	        	fileName = fileName.substring(fileName.indexOf("_")+1);
-		        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-		        headers.add("Content-Disposition",  "attachment; filename=\"" 
-					+ new String(fileName.getBytes("UTF-8"), "ISO-8859-1")+"\"");
-	        }
-	        entity = new ResponseEntity<byte[]>(
-	        		IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
-	    }catch(Exception e) {
-	        e.printStackTrace();
-	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
-	    }finally {
-	        in.close();
-	    }
-	    return entity;
-	}
-	
-	@ResponseBody
-	@RequestMapping("/display")
-	public ResponseEntity<String> displayFile(MultipartFile file)
-			throws Exception{
-		String fileName = UploadFileUtils.uploadFile
-				(uploadPath, file.getOriginalFilename(),file.getBytes());
-	    
-	    return new ResponseEntity<String>(fileName,
-				HttpStatus.OK);
-	}
-	
-	
 	//댓글 수정/삭제
 	
 	@RequestMapping(value="deleteComment")

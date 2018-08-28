@@ -123,7 +123,7 @@ beginneon()
       
          <ul class="nav navbar-nav navbar-right">
          	<c:if test="${admin}">
-			  	<li><a href="/admin/board" class ="	glyphicon glyphicon-edit">관리자페이지</a></li>
+			  	<li><a href="/admin/adminMain" class ="	glyphicon glyphicon-edit">관리자페이지</a></li>
 			  	<span style="color:white"></span>
 			</c:if>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>

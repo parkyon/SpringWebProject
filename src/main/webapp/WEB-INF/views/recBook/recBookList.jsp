@@ -79,24 +79,20 @@
 					    <c:if test="${status.last}">
 					        <c:choose>
 					            <c:when test="${ext eq 'bmp' }">
-					                <!-- 엑셀파일일경우 -->
 							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
 					        </center>
 					            </c:when>
 					            <c:when test="${ext eq 'png'}">
-					                <!-- 한글파일일경우 -->
 							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
 					        </center>
 					        
 					            </c:when>
 					            <c:when test="${ext eq 'jpg'}">
-					                <!-- 자바스크립트파일일경우 -->
 					               
 							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
 					        </center>
 					            </c:when>
 					            <c:when test="${!ext eq 'bmp'&& !ext eq'jpg' && !ext eq 'png' }">
-					                <!-- 엑셀파일일경우 -->
 							  <center><img width="80" max-height=40% src="/recBook/download?fileName=${recBook.filepath}">
 					        </center>
 					            </c:when>

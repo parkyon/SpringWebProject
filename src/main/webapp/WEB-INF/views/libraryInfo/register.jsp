@@ -201,12 +201,7 @@
 		    	<label>홈페이지 주소</label>
 		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
 		    </div>
-		    <div class="form-group">
-		        <label>파일</label>
-		        <input type="file" class="form-control" name="file"/>
-		        <div class="fileDrop"></div>
-		        <div class="uploadedList"></div>
-		    </div>
+		  
 		      <div class="form-group">
 		    	<label>위도(필수)</label>
 		      	<input type="text" class="form-control" name="latitude" value="${libraryInfo.latitude}" >

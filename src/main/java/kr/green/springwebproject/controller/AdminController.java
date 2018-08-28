@@ -38,10 +38,10 @@ public class AdminController {
 	@Autowired
 	private LibraryInfoService libraryInfoService;
 	
-	@RequestMapping(value ="/board", method=RequestMethod.GET)
+	@RequestMapping(value ="/adminMain", method=RequestMethod.GET)
 	public String adminMainGet() {
 		
-		return "admin/board";
+		return "admin/adminMain";
 	}
 	
 	@RequestMapping(value="/user")

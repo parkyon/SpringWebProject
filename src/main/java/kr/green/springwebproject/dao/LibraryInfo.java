@@ -128,18 +128,16 @@ public class LibraryInfo {
 	}
 	//로그용
 	
-	private String changedate;
-	private String action;
-	public String getChangedate() {
-		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		String to = transFormat.format(changedate);
-
-		return to;
+	private Date changedate;
+	public Date getChangedate() {
+		return changedate;
 	}
-	public void setChangedate(String changedate) {
+	public void setChangedate(Date changedate) {
 		this.changedate = changedate;
 	}
+
+	private String action;
+	
 	public String getAction() {
 		return action;
 	}

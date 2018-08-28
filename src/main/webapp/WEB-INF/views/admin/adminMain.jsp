@@ -222,8 +222,12 @@ beginneon()
     <div class="col-sm-2 sidenav">
      <div><h2> 메뉴</h2></div> 
 <ul>
- <li> <p><a href="/board/list" target="aaa">자유 게시판</a></p><hr></li>  
-   <li><p><a href="/board/myboards" target="aaa">내가쓴글</a></p><hr></li>  
+<c:if test="${!admin}"> 
+ <li> <p><a href="/admin/user" target="aaa">유저관리</a></p><hr></li>  
+ 	</c:if>
+ <li><p><a href="/admin/boardLog" target="aaa">게시판 로그</a></p><hr></li>
+ <li><p><a href="/admin/recBookLog" target="aaa">추천도서 로그</a></p><hr></li>  
+ <li><p><a href="/admin/accountLog" target="aaa">유저로그</a></p><hr></li>   
 
    </ul> 
   
@@ -232,7 +236,7 @@ beginneon()
    
     </div>
     <div class="col-sm-10 text-left" id="div2"> 
-      <object id="nzeo" width="100%" height="100%" data="/board/list" name="aaa">
+      <object id="nzeo" width="100%" height="100%" data="/admin/user" name="aaa">
 </object>
     </div>
     

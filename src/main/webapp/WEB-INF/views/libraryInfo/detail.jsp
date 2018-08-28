@@ -107,8 +107,8 @@
 	  	<div>
         <ul class="tabs" data-persist="true">
            
-            <li><a href="#view2">한줄평 (${totalCount})</a></li>
-            <li><a href="#view3">첨부파일</a></li>
+            <li><a href="#view2">댓글 (${totalCount})</a></li>
+           
         </ul>
        
             <div id="view2">
@@ -126,7 +126,7 @@
 				</div>
 				
 				<h1>댓글</h1>
-					<table width="800" border="1" bordercolor="white">
+					<table class="table table-bordered" >
 					<thead>
 						<tr>
 							<th>번호</th>
@@ -185,19 +185,7 @@
 				</table>
             </div>
             
-            <div id="view3">
-	            <div class="form-group">
-			    	<label>첨부파일</label>
-			      	<div class="form-control" name="file" id="file" >
-			      		<c:if test="${fileName != null }">
-			      			<a href="/libraryInfo/download?fileName=${libraryInfo.filepath}"
-			      			>${fileName}</a>
-			      		</c:if>
-			      		<c:if test="${fileName == null }">
-			      			첨부파일 없음
-			      		</c:if>
-			      	</div>
-			    </div>
+            
             
                
             </div>
