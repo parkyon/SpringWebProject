@@ -34,13 +34,6 @@
 			background: #ffffff;
 		}
 	</style>
-	
-	
-	
-	
-	
-	
-
 
 
 <div class="container-fluid text-center">    
@@ -48,7 +41,8 @@
 
     <div class="col-sm-10 text-left"> 
       <h1>${recBook.bookName}</h1>
-        <hr>
+      <hr color="red">
+     
         
         
         

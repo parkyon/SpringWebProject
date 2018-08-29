@@ -49,7 +49,6 @@
 	
 	<div class="container">
 		<h1>역대 추천도서</a></h1>
-		
 		<table class="table table-bordered" id="example">
 		<thead>
 			<tr>

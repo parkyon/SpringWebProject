@@ -48,7 +48,7 @@
 	
 	
 	<div class="container">
-		<h1>도서관 정보</a></h1>
+		<h1>도서관 정보</h1>
 		
 		<table class="table table-bordered" id="example">
 		<thead>

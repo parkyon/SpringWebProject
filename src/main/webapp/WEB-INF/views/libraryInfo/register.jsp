@@ -76,14 +76,7 @@
 					required: true,
 					
 				},
-				cityName: {
-					required: true,
-					
-				},
-				libraryType: {
-					required: true,
-					
-				},
+				
 				loadAddress: {
 					required: true,
 					
@@ -112,14 +105,7 @@
 					required: "도시 이름은 필수항목 입니다.",
 					
 				},
-				libraryType: {
-					required: "도서관 타입은 필수항목 입니다.",
-					
-				},
-				loadAddress: {
-					required: "도로명 주소는 필수항목 입니다.",
-					
-				},
+				
 				latitude: {
 					required: "위도는  필수항목 입니다.",
 					digits : "숫자만입력하세요",
@@ -149,76 +135,58 @@
 			border : solid 1px blue;
 		}
 	</style>
+	
+	
+	
 	<div class="container">
   		<form method="post" 
   			enctype="multipart/form-data" id="commentForm2">
-  			<h1>도서관 등록</h1>
-		    <div class="form-group">
-		    	<label>도서관 이름(필수)</label>
-		      	<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>도시 이름(필수)</label>
-		      	<input type="text" class="form-control" name="cityName" value="${libraryInfo.cityName}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>도서관 유형(필수)</label>
-		      	<input type="text" class="form-control" name="libraryType" value="${libraryInfo.libraryType}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>휴일</label>
-		      	<input type="text" class="form-control" name="holiday" value="${libraryInfo.holiday}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>좌석 수</label>
-		      	<input type="text" class="form-control" name="openSeat" value="${libraryInfo.openSeat}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>자료수(도서)</label>
-		      	<input type="text" class="form-control" name="bookCount" value="${libraryInfo.bookCount}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>자료수(연속간행)</label>
-		      	<input type="text" class="form-control" name="bookCount2" value="${libraryInfo.bookCount2}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>자료수(비도서)</label>
-		      	<input type="text" class="form-control" name="bookCount3" value="${libraryInfo.bookCount3}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>도로명주소</label>
-		      	<input type="text" class="form-control" name="loadAddress" value="${libraryInfo.loadAddress}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>운영기관</label>
-		      	<input type="text" class="form-control" name="operation" value="${libraryInfo.operation}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>전화번호</label>
-		      	<input type="text" class="form-control" name="phoneNumber" value="${libraryInfo.phoneNumber}" >
-		    </div>
-		    <div class="form-group">
-		    	<label>홈페이지 주소</label>
-		      	<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" >
-		    </div>
-		  
-		      <div class="form-group">
-		    	<label>위도(필수)</label>
-		      	<input type="text" class="form-control" name="latitude" value="${libraryInfo.latitude}" >
-		     </div>
-		     
-		       <div class="form-group">
-		    	<label>경도(필수)</label>
-		      	<input type="text" class="form-control" name="longtitude" value="${libraryInfo.longtitude}" >
-		     </div>
-		     
-		     
-		     
-		    <div>
-			    
-			    <button type="submit" class="btn btn-primary">등록</button>
-			    <a href="/libraryInfo/libraryList"><button type="button" class="btn btn-primary">취소</button></a>
-		    </div>
+  			<h1>도서관 등록</h1><hr>
+		<div class="row content">
+			<div class="col-sm-12 text-left"> 
+				<div class="row">
+       				<div class="col-sm-6">
+	        			<h3>필수사항</h3><hr color="red">
+	            		 도서관명:<input type="text" class="form-control" name="libraryName" value="${libraryInfo.libraryName}" ></br>
+	         			도로명주소:	<input type="text" class="form-control" name="loadAddress" value="${libraryInfo.loadAddress}" ></br>
+	         			위도:<input type="text" class="form-control" name="latitude" value="${libraryInfo.latitude}" ></br>
+		    			경도:<input type="text" class="form-control" name="longtitude" value="${libraryInfo.longtitude}" ></br>     
+					</div>
+					
+        			<div class="col-sm-6">
+			        	<h3>자료수</h3><hr color="red">
+			       		도서 : <input type="text" class="form-control" name="bookCount" value="${libraryInfo.bookCount}" ></br>
+			         	연속간행물 : <input type="text" class="form-control" name="bookCount2" value="${libraryInfo.bookCount2}" ></br>
+			         	비도서 : <input type="text" class="form-control" name="bookCount3" value="${libraryInfo.bookCount3}" ></br>
+			         	</br>
+		      			 <span style="float:right"><button type="submit" class="btn btn-primary">등록</button>
+						<a href="/libraryInfo/libraryList"><button type="button" class="btn btn-primary">취소</button></a></span>
+		      		</div>       
+		      		<div class="col-sm-12">
+		      	
+		      		</div>
+         			<div class="col-sm-6">
+         			
+         			</br>
+         				<h3>기타사항</h3><hr color="red">
+         			도서관 유형:	<input type="text" class="form-control" name="libraryType" value="${libraryInfo.libraryType}" ></br>
+			       	휴일:<input type="text" class="form-control" name="holiday" value="${libraryInfo.holiday}" ></br>
+			       	 좌석수:<input type="text" class="form-control" name="openSeat" value="${libraryInfo.openSeat}" ></br>
+	       			</div>
+	       			<div class="col-sm-6">
+	       			 도시 이름:<input type="text" class="form-control" name="cityName" value="${libraryInfo.cityName}" ></br>
+					 운영기관:<input type="text" class="form-control" name="operation" value="${libraryInfo.operation}" ></br>
+					전화번호: 	<input type="text" class="form-control" name="phoneNumber" value="${libraryInfo.phoneNumber}" ></br>
+					 홈페이지 주소:<input type="text" class="form-control" name="homepage" value="${libraryInfo.homepage}" ></br>
+			    	</div>
+			    	</div>
+			</div>
+		</div>
+	</div>
+			
+		<div>
+			
+		</div>
 	  	</form>
 	</div>
 	
