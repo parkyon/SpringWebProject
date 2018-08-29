@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.green.springwebproject.dao.Board;
+import kr.green.springwebproject.dao.BoardComment;
 import kr.green.springwebproject.dao.LibraryInfo;
+import kr.green.springwebproject.dao.LibraryInfoComment;
 import kr.green.springwebproject.dao.RecBook;
 import kr.green.springwebproject.dao.User;
 import kr.green.springwebproject.pagenation.Criteria;
@@ -195,12 +197,7 @@ public class AdminController {
 		
 	userService.ChangeAdmin(id);
 	
-	
 	model.addAttribute("id", id);
-	
-	System.out.println("이건아아디"+id);
-	
-	System.out.println("이건admin"+admin);
 	
 	return "redirect:/admin/user";
 
@@ -221,8 +218,9 @@ public class AdminController {
 	return "redirect:/admin/user";
 
 	}
-	
 
+	
+	
 }
 
 

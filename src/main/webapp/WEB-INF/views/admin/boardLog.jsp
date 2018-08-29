@@ -62,7 +62,8 @@
 			<c:forEach var="boardlog" items="${list}">
 				<tr>
 					<td>${boardlog.number}</td>
-					<td>${boardlog.title }</td>
+					<td><span><a href="/admin/boardLogDetail?number=${boardLog.number}">${boardlog.title } </a>
+					</span></td>
 					<td>${boardlog.author }</td>
 					<td>${boardlog.created_date }</td>
 					<td>${boardlog.changedate }</td>

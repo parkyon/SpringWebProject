@@ -16,4 +16,6 @@ public interface BoardCommentMapper {
 	public void modifyBoardComment(@Param("user")User user, @Param("boardComment")BoardComment boardComment);
 
 	public int commentCount(@Param("board")Board board, @Param("boardComment")BoardComment boardComment);
+	
+	
 }

@@ -217,7 +217,7 @@
 					      <header class="w3-container w3-teal"> 
 					        <span onclick="$('.id01').css('display','none')" 
 					        class="w3-button w3-display-topright">&times;</span>
-					        <h2>수정/삭제</h2>
+					        <h2>수정</h2>
 					      </header>
 					      <div class="w3-container">
 					     <form method="post" class="form-test" action="contentModify?recviewnumber=${recbookReview.recviewnumber}"   >
